@@ -50,8 +50,9 @@ class DrawingLine: SKShapeNode {
         self.physicsBody = SKPhysicsBody(edgeChainFrom: linePath)
     }
     internal func updateLineHp(){
-        if lineCurrHp > 0{
-            lineCurrHp -= 1
+        if lineCurrHp > 1{
+            lineCurrHp =  lineCurrHp - 1
+            print("lineCurrHp", lineCurrHp)
             self.lineWidth = self.Width * (lineCurrHp/lineMaxHp)
         }
         else{

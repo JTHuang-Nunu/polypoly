@@ -15,6 +15,7 @@ class Wall: SKSpriteNode {
         // 設定物理屬性
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsBody?.categoryBitMask = PhysicsCategory.Boundary
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Ball
         self.physicsBody?.friction = 0
         self.physicsBody?.restitution = 1
         self.physicsBody?.isDynamic = false

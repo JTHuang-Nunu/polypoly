@@ -7,7 +7,7 @@
 
 import SpriteKit
 import Foundation
-class MainScene: SKScene {
+class MainScene: SKScene, SKPhysicsContactDelegate {
     
     var ballNode: SKSpriteNode!
     var arrowNode: SKShapeNode!
@@ -24,6 +24,7 @@ class MainScene: SKScene {
 
     
     override func didMove(to view: SKView) {
+        physicsWorld.contactDelegate = self
         createScene()
         createResetButton()
         
@@ -56,6 +57,7 @@ class MainScene: SKScene {
     func didBegin(_ contact: SKPhysicsContact) {
         var firstBody = SKPhysicsBody()
         var secondBody = SKPhysicsBody()
+
         if contact.bodyA.node?.name == "ball"{
             firstBody = contact.bodyA
             secondBody = contact.bodyB
@@ -65,30 +67,13 @@ class MainScene: SKScene {
             secondBody = contact.bodyA
         }
         if(firstBody.node?.name == "ball" && secondBody.node?.name == "drawingLine"){
-            print("colllipse")
-            lineNode.updateLineHp()
+            print("collipse")
+            if let drawingLine = secondBody.node as? DrawingLine {
+                drawingLine.updateLineHp()
+            }
         }
-//        else if(firstBody.node?.name == "ships" && secondBody.node?.name == "coins"){
-//            score += 100
-//            contact.bodyB.node?.removeFromParent()
-//            print("Get point 100\n")
-//        }
-//        else if (firstBody.node?.name == "bullet" && secondBody.node?.name == "rocks" || secondBody.node?.name == "coins" ) {
-//            // explosion animation
-//            let explosion = SKEmitterNode(fileNamed: "explosion.sks")!
-//            explosion.position = contact.contactPoint
-//            self.addChild(explosion)
-//
-//            firstBody.node?.removeFromParent()
-//            secondBody.node?.removeFromParent()
-//        }
     }
     func didEnd(_ contact: SKPhysicsContact) {
-//        if hitPoint == 0 {
-//            let gameOverScene = GameoverScene(size: self.size)
-//            gameOverScene.score = score
-//            self.view?.presentScene(gameOverScene, transition: SKTransition.fade(withDuration: 0.5))
-//        }
     }
 
     
@@ -115,12 +100,20 @@ class MainScene: SKScene {
 //                circle.strokeColor = SKColor.red // 設置邊框顏色
 //                circle.lineWidth = 2 // 設置邊框寬度
 //                circle.fillColor = SKColor.blue // 設置填充顏色
+//                circle.physicsBody = SKPhysicsBody(circleOfRadius: 10)
+//                circle.physicsBody?.usesPreciseCollisionDetection = true
+//                circle.physicsBody?.isDynamic = false
+//
+//
+//                circle.physicsBody?.categoryBitMask = PhysicsCategory.Line
+//                circle.physicsBody?.contactTestBitMask = PhysicsCategory.Ball
 //                addChild(circle) // 將節點添加到場景中
+                
                 if powerBar.power >= 10{
                     isDrawing = true
                 }
                 
-                lineNode = DrawingLine(startPoint: touch.location(in: self),lineWidth: 5, hp: 3)
+                lineNode = DrawingLine(startPoint: touch.location(in: self),lineWidth: 10, hp: 3)
                 self.addChild(lineNode)
             }
             
@@ -161,7 +154,7 @@ class MainScene: SKScene {
                 lineNode.movePath(toPoint: touch.location(in: self))
                 //record the last Location
                 lastTouchLocation = touch.location(in: self)
-                print("drawing move")
+//                print("drawing move")
                 
                 //if powerBar's power less equal 0
                 if powerBar.power <= 0{

@@ -26,7 +26,14 @@ class Ball: SKSpriteNode {
         let ballLinearDamping: CGFloat = 0.1
         let ballAngularDamping: CGFloat = 0.5
         
+        self.name = "ball"
         self.physicsBody = SKPhysicsBody(circleOfRadius: ballRadius)
+//        self.physicsBody?.usesPreciseCollisionDetection = true
+//        self.physicsBody?.isDynamic = true
+        self.physicsBody?.categoryBitMask = PhysicsCategory.Ball
+        self.physicsBody?.collisionBitMask = PhysicsCategory.Line | PhysicsCategory.Boundary
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Line | PhysicsCategory.Boundary
+        
         self.physicsBody?.mass = ballMass
         self.physicsBody?.restitution = ballRestitution
         self.physicsBody?.friction = ballFriction
