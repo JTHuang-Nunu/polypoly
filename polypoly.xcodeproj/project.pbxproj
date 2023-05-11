@@ -26,6 +26,7 @@
 		D8CF0B3429FE834B0056A94D /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3329FE834B0056A94D /* Wall.swift */; };
 		D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */; };
 		D8CF0B3829FE885A0056A94D /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3729FE885A0056A94D /* Ball.swift */; };
+		E7A979402A0D55F70056B6BC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A9793F2A0D55F70056B6BC /* SessionManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -68,6 +69,7 @@
 		D8CF0B3329FE834B0056A94D /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		D8CF0B3729FE885A0056A94D /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		E7A9793F2A0D55F70056B6BC /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		D8CF0AEE29FE41610056A94D = {
 			isa = PBXGroup;
 			children = (
+				E7A9793E2A0D55AC0056B6BC /* NetworkConnection */,
 				D8CF0AF929FE41610056A94D /* polypoly */,
 				D8CF0B1329FE41640056A94D /* polypolyTests */,
 				D8CF0B1D29FE41640056A94D /* polypolyUITests */,
@@ -153,6 +156,14 @@
 				D8CF0B2029FE41640056A94D /* polypolyUITestsLaunchTests.swift */,
 			);
 			path = polypolyUITests;
+			sourceTree = "<group>";
+		};
+		E7A9793E2A0D55AC0056B6BC /* NetworkConnection */ = {
+			isa = PBXGroup;
+			children = (
+				E7A9793F2A0D55F70056B6BC /* SessionManager.swift */,
+			);
+			path = NetworkConnection;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -290,6 +301,7 @@
 			files = (
 				D8CF0B3829FE885A0056A94D /* Ball.swift in Sources */,
 				D8CF0B0129FE41610056A94D /* GameScene.swift in Sources */,
+				E7A979402A0D55F70056B6BC /* SessionManager.swift in Sources */,
 				D8CF0B3429FE834B0056A94D /* Wall.swift in Sources */,
 				D8CF0B3029FE4C5F0056A94D /* InitialScene.swift in Sources */,
 				D82BD4742A09FF7400E181FC /* PowerBar.swift in Sources */,
