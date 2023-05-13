@@ -37,6 +37,13 @@ class SesstionManager{
                 break
             }
         }
+        
+        
+        setReceiveDataHandler{ str in
+            print("receive data:\(str)")
+        }
+        
+        
         self.UDPConnection?.start(queue: .main)
         self.TCPConnection?.start(queue: .main)
 
@@ -72,6 +79,29 @@ class SesstionManager{
         }
 
     }
+    
+    private func setReceiveDataHandler(completion: @escaping (String) -> Void){
+        self.TCPConnection?.receive(minimumIncompleteLength: 1, maximumLength: 65536) { (data, _, _, error) in
+            if let data = data, let message = String(data: data, encoding: .utf8) {
+                completion(message)
+            } else if let error = error {
+                print("Failed to receive TCP message: \(error)")
+            }
+            
+        }
+        
+        self.UDPConnection?.receiveMessage(completion: { (data, _, _, error) in
+            if let data = data, let message = String(data: data, encoding: .utf8) {
+                completion(message)
+            } else if let error = error {
+                print("Failed to receive UDP message: \(error)")
+            }
+        })
+    }
+    
+
+    
+    
     private func printError(error: NWError?){
         if let error = error {
             print("Failed to send message: \(error)")
