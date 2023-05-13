@@ -11,7 +11,7 @@ import Network
 class SesstionManager{
     private var UDPConnection: NWConnection?
     private var TCPConnection: NWConnection?
-    
+    private let jsonEncoder = JSONEncoder()
     
     init(host: NWEndpoint){
         self.UDPConnection = NWConnection(to: host, using: .udp)
@@ -44,7 +44,17 @@ class SesstionManager{
     }
     
     
-    
+    public func sendObject<T: Codable>(object: T, reliable: Bool = false) {
+        
+        do {
+            let jsonData = try jsonEncoder.encode(object)
+            let jsonString = String(data: jsonData, encoding: .utf8)!
+            sendData(message: jsonString, reliable: reliable)
+        } catch {
+            print("Failed to encode object: \(error)")
+        }
+    }
+
     
     public func sendData(message: String, reliable: Bool = false){
         print("send data")
@@ -53,21 +63,20 @@ class SesstionManager{
         switch(reliable){
         case true:
             self.TCPConnection?.send(content: content, completion: .contentProcessed({ error in
-                if let error = error {
-                    print("Failed to send message: \(error)")
-                } else {
-                    print("Message sent successfully.")
-                }
+                self.printError(error: error)
             }))
         case false:
             self.UDPConnection?.send(content: content, completion: .contentProcessed({ error in
-                if let error = error {
-                    print("Failed to send message: \(error)")
-                } else {
-                    print("Message sent successfully.")
-                }
+                self.printError(error: error)
             }))
         }
 
+    }
+    private func printError(error: NWError?){
+        if let error = error {
+            print("Failed to send message: \(error)")
+        } else {
+            print("Message sent successfully.")
+        }
     }
 }
