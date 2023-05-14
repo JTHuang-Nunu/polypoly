@@ -11,9 +11,8 @@ import Network
 class SesstionManager{
     private var UDPConnection: NWConnection?
     private var TCPConnection: NWConnection?
-    private let jsonEncoder = JSONEncoder()
     
-    init(host: NWEndpoint){
+    init(host: NWEndpoint, startInit: Bool = true){
         self.UDPConnection = NWConnection(to: host, using: .udp)
         self.TCPConnection = NWConnection(to: host, using: .tcp)
 
@@ -38,30 +37,21 @@ class SesstionManager{
             }
         }
         
-        
-        setReceiveDataHandler{ str in
-            print("receive data:\(str)")
+        if startInit{
+            self.start()
         }
-        
-        
-        self.UDPConnection?.start(queue: .main)
-        self.TCPConnection?.start(queue: .main)
 
             
     }
-    
-    
-    public func sendObject<T: Codable>(object: T, reliable: Bool = false) {
-        
-        do {
-            let jsonData = try jsonEncoder.encode(object)
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-            sendData(message: jsonString, reliable: reliable)
-        } catch {
-            print("Failed to encode object: \(error)")
-        }
+    public func start(){
+        self.UDPConnection?.start(queue: .main)
+        self.TCPConnection?.start(queue: .main)
     }
-
+    public func stop(){
+        self.UDPConnection?.cancel()
+        self.TCPConnection?.cancel()
+    }
+    
     
     public func sendData(message: String, reliable: Bool = false){
         print("send data")
@@ -80,7 +70,7 @@ class SesstionManager{
 
     }
     
-    private func setReceiveDataHandler(completion: @escaping (String) -> Void){
+    public func setReceiveDataHandler(completion: @escaping (String) -> Void){
         self.TCPConnection?.receive(minimumIncompleteLength: 1, maximumLength: 65536) { (data, _, _, error) in
             if let data = data, let message = String(data: data, encoding: .utf8) {
                 completion(message)
