@@ -11,7 +11,10 @@ import Network
 class SesstionManager{
     private var UDPConnection: NWConnection?
     private var TCPConnection: NWConnection?
-    
+    convenience init(ip: NWEndpoint.Host, port: NWEndpoint.Port, startInit: Bool = true){
+        let host = NWEndpoint.hostPort(host: ip, port: port)
+        self.init(host: host, startInit: startInit)
+    }
     init(host: NWEndpoint, startInit: Bool = true){
         self.UDPConnection = NWConnection(to: host, using: .udp)
         self.TCPConnection = NWConnection(to: host, using: .tcp)
