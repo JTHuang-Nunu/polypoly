@@ -27,8 +27,8 @@
 		D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */; };
 		D8CF0B3829FE885A0056A94D /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3729FE885A0056A94D /* Ball.swift */; };
 		E7A979402A0D55F70056B6BC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A9793F2A0D55F70056B6BC /* SessionManager.swift */; };
-		E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */; };
 		E7F5EDAD2A11DD3700AB6597 /* Dispacher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAC2A11DD3700AB6597 /* Dispacher.swift */; };
+		E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */; };
 		E7F5EDB32A14006A00AB6597 /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDB22A14006A00AB6597 /* GameManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -73,8 +73,8 @@
 		D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		D8CF0B3729FE885A0056A94D /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		E7A9793F2A0D55F70056B6BC /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
-		E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDefine.swift; sourceTree = "<group>"; };
 		E7F5EDAC2A11DD3700AB6597 /* Dispacher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispacher.swift; sourceTree = "<group>"; };
+		E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDefine.swift; sourceTree = "<group>"; };
 		E7F5EDB22A14006A00AB6597 /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 

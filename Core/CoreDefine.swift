@@ -14,10 +14,17 @@ enum ActionType{
 
 
 protocol PlayerAction: Codable{
-    var PlayerID: UUID {get set}
+    var CharacterModelID: UUID {get set}
     var ActionType: ActionType {get set}
     var AbilityID: Int {get set}
-    
+    var ActionTime: Date {get set}
 }
 
-    
+protocol CharacterAction {
+    var CharacterModelID: UUID {get set}
+    func DoAction(action: PlayerAction)
+}
+
+protocol PlayerController {
+    func OnDoAction(action: (PlayerAction)->Void)
+}
