@@ -20,7 +20,7 @@ protocol PlayerAction: Codable{
     var ActionTime: Date {get set}
 }
 
-protocol CharacterAction {
+protocol CharacterModel {
     var CharacterModelID: UUID {get set}
     func DoAction(action: PlayerAction)
 }
