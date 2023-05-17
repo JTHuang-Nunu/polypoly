@@ -54,22 +54,24 @@ class SesstionManager{
         self.UDPConnection?.cancel()
         self.TCPConnection?.cancel()
     }
-    
-    
-    public func sendData(message: String, reliable: Bool = false){
+    public func sendData(message: Data, reliable: Bool = false){
         print("send data")
-        let content = message.data(using: .utf8)
         
         switch(reliable){
         case true:
-            self.TCPConnection?.send(content: content, completion: .contentProcessed({ error in
+            self.TCPConnection?.send(content: message, completion: .contentProcessed({ error in
                 self.printError(error: error)
             }))
         case false:
-            self.UDPConnection?.send(content: content, completion: .contentProcessed({ error in
+            self.UDPConnection?.send(content: message, completion: .contentProcessed({ error in
                 self.printError(error: error)
             }))
         }
+    }
+    
+    public func sendData(message: String, reliable: Bool = false){
+        let content = message.data(using: .utf8)
+        self.sendData(message: content!, reliable: reliable)
 
     }
     
