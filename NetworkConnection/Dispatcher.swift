@@ -18,6 +18,9 @@ class Dispatcher{
     
     init(){
         sessionManager = SesstionManager(ip: "172.20.10.5", port: 8000)
+        sessionManager.setReceiveDataHandler{ str in
+            print(str)
+        }
         encoder = JSONEncoder()
     }
     
