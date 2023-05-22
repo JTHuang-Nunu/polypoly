@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ActionType{
+enum ActionType: Codable {
     case ChooseAbility
     case UseAbility
 }

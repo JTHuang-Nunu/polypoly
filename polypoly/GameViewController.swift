@@ -14,15 +14,6 @@ class GameViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
   
-        class playerdata: Codable{
-            var health: Int = 100
-            var name = "Alan"
-        }
-        var sessionManager = SesstionManager(host: NWEndpoint.hostPort(host: "172.20.10.5", port: 8000))
-        
-        sessionManager.sendData(message: "hello world")
-        sessionManager.sendData(message: "hello TCP", reliable: true)
-        sessionManager.sendObject(object: playerdata(),reliable: true)
         
         if let view = self.view as! SKView? {
 //            let scene = initialScene(size: view.bounds.size)

@@ -6,8 +6,13 @@
 //
 //  Dispacher is a class that dispaches player actions to other device by SessionManager
 import Foundation
-class Dispacher{
-    
+class Dispatcher{
+    private enum RequestType: String{
+        case RequestRoom
+        case CancelRequest
+        case PlayerAction
+        case PlayerLeave
+    }
     private var sessionManager: SesstionManager
     private var encoder: JSONEncoder
     
@@ -16,35 +21,30 @@ class Dispacher{
         encoder = JSONEncoder()
     }
     
-    public func InputAction(action: PlayerAction){
-        sendAction(action: action)
-    
+    public func RequestRoom(playerID: UUID){
+        let request: RequestType = .RequestRoom
+        let data: [String: String] = ["PlayerID" : playerID.uuidString,
+                                      "RequestType" : request.rawValue]
         
+        sessionManager.sendData(message: encodeJSON(message: data),reliable: true)
     }
     
-    private func sendAction(action: PlayerAction){
-        var data: String = ""
-        do{
-            let jsonData = try encoder.encode(action)
-            data = String(data: jsonData, encoding: .utf8)!
-        }
-        catch{
-            print(error)
-        }
-        var outputMessage = ["type" : "PlayerAction",
-                            "content" : data
-        ]
-        
-        do{
-            let jsonData = try encoder.encode(outputMessage)
-            let jsonString = String(data: jsonData, encoding: .utf8)!
-            sessionManager.sendData(message: jsonString)
-        }
-        catch{
-            print(error)
-        }
+    private func sendAction(PlayerID: UUID, action: PlayerAction){
+        let request: RequestType = .PlayerAction
+        let data: [String: String] = ["PlayerID" : PlayerID.uuidString,
+                                      "RequestType" : request.rawValue,
+                                      "Action" : encodeJSON(message: action)]
+        sessionManager.sendData(message: encodeJSON(message: data),reliable: true)
     }
-    
+    private func encodeJSON(message: Codable)-> String{
+        do{
+            let jsonData = try encoder.encode(message)
+            return String(data: jsonData, encoding: .utf8)!
+        }catch{
+            print(error)
+        }
+        return ""
+    }
     
     
     
