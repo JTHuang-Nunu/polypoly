@@ -28,3 +28,17 @@ protocol CharacterModel {
 protocol PlayerController {
     func OnDoAction(action: (PlayerAction)->Void)
 }
+
+
+enum RequestType: String, Codable{
+    case RequestRoom
+    case CancelRequest
+    case PlayerAction
+    case PlayerLeave
+}
+
+struct Message: Codable{
+    var PlayerID: UUID
+    var MessageType: RequestType
+    var Content: String = ""
+}
