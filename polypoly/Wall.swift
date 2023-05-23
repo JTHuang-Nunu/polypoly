@@ -10,8 +10,14 @@ import SpriteKit
 
 class Wall: SKSpriteNode {
     
-    init(size: CGSize) {
+    init(size: CGSize, position: CGPoint) {
+        
         super.init(texture: nil, color: .clear, size: size)
+        self._setupBody(size: size)
+        
+        
+    }
+    private func _setupBody(size: CGSize){
         // 設定物理屬性
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsBody?.categoryBitMask = PhysicsCategory.Boundary
@@ -20,6 +26,13 @@ class Wall: SKSpriteNode {
         self.physicsBody?.restitution = 1
         self.physicsBody?.isDynamic = false
         self.name = "wall"
+        
+        self._setSidesOfWall(size: size)
+        self.position = position    //Position is set behind the wall group
+    }
+    
+    //Create Sides of Wall
+    private func _setSidesOfWall(size: CGSize){
         // 建立左邊牆壁
         let leftWall = SKNode()
         leftWall.name = "leftWall"
