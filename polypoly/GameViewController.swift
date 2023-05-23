@@ -13,7 +13,9 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        let dispatcher = Dispatcher()
+        dispatcher.RequestRoom(playerID: UUID())
+        
         
         if let view = self.view as! SKView? {
 //            let scene = initialScene(size: view.bounds.size)
