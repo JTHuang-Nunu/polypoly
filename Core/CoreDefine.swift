@@ -13,11 +13,11 @@ enum ActionType: Codable {
 }
 
 
-protocol PlayerAction: Codable{
-    var CharacterModelID: UUID {get set}
-    var ActionType: ActionType {get set}
-    var AbilityID: Int {get set}
-    var ActionTime: Date {get set}
+struct PlayerAction: Codable{
+    var CharacterModelID: UUID
+    var ActionType: ActionType
+    var AbilityID: Int
+    var ActionTime: Date
 }
 
 protocol CharacterModel {

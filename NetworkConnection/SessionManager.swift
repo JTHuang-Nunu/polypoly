@@ -54,7 +54,7 @@ class SesstionManager{
         self.UDPConnection?.cancel()
         self.TCPConnection?.cancel()
     }
-    public func sendData(message: Data, reliable: Bool = false){
+    public func sendData(message: Data, reliable: Bool = true){
         
         switch(reliable){
         case true:
@@ -68,7 +68,7 @@ class SesstionManager{
         }
     }
     
-    public func sendData(message: String, reliable: Bool = false){
+    public func sendData(message: String, reliable: Bool = true){
         let content = message.data(using: .utf8)
         self.sendData(message: content!, reliable: reliable)
 
@@ -102,7 +102,7 @@ class SesstionManager{
         if let error = error {
             print("Failed to send message: \(error)")
         } else {
-            print("Message sent successfully.")
+
         }
     }
 }
