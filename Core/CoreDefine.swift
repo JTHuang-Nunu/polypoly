@@ -25,7 +25,7 @@ protocol CharacterModel {
     func DoAction(action: PlayerAction)
 }
 
-protocol PlayerController {
+protocol PlayerInputController {
     func OnDoAction(action: (PlayerAction)->Void)
 }
 

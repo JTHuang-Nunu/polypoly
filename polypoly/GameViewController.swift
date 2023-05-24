@@ -16,25 +16,9 @@ class GameViewController: UIViewController {
         let dispatcher = Dispatcher()
         dispatcher.RequestRoom()
         // wait 2 seconds and send playeraction
-        class action: PlayerAction{
-            var CharacterModelID: UUID
-            
-            var ActionType: ActionType
-            
-            var AbilityID: Int
-            
-            var ActionTime: Date
-            
-            init(CharacterModelID: UUID, ActionType: ActionType, AbilityID: Int, ActionTime: Date) {
-                self.CharacterModelID = CharacterModelID
-                self.ActionType = ActionType
-                self.AbilityID = AbilityID
-                self.ActionTime = ActionTime
-            }
-        
-        }
+
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let action = action(CharacterModelID: UUID(), ActionType: .ChooseAbility, AbilityID: 1, ActionTime: Date())
+            let action = PlayerAction(CharacterModelID: UUID(), ActionType: .ChooseAbility, AbilityID: 1, ActionTime: Date())
             
             dispatcher.sendAction(action: action)
         }
