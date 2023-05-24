@@ -32,9 +32,11 @@ protocol PlayerController {
 
 enum RequestType: String, Codable{
     case RequestRoom
+    case CreateRoom
     case CancelRequest
     case PlayerAction
     case PlayerLeave
+    case TestMessage
 }
 
 struct Message: Codable{

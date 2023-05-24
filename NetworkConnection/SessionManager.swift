@@ -55,7 +55,6 @@ class SesstionManager{
         self.TCPConnection?.cancel()
     }
     public func sendData(message: Data, reliable: Bool = false){
-        print("send data")
         
         switch(reliable){
         case true:
@@ -79,6 +78,7 @@ class SesstionManager{
         self.TCPConnection?.receive(minimumIncompleteLength: 1, maximumLength: 65536) { (data, _, _, error) in
             if let data = data, let message = String(data: data, encoding: .utf8) {
                 completion(message)
+                self.setReceiveDataHandler(completion: completion)
             } else if let error = error {
                 print("Failed to receive TCP message: \(error)")
             }
@@ -88,6 +88,7 @@ class SesstionManager{
         self.UDPConnection?.receiveMessage(completion: { (data, _, _, error) in
             if let data = data, let message = String(data: data, encoding: .utf8) {
                 completion(message)
+                self.setReceiveDataHandler(completion: completion)
             } else if let error = error {
                 print("Failed to receive UDP message: \(error)")
             }
