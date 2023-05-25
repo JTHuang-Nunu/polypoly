@@ -61,7 +61,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
         player1Node = player1.node
         player2Node = player2.node
         addChild(player1.node)
-        addChild(player2Node)
+//        addChild(player2Node)
         
         // create Arrow
         arrowNode = Arrow()
