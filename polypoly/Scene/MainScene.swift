@@ -25,7 +25,9 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
     var uuidDictionary = [UUID: String]()
     var player1: Character!
     var player2: Character!
-
+    var id1: UUID!
+    var id2: UUID!
+    var playerActionTmp: PlayerAction!
     struct PlayerPosition {
         private static let offset: CGFloat = 200
         static var p1: CGPoint {
@@ -45,9 +47,9 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
 //            let id = UUID() //system assign a random string
 //            uuidDictionary[i] = id
 //        }
-        let id1 = UUID()
+        id1 = UUID()
         self.player1 = Character(characterModelID: id1, position: PlayerPosition.p1)
-        let id2 = UUID()
+        id2 = UUID()
         if(id1 == id2){
             print("##two player have same id")
         }else{
@@ -56,6 +58,15 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
         self.player2 = Character(characterModelID: id1, position: PlayerPosition.p2)
         self.addChild(player1.ball)
         self.addChild(player2.ball)
+        
+        
+        playerActionTmp = PlayerAction(
+            CharacterModelID: UUID(),
+            ActionType: .ChooseAbility,
+            AbilityID: 0,
+            ActionTime: Date()
+        )
+
     }
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -122,7 +133,8 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                     isDrawing = true
                 }
                 player1.draw(status: .begin, point: touch.location(in: self))
-
+                playerActionTmp.ActionType = .Draw(.begin)
+                player2.DoAction(action: playerActionTmp, point: touch.location(in: self),impulse: nil)
                 addChild(player1.lineList.last!)
             }
             
@@ -146,7 +158,8 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                     powerBar.power = powerBar.power - distance * 0.1
                 }
                 player1.draw(status: .move, point: touch.location(in: self))
-                
+                playerActionTmp.ActionType = .Draw(.move)
+                player2.DoAction(action: playerActionTmp, point: touch.location(in: self),impulse: nil)
                 lastTouchLocation = touch.location(in: self) //record the last Location
                 
                 //if powerBar's power less equal 0
@@ -162,13 +175,19 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isDragging {
             isDragging = false
+            let impulse = arrowNode.getImpulse()
             arrowNode.pushBall(player: player1)
-            
+            playerActionTmp.ActionType = .Move
+            player2.DoAction(action: playerActionTmp, point: nil, impulse: impulse)
+//            player2.pushBall(impulse: impulse)
+            arrowNode.initVariable()
         }
         else if isDrawing{
             isDrawing = false
             print("drew")
             player1.draw(status: .end, point: nil)
+            playerActionTmp.ActionType = .Draw(.end)
+            player2.DoAction(action: playerActionTmp, point: nil, impulse: nil)
         }
     }
     

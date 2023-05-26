@@ -8,11 +8,6 @@
 import Foundation
 
 class Character: CharacterModel{
-    enum drawStatus{
-        case begin
-        case move
-        case end
-    }
     
     var CharacterModelID: UUID
     var ball: Ball
@@ -40,7 +35,8 @@ class Character: CharacterModel{
         self.ball.position = self.position
     }
     
-    func DoAction(action: PlayerAction) {
+    func DoAction(action: PlayerAction, point: CGPoint?, impulse:CGVector?) {
+        print("playerAction doing")
         switch action.ActionType {
         case .ChooseAbility:
             print("ChooseAbility")
@@ -48,16 +44,18 @@ class Character: CharacterModel{
             print("UseAbility")
         case .Move:
             print("Move")
-            move()
-        case .Draw:
+            move(impulse: impulse!)
+        case .Draw(let status):
             print("Draw")
+            draw(status: status, point: point)
+            
         }
     }
     
-    func move() {
-        ball.position = CGPoint(x: 20,y: 20)
+    func move(impulse: CGVector) {
+        pushBall(impulse: impulse)
     }
-    func draw(status: drawStatus, point: CGPoint?) {
+    func draw(status: ActionType.drawStatus, point: CGPoint?) {
         
         switch status {
         case .begin:
@@ -75,6 +73,12 @@ class Character: CharacterModel{
         case .end:
             currLine.endDrawing()
         }
+    }
+    
+    
+    internal func pushBall(impulse: CGVector){
+        self.ball.physicsBody?.applyImpulse(impulse)
+//        self.scale = .zero
     }
     
     

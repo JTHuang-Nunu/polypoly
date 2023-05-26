@@ -56,9 +56,11 @@ class Arrow: SKShapeNode {
     internal func getImpulse() -> CGVector{
         let force = self.scale
         let impulse = CGVector(dx: -direction.dx * force, dy: -direction.dy * force)
-        initVariable()
+//        initVariable()
         return impulse
     }
+    //-test
+//    internal func 
     //--------------------------------
     
     
@@ -83,8 +85,8 @@ class Arrow: SKShapeNode {
         path.closeSubpath()
         return path
     }
-    
-    private func initVariable(){
+    //todo: internal -> private
+    internal func initVariable(){
         startPoint = .zero
         currPoint = .zero
         direction = .zero

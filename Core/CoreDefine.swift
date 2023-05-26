@@ -7,6 +7,8 @@
 
 import Foundation
 
+
+
 enum ActionType: Codable {
     //選擇能力
     case ChooseAbility
@@ -14,7 +16,13 @@ enum ActionType: Codable {
     case UseAbility
     
     case Move
-    case Draw
+    
+    case Draw(drawStatus)
+    enum drawStatus: Codable{
+        case begin
+        case move
+        case end
+    }
 }
 
 
@@ -27,7 +35,7 @@ struct PlayerAction: Codable{
 
 protocol CharacterModel {
     var CharacterModelID: UUID {get set}
-    func DoAction(action: PlayerAction)
+    func DoAction(action: PlayerAction, point: CGPoint?, impulse: CGVector?)
 }
 
 protocol PlayerInputController {
