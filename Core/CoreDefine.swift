@@ -8,8 +8,13 @@
 import Foundation
 
 enum ActionType: Codable {
+    //選擇能力
     case ChooseAbility
+    //使用能力
     case UseAbility
+    
+    case Move
+    case Draw
 }
 
 

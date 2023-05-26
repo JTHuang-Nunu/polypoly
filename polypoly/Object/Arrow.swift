@@ -13,7 +13,12 @@ class Arrow: SKShapeNode {
     internal var startPoint: CGPoint = .zero
     private var currPoint: CGPoint = .zero
     private var direction: CGVector = .zero
-    private var scale:CGFloat = .zero
+    private var scale:CGFloat = .zero {
+        didSet{
+            self.xScale = scale
+            self.yScale = scale
+        }
+    }
     
     override init() {
         super.init()
@@ -39,16 +44,22 @@ class Arrow: SKShapeNode {
         
         //--Zoom in by dragging distance--
         scale = distance / 100
-        (self.xScale, self.yScale) = (scale, scale)
+//        (self.xScale, self.yScale) = (scale, scale)
     }
     
-    //push the ball by the impulse
+    //--push the ball by the impulse--
+    internal func pushBall(player: Character){
+        let impulse = getImpulse()
+        player.ball.physicsBody?.applyImpulse(impulse)
+        self.scale = .zero
+    }
     internal func getImpulse() -> CGVector{
         let force = self.scale
         let impulse = CGVector(dx: -direction.dx * force, dy: -direction.dy * force)
         initVariable()
         return impulse
     }
+    //--------------------------------
     
     
     

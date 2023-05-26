@@ -9,9 +9,8 @@ import SpriteKit
 import Foundation
 
 class MainScene: SKScene, SKPhysicsContactDelegate {
-    var screenCenter: CGPoint!
-    
-//    var player1Node: SKSpriteNode!
+    private var screenCenter: CGPoint!  //Locating my screen center for char and other object
+
     var arrowNode: Arrow!
     var resetButton: SKShapeNode!
     var isDragging = false
@@ -19,15 +18,14 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
     var startPoint: CGPoint = .zero
     
     var rect: SKShapeNode!
-    var lineNode: DrawingLine!
-    var linePath: CGMutablePath!
     var powerBar: PowerBar!
     var timer: Timer?
+    
+    //player variable
+    var uuidDictionary = [UUID: String]()
+    var player1: Character!
+    var player2: Character!
 
-    var player1: CharacterModel!
-    var player2: CharacterModel!
-    var player1Node: SKSpriteNode!
-    var player2Node: SKSpriteNode!
     struct PlayerPosition {
         private static let offset: CGFloat = 200
         static var p1: CGPoint {
@@ -41,7 +39,24 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
             return CGPoint(x: x, y: y)
         }
     }
-
+    func createPlayer(playerNumber: Int){ //define two plater
+        //todo: now is tmp func, need to complete
+//        for i in 0..playerNumber {
+//            let id = UUID() //system assign a random string
+//            uuidDictionary[i] = id
+//        }
+        let id1 = UUID()
+        self.player1 = Character(characterModelID: id1, position: PlayerPosition.p1)
+        let id2 = UUID()
+        if(id1 == id2){
+            print("##two player have same id")
+        }else{
+            print("##diffent id")
+        }
+        self.player2 = Character(characterModelID: id1, position: PlayerPosition.p2)
+        self.addChild(player1.ball)
+        self.addChild(player2.ball)
+    }
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
         screenCenter = CGPoint(x: self.frame.midX, y: self.frame.midY)
@@ -53,15 +68,10 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
         rect.strokeColor = .black
         rect.position = screenCenter
         addChild(rect)
+
         
         // create player1's Ball
-//        self.player1 = CharacterModel(ID: 999, position: screenCenter)
-        self.player1 = CharacterModel(ID: 999, position: PlayerPosition.p1)
-        self.player2 = CharacterModel(ID: 111, position: PlayerPosition.p2)
-        player1Node = player1.node
-        player2Node = player2.node
-        addChild(player1.node)
-//        addChild(player2Node)
+        createPlayer(playerNumber: 2)
         
         // create Arrow
         arrowNode = Arrow()
@@ -93,36 +103,37 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         if let touch = touches.first {
             let location = touch.location(in: self)
-            //ballNode is touched by finger
-            if player1Node.contains(location) {
+            //[ballNode]
+            if player1.ball.contains(location) {
                 isDragging = true
                 arrowNode.updateArrow(start: location)
             }
             //resetButton(red btn) is touched
             if resetButton.contains(location) {
                 powerBar.power = powerBar.maxPower
-                player1Node.removeFromParent()
-                player1Node = Ball()
-                player1Node.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
-                addChild(player1Node)
+                player1.ball.removeFromParent()
+                player1.ball = Ball()
+                player1.ball.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+                addChild(player1.ball)
             }
-            //scene is touched
+            //[scene] is touched, exclude ball
             else{
                 if powerBar.power >= 10{ //
                     isDrawing = true
                 }
-                
-                lineNode = DrawingLine(startPoint: touch.location(in: self),lineWidth: 10, hp: 3)
-                self.addChild(lineNode)
+                player1.draw(status: .begin, point: touch.location(in: self))
+
+                addChild(player1.lineList.last!)
             }
             
         }
     }
+    //todo: set todo.md
     var lastTouchLocation: CGPoint?
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isDragging {
             if let touch = touches.first {
-                arrowNode.updateArrow(current: touch.location(in: self), objectNode: player1Node)
+                arrowNode.updateArrow(current: touch.location(in: self), objectNode: player1.ball)
             }
         }
         
@@ -134,7 +145,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                     let distance = hypot(currentTouchLocation.x - lastTouchLocation.x, currentTouchLocation.y - lastTouchLocation.y)
                     powerBar.power = powerBar.power - distance * 0.1
                 }
-                lineNode.movePath(toPoint: touch.location(in: self))
+                player1.draw(status: .move, point: touch.location(in: self))
                 
                 lastTouchLocation = touch.location(in: self) //record the last Location
                 
@@ -142,7 +153,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                 if powerBar.power <= 0{
                     isDrawing = false
                     print("drew")
-                    lineNode.endDrawing()
+                    player1.draw(status: .end, point: nil)
                 }
             }
         }
@@ -151,14 +162,13 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
         if isDragging {
             isDragging = false
-            let impulse = arrowNode.getImpulse()
-            player1Node.physicsBody?.applyImpulse(impulse)
-            arrowNode.xScale = 0
+            arrowNode.pushBall(player: player1)
+            
         }
         else if isDrawing{
             isDrawing = false
             print("drew")
-            lineNode.endDrawing()
+            player1.draw(status: .end, point: nil)
         }
     }
     
@@ -168,7 +178,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
     
     // Stoping the ballNode when speed less than 1
     override func update(_ currentTime: TimeInterval) {
-        if let physicsBody = player1Node.physicsBody {
+        if let physicsBody = player1.ball.physicsBody {
             let speed = sqrt(physicsBody.velocity.dx*physicsBody.velocity.dx + physicsBody.velocity.dy*physicsBody.velocity.dy)
             if speed < 1 { //when speed < 1, stop movement
                 physicsBody.velocity = CGVector(dx: 0, dy: 0)
@@ -205,6 +215,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                     self.powerBar.recoveryPower() // update the power bar display
                 })
     }
+    
 }
 
 
