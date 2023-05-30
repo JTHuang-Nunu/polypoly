@@ -12,7 +12,7 @@ class Character: CharacterModel{
     var ball: Ball
     var lineList = [DrawingLine]()
     var currLine:DrawingLine!
-    
+
     var position: CGPoint {
         didSet{// initial won't trigger didSet func
             ball.position = position
@@ -34,29 +34,13 @@ class Character: CharacterModel{
         self.ball.position = self.position
     }
     
-//    func DoAction(action: PlayerAction, point: CGPoint?, impulse:CGVector?) {
-//        print("playerAction doing")
-//        switch action.ActionType {
-//        case .ChooseAbility:
-//            print("ChooseAbility")
-//        case .UseAbility:
-//            print("UseAbility")
-//        case .Move:
-//            print("Move")
-//            move(impulse: impulse!)
-//        case .Draw(let status):
-//            print("Draw")
-//            draw(status: status, point: point)
-//
-//        }
-//    }
     func DoAction(action: PlayerAction) {
         print("playerAction doing")
         switch action.ActionType {
-        case .ChooseAbility:
-            print("ChooseAbility")
-        case .UseAbility:
-            print("UseAbility")
+        case .ChooseSkill:
+            print("ChooseSkill")
+        case .UseSkill:
+            print("UseSkill")
         case .Move:
             print("Move")
             move(impulse: action.impulse)
@@ -70,7 +54,7 @@ class Character: CharacterModel{
     func move(impulse: CGVector) {
         pushBall(impulse: impulse)
     }
-    func draw(status: ActionType.drawStatus, point: CGPoint?) {
+    func draw(status: TouchStatus, point: CGPoint?) {
         
         switch status {
         case .begin:
@@ -95,7 +79,5 @@ class Character: CharacterModel{
         self.ball.physicsBody?.applyImpulse(impulse)
 //        self.scale = .zero
     }
-    
-    
-    
 }
+

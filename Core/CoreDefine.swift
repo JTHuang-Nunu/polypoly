@@ -7,29 +7,28 @@
 
 import Foundation
 
-
+enum TouchStatus: Codable{
+    case begin
+    case move
+    case end
+}
 
 enum ActionType: Codable {
     //選擇能力
-    case ChooseAbility
+    case ChooseSkill
     //使用能力
-    case UseAbility
+    case UseSkill
     
     case Move
     
-    case Draw(drawStatus)
-    enum drawStatus: Codable{
-        case begin
-        case move
-        case end
-    }
+    case Draw(TouchStatus)
 }
 
 
 struct PlayerAction: Codable{
     var CharacterModelID: UUID
     var ActionType: ActionType
-    var AbilityID: Int
+    var SkillID: Int
     var ActionTime: Date
     
     //for drawing
@@ -39,7 +38,9 @@ struct PlayerAction: Codable{
 }
 
 protocol CharacterModel {
-    var CharacterModelID: UUID {get set}
+    var CharacterModelID: UUID { get set }
+    var lineList: [DrawingLine] { get set }
+
     func DoAction(action: PlayerAction)
 }
 
