@@ -17,11 +17,11 @@ class GameViewController: UIViewController {
         dispatcher.RequestRoom()
         // wait 2 seconds and send playeraction
 
-        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-            let action = PlayerAction(CharacterModelID: UUID(), ActionType: .ChooseAbility, AbilityID: 1, ActionTime: Date())
-            
-            dispatcher.sendAction(action: action)
-        }
+//        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//            let action = PlayerAction(CharacterModelID: UUID(), ActionType: .ChooseAbility, AbilityID: 1, ActionTime: Date())
+//            
+//            dispatcher.sendAction(action: action)
+//        }
         
         if let view = self.view as! SKView? {
 //            let scene = initialScene(size: view.bounds.size)

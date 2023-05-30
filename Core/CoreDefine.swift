@@ -31,11 +31,16 @@ struct PlayerAction: Codable{
     var ActionType: ActionType
     var AbilityID: Int
     var ActionTime: Date
+    
+    //for drawing
+    var point: CGPoint
+    //for ball moving
+    var impulse: CGVector
 }
 
 protocol CharacterModel {
     var CharacterModelID: UUID {get set}
-    func DoAction(action: PlayerAction, point: CGPoint?, impulse: CGVector?)
+    func DoAction(action: PlayerAction)
 }
 
 protocol PlayerInputController {

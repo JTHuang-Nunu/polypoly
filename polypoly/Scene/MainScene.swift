@@ -64,9 +64,10 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
             CharacterModelID: UUID(),
             ActionType: .ChooseAbility,
             AbilityID: 0,
-            ActionTime: Date()
+            ActionTime: Date(),
+            point: CGPoint(),
+            impulse: CGVector()
         )
-
     }
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -134,7 +135,8 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                 }
                 player1.draw(status: .begin, point: touch.location(in: self))
                 playerActionTmp.ActionType = .Draw(.begin)
-                player2.DoAction(action: playerActionTmp, point: touch.location(in: self),impulse: nil)
+                playerActionTmp.point = touch.location(in: self)
+                player2.DoAction(action: playerActionTmp)
                 addChild(player1.lineList.last!)
             }
             
@@ -159,7 +161,8 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                 }
                 player1.draw(status: .move, point: touch.location(in: self))
                 playerActionTmp.ActionType = .Draw(.move)
-                player2.DoAction(action: playerActionTmp, point: touch.location(in: self),impulse: nil)
+                playerActionTmp.point = touch.location(in: self)
+                player2.DoAction(action: playerActionTmp)
                 lastTouchLocation = touch.location(in: self) //record the last Location
                 
                 //if powerBar's power less equal 0
@@ -178,7 +181,8 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
             let impulse = arrowNode.getImpulse()
             arrowNode.pushBall(player: player1)
             playerActionTmp.ActionType = .Move
-            player2.DoAction(action: playerActionTmp, point: nil, impulse: impulse)
+            playerActionTmp.impulse = impulse
+            player2.DoAction(action: playerActionTmp)
 //            player2.pushBall(impulse: impulse)
             arrowNode.initVariable()
         }
@@ -187,7 +191,9 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
             print("drew")
             player1.draw(status: .end, point: nil)
             playerActionTmp.ActionType = .Draw(.end)
-            player2.DoAction(action: playerActionTmp, point: nil, impulse: nil)
+            //reset point
+            playerActionTmp.point = CGPoint()
+            player2.DoAction(action: playerActionTmp)
         }
     }
     

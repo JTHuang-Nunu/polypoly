@@ -8,7 +8,6 @@
 import Foundation
 
 class Character: CharacterModel{
-    
     var CharacterModelID: UUID
     var ball: Ball
     var lineList = [DrawingLine]()
@@ -35,7 +34,23 @@ class Character: CharacterModel{
         self.ball.position = self.position
     }
     
-    func DoAction(action: PlayerAction, point: CGPoint?, impulse:CGVector?) {
+//    func DoAction(action: PlayerAction, point: CGPoint?, impulse:CGVector?) {
+//        print("playerAction doing")
+//        switch action.ActionType {
+//        case .ChooseAbility:
+//            print("ChooseAbility")
+//        case .UseAbility:
+//            print("UseAbility")
+//        case .Move:
+//            print("Move")
+//            move(impulse: impulse!)
+//        case .Draw(let status):
+//            print("Draw")
+//            draw(status: status, point: point)
+//
+//        }
+//    }
+    func DoAction(action: PlayerAction) {
         print("playerAction doing")
         switch action.ActionType {
         case .ChooseAbility:
@@ -44,10 +59,10 @@ class Character: CharacterModel{
             print("UseAbility")
         case .Move:
             print("Move")
-            move(impulse: impulse!)
+            move(impulse: action.impulse)
         case .Draw(let status):
             print("Draw")
-            draw(status: status, point: point)
+            draw(status: status, point: action.point)
             
         }
     }
