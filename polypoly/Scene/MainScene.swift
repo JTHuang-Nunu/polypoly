@@ -22,7 +22,9 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
     var timer: Timer?
     
     //player variable
-    var uuidDictionary = [UUID: String]()
+    var uuidDictionary = [Int: UUID]()
+//    var uuidDictionary = [UUID: String]()
+    var playerContainer = [Character]()
     var player1: Character!
     var player2: Character!
     var id1: UUID!
@@ -30,35 +32,36 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
     var playerActionTmp: PlayerAction!
     var Butler: InputManager! //Users Manager
     
-    struct PlayerPosition {
-        private static let offset: CGFloat = 200
-        static var p1: CGPoint {
-            let x = UIScreen.main.bounds.minX + offset
-            let y = UIScreen.main.bounds.midY
-            return CGPoint(x: x, y: y)
-        }
-        static var p2: CGPoint {
-            let x = UIScreen.main.bounds.maxX - offset
-            let y = UIScreen.main.bounds.midY
-            return CGPoint(x: x, y: y)
-        }
-    }
+//    struct PlayerPosition {
+//        private static let offset: CGFloat = 200
+//        static var p1: CGPoint {
+//            let x = UIScreen.main.bounds.minX + offset
+//            let y = UIScreen.main.bounds.midY
+//            return CGPoint(x: x, y: y)
+//        }
+//        static var p2: CGPoint {
+//            let x = UIScreen.main.bounds.maxX - offset
+//            let y = UIScreen.main.bounds.midY
+//            return CGPoint(x: x, y: y)
+//        }
+//    }
     func createPlayer(playerNumber: Int){ //define two plater
         //todo: now is tmp func, need to complete
-//        for i in 0..playerNumber {
-//            let id = UUID() //system assign a random string
-//            uuidDictionary[i] = id
-//        }
-
-        id1 = UUID()
-        self.player1 = Character(characterModelID: id1, position: PlayerPosition.p1)
-        id2 = UUID()
-        if(id1 == id2){
-            print("##two player have same id")
-        }else{
-            print("##diffent id")
+        let characterFactory = CharacterFactory()
+        let playerPositionFactory = PlayerPositionFactory()
+        let playerPositions = playerPositionFactory.create(forPlayerCount: playerNumber).createPlayerPositions() // [CGPoint] type
+        
+        //Create UUID, player's Character
+        for i in 0...playerNumber-1 {
+            let id = UUID() //system assign a random string
+            uuidDictionary[i] = id
+            playerContainer.append(characterFactory.createCharacter(ID: id, position: playerPositions[i]))
         }
-        self.player2 = Character(characterModelID: id1, position: PlayerPosition.p2)
+
+//        id1 = UUID()
+//        id2 = UUID()
+        self.player1 = playerContainer[0]
+        self.player2 = playerContainer[1]
         self.addChild(player1.ball)
         self.addChild(player2.ball)
         

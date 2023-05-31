@@ -52,5 +52,128 @@
             landmarkType = "14">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6094DE32-A628-4ECB-87FE-D151AF91D6AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Scene/MainScene.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "MainScene"
+            landmarkType = "3">
+            <Locations>
+               <Location
+                  uuid = "6094DE32-A628-4ECB-87FE-D151AF91D6AF - 29bf604b25bcda8d"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.MainScene.id2.getter : Swift.Optional&lt;Foundation.UUID&gt;"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/MainScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "85">
+               </Location>
+               <Location
+                  uuid = "6094DE32-A628-4ECB-87FE-D151AF91D6AF - 8f731394a2fef6f9"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.MainScene.id2.setter : Swift.Optional&lt;Foundation.UUID&gt;"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/MainScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "156">
+               </Location>
+               <Location
+                  uuid = "6094DE32-A628-4ECB-87FE-D151AF91D6AF - fd25200a2cf33f8e"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.MainScene.id2.modify : Swift.Optional&lt;Foundation.UUID&gt;"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/MainScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "0">
+               </Location>
+               <Location
+                  uuid = "6094DE32-A628-4ECB-87FE-D151AF91D6AF - 245da3e5cf0074ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.MainScene.id2.modify : Swift.Optional&lt;Foundation.UUID&gt; with unmangled suffix &quot;.resume.0&quot;"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/MainScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "15">
+               </Location>
+               <Location
+                  uuid = "6094DE32-A628-4ECB-87FE-D151AF91D6AF - 316276a4aec5776a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.MainScene.init(size: __C.CGSize) -&gt; polypoly.MainScene"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/MainScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "752">
+               </Location>
+               <Location
+                  uuid = "6094DE32-A628-4ECB-87FE-D151AF91D6AF - c51aa51dff369aed"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.MainScene.init() -&gt; polypoly.MainScene"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/MainScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "698">
+               </Location>
+               <Location
+                  uuid = "6094DE32-A628-4ECB-87FE-D151AF91D6AF - 509f31ed4c1ab12"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.MainScene.init(coder: __C.NSCoder) -&gt; Swift.Optional&lt;polypoly.MainScene&gt;"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/MainScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "31"
+                  endingLineNumber = "31"
+                  offsetFromSymbolStart = "701">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

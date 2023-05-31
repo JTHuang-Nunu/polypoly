@@ -17,6 +17,7 @@
 		D83681BF2A263F0D005A5EEB /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681B32A262B70005A5EEB /* InputManager.swift */; };
 		D83681C52A26740E005A5EEB /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681C42A26740E005A5EEB /* Skill.swift */; };
 		D83681C72A267486005A5EEB /* SkillFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681C62A267486005A5EEB /* SkillFactory.swift */; };
+		D83681C92A26EB4E005A5EEB /* PlayerPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681C82A26EB4E005A5EEB /* PlayerPosition.swift */; };
 		D8BE1EC72A01F7E9002CC0D0 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */; };
 		D8BE1EC92A01F9E7002CC0D0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE1EC82A01F9E6002CC0D0 /* Line.swift */; };
 		D8CDCE372A20487B005996F8 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDCE362A20487B005996F8 /* Background.swift */; };
@@ -67,6 +68,7 @@
 		D83681B52A262B70005A5EEB /* CharacterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFactory.swift; sourceTree = "<group>"; };
 		D83681C42A26740E005A5EEB /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
 		D83681C62A267486005A5EEB /* SkillFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillFactory.swift; sourceTree = "<group>"; };
+		D83681C82A26EB4E005A5EEB /* PlayerPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPosition.swift; sourceTree = "<group>"; };
 		D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		D8BE1EC82A01F9E6002CC0D0 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		D8CDCE362A20487B005996F8 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Background.swift; path = polypoly/Background.swift; sourceTree = SOURCE_ROOT; };
@@ -136,6 +138,7 @@
 			children = (
 				D83681B52A262B70005A5EEB /* CharacterFactory.swift */,
 				E7A234052A1DFBB900F0F7F9 /* Character.swift */,
+				D83681C82A26EB4E005A5EEB /* PlayerPosition.swift */,
 			);
 			path = Charcter;
 			sourceTree = "<group>";
@@ -385,6 +388,7 @@
 			files = (
 				D83681C72A267486005A5EEB /* SkillFactory.swift in Sources */,
 				D83681C52A26740E005A5EEB /* Skill.swift in Sources */,
+				D83681C92A26EB4E005A5EEB /* PlayerPosition.swift in Sources */,
 				D8CF0B3829FE885A0056A94D /* Ball.swift in Sources */,
 				E7F5EDAD2A11DD3700AB6597 /* Dispatcher.swift in Sources */,
 				D8CF0B0129FE41610056A94D /* GameScene.swift in Sources */,

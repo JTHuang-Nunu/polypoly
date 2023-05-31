@@ -8,11 +8,11 @@
 import Foundation
 import SpriteKit
 
-class PlayerFactory{
-    func createPlayer(ID: UUID, position: CGPoint) -> Character{
+class CharacterFactory{
+    func createCharacter(ID: UUID, position: CGPoint) -> Character{
         return Character(characterModelID: ID, position: position)
     }
-    func createPlayer(ID: UUID) -> Character{
+    func createCharacter(ID: UUID) -> Character{
         return Character(characterModelID: ID)
     }
 }
