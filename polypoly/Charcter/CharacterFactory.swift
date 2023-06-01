@@ -9,6 +9,8 @@ import Foundation
 import SpriteKit
 
 class CharacterFactory{
+    public static let shared = CharacterFactory()
+    
     func createCharacter(ID: UUID, position: CGPoint) -> Character{
         return Character(characterModelID: ID, position: position)
     }
