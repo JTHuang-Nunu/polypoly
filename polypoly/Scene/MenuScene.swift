@@ -1,3 +1,4 @@
+
 import UIKit
 import SpriteKit
 import AVFoundation
@@ -5,23 +6,31 @@ import AVFoundation
 class MenuScene: SKScene {
 
     // 宣告選單元件
+    private var userIDLabel: SKLabelNode!
     private var playButton: SKLabelNode!
     private var optionsButton: SKLabelNode!
     private var buttonSound: SKAction!
+    private let userNameKey = "UserName" // 使用者名稱的鍵值
     
     override func didMove(to view: SKView) {
+        super.didMove(to: view)
         // 設定場景背景顏色
         backgroundColor = SKColor.white
         
         // 建立並設定選單元件
         createMenu()
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        // 偵測觸碰事件
+        
+        //設定按鈕音效
         if let soundURL = Bundle.main.url(forResource: "button_sound", withExtension: "mp3") {
             buttonSound = SKAction.playSoundFileNamed(soundURL.lastPathComponent, waitForCompletion: false)
         }
+    }
+
+
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        // 偵測觸碰事件
+        
         
         for touch in touches {
             let location = touch.location(in: self)
@@ -31,15 +40,12 @@ class MenuScene: SKScene {
                 // 執行 playButton 按鈕相應的動作
                 print("Play button tapped")
                 
-                if let soundAction = buttonSound {
-                    playButton.run(soundAction)
-                }
-                
                 // 添加縮放效果
                 let scaleAction = SKAction.scale(to: 1.3, duration: 0.1)
                 playButton.run(scaleAction) {
                     // 在完成縮放後執行其他動作或切換場景
                     self.showModeSelection()
+                    self.playButtonSound()
                 }
                 
                 //延遲Action
@@ -61,10 +67,7 @@ class MenuScene: SKScene {
                 optionsButton.run(scaleAction) {
                     // 在完成縮放後執行其他動作或切換場景
                     self.showOptionsPopup()
-                }
-                
-                if let soundAction = buttonSound {
-                    playButton.run(soundAction)
+                    self.playButtonSound()
                 }
                 
                 //延遲Action
@@ -75,6 +78,18 @@ class MenuScene: SKScene {
                 let sequenceAction = SKAction.sequence([delayAction, scaleActionReset])
                 optionsButton.run(sequenceAction)
             }
+        }
+        
+        let defaults :UserDefaults = UserDefaults.standard
+        if let userName = defaults.string(forKey: userNameKey), !userName.isEmpty {
+            print("Welcome back, \(userName)!")
+            showPlayerID(userName)
+        } else {
+            // 第一次打開程式，要求使用者輸入名稱
+            print("need enter")
+            askForUserName()
+            let userName = defaults.string(forKey: userNameKey)
+            showPlayerID(userName!)
         }
     }
     
@@ -160,5 +175,44 @@ class MenuScene: SKScene {
         // 執行調整音量的相關動作
         print("Volume adjusted: \(volume)")
         // 在這裡可以將調整後的音量應用到您的音效或背景音樂中
+    }
+    
+    
+    //顯示出玩家名稱
+    private func showPlayerID(_ name: String) {
+        // 建立 player name lable
+        userIDLabel = SKLabelNode(text: "\(name)")
+        userIDLabel.position = CGPoint(x: size.width - userIDLabel.frame.width/2 - 50, y: size.height - userIDLabel.frame.height/2 - 50)
+        userIDLabel.fontColor = SKColor.black
+        addChild(userIDLabel)
+        
+    }
+    
+    
+    private func askForUserName() {
+            let alertController = UIAlertController(title: "Welcome", message: "Please enter your username", preferredStyle: .alert)
+            alertController.addTextField { textField in
+                textField.placeholder = "Username"
+            }
+            
+            let okAction = UIAlertAction(title: "OK", style: .default) { _ in
+                // 儲存使用者名稱
+                if let textField = alertController.textFields?.first, let userName = textField.text {
+                    UserDefaults.standard.set(userName, forKey: self.userNameKey)
+                    print("Username saved: \(userName)")
+                }
+            }
+            alertController.addAction(okAction)
+            
+            if let viewController = self.view?.window?.rootViewController {
+                viewController.present(alertController, animated: true, completion: nil)
+            }
+        }
+    
+    //播放按鈕音效
+    private func playButtonSound() {
+        if let soundAction = buttonSound {
+            playButton.run(soundAction)
+        }
     }
 }
