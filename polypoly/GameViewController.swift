@@ -25,12 +25,12 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
 //            let scene = initialScene(size: view.bounds.size)
-            let scene = TestScene(fileNamed:"TestScene")!
+            let scene = MenuScene(size: view.bounds.size)
             scene.scaleMode = .aspectFill
-            view.presentScene(scene)
             view.ignoresSiblingOrder = true
             view.showsFPS = true
             view.showsNodeCount = true
+            view.presentScene(scene)
         }
         
         // Load 'GameScene.sks' as a GKScene. This provides gameplay related content
