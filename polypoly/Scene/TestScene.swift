@@ -10,7 +10,7 @@ import SpriteKit
 
 class TestScene: SKScene{
     
-    var ThisCharacter: CharacterModel? = nil
+    var ThisCharacter: CharacterProtocol? = nil
     var ThisUUID = UUID()
     override func sceneDidLoad() {
         CreatePlayer()

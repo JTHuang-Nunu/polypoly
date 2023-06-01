@@ -7,7 +7,7 @@
 
 import Foundation
 
-class Character: CharacterModel{
+class Character: CharacterProtocol{
     var CharacterModelID: UUID
     var ball: Ball
     var lineList = [DrawingLine]()

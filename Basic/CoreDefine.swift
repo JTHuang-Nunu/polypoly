@@ -17,27 +17,12 @@ enum ActionType: Codable {
     case UseSkill
 }
 
-enum ContentType:Codable{
+enum ContentType: Codable{
     case Impulse
-    case Str
-}
-struct PlayerAction: Codable{
-    var CharacterModelID: UUID
-    var ActionType: ActionType
-    var Skill: Skill
-    var content: [ContentType: String]
 }
 
-protocol CharacterModel {
-    var CharacterModelID: UUID { get set }
-    var lineList: [DrawingLine] { get set }
 
-    func DoAction(action: PlayerAction)
-}
 
-protocol PlayerInputControllerProtocol {
-    func OnDoAction(action: (PlayerAction)->Void)
-}
 
 
 enum RequestType: String, Codable{
@@ -47,6 +32,13 @@ enum RequestType: String, Codable{
     case PlayerAction
     case PlayerLeave
     case TestMessage
+}
+
+struct PlayerAction: Codable{
+    var CharacterModelID: UUID
+    var ActionType: ActionType
+    var Skill: Skill
+    var content: [ContentType: String]
 }
 
 struct Message: Codable{
