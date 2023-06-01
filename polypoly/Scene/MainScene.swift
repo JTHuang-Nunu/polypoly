@@ -30,7 +30,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
     var id1: UUID!
     var id2: UUID!
     var playerActionTmp: PlayerAction!
-    var Butler: InputManager! //Users Manager
+    //var Butler: InputManager! //Users Manager
     
 //    struct PlayerPosition {
 //        private static let offset: CGFloat = 200
@@ -65,7 +65,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
         self.addChild(player1.ball)
         self.addChild(player2.ball)
         
-        self.Butler = InputManager(CharacterID: player1.CharacterModelID)
+        //self.Butler = InputManager(CharacterID: player1.CharacterModelID)
         
         playerActionTmp = PlayerAction(
             CharacterModelID: UUID(),
@@ -139,7 +139,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                 if powerBar.power >= 10{ //
                     isDrawing = true
                 }
-                Butler.onTouch(ID: player1.CharacterModelID, actionType: .Draw(.begin), point: touch.location(in: self))
+                //Butler.onTouch(ID: player1.CharacterModelID, actionType: .Draw(.begin), point: touch.location(in: self))
                 
                 player1.draw(status: .begin, point: touch.location(in: self))
                 playerActionTmp.ActionType = .Draw(.begin)
@@ -162,7 +162,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
         else if isDrawing{
             if let touch = touches.first {
                 //get drawing distance, then consume power
-                Butler.onTouch(ID: player1.CharacterModelID, actionType: .Draw(.move), point: touch.location(in: self))
+                //Butler.onTouch(ID: player1.CharacterModelID, actionType: .Draw(.move), point: touch.location(in: self))
                 if let lastTouchLocation = lastTouchLocation {
                     let currentTouchLocation = touch.location(in: self)
                     let distance = hypot(currentTouchLocation.x - lastTouchLocation.x, currentTouchLocation.y - lastTouchLocation.y)
@@ -188,7 +188,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
         if isDragging {
             isDragging = false
             //todo move can't get move vector
-            Butler.onTouch(ID: player1.CharacterModelID, actionType: .Move, point: nil)
+            //Butler.onTouch(ID: player1.CharacterModelID, actionType: .Move, point: nil)
             let impulse = arrowNode.getImpulse()
             arrowNode.pushBall(player: player1)
             playerActionTmp.ActionType = .Move
@@ -198,7 +198,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
             arrowNode.initVariable()
         }
         else if isDrawing{
-            Butler.onTouch(ID: player1.CharacterModelID, actionType: .Draw(.end), point: nil)
+            //Butler.onTouch(ID: player1.CharacterModelID, actionType: .Draw(.end), point: nil)
             isDrawing = false
             print("drew")
             player1.draw(status: .end, point: nil)
