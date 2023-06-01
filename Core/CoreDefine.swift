@@ -12,7 +12,10 @@ enum TouchStatus: Codable{
     case move
     case end
 }
-
+enum PlayerSkill: Codable{
+    case Move
+    case Summon
+}
 enum ActionType: Codable {
     //選擇能力
     case ChooseSkill

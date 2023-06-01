@@ -14,8 +14,8 @@ class TestScene: SKScene{
     var ThisUUID = UUID()
     override func sceneDidLoad() {
         CreatePlayer()
-        
-        var SimpleAction = PlayerAction(
+        CreateCanvas()
+        let SimpleAction = PlayerAction(
             CharacterModelID: ThisUUID,
             ActionType: .Move,
             SkillID: 0,
@@ -26,8 +26,14 @@ class TestScene: SKScene{
         
     }
     func CreatePlayer(){
-        var character = CharacterFactory.shared.createCharacter(ID: ThisUUID)
+        let character = CharacterFactory.shared.createCharacter(ID: ThisUUID)
         addChild(character.ball)
         ThisCharacter = character
     }
+    func CreateCanvas(){
+        let canvas = Canvas()
+        addChild(canvas)
+    }
+    
+    
 }
