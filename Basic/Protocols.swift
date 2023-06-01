@@ -15,5 +15,5 @@ protocol CharacterProtocol {
 }
 
 protocol InputManagerProtocol {
-    func OnDoAction(action: (PlayerAction)->Void)
+    var OnDoPlayerAction: Event<PlayerAction> {get }
 }

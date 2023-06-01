@@ -17,7 +17,7 @@ class Dispatcher{
         encoder = JSONEncoder()
         decoder = JSONDecoder()
         PlayerID = UUID()
-        sessionManager.setReceiveDataHandler{ str in
+        sessionManager.OnReceiveData += { str in
             let message = self.decodeJSON(jsonString: str)
             self.handleMessage(message: message)
         }

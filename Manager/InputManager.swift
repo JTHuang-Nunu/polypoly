@@ -9,11 +9,11 @@ import Foundation
 import UIKit
 
 class InputManager: InputManagerProtocol{
+    var OnDoPlayerAction: Event<PlayerAction> = Event<PlayerAction>()
+    
+    
     public static let shared = InputManager()
     
-    func OnDoAction(action: (PlayerAction) -> Void) {
-        
-    }
     
     public func touchesBegan(touch: UITouch){
         print("touch")

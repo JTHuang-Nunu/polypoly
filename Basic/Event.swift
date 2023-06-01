@@ -11,7 +11,7 @@ class Event<T> {
 
     typealias EventHandler = (T) -> ()
     var eventHandlers = [EventHandler]()
-    func Invoke(data: T) {
+    func Invoke(_ data: T) {
         for handler in eventHandlers {
             handler(data)
         }

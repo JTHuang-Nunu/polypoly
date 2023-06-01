@@ -23,11 +23,11 @@ class EventTests: XCTestCase {
 
         // Act
         event += handler1
-        event.Invoke(data: "hello Event")
+        event.Invoke("hello Event")
         XCTAssertEqual(result, "Handler 1 called with data: hello Event")
         
         event.AddHandler(handler: handler2)
-        event.Invoke(data: "Hello, world!")
+        event.Invoke("Hello, world!")
         XCTAssertEqual(result, "Handler 1 called with data: Hello, world!")
     
         
@@ -44,11 +44,11 @@ class EventTests: XCTestCase {
             result = "Handler 1 called with data: \(data)"
         }
         
-        event.Invoke(data: ("hello Event", 1))
+        event.Invoke(("hello Event", 1))
         XCTAssertEqual(result, "Handler 1 called with data: (\"hello Event\", 1)")
         
         event.AddHandler(handler: handler2)
-        event.Invoke(data: ("Hello, world!", 2))
+        event.Invoke(("Hello, world!", 2))
         XCTAssertEqual(result, "Handler 1 called with data: (\"Hello, world!\", 2)")
     }
 }
