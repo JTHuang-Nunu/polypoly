@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BF3317B22A271BBC002B2E5D /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3317B12A271BBC002B2E5D /* MenuScene.swift */; };
+		BF7D7E162A28690F0029D21A /* button_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BF7D7E152A28690F0029D21A /* button_sound.mp3 */; };
 		D82BD4742A09FF7400E181FC /* PowerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BD4732A09FF7400E181FC /* PowerBar.swift */; };
 		D83681B62A263EF9005A5EEB /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681B32A262B70005A5EEB /* InputManager.swift */; };
 		D83681B72A263F03005A5EEB /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681B42A262B70005A5EEB /* GameManager.swift */; };
@@ -62,6 +64,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BF3317B12A271BBC002B2E5D /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
+		BF7D7E152A28690F0029D21A /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_sound.mp3; sourceTree = "<group>"; };
 		D82BD4732A09FF7400E181FC /* PowerBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PowerBar.swift; sourceTree = "<group>"; };
 		D83681B32A262B70005A5EEB /* InputManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputManager.swift; sourceTree = "<group>"; };
 		D83681B42A262B70005A5EEB /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
@@ -124,6 +128,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		BF7D7E142A2868490029D21A /* SoundEffect */ = {
+			isa = PBXGroup;
+			children = (
+				BF7D7E152A28690F0029D21A /* button_sound.mp3 */,
+			);
+			path = SoundEffect;
+			sourceTree = "<group>";
+		};
 		D83681B22A262B70005A5EEB /* Manager */ = {
 			isa = PBXGroup;
 			children = (
@@ -172,6 +184,7 @@
 				D8CF0B0029FE41610056A94D /* GameScene.swift */,
 				D8CF0B3129FE53920056A94D /* MainScene.swift */,
 				D8CF0B2F29FE4C5F0056A94D /* InitialScene.swift */,
+				BF3317B12A271BBC002B2E5D /* MenuScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -180,6 +193,7 @@
 			isa = PBXGroup;
 			children = (
 				D8CDCE3A2A207122005996F8 /* todo.md */,
+				BF7D7E142A2868490029D21A /* SoundEffect */,
 				D83681B22A262B70005A5EEB /* Manager */,
 				E7F5EDAE2A11E52E00AB6597 /* Core */,
 				E7A9793E2A0D55AC0056B6BC /* NetworkConnection */,
@@ -362,6 +376,7 @@
 				D8CF0B0829FE41640056A94D /* Assets.xcassets in Resources */,
 				D8CF0B0B29FE41640056A94D /* LaunchScreen.storyboard in Resources */,
 				D8CF0AFF29FE41610056A94D /* Actions.sks in Resources */,
+				BF7D7E162A28690F0029D21A /* button_sound.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -407,6 +422,7 @@
 				D83681B72A263F03005A5EEB /* GameManager.swift in Sources */,
 				D8BE1EC72A01F7E9002CC0D0 /* Arrow.swift in Sources */,
 				E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */,
+				BF3317B22A271BBC002B2E5D /* MenuScene.swift in Sources */,
 				E7A234082A1E006600F0F7F9 /* PlayerInputController.swift in Sources */,
 				D8BE1EC92A01F9E7002CC0D0 /* Line.swift in Sources */,
 			);
@@ -589,7 +605,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 763ZK52CNF;
+				DEVELOPMENT_TEAM = 554SRAW4M3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -597,6 +613,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -617,7 +634,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 763ZK52CNF;
+				DEVELOPMENT_TEAM = 554SRAW4M3;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -625,6 +642,7 @@
 				INFOPLIST_KEY_UIStatusBarHidden = YES;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
+				IPHONEOS_DEPLOYMENT_TARGET = 16.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
