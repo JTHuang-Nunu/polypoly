@@ -165,13 +165,6 @@
 			path = Charcter;
 			sourceTree = "<group>";
 		};
-		D83681C12A267258005A5EEB /* Skill */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Skill;
-			sourceTree = "<group>";
-		};
 		D8CDCE322A1F4301005996F8 /* Object */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,7 +222,6 @@
 		D8CF0AF929FE41610056A94D /* polypoly */ = {
 			isa = PBXGroup;
 			children = (
-				D83681C12A267258005A5EEB /* Skill */,
 				D83681C02A267238005A5EEB /* Charcter */,
 				D8CDCE332A1F431F005996F8 /* Scene */,
 				D8CDCE322A1F4301005996F8 /* Object */,
