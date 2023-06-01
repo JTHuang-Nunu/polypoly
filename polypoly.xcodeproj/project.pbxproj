@@ -46,6 +46,9 @@
 		E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */; };
 		E7FE28F12A28D7550057A1A1 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F02A28D7550057A1A1 /* Canvas.swift */; };
 		E7FE28F32A28E9130057A1A1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F22A28E9130057A1A1 /* Button.swift */; };
+		E7FE28F52A28ECB30057A1A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F42A28ECB30057A1A1 /* Event.swift */; };
+		E7FE28F82A28EF3F0057A1A1 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */; };
+		E7FE28F92A28EF790057A1A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F42A28ECB30057A1A1 /* Event.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -105,6 +108,8 @@
 		E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDefine.swift; sourceTree = "<group>"; };
 		E7FE28F02A28D7550057A1A1 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
 		E7FE28F22A28E9130057A1A1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
+		E7FE28F42A28ECB30057A1A1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -235,6 +240,7 @@
 			isa = PBXGroup;
 			children = (
 				D8CF0B1429FE41640056A94D /* polypolyTests.swift */,
+				E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */,
 			);
 			path = polypolyTests;
 			sourceTree = "<group>";
@@ -261,6 +267,7 @@
 			isa = PBXGroup;
 			children = (
 				E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */,
+				E7FE28F42A28ECB30057A1A1 /* Event.swift */,
 			);
 			path = Core;
 			sourceTree = "<group>";
@@ -418,6 +425,7 @@
 				D8CF0B3229FE53920056A94D /* MainScene.swift in Sources */,
 				D8CF0B0329FE41610056A94D /* GameViewController.swift in Sources */,
 				E712FBEA2A2831D8005282AE /* TestScene.swift in Sources */,
+				E7FE28F52A28ECB30057A1A1 /* Event.swift in Sources */,
 				D8CF0AFB29FE41610056A94D /* AppDelegate.swift in Sources */,
 				D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */,
 				D83681B72A263F03005A5EEB /* GameManager.swift in Sources */,
@@ -432,9 +440,11 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E7FE28F82A28EF3F0057A1A1 /* EventTests.swift in Sources */,
 				D83681BE2A263F0C005A5EEB /* InputManager.swift in Sources */,
 				D8CF0B1529FE41640056A94D /* polypolyTests.swift in Sources */,
 				D83681BA2A263F05005A5EEB /* GameManager.swift in Sources */,
+				E7FE28F92A28EF790057A1A1 /* Event.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
