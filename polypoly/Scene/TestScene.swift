@@ -24,6 +24,7 @@ class TestScene: SKScene{
             impulse: CGVector(dx: 0, dy: 5))
         ThisCharacter?.DoAction(action: SimpleAction)
         
+        
     }
     func CreatePlayer(){
         let character = CharacterFactory.shared.createCharacter(ID: ThisUUID)

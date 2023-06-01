@@ -24,13 +24,13 @@ class Canvas: SKShapeNode{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        InputController.shared.touchesBegan(touch: touches.first!)
+        
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        InputController.shared.touchesMoved(touch: touches.first!)
+        
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        InputController.shared.touchesEnded(touch: touches.first!)
+        
     }
     
 }

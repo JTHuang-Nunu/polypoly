@@ -45,6 +45,7 @@
 		E7F5EDAD2A11DD3700AB6597 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAC2A11DD3700AB6597 /* Dispatcher.swift */; };
 		E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */; };
 		E7FE28F12A28D7550057A1A1 /* Canvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F02A28D7550057A1A1 /* Canvas.swift */; };
+		E7FE28F32A28E9130057A1A1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F22A28E9130057A1A1 /* Button.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -103,6 +104,7 @@
 		E7F5EDAC2A11DD3700AB6597 /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDefine.swift; sourceTree = "<group>"; };
 		E7FE28F02A28D7550057A1A1 /* Canvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Canvas.swift; sourceTree = "<group>"; };
+		E7FE28F22A28E9130057A1A1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -181,6 +183,7 @@
 				E712FBE72A28319F005282AE /* TestScene.sks */,
 				E712FBE92A2831D8005282AE /* TestScene.swift */,
 				E7FE28F02A28D7550057A1A1 /* Canvas.swift */,
+				E7FE28F22A28E9130057A1A1 /* Button.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -407,6 +410,7 @@
 				D8CDCE372A20487B005996F8 /* Background.swift in Sources */,
 				D8CF0B3429FE834B0056A94D /* Wall.swift in Sources */,
 				D83681B62A263EF9005A5EEB /* InputManager.swift in Sources */,
+				E7FE28F32A28E9130057A1A1 /* Button.swift in Sources */,
 				D8CF0B3029FE4C5F0056A94D /* InitialScene.swift in Sources */,
 				E7A234062A1DFBB900F0F7F9 /* Character.swift in Sources */,
 				E7FE28F12A28D7550057A1A1 /* Canvas.swift in Sources */,
