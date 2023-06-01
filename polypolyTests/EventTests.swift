@@ -22,7 +22,7 @@ class EventTests: XCTestCase {
         }
 
         // Act
-        event.AddHandler(handler: handler1)
+        event += handler1
         event.Invoke(data: "hello Event")
         XCTAssertEqual(result, "Handler 1 called with data: hello Event")
         
@@ -32,35 +32,24 @@ class EventTests: XCTestCase {
     
         
     }
+    func test2Parameters(){
+        let event = Event<(String, Int)>()
+        var result = ""
 
-    func testAddHandler() {
-        // Arrange
-        let event = Event<String>()
-        let handler1 = { (data: String) in
-            print("Handler 1 called with data: \(data)")
+        let handler2 = { (data: (String, Int)) in
+            result = "Handler 1 called with data: \(data)"
         }
-        let handler2 = { (data: String) in
-            print("Handler 2 called with data: \(data)")
+        
+        event += { (data: (String, Int)) in
+            result = "Handler 1 called with data: \(data)"
         }
-
-        // Act
-        event.AddHandler(handler: handler1)
+        
+        event.Invoke(data: ("hello Event", 1))
+        XCTAssertEqual(result, "Handler 1 called with data: (\"hello Event\", 1)")
+        
         event.AddHandler(handler: handler2)
-
-        // Assert
-
-    }
-
-    func testOperatorAddition() {
-        // Arrange
-        let event1 = Event<String>()
-        let event2 = Event<String>()
-        let handler1 = { (data: String) in
-            print("Handler 1 called with data: \(data)")
-        }
-
-
-
+        event.Invoke(data: ("Hello, world!", 2))
+        XCTAssertEqual(result, "Handler 1 called with data: (\"Hello, world!\", 2)")
     }
 }
 

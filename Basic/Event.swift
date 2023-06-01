@@ -19,7 +19,7 @@ class Event<T> {
     func AddHandler(handler: @escaping EventHandler) {
         eventHandlers.append(handler)
     }
-    public static func += <T> (left: Event<T>, right: @escaping (T) -> ()) {
+    public static func += (left: Event<T>, right: @escaping (T) -> ()) {
         left.AddHandler(handler: right)
     }
 }

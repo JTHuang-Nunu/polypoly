@@ -11,8 +11,6 @@
 		BF7D7E162A28690F0029D21A /* button_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BF7D7E152A28690F0029D21A /* button_sound.mp3 */; };
 		D82BD4742A09FF7400E181FC /* PowerBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BD4732A09FF7400E181FC /* PowerBar.swift */; };
 		D83681B72A263F03005A5EEB /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681B42A262B70005A5EEB /* GameManager.swift */; };
-		D83681B92A263F04005A5EEB /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681B42A262B70005A5EEB /* GameManager.swift */; };
-		D83681BA2A263F05005A5EEB /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681B42A262B70005A5EEB /* GameManager.swift */; };
 		D83681BB2A263F08005A5EEB /* CharacterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681B52A262B70005A5EEB /* CharacterFactory.swift */; };
 		D83681C52A26740E005A5EEB /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681C42A26740E005A5EEB /* Skill.swift */; };
 		D83681C92A26EB4E005A5EEB /* PlayerPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681C82A26EB4E005A5EEB /* PlayerPosition.swift */; };
@@ -47,8 +45,6 @@
 		E7FE28F82A28EF3F0057A1A1 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */; };
 		E7FE28FA2A28F1CF0057A1A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F42A28ECB30057A1A1 /* Event.swift */; };
 		E7FE28FC2A2907990057A1A1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28FB2A2907990057A1A1 /* Protocols.swift */; };
-		E7FE28FD2A2908410057A1A1 /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A234072A1E006600F0F7F9 /* InputManager.swift */; };
-		E7FE28FE2A2908410057A1A1 /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A234072A1E006600F0F7F9 /* InputManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -199,8 +195,8 @@
 			children = (
 				D8CDCE3A2A207122005996F8 /* todo.md */,
 				BF7D7E142A2868490029D21A /* SoundEffect */,
-				D83681B22A262B70005A5EEB /* Manager */,
 				E7F5EDAE2A11E52E00AB6597 /* Basic */,
+				D83681B22A262B70005A5EEB /* Manager */,
 				E7A9793E2A0D55AC0056B6BC /* NetworkConnection */,
 				D8CF0AF929FE41610056A94D /* polypoly */,
 				D8CF0B1329FE41640056A94D /* polypolyTests */,
@@ -444,10 +440,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7FE28FD2A2908410057A1A1 /* InputManager.swift in Sources */,
 				E7FE28F82A28EF3F0057A1A1 /* EventTests.swift in Sources */,
 				D8CF0B1529FE41640056A94D /* polypolyTests.swift in Sources */,
-				D83681BA2A263F05005A5EEB /* GameManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -455,9 +449,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E7FE28FE2A2908410057A1A1 /* InputManager.swift in Sources */,
 				D8CF0B2129FE41640056A94D /* polypolyUITestsLaunchTests.swift in Sources */,
-				D83681B92A263F04005A5EEB /* GameManager.swift in Sources */,
 				D8CF0B1F29FE41640056A94D /* polypolyUITests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
