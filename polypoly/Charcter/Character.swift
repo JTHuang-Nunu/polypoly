@@ -36,21 +36,21 @@ class Character: CharacterModel{
     
     func DoAction(action: PlayerAction) {
         print("playerAction doing")
-        switch action.ActionType {
-        case .ChooseSkill:
-            print("ChooseSkill")
+        switch(action.ActionType){
         case .UseSkill:
-            print("UseSkill")
-        case .Move:
-            print("Move")
-            move(impulse: action.impulse)
-        case .Draw(let status):
-            print("Draw")
-            draw(status: status, point: action.point)
-            
+            self.UseSkill(action: action)
+            break
         }
     }
-    
+    func UseSkill(action: PlayerAction){
+        switch(action.Skill){
+        case .Move:
+            //self.move(impulse: action.content["impulse"])
+            break
+        default:
+            break
+        }
+    }
     func move(impulse: CGVector) {
         pushBall(impulse: impulse)
     }

@@ -12,32 +12,20 @@ enum TouchStatus: Codable{
     case move
     case end
 }
-enum PlayerSkill: Codable{
-    case Move
-    case Summon
-}
+
 enum ActionType: Codable {
-    //選擇能力
-    case ChooseSkill
-    //使用能力
     case UseSkill
-    
-    case Move
-    
-    case Draw(TouchStatus)
 }
 
-
+enum ContentType:Codable{
+    case Impulse
+    case Str
+}
 struct PlayerAction: Codable{
     var CharacterModelID: UUID
     var ActionType: ActionType
-    var SkillID: Int
-    var ActionTime: Date
-    
-    //for drawing
-    var point: CGPoint
-    //for ball moving
-    var impulse: CGVector
+    var Skill: Skill
+    var content: [ContentType: String]
 }
 
 protocol CharacterModel {
@@ -47,7 +35,7 @@ protocol CharacterModel {
     func DoAction(action: PlayerAction)
 }
 
-protocol PlayerInputController {
+protocol PlayerInputControllerProtocol {
     func OnDoAction(action: (PlayerAction)->Void)
 }
 

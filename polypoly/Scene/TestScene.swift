@@ -15,14 +15,7 @@ class TestScene: SKScene{
     override func sceneDidLoad() {
         CreatePlayer()
         CreateCanvas()
-        let SimpleAction = PlayerAction(
-            CharacterModelID: ThisUUID,
-            ActionType: .Move,
-            SkillID: 0,
-            ActionTime: Date(),
-            point: CGPoint(),
-            impulse: CGVector(dx: 0, dy: 5))
-        ThisCharacter?.DoAction(action: SimpleAction)
+
         
         
     }

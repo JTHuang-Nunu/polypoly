@@ -67,14 +67,6 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
         
         //self.Butler = InputManager(CharacterID: player1.CharacterModelID)
         
-        playerActionTmp = PlayerAction(
-            CharacterModelID: UUID(),
-            ActionType: .ChooseSkill,
-            SkillID: 0,
-            ActionTime: Date(),
-            point: CGPoint(),
-            impulse: CGVector()
-        )
     }
     override func didMove(to view: SKView) {
         physicsWorld.contactDelegate = self
@@ -142,8 +134,8 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                 //Butler.onTouch(ID: player1.CharacterModelID, actionType: .Draw(.begin), point: touch.location(in: self))
                 
                 player1.draw(status: .begin, point: touch.location(in: self))
-                playerActionTmp.ActionType = .Draw(.begin)
-                playerActionTmp.point = touch.location(in: self)
+                //playerActionTmp.ActionType = .Draw(.begin)
+                //playerActionTmp.point = touch.location(in: self)
                 player2.DoAction(action: playerActionTmp)
                 addChild(player1.lineList.last!)
             }
@@ -169,8 +161,8 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
                     powerBar.power = powerBar.power - distance * 0.1
                 }
                 player1.draw(status: .move, point: touch.location(in: self))
-                playerActionTmp.ActionType = .Draw(.move)
-                playerActionTmp.point = touch.location(in: self)
+                //playerActionTmp.ActionType = .Draw(.move)
+                //playerActionTmp.point = touch.location(in: self)
                 player2.DoAction(action: playerActionTmp)
                 lastTouchLocation = touch.location(in: self) //record the last Location
                 
@@ -191,8 +183,8 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
             //Butler.onTouch(ID: player1.CharacterModelID, actionType: .Move, point: nil)
             let impulse = arrowNode.getImpulse()
             arrowNode.pushBall(player: player1)
-            playerActionTmp.ActionType = .Move
-            playerActionTmp.impulse = impulse
+            //playerActionTmp.ActionType = .Move
+            //playerActionTmp.impulse = impulse
             player2.DoAction(action: playerActionTmp)
 //            player2.pushBall(impulse: impulse)
             arrowNode.initVariable()
@@ -202,9 +194,9 @@ class MainScene: SKScene, SKPhysicsContactDelegate {
             isDrawing = false
             print("drew")
             player1.draw(status: .end, point: nil)
-            playerActionTmp.ActionType = .Draw(.end)
+            //playerActionTmp.ActionType = .Draw(.end)
             //reset point
-            playerActionTmp.point = CGPoint()
+            //playerActionTmp.point = CGPoint()
             player2.DoAction(action: playerActionTmp)
         }
     }

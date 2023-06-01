@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class InputController: PlayerInputController{
+class InputController: PlayerInputControllerProtocol{
     public static let shared = InputController()
     
     func OnDoAction(action: (PlayerAction) -> Void) {
