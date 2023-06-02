@@ -1,0 +1,20 @@
+"/Users/mac03/Documents/GitHub/polypoly/Basic/Skill.swift":
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Skill.d"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Skill.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Skill.o"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Skill.dia"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Ball.swift":
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Ball.d"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Ball.dia"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Ball.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Ball.o"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/PlayerPositionProtocol.swift":
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PlayerPositionProtocol.o"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PlayerPositionProtocol.swiftdeps"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PlayerPositionProtocol.d"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PlayerPositionProtocol.dia"
+"/Users/mac03/Documents/GitHub/polypoly/NetworkConnection/Dispatcher.swift":
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Dispatcher.dia"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Dispatcher.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Dispatcher.o"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Dispatcher.d"

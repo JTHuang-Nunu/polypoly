@@ -1,0 +1,20 @@
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/Canvas.swift":
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Canvas.d"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Canvas.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Canvas.o"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Canvas.dia"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/Character.swift":
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Character.dia"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Character.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Character.o"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Character.d"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/PowerBar.swift":
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PowerBar.o"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PowerBar.swiftdeps"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PowerBar.dia"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PowerBar.d"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/InitialScene.swift":
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/InitialScene.d"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/InitialScene.o"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/InitialScene.dia"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/InitialScene.swiftdeps"

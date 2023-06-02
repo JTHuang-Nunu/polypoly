@@ -19,11 +19,8 @@ enum ActionType: Codable {
 
 enum ContentType: Codable{
     case Impulse
+    case Position
 }
-
-
-
-
 
 enum RequestType: String, Codable{
     case RequestRoom

@@ -1,0 +1,15 @@
+"/Users/mac03/Documents/GitHub/polypoly/Manager/InputManager.swift":
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/InputManager-2f6ace02f6cfa5b90afc84c759e98b38.d"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/InputManager-2f6ace02f6cfa5b90afc84c759e98b38.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/InputManager-2f6ace02f6cfa5b90afc84c759e98b38.o"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/InputManager-2f6ace02f6cfa5b90afc84c759e98b38.dia"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Line.swift":
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Line.swiftdeps"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Line.d"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Line.o"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Line.dia"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/MenuScene.swift":
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/MenuScene.dia"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/MenuScene.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/MenuScene.o"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/MenuScene.d"

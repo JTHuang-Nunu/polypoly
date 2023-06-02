@@ -25,7 +25,7 @@ class GameViewController: UIViewController {
         
         if let view = self.view as! SKView? {
 //            let scene = initialScene(size: view.bounds.size)
-            let scene = MenuScene(size: view.bounds.size)
+            let scene = MainScene(size: view.bounds.size)
             scene.scaleMode = .aspectFill
             view.ignoresSiblingOrder = true
             view.showsFPS = true

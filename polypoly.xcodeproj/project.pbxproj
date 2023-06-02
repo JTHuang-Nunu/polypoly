@@ -15,7 +15,11 @@
 		D83681BA2A263F05005A5EEB /* GameManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681B42A262B70005A5EEB /* GameManager.swift */; };
 		D83681BB2A263F08005A5EEB /* CharacterFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681B52A262B70005A5EEB /* CharacterFactory.swift */; };
 		D83681C52A26740E005A5EEB /* Skill.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681C42A26740E005A5EEB /* Skill.swift */; };
-		D83681C92A26EB4E005A5EEB /* PlayerPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681C82A26EB4E005A5EEB /* PlayerPosition.swift */; };
+		D83681C92A26EB4E005A5EEB /* PlayerPositionProtocol.swift in Sources */ = {isa = PBXBuildFile; fileRef = D83681C82A26EB4E005A5EEB /* PlayerPositionProtocol.swift */; };
+		D88E76912A29AF1D00C2FA63 /* CGextension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88E76902A29AF1D00C2FA63 /* CGextension.swift */; };
+		D8A0B8662A29E0D500FECC8E /* SkillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0B8652A29E0D500FECC8E /* SkillButton.swift */; };
+		D8BCFDB22A2A4CDC00F46D5F /* sceneZAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BCFDB12A2A4CDC00F46D5F /* sceneZAxis.swift */; };
+		D8BCFDB42A2A5F5E00F46D5F /* CGVectorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BCFDB32A2A5F5E00F46D5F /* CGVectorConverter.swift */; };
 		D8BE1EC72A01F7E9002CC0D0 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */; };
 		D8BE1EC92A01F9E7002CC0D0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE1EC82A01F9E6002CC0D0 /* Line.swift */; };
 		D8CDCE372A20487B005996F8 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDCE362A20487B005996F8 /* Background.swift */; };
@@ -31,12 +35,12 @@
 		D8CF0B1F29FE41640056A94D /* polypolyUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B1E29FE41640056A94D /* polypolyUITests.swift */; };
 		D8CF0B2129FE41640056A94D /* polypolyUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B2029FE41640056A94D /* polypolyUITestsLaunchTests.swift */; };
 		D8CF0B3029FE4C5F0056A94D /* InitialScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B2F29FE4C5F0056A94D /* InitialScene.swift */; };
-		D8CF0B3229FE53920056A94D /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3129FE53920056A94D /* MainScene.swift */; };
+		D8CF0B3229FE53920056A94D /* MainScene_Bak.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3129FE53920056A94D /* MainScene_Bak.swift */; };
 		D8CF0B3429FE834B0056A94D /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3329FE834B0056A94D /* Wall.swift */; };
 		D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */; };
 		D8CF0B3829FE885A0056A94D /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3729FE885A0056A94D /* Ball.swift */; };
 		E712FBE82A28319F005282AE /* TestScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E712FBE72A28319F005282AE /* TestScene.sks */; };
-		E712FBEA2A2831D8005282AE /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712FBE92A2831D8005282AE /* TestScene.swift */; };
+		E712FBEA2A2831D8005282AE /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712FBE92A2831D8005282AE /* MainScene.swift */; };
 		E7A234062A1DFBB900F0F7F9 /* Character.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A234052A1DFBB900F0F7F9 /* Character.swift */; };
 		E7A234082A1E006600F0F7F9 /* InputManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A234072A1E006600F0F7F9 /* InputManager.swift */; };
 		E7A979402A0D55F70056B6BC /* SessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A9793F2A0D55F70056B6BC /* SessionManager.swift */; };
@@ -75,7 +79,11 @@
 		D83681B42A262B70005A5EEB /* GameManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameManager.swift; sourceTree = "<group>"; };
 		D83681B52A262B70005A5EEB /* CharacterFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CharacterFactory.swift; sourceTree = "<group>"; };
 		D83681C42A26740E005A5EEB /* Skill.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Skill.swift; sourceTree = "<group>"; };
-		D83681C82A26EB4E005A5EEB /* PlayerPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPosition.swift; sourceTree = "<group>"; };
+		D83681C82A26EB4E005A5EEB /* PlayerPositionProtocol.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlayerPositionProtocol.swift; sourceTree = "<group>"; };
+		D88E76902A29AF1D00C2FA63 /* CGextension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGextension.swift; sourceTree = "<group>"; };
+		D8A0B8652A29E0D500FECC8E /* SkillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillButton.swift; sourceTree = "<group>"; };
+		D8BCFDB12A2A4CDC00F46D5F /* sceneZAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sceneZAxis.swift; sourceTree = "<group>"; };
+		D8BCFDB32A2A5F5E00F46D5F /* CGVectorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGVectorConverter.swift; sourceTree = "<group>"; };
 		D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		D8BE1EC82A01F9E6002CC0D0 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		D8CDCE362A20487B005996F8 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Background.swift; path = polypoly/Background.swift; sourceTree = SOURCE_ROOT; };
@@ -95,12 +103,12 @@
 		D8CF0B1E29FE41640056A94D /* polypolyUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = polypolyUITests.swift; sourceTree = "<group>"; };
 		D8CF0B2029FE41640056A94D /* polypolyUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = polypolyUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		D8CF0B2F29FE4C5F0056A94D /* InitialScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InitialScene.swift; sourceTree = "<group>"; };
-		D8CF0B3129FE53920056A94D /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
+		D8CF0B3129FE53920056A94D /* MainScene_Bak.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene_Bak.swift; sourceTree = "<group>"; };
 		D8CF0B3329FE834B0056A94D /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		D8CF0B3729FE885A0056A94D /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
 		E712FBE72A28319F005282AE /* TestScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TestScene.sks; sourceTree = "<group>"; };
-		E712FBE92A2831D8005282AE /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
+		E712FBE92A2831D8005282AE /* MainScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		E7A234052A1DFBB900F0F7F9 /* Character.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Character.swift; sourceTree = "<group>"; };
 		E7A234072A1E006600F0F7F9 /* InputManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InputManager.swift; sourceTree = "<group>"; };
 		E7A9793F2A0D55F70056B6BC /* SessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionManager.swift; sourceTree = "<group>"; };
@@ -160,16 +168,18 @@
 			children = (
 				D83681B52A262B70005A5EEB /* CharacterFactory.swift */,
 				E7A234052A1DFBB900F0F7F9 /* Character.swift */,
-				D83681C82A26EB4E005A5EEB /* PlayerPosition.swift */,
+				D83681C82A26EB4E005A5EEB /* PlayerPositionProtocol.swift */,
 			);
 			path = Charcter;
 			sourceTree = "<group>";
 		};
-		D83681C12A267258005A5EEB /* Skill */ = {
+		D88E768F2A29AEB700C2FA63 /* Extension */ = {
 			isa = PBXGroup;
 			children = (
+				D88E76902A29AF1D00C2FA63 /* CGextension.swift */,
+				D8BCFDB32A2A5F5E00F46D5F /* CGVectorConverter.swift */,
 			);
-			path = Skill;
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		D8CDCE322A1F4301005996F8 /* Object */ = {
@@ -182,6 +192,7 @@
 				D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */,
 				D82BD4732A09FF7400E181FC /* PowerBar.swift */,
 				D8CF0B3729FE885A0056A94D /* Ball.swift */,
+				D8A0B8652A29E0D500FECC8E /* SkillButton.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -190,13 +201,14 @@
 			isa = PBXGroup;
 			children = (
 				D8CF0B0029FE41610056A94D /* GameScene.swift */,
-				D8CF0B3129FE53920056A94D /* MainScene.swift */,
+				D8CF0B3129FE53920056A94D /* MainScene_Bak.swift */,
 				D8CF0B2F29FE4C5F0056A94D /* InitialScene.swift */,
 				E712FBE72A28319F005282AE /* TestScene.sks */,
-				E712FBE92A2831D8005282AE /* TestScene.swift */,
+				E712FBE92A2831D8005282AE /* MainScene.swift */,
 				E7FE28F02A28D7550057A1A1 /* Canvas.swift */,
 				E7FE28F22A28E9130057A1A1 /* Button.swift */,
 				BF3317B12A271BBC002B2E5D /* MenuScene.swift */,
+				D8BCFDB12A2A4CDC00F46D5F /* sceneZAxis.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -229,7 +241,6 @@
 		D8CF0AF929FE41610056A94D /* polypoly */ = {
 			isa = PBXGroup;
 			children = (
-				D83681C12A267258005A5EEB /* Skill */,
 				D83681C02A267238005A5EEB /* Charcter */,
 				D8CDCE332A1F431F005996F8 /* Scene */,
 				D8CDCE322A1F4301005996F8 /* Object */,
@@ -275,6 +286,7 @@
 			isa = PBXGroup;
 			children = (
 				D83681C42A26740E005A5EEB /* Skill.swift */,
+				D88E768F2A29AEB700C2FA63 /* Extension */,
 				E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */,
 				E7FE28F42A28ECB30057A1A1 /* Event.swift */,
 				E7FE28FB2A2907990057A1A1 /* Protocols.swift */,
@@ -418,7 +430,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D83681C52A26740E005A5EEB /* Skill.swift in Sources */,
-				D83681C92A26EB4E005A5EEB /* PlayerPosition.swift in Sources */,
+				D83681C92A26EB4E005A5EEB /* PlayerPositionProtocol.swift in Sources */,
 				D8CF0B3829FE885A0056A94D /* Ball.swift in Sources */,
 				E7F5EDAD2A11DD3700AB6597 /* Dispatcher.swift in Sources */,
 				D8CF0B0129FE41610056A94D /* GameScene.swift in Sources */,
@@ -427,20 +439,24 @@
 				D8CDCE372A20487B005996F8 /* Background.swift in Sources */,
 				D8CF0B3429FE834B0056A94D /* Wall.swift in Sources */,
 				E7FE28FA2A28F1CF0057A1A1 /* Event.swift in Sources */,
+				D8BCFDB42A2A5F5E00F46D5F /* CGVectorConverter.swift in Sources */,
 				E7FE28F32A28E9130057A1A1 /* Button.swift in Sources */,
 				D8CF0B3029FE4C5F0056A94D /* InitialScene.swift in Sources */,
 				E7A234062A1DFBB900F0F7F9 /* Character.swift in Sources */,
 				E7FE28F12A28D7550057A1A1 /* Canvas.swift in Sources */,
 				D82BD4742A09FF7400E181FC /* PowerBar.swift in Sources */,
-				D8CF0B3229FE53920056A94D /* MainScene.swift in Sources */,
+				D8BCFDB22A2A4CDC00F46D5F /* sceneZAxis.swift in Sources */,
+				D8CF0B3229FE53920056A94D /* MainScene_Bak.swift in Sources */,
 				D8CF0B0329FE41610056A94D /* GameViewController.swift in Sources */,
-				E712FBEA2A2831D8005282AE /* TestScene.swift in Sources */,
+				E712FBEA2A2831D8005282AE /* MainScene.swift in Sources */,
 				D8CF0AFB29FE41610056A94D /* AppDelegate.swift in Sources */,
 				D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */,
 				D83681B72A263F03005A5EEB /* GameManager.swift in Sources */,
 				D8BE1EC72A01F7E9002CC0D0 /* Arrow.swift in Sources */,
 				E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */,
 				E7FE28FC2A2907990057A1A1 /* Protocols.swift in Sources */,
+				D88E76912A29AF1D00C2FA63 /* CGextension.swift in Sources */,
+				D8A0B8662A29E0D500FECC8E /* SkillButton.swift in Sources */,
 				BF3317B22A271BBC002B2E5D /* MenuScene.swift in Sources */,
 				E7A234082A1E006600F0F7F9 /* InputManager.swift in Sources */,
 				E7A234082A1E006600F0F7F9 /* InputManager.swift in Sources */,
@@ -626,7 +642,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 554SRAW4M3;
+				DEVELOPMENT_TEAM = 763ZK52CNF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -640,7 +656,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Main.polypoly;
+				PRODUCT_BUNDLE_IDENTIFIER = Main123.polypoly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
@@ -655,7 +671,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = 554SRAW4M3;
+				DEVELOPMENT_TEAM = 763ZK52CNF;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
@@ -669,7 +685,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = Main.polypoly;
+				PRODUCT_BUNDLE_IDENTIFIER = Main123132.polypoly;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;

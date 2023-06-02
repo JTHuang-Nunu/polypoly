@@ -9,6 +9,7 @@ import Foundation
 
 enum Skill: Codable {
     case Move
+    case Draw
     case MeteoriteFalling               //隕石砸落, 將場景物體破壞
     case HpRecovery                     //玩家HP恢復 (hp +?)
     case PowerRecovery                  //能量條恢復 (power +?)

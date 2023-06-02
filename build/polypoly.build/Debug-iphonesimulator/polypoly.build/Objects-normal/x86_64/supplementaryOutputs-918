@@ -1,0 +1,20 @@
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Arrow.swift":
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Arrow.d"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Arrow.dia"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Arrow.o"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Arrow.swiftdeps"
+"/Users/mac03/Documents/GitHub/polypoly/Manager/GameManager.swift":
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/GameManager.dia"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/GameManager.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/GameManager.o"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/GameManager.d"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/AppDelegate.swift":
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/AppDelegate.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/AppDelegate.o"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/AppDelegate.dia"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/AppDelegate.d"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/PhysicsCategory.swift":
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PhysicsCategory.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PhysicsCategory.o"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PhysicsCategory.dia"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/PhysicsCategory.d"

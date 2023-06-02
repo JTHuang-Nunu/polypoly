@@ -117,6 +117,7 @@ class MenuScene: SKScene {
             print("模式1被選擇")
             
             if let view = self.view as SKView? {
+                //todo 
                 let scene = MainScene(size: view.bounds.size)
                 scene.scaleMode = .aspectFill
                 view.ignoresSiblingOrder = true

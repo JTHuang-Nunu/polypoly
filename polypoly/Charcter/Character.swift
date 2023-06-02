@@ -12,6 +12,7 @@ class Character: CharacterProtocol{
     var ball: Ball
     var lineList = [DrawingLine]()
     var currLine:DrawingLine!
+    var currSkill: Skill = .Move
 
     var position: CGPoint {
         didSet{// initial won't trigger didSet func
@@ -36,24 +37,54 @@ class Character: CharacterProtocol{
     
     func DoAction(action: PlayerAction) {
         print("playerAction doing")
-        switch(action.ActionType){
-        case .UseSkill:
-            self.UseSkill(action: action)
-            break
-        }
-    }
-    func UseSkill(action: PlayerAction){
-        switch(action.Skill){
+        switch action.Skill{
         case .Move:
-            //self.move(impulse: action.content["impulse"])
+            characterMove(content: action.content)
+        case .Draw:
             break
-        default:
+        case .MeteoriteFalling:
+            break
+        case .HpRecovery:
+            break
+        case .PowerRecovery:
+            break
+        case .TowerBuilding:
+            break
+        case .ObjectEnhancing:
+            break
+        case .GravityIncreasing:
+            break
+        case .ObjectRandomlyGenerated:
             break
         }
+//        switch(action.ActionType){
+//        case .UseSkill:
+//            self.UseSkill(action: action)
+//            break
+//        }
     }
-    func move(impulse: CGVector) {
-        pushBall(impulse: impulse)
+//    func UseSkill(action: PlayerAction){
+//        switch(action.Skill){
+//        case .Move:
+//            //self.move(impulse: action.content["impulse"])
+//            char
+//            break
+//        default:
+//            break
+//        }
+//    }
+    func characterMove(content : [ContentType: String]) {
+        guard let impulse = CGVectorConverter.convertToVector(from: content[.Impulse]!)
+        else {return}
+        
+        //push the ball by the impulse
+        self.ball.physicsBody?.applyImpulse(impulse)
+        
     }
+//    func characterMove(force impulse: CGVector) {
+//        //push the ball by the impulse
+//        self.ball.physicsBody?.applyImpulse(impulse)
+//    }
     func draw(status: TouchStatus, point: CGPoint?) {
         
         switch status {
@@ -74,10 +105,5 @@ class Character: CharacterProtocol{
         }
     }
     
-    
-    internal func pushBall(impulse: CGVector){
-        self.ball.physicsBody?.applyImpulse(impulse)
-//        self.scale = .zero
-    }
 }
 

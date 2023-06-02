@@ -1,0 +1,20 @@
+"/Users/mac03/Documents/GitHub/polypoly/Basic/Event.swift":
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Event.swiftdeps"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Event.d"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Event.o"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Event.dia"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/Button.swift":
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Button.swiftdeps"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Button.dia"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Button.d"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Button.o"
+"/Users/mac03/Documents/GitHub/polypoly/Basic/Extension/CGVectorConverter.swift":
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/CGVectorConverter.dia"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/CGVectorConverter.d"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/CGVectorConverter.o"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/CGVectorConverter.swiftdeps"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Wall.swift":
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Wall.dia"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Wall.swiftdeps"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Wall.d"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphonesimulator/polypoly.build/Objects-normal/x86_64/Wall.o"
