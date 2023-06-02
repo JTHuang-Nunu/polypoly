@@ -8,7 +8,14 @@
 import Foundation
 import SpriteKit
 
+public enum CanvasMode{
+    case Draw
+    case Pointer
+}
+
 class Canvas: SKShapeNode{
+    public let OnDrawLine: Event<DrawLine> = Event<DrawLine>()
+    public var Mode: CanvasMode = CanvasMode.Draw
     var line: DrawLine? = nil
     
     override init() {
@@ -26,16 +33,47 @@ class Canvas: SKShapeNode{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        line = DrawLine(lineWidth: 5)
-        line?.SetStartPoint(startPoint: touches.first!.location(in: scene!))
-        scene?.addChild(line!)
+        touchBegin(point: touches.first!.location(in: scene!))
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        line?.UpdateLine(newPoint: touches.first!.location(in: scene!))
+        touchMove(point: touches.first!.location(in: scene!))
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        line?.removeFromParent()
+        touchEnded(point: touches.first!.location(in: scene!))
+    }
+    private func touchBegin(point: CGPoint){
+        switch Mode{
+        case .Draw:
+            line = DrawLine(lineWidth: 5)
+            line?.SetStartPoint(startPoint: point)
+            scene?.addChild(line!)
+            break
+        case .Pointer:
+            
+            break
+        }
+    }
+    private func touchMove(point: CGPoint){
+        switch Mode{
+        case .Draw:
+            line?.UpdateLine(newPoint: point)
+            break
+        case .Pointer:
+            
+            break
+        }
+    }
+    private func touchEnded(point: CGPoint){
+        switch Mode{
+        case .Draw:
+            self.OnDrawLine.Invoke(line!)
+            line?.removeFromParent()
+            break
+        case .Pointer:
+            break
+        }
     }
     
+
     
 }
