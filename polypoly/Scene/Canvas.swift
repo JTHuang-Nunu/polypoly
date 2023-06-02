@@ -15,6 +15,8 @@ public enum CanvasMode{
 
 class Canvas: SKShapeNode{
     public let OnDrawLine: Event<DrawLine> = Event<DrawLine>()
+    public let OnDrawPointer: Event<CGVector> = Event<CGVector>()
+    
     public var Mode: CanvasMode = CanvasMode.Pointer
     var line: DrawLine? = nil
     var pointer: Pointer? = nil
@@ -74,12 +76,10 @@ class Canvas: SKShapeNode{
             line!.removeFromParent()
             break
         case .Pointer:
+            let vector = CGVector(dx: point.x - pointerStartNode!.position.x, dy: point.y - pointerStartNode!.position.y)
+            self.OnDrawPointer.Invoke(vector)
             pointer!.removeFromParent()
             break
-        }
-    }
-    private func UpdatePointer(point: CGPoint){
-        if pointer != nil {
         }
     }
 
