@@ -45,6 +45,7 @@
 		E7FE28FA2A28F1CF0057A1A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F42A28ECB30057A1A1 /* Event.swift */; };
 		E7FE28FC2A2907990057A1A1 /* Protocols.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28FB2A2907990057A1A1 /* Protocols.swift */; };
 		E7FE29002A2982CB0057A1A1 /* TestScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = E7FE28FF2A2982CB0057A1A1 /* TestScene.sks */; };
+		E7FE29022A29F3780057A1A1 /* Pointer.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE29012A29F3780057A1A1 /* Pointer.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -107,6 +108,7 @@
 		E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
 		E7FE28FB2A2907990057A1A1 /* Protocols.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Protocols.swift; sourceTree = "<group>"; };
 		E7FE28FF2A2982CB0057A1A1 /* TestScene.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = TestScene.sks; sourceTree = "<group>"; };
+		E7FE29012A29F3780057A1A1 /* Pointer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pointer.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -171,6 +173,7 @@
 				D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */,
 				D82BD4732A09FF7400E181FC /* PowerBar.swift */,
 				D8CF0B3729FE885A0056A94D /* Ball.swift */,
+				E7FE29012A29F3780057A1A1 /* Pointer.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -426,6 +429,7 @@
 				D8CF0AFB29FE41610056A94D /* AppDelegate.swift in Sources */,
 				D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */,
 				D83681B72A263F03005A5EEB /* GameManager.swift in Sources */,
+				E7FE29022A29F3780057A1A1 /* Pointer.swift in Sources */,
 				D8BE1EC72A01F7E9002CC0D0 /* Arrow.swift in Sources */,
 				E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */,
 				E7FE28FC2A2907990057A1A1 /* Protocols.swift in Sources */,

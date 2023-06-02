@@ -10,7 +10,7 @@ import SpriteKit
 
 class TestScene: SKScene{
     
-    var ThisCharacter: CharacterProtocol? = nil
+    var ThisCharacter: Character? = nil
     var ThisUUID = UUID()
     override func sceneDidLoad() {
         CreatePlayer()
@@ -25,7 +25,7 @@ class TestScene: SKScene{
         ThisCharacter = character
     }
     func CreateCanvas(){
-        let canvas = Canvas()
+        let canvas = Canvas(pointerStartNode: ThisCharacter!.ball)
         addChild(canvas)
     }
     
