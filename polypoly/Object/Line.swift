@@ -85,3 +85,31 @@ class DrawingLine: SKShapeNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
+
+class DrawLine: SKShapeNode {
+
+    var linePath: CGMutablePath
+    
+    init(lineWidth: CGFloat) {
+        self.linePath = CGMutablePath()
+        super.init()
+        self.strokeColor = .blue
+        self.lineWidth = lineWidth
+        
+    }
+    public func SetStartPoint(startPoint: CGPoint){
+        linePath.move(to: startPoint)
+        self.path = linePath
+    }
+    
+    public func UpdateLine(newPoint: CGPoint){
+        linePath.addLine(to: newPoint)
+        self.path = linePath
+    }
+    
+
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+}

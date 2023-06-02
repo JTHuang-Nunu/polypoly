@@ -9,6 +9,8 @@ import Foundation
 import SpriteKit
 
 class Canvas: SKShapeNode{
+    var line: DrawLine? = nil
+    
     override init() {
         super.init()
         
@@ -24,13 +26,15 @@ class Canvas: SKShapeNode{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        line = DrawLine(lineWidth: 5)
+        line?.SetStartPoint(startPoint: touches.first!.location(in: scene!))
+        scene?.addChild(line!)
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        line?.UpdateLine(newPoint: touches.first!.location(in: scene!))
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
+        line?.removeFromParent()
     }
     
     
