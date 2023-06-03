@@ -9,7 +9,7 @@ import Foundation
 
 class GameManager {
     
-    public let inputManager = InputManager.shared
+    public let _inputManager = InputManager.shared
     public let _dispatcher = Dispatcher()
     
     
@@ -18,8 +18,15 @@ class GameManager {
     public static let shared = GameManager()
     
     private init(){
-        inputManager.OnDoPlayerAction += _dispatcher.sendAction
-        _dispatcher.OnReceivePlayerAction += GivePlayerAction
+        SetConnection()
+    }
+    public func SetConnection(network: Bool = false){
+        if(network){
+            _inputManager.OnDoPlayerAction += _dispatcher.sendAction
+            _dispatcher.OnReceivePlayerAction += GivePlayerAction
+        }else{
+            _inputManager.OnDoPlayerAction += GivePlayerAction
+        }
     }
     
     public func GetCharacter(ID: UUID) -> Character?{
@@ -38,7 +45,7 @@ class GameManager {
             return
         }
         _operateCharacter = ID
-        inputManager.SetOperateCharacter(ID: ID)
+        _inputManager.SetOperateCharacter(ID: ID)
     }
     
     public func GivePlayerAction(action: PlayerAction){
