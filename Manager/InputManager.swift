@@ -9,23 +9,29 @@ import Foundation
 import UIKit
 
 class InputManager: InputManagerProtocol{
+    let OnDoPlayerAction: Event<PlayerAction> = Event<PlayerAction>()
+    let encoder = JSONEncoder()
+    
     public static let shared = InputManager()
     
-    func OnDoAction(action: (PlayerAction) -> Void) {
-        
+    
+    public func InputPointer(vector: CGVector){
+        print("Input pointer")
+        var action = PlayerAction(
+            CharacterModelID: UUID(),
+            ActionType: .UseSkill,
+            Skill: .Move)
+        action.content[.Impulse] = encodeJSON(vector)
+        OnDoPlayerAction.Invoke(action)
     }
-    
-    public func touchesBegan(touch: UITouch){
-        print("touch")
-    
-    }
-    public func touchesMoved(touch: UITouch){
-        print("move")
-    
-    }
-    public func touchesEnded(touch: UITouch){
-        print("end")
-    
+    private func encodeJSON(_ message: Codable)-> String{
+        do{
+            let jsonData = try encoder.encode(message)
+            return String(data: jsonData, encoding: .utf8)!
+        }catch{
+            print(error)
+        }
+        return ""
     }
     
     

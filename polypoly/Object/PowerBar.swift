@@ -65,3 +65,15 @@ class PowerBar: SKShapeNode {
         fatalError("init(coder:) has not been implemented")
     }
 }
+class EnergyBar: SKNode{
+    private var increasingVelocity: Float
+    init(incVelocity: Float){
+        increasingVelocity = incVelocity
+        super.init()
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+}

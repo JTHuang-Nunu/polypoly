@@ -9,6 +9,8 @@ import Foundation
 import Network
 
 class SesstionManager{
+    public var OnReceiveData: Event<String> = Event<String>()
+    
     private var UDPConnection: NWConnection?
     private var TCPConnection: NWConnection?
     convenience init(ip: NWEndpoint.Host, port: NWEndpoint.Port, startInit: Bool = true){
@@ -38,6 +40,10 @@ class SesstionManager{
             default:
                 break
             }
+        }
+        
+        setReceiveDataHandler{ data in
+            self.OnReceiveData.Invoke(data)
         }
         
         if startInit{
@@ -74,7 +80,7 @@ class SesstionManager{
 
     }
     
-    public func setReceiveDataHandler(completion: @escaping (String) -> Void){
+    private func setReceiveDataHandler(completion: @escaping (String) -> Void){
         self.TCPConnection?.receive(minimumIncompleteLength: 1, maximumLength: 65536) { (data, _, _, error) in
             if let data = data, let message = String(data: data, encoding: .utf8) {
                 completion(message)

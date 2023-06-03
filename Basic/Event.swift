@@ -11,7 +11,7 @@ class Event<T> {
 
     typealias EventHandler = (T) -> ()
     var eventHandlers = [EventHandler]()
-    func Invoke(data: T) {
+    func Invoke(_ data: T) {
         for handler in eventHandlers {
             handler(data)
         }
@@ -19,7 +19,7 @@ class Event<T> {
     func AddHandler(handler: @escaping EventHandler) {
         eventHandlers.append(handler)
     }
-    public static func += <T> (left: Event<T>, right: @escaping (T) -> ()) {
+    public static func += (left: Event<T>, right: @escaping (T) -> ()) {
         left.AddHandler(handler: right)
     }
 }
