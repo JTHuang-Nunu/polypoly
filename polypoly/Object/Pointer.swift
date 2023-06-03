@@ -82,8 +82,6 @@ extension CGMutablePath {
     func addDashLine(to point: CGPoint, dashLen: CGFloat, gapLen: CGFloat, startAt: CGFloat) {
         let lineLength = sqrt(pow(point.x - currentPoint.x, 2) + pow(point.y - currentPoint.y, 2))
         let dashCount = Int(lineLength / (dashLen + gapLen))
-        let dash = dashLen / (dashLen + gapLen)
-        let gap = gapLen / (dashLen + gapLen)
         
         var currentDistance: CGFloat = 0
         let lineAngle = atan2(point.y - currentPoint.y, point.x - currentPoint.x)

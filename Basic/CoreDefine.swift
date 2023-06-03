@@ -38,7 +38,7 @@ struct PlayerAction: Codable{
     var CharacterModelID: UUID
     var ActionType: ActionType
     var Skill: Skill
-    var content: [ContentType: String]
+    var content: [ContentType: String] = [:]
 }
 
 struct Message: Codable{

@@ -14,7 +14,7 @@ public enum CanvasMode{
 }
 
 class Canvas: SKShapeNode{
-    public let OnDrawLine: Event<DrawLine> = Event<DrawLine>()
+    public let OnDrawLine: Event<CGPath> = Event<CGPath>()
     public let OnDrawPointer: Event<CGVector> = Event<CGVector>()
     
     public var Mode: CanvasMode = CanvasMode.Pointer
@@ -72,7 +72,7 @@ class Canvas: SKShapeNode{
     private func touchEnded(point: CGPoint){
         switch Mode{
         case .Draw:
-            self.OnDrawLine.Invoke(line!)
+            self.OnDrawLine.Invoke(line!.path!)
             line!.removeFromParent()
             break
         case .Pointer:

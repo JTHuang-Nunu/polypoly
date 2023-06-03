@@ -11,12 +11,14 @@ import SpriteKit
 class TestScene: SKScene{
     
     var ThisCharacter: Character? = nil
+    var ThisCanvas: Canvas? = nil
     var ThisUUID = UUID()
     override func sceneDidLoad() {
         CreatePlayer()
         CreateCanvas()
-
-        
+    
+        ThisCanvas!.OnDrawPointer += InputManager.shared.InputPointer
+        InputManager.shared.OnDoPlayerAction += ThisCharacter!.DoAction
         
     }
     func CreatePlayer(){
@@ -25,9 +27,7 @@ class TestScene: SKScene{
         ThisCharacter = character
     }
     func CreateCanvas(){
-        let canvas = Canvas(pointerStartNode: ThisCharacter!.ball)
-        addChild(canvas)
+        ThisCanvas = Canvas(pointerStartNode: ThisCharacter!.ball)
+        addChild(ThisCanvas! as SKNode)
     }
-    
-    
 }
