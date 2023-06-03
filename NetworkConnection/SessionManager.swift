@@ -10,6 +10,7 @@ import Network
 
 class SesstionManager{
     public var OnReceiveData: Event<String> = Event<String>()
+    public static let shared = SesstionManager(ip: "localhost", port: 8000)
     
     private var UDPConnection: NWConnection?
     private var TCPConnection: NWConnection?

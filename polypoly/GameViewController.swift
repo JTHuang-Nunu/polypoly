@@ -13,8 +13,6 @@ class GameViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        let dispatcher = Dispatcher()
-        dispatcher.RequestRoom()
         // wait 2 seconds and send playeraction
 
 //        DispatchQueue.main.asyncAfter(deadline: .now() + 2) {

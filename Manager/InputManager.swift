@@ -11,14 +11,20 @@ import UIKit
 class InputManager: InputManagerProtocol{
     let OnDoPlayerAction: Event<PlayerAction> = Event<PlayerAction>()
     let encoder = JSONEncoder()
-    
+    var OperateCharacterID: UUID? = nil
     public static let shared = InputManager()
-    
+    public func SetOperateCharacter(ID: UUID){
+        OperateCharacterID = ID
+    }
     
     public func InputPointer(vector: CGVector){
+        guard let OperateCharacterID = OperateCharacterID else {
+            print("OperateCharacterID not set")
+            return
+        }
         print("Input pointer")
         var action = PlayerAction(
-            CharacterModelID: UUID(),
+            CharacterModelID: OperateCharacterID,
             ActionType: .UseSkill,
             Skill: .Move)
         action.content[.Impulse] = encodeJSON(vector)

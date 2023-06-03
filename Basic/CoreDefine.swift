@@ -22,7 +22,7 @@ enum ContentType: Codable{
     case Position
 }
 
-enum RequestType: String, Codable{
+enum MessageType: String, Codable{
     case RequestRoom
     case CreateRoom
     case CancelRequest
@@ -39,7 +39,7 @@ struct PlayerAction: Codable{
 }
 
 struct Message: Codable{
-    var PlayerID: UUID
-    var MessageType: RequestType
+    var DeviceID: UUID
+    var MessageType: MessageType
     var Content: String = ""
 }

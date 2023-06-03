@@ -10,31 +10,29 @@ class Dispatcher {
     public let OnReceivePlayerAction = Event<PlayerAction>()
     
     
-    private var sessionManager: SesstionManager
+    private var sessionManager: SesstionManager = SesstionManager.shared
     private let encoder: JSONEncoder = JSONEncoder()
-    private var decoder: JSONDecoder = JSONDecoder()
+    private let decoder: JSONDecoder = JSONDecoder()
     
-    private var PlayerID: UUID
+    private var DeviceID: UUID
     init(){
-        sessionManager = SesstionManager(ip: "localhost", port: 8000)
-
-        PlayerID = UUID()
+        DeviceID = UUID()
         sessionManager.OnReceiveData += handleReceiveMessage
     }
     
     public func RequestRoom(){
-        let message = Message(PlayerID: PlayerID, MessageType: .RequestRoom)
+        let message = Message(DeviceID: DeviceID, MessageType: .RequestRoom)
         sendMessage(message: message)
     }
     
     public func sendAction(action: PlayerAction){
-        let data = Message(PlayerID: PlayerID, MessageType: .PlayerAction, Content: encodeJSON(message: action))
+        let data = Message(DeviceID: DeviceID, MessageType: .PlayerAction, Content: encodeJSON(message: action))
         sendMessage(message: data)
     }
     
     private func handleMessage(message: Message){
         
-        if(message.PlayerID != PlayerID){
+        if(message.DeviceID != DeviceID){
             print("Not my message")
         }
         
@@ -43,7 +41,7 @@ class Dispatcher {
         case .RequestRoom:
             break
         case .PlayerAction:
-            print("Receive PlayerAction")
+            handleReceivePlayerAction(content: message.Content)
             break
         case .CreateRoom:
             print("CreateRoom")
