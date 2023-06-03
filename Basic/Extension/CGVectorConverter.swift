@@ -6,25 +6,34 @@
 //
 
 import CoreGraphics
+import Foundation
 
 class CGVectorConverter {
     // 将 CGVector 转换为字符串
     static func convertToString(vector: CGVector) -> String {
-           return "\(vector)"
-       }
+        let encoder = JSONEncoder()
+        do{
+            let jsonData = try encoder.encode(vector)
+            return String(data: jsonData, encoding: .utf8)!
+        }catch{
+            print(error)
+        }
+        return ""
+    }
     
     // 将字符串转换回 CGVector
     static func convertToVector(from string: String) -> CGVector? {
-        let cleanedString = string.replacingOccurrences(of: "(", with: "").replacingOccurrences(of: ")", with: "")
-        let components = cleanedString.components(separatedBy: ",")
-        
-        guard components.count == 2,
-              let dx = Double(components[0]),
-              let dy = Double(components[1].trimmingCharacters(in: .whitespaces)) else {
-            return nil
+        let decoder = JSONDecoder()
+        do{
+            let jsonData = string.data(using: .utf8)!
+            let vector = try decoder.decode(CGVector.self, from: jsonData)
+            return vector
+            
+        }catch{
+            print(error)
         }
-        
-        return CGVector(dx: CGFloat(dx), dy: CGFloat(dy))
+        return nil
+    
     }
 }
 

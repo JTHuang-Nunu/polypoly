@@ -118,12 +118,12 @@ class MenuScene: SKScene {
             
             if let view = self.view as SKView? {
                 //todo 
-                let scene = MainScene(size: view.bounds.size)
-                scene.scaleMode = .aspectFill
+                //let scene = MainScene(size: view.bounds.size)
+                //scene.scaleMode = .aspectFill
                 view.ignoresSiblingOrder = true
                 view.showsFPS = true
                 view.showsNodeCount = true
-                view.presentScene(scene)
+                //view.presentScene(scene)
             }
         }
         
