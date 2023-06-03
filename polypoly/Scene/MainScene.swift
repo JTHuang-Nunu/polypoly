@@ -65,7 +65,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
 //                })
     }
     func CreateCanvas(){
-        let canvas = Canvas(thisPlayer: ThisPlayer)
+        let canvas = MainCanvas(thisPlayer: ThisPlayer)
         canvas.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
         canvas.zPosition = zAxis.Canvas
         addChild(canvas)
