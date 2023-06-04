@@ -16,8 +16,19 @@ extension CGPoint {
 }
 
 extension CGVector {
+    var distance: CGFloat{
+        return sqrt((dx*dx) + (dy*dy))
+    }
+    
     var angle: CGFloat {
         return atan2(dy, dx)
+    }
+    
+    static func / (vector: CGVector, disvisor: CGFloat) -> CGVector{
+        return CGVector(dx: vector.dx / disvisor, dy: vector.dy / disvisor)
+    }
+    static func * (vector: CGVector, disvisor: CGFloat) -> CGVector{
+        return CGVector(dx: vector.dx * disvisor, dy: vector.dy * disvisor)
     }
 }
 

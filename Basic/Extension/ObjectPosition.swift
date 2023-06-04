@@ -13,7 +13,7 @@ class ObjectPosition {
     private static let halfX: CGFloat = UIScreen.main.bounds.midX
     private static let halfY: CGFloat = UIScreen.main.bounds.midY
     static let SkillBlock = CGPoint(x: -halfX + 100, y: -halfY + 50)
-    static let PowerBar =  CGPoint(x: 0, y: -halfY)
+    static let PowerBar =  CGPoint(x: 0, y: -halfY+50)
     static let BoundWall = CGPoint(x: 0, y: 0)
     static let Center = CGPoint(x: 0, y: 0)
 }

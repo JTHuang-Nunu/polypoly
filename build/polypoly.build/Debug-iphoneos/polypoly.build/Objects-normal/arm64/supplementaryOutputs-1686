@@ -1,0 +1,20 @@
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Arrow.swift":
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Arrow.o"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Arrow.d"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Arrow.swiftdeps"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Arrow.dia"
+"/Users/mac03/Documents/GitHub/polypoly/Manager/GameManager.swift":
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/GameManager.d"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/GameManager.o"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/GameManager.dia"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/GameManager.swiftdeps"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/PhysicsCategory.swift":
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/PhysicsCategory.o"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/PhysicsCategory.swiftdeps"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/PhysicsCategory.dia"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/PhysicsCategory.d"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Pointer.swift":
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Pointer.dia"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Pointer.d"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Pointer.o"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Pointer.swiftdeps"

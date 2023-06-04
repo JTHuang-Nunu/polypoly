@@ -1,0 +1,25 @@
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Background.swift":
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Background.o"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Background.d"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Background.swiftdeps"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Background.dia"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/CharacterFactory.swift":
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/CharacterFactory.dia"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/CharacterFactory.swiftdeps"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/CharacterFactory.o"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/CharacterFactory.d"
+"/Users/mac03/Documents/GitHub/polypoly/NetworkConnection/SessionManager.swift":
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/SessionManager.d"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/SessionManager.dia"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/SessionManager.o"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/SessionManager.swiftdeps"
+"/Users/mac03/Documents/GitHub/polypoly/NetworkConnection/Dispatcher.swift":
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Dispatcher.d"
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Dispatcher.dia"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Dispatcher.o"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/Dispatcher.swiftdeps"
+"/Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/GameScene.swift":
+  diagnostics: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/GameScene.dia"
+  object: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/GameScene.o"
+  dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/GameScene.d"
+  swift-dependencies: "/Users/mac03/Documents/GitHub/polypoly/build/polypoly.build/Debug-iphoneos/polypoly.build/Objects-normal/arm64/GameScene.swiftdeps"

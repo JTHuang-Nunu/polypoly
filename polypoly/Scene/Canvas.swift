@@ -15,7 +15,7 @@ public enum CanvasMode{
 
 class Canvas: SKShapeNode{
     public let OnDrawLine: Event<CGPath> = Event<CGPath>()
-    public let OnDrawPointer: Event<CGVector> = Event<CGVector>()
+    public var OnDrawPointer: Event<CGVector> = Event<CGVector>()
     
     public var Mode: CanvasMode = CanvasMode.Pointer
     var line: DrawLine? = nil
@@ -24,8 +24,9 @@ class Canvas: SKShapeNode{
     
     init(pointerStartNode: SKNode) {
         self.pointerStartNode = pointerStartNode
+
         super.init()
-        
+        self.zPosition = zAxis.Canvas   //set initial zPosition
         // Adjust the size of the canvas to match the screen dimensions
         let screenSize = UIScreen.main.bounds.size
         self.path = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: screenSize)).cgPath
@@ -72,17 +73,15 @@ class Canvas: SKShapeNode{
     private func touchEnded(point: CGPoint){
         switch Mode{
         case .Draw:
+            //In
             self.OnDrawLine.Invoke(line!.path!)
             line!.removeFromParent()
             break
         case .Pointer:
-            let vector = CGVector(dx: point.x - pointerStartNode!.position.x, dy: point.y - pointerStartNode!.position.y)
+            let vector = CGVector(dx: point.x - pointerStartNode!.position.x * 5, dy: point.y - pointerStartNode!.position.y * 5)
             self.OnDrawPointer.Invoke(vector)
             pointer!.removeFromParent()
             break
         }
     }
-
-
-    
 }

@@ -13,12 +13,12 @@ class TestScene: SKScene{
     var ThisCharacter: Character? = nil
     var ThisCanvas: Canvas? = nil
     var ThisUUID = UUID()
+    //-----------------------------------
     override func sceneDidLoad() {
         gameManager._dispatcher.RequestRoom()
         
         CreatePlayers()
         CreateCanvas()
-        
     }
     func CreatePlayers(){
         ThisCharacter = gameManager.CreateCharacter(ID: ThisUUID)

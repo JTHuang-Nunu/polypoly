@@ -1,3 +1,3 @@
-紀錄line長度更新powerbar的部分加進line class中
-doaction draw還不能動 need to testing
-
+0604
+impulse的資料無法受限於power 是要在pointer加什麼嗎 
+從Canvas取得
