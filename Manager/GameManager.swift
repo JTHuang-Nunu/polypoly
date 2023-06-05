@@ -10,14 +10,14 @@ import Foundation
 class GameManager {
     
     public let _inputManager = InputManager()
-    public let _dispatcher = Dispatcher()
+    public var _dispatcher: Dispatcher
     
     
     private var _characterMap: [UUID: Character] = [:]
     private var _operateCharacter: UUID? = nil
-    public static let shared = GameManager()
     
-    private init(){
+    init(deviceID: UUID, sessionManager: ConnectionManager){
+        _dispatcher = Dispatcher(deviceID: deviceID, sessionManager: sessionManager)
         SetConnection(network: true)
     }
     public func SetConnection(network: Bool = false){

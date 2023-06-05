@@ -8,12 +8,15 @@
 import Foundation
 import Network
 
-class SesstionManager{
+class ConnectionManager{
     public var OnReceiveData: Event<String> = Event<String>()
-    public static let shared = SesstionManager(ip: "localhost", port: 8000)
+    public static let shared = ConnectionManager(ip: "localhost", port: 8000)
     
     private var UDPConnection: NWConnection?
     private var TCPConnection: NWConnection?
+    convenience init(hostInfo: HostInfo){
+        self.init(ip: NWEndpoint.Host(hostInfo.IP), port: NWEndpoint.Port(rawValue: UInt16(hostInfo.Port))!)
+    }
     convenience init(ip: NWEndpoint.Host, port: NWEndpoint.Port, startInit: Bool = true){
         let host = NWEndpoint.hostPort(host: ip, port: port)
         self.init(host: host, startInit: startInit)
@@ -25,7 +28,7 @@ class SesstionManager{
         self.UDPConnection?.stateUpdateHandler = { newState in
             switch newState {
             case .ready:
-                print("Connection established successfully.")
+                print("UDP ready")
             case .failed(let error):
                 print("Failed to establish connection: \(error.localizedDescription)")
             default:
@@ -35,7 +38,7 @@ class SesstionManager{
         self.TCPConnection?.stateUpdateHandler = { newState in
             switch newState {
             case .ready:
-                print("Connection established successfully.")
+                print("TCP ready")
             case .failed(let error):
                 print("Failed to establish connection: \(error.localizedDescription)")
             default:

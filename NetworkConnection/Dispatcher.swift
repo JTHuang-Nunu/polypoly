@@ -6,23 +6,11 @@
 //
 //  Dispacher is a class that dispaches player actions to other device by SessionManager
 import Foundation
-class Dispatcher {
+class Dispatcher: BaseMessageHandler {
     public let OnReceivePlayerAction = Event<PlayerAction>()
-    
-    
-    private var sessionManager: SesstionManager = SesstionManager.shared
-    private let encoder: JSONEncoder = JSONEncoder()
-    private let decoder: JSONDecoder = JSONDecoder()
-    
-    private var DeviceID: UUID
-    init(){
-        DeviceID = UUID()
-        sessionManager.OnReceiveData += handleReceiveMessage
-    }
-    
-    public func RequestRoom(){
-        let message = Message(DeviceID: DeviceID, MessageType: .RequestRoom)
-        sendMessage(message: message)
+
+    override init(deviceID: UUID, sessionManager: ConnectionManager){
+        super.init(deviceID: deviceID, sessionManager: sessionManager)
     }
     
     public func sendAction(action: PlayerAction){
@@ -30,21 +18,13 @@ class Dispatcher {
         sendMessage(message: data)
     }
     
-    private func handleMessage(message: Message){
-        
-        if(message.DeviceID != DeviceID){
-            print("Not my message")
-        }
-        
-        
+    override func handleMessage(message: Message){
+        print("Dispatcher: Handle message")
+        super.handleMessage(message: message)
+
         switch message.MessageType {
-        case .RequestRoom:
-            break
         case .PlayerAction:
             handleReceivePlayerAction(content: message.Content)
-            break
-        case .CreateRoom:
-            print("CreateRoom")
             break
         default:
             break
@@ -52,6 +32,7 @@ class Dispatcher {
     }
     
     private func handleReceivePlayerAction(content: String){
+        print("Receive playeraction")
         let decodedAction = decodeJSON(PlayerAction.self, jsonString: content)
         if let action = decodedAction{
             OnReceivePlayerAction.Invoke(action)
@@ -59,43 +40,5 @@ class Dispatcher {
         else{
             print("Error: Receive invalid player action")
         }
-    }
-    
-    private func handleReceiveMessage(content: String){
-        let decodedMessage = decodeJSON(Message.self, jsonString: content)
-        if let message = decodedMessage{
-            handleMessage(message: message)
-        }
-        else{
-            print("Error: Receive invalid message")
-        
-        }
-    }
-    
-    
-    private func sendMessage(message: Message){
-        sessionManager.sendData(message: encodeJSON(message: message),reliable: true)
-    }
-    
-
-    private func decodeJSON<T: Codable>(_ type: T.Type, jsonString: String)->T?{
-        do{
-            let jsonData = jsonString.data(using: .utf8)!
-            let message = try decoder.decode(T.self, from: jsonData)
-            return message
-        }catch{
-            print(error)
-        }
-        return nil
-    
-    }
-    private func encodeJSON(message: Codable)-> String{
-        do{
-            let jsonData = try encoder.encode(message)
-            return String(data: jsonData, encoding: .utf8)!
-        }catch{
-            print(error)
-        }
-        return ""
     }
 }

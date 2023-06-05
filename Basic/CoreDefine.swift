@@ -43,3 +43,13 @@ struct Message: Codable{
     var MessageType: MessageType
     var Content: String = ""
 }
+
+struct RoomInfo: Codable{
+    var RoomID: String
+    var PlayerIDList: [String]
+    var RoomHostInfo: HostInfo
+}
+struct HostInfo: Codable{
+    var IP: String
+    var Port: Int
+}
