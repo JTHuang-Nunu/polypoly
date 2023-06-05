@@ -1,3 +1,0 @@
-0604
-impulse的資料無法受限於power 是要在pointer加什麼嗎 
-從Canvas取得
