@@ -9,7 +9,7 @@ import Foundation
 
 class GameManager {
     
-    public let _inputManager = InputManager.shared
+    public let _inputManager = InputManager()
     public let _dispatcher = Dispatcher()
     
     
@@ -18,7 +18,7 @@ class GameManager {
     public static let shared = GameManager()
     
     private init(){
-        SetConnection()
+        SetConnection(network: true)
     }
     public func SetConnection(network: Bool = false){
         if(network){

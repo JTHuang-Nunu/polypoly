@@ -29,7 +29,7 @@ class TestScene: SKScene{
     }
     func CreateCanvas(){
         ThisCanvas = Canvas(pointerStartNode: ThisCharacter!.ball)
-        ThisCanvas!.OnDrawPointer += InputManager.shared.InputPointer
+        ThisCanvas!.OnDrawPointer += GameManager.shared._inputManager.InputPointer
         addChild(ThisCanvas! as SKNode)
     }
 }

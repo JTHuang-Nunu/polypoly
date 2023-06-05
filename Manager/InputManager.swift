@@ -12,7 +12,6 @@ class InputManager: InputManagerProtocol{
     let OnDoPlayerAction: Event<PlayerAction> = Event<PlayerAction>()
     let encoder = JSONEncoder()
     var OperateCharacterID: UUID? = nil
-    public static let shared = InputManager()
     public func SetOperateCharacter(ID: UUID){
         OperateCharacterID = ID
     }
