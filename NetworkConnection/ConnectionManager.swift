@@ -9,7 +9,12 @@ import Foundation
 import Network
 
 class ConnectionManager{
-    public var OnReceiveData: Event<String> = Event<String>()
+    public let OnReceiveData: Event<String> = Event<String>()
+    
+    public let OnConnectionReady: Event<Void> = Event<Void>()
+    public let OnConnectionFailed: Event<String> = Event<String>()
+    
+    
     
     private var UDPConnection: NWConnection?
     private var TCPConnection: NWConnection?
@@ -27,9 +32,9 @@ class ConnectionManager{
         self.UDPConnection?.stateUpdateHandler = { newState in
             switch newState {
             case .ready:
-                print("UDP ready")
+                self.OnConnectionReady.Invoke(())
             case .failed(let error):
-                print("Failed to establish connection: \(error.localizedDescription)")
+                self.OnConnectionFailed.Invoke(error.localizedDescription)
             default:
                 break
             }
@@ -37,9 +42,9 @@ class ConnectionManager{
         self.TCPConnection?.stateUpdateHandler = { newState in
             switch newState {
             case .ready:
-                print("TCP ready")
+                self.OnConnectionReady.Invoke(())
             case .failed(let error):
-                print("Failed to establish connection: \(error.localizedDescription)")
+                self.OnConnectionFailed.Invoke(error.localizedDescription)
             default:
                 break
             }
