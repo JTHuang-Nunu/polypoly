@@ -10,10 +10,24 @@ import SpriteKit
 
 class InitialScene: SKScene {
     let earth = SKSpriteNode(imageNamed: "earth")
+    let deviceManager = DeviceManager.shared
+    let lobbyManager = DeviceManager.shared._lobbyManager
     override func didMove(to view: SKView){
         createScene()
         //Start Label
         createStartLabel()
+        
+        let button = BaseButton()
+        button.position = CGPoint(x:self.frame.maxX - 50, y:self.frame.midY)
+        button.OnClickBegin += {
+            self.lobbyManager?.RequestRoom()
+        }
+        let label = SKLabelNode(text: "test")
+        label.fontName = "HelveticaNeue-Bold"
+        label.fontSize = 50
+        button.addChild(label)
+        self.addChild(button)
+        
         
     }
     

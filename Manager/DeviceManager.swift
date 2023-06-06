@@ -21,6 +21,40 @@ class DeviceManager{
     private let _lobbyHostInfo = HostInfo(IP: "localhost", Port: 8000)
     private var _gameHostInfo: HostInfo? = nil
     
+    public var IsInLobby: Bool{
+        get{
+            return _lobbyManager != nil
+        }
+    }
+    
+    public var LobbyManager: LobbyManager?{
+        get{
+            if _lobbyManager == nil{
+                print("Device is not in lobby")
+            }
+            
+            return _lobbyManager
+        }
+    }
+    
+    public var IsInGame: Bool{
+        get{
+            return _gameManager != nil
+        }
+    }
+    
+    public var GameManager: GameManager?{
+        get{
+            if _gameManager == nil{
+                print("Device is not in game")
+            }
+            
+            return _gameManager
+        }
+    }
+    
+    
+    
     
     private init()
     {
@@ -28,7 +62,7 @@ class DeviceManager{
     }
     
     public func EnterLobby(){
-        _lobbyManager = LobbyManager(deviceID: DeviceID, sessionManager: _lobbyPeer!)
+        _lobbyManager = polypoly.LobbyManager(deviceID: DeviceID, sessionManager: _lobbyPeer!)
         _lobbyManager!.OnCreateRoom += createRoom
     }
     
@@ -50,6 +84,6 @@ class DeviceManager{
     private func createRoom(roomInfo: RoomInfo){
         self._gameHostInfo = roomInfo.RoomHostInfo
         self._gamePeer = ConnectionManager(hostInfo: self._gameHostInfo!)
-        self._gameManager = GameManager(deviceID: self.DeviceID, sessionManager: self._gamePeer!)
+        self._gameManager = polypoly.GameManager(deviceID: self.DeviceID, sessionManager: self._gamePeer!)
     }
 }
