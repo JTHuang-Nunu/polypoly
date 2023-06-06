@@ -10,7 +10,6 @@ import Network
 
 class ConnectionManager{
     public var OnReceiveData: Event<String> = Event<String>()
-    public static let shared = ConnectionManager(ip: "localhost", port: 8000)
     
     private var UDPConnection: NWConnection?
     private var TCPConnection: NWConnection?
