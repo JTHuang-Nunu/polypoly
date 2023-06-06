@@ -56,4 +56,10 @@ class GameManager {
         }
         character.DoAction(action: action)
     }
+    
+    //---
+    //for testing
+    public func GetCharacterMap() -> [UUID: Character]{
+        return _characterMap
+    }
 }

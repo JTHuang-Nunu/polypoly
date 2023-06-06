@@ -20,6 +20,7 @@ enum ActionType: Codable {
 enum ContentType: Codable{
     case Impulse
     case Position
+    case Path
 }
 
 enum MessageType: String, Codable{

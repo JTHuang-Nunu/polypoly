@@ -14,6 +14,7 @@ class TestScene: SKScene{
     var ThisCharacter: Character? = nil
     var ThisCanvas: Canvas? = nil
     var ThisUUID = UUID()
+    //-----------------------------------
     override func sceneDidLoad() {
         deviceManager.EnterLobby()
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {

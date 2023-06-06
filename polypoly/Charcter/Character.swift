@@ -9,10 +9,11 @@ import Foundation
 
 class Character: CharacterProtocol{
     var CharacterModelID: UUID
-    var ball: Ball
+    var ball: Ball = Ball()
     var lineList = [DrawingLine]()
     var currLine:DrawingLine!
     var currSkill: Skill = .Move
+    private var power: Power = Power(CharacterPower: 100)
 
     var position: CGPoint {
         didSet{// initial won't trigger didSet func
@@ -24,14 +25,12 @@ class Character: CharacterProtocol{
         self.CharacterModelID = characterModelID
         
         self.position = CGPoint(x: 0, y: 0)
-        self.ball = Ball()
         self.ball.position = self.position
     }
     init(characterModelID: UUID, position: CGPoint){
         self.CharacterModelID = characterModelID
         
         self.position = position
-        self.ball = Ball()
         self.ball.position = self.position
     }
     
@@ -74,12 +73,31 @@ class Character: CharacterProtocol{
 //        }
 //    }
     func characterMove(content : [ContentType: String]) {
-        guard let impulse = CGVectorConverter.convertToVector(from: content[.Impulse]!)
+        guard var impulse = CGVectorConverter.convertToVector(from: content[.Impulse]!)
         else {return}
+        //- - -
+        //update energy //modify impulse , when power value is insufficient
+        let distance = impulse.distance
         
+        var transformToPower: CGFloat{
+            return distance / 5
+        }
+        print(distance)
+        print("origin impulse", impulse)
+        var currPower = self.power.getCurrentValue()
+        if(currPower < transformToPower){
+            let modifyImpulse = currPower / transformToPower
+            impulse = impulse * modifyImpulse
+            currPower = 0 // using  all power
+        }else{
+            currPower -= transformToPower
+        }
+        print("modify impulse", impulse)
+        self.power.update(currentPower: currPower)
+        //- - -
         //push the ball by the impulse
         self.ball.physicsBody?.applyImpulse(impulse)
-        
+
     }
 //    func characterMove(force impulse: CGVector) {
 //        //push the ball by the impulse
@@ -105,5 +123,9 @@ class Character: CharacterProtocol{
         }
     }
     
+    
+    func getPower() -> Power {
+        return self.power
+    }
 }
 

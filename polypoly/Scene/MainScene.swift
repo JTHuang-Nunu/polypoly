@@ -9,74 +9,75 @@ import Foundation
 import SpriteKit
 
 class MainScene: SKScene, SKPhysicsContactDelegate{
-    let screenCenter: CGPoint = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-    let screenLB: CGPoint = CGPoint(x: UIScreen.main.bounds.minX+100, y: UIScreen.main.bounds.minY + 50)
-
     //player variable
+    let gameManager = GameManager.shared
     var uuidDictionary = [Int: UUID]()
-//    var uuidDictionary = [UUID: String]()
     var playerContainer = [Character]()
-    var player1: Character!
-    var player2: Character!
-    var id1: UUID!
-    var id2: UUID!
+    var ThisCharacter: Character? = nil
+    var ThisCanvas: Canvas? = nil
+    var ThisUUID = UUID()
+    //- - -
+    var powerBar:PowerBar? = nil
+
+//    var player1: Character!
+//    var player2: Character!
+//    var id1: UUID!
+//    var id2: UUID!
     var skillBtn: SkillButton!
-    
-    var ThisPlayer: Character!
-//    var ThisUUID = UUID()
+
     override func sceneDidLoad() {
-        CreatePlayer(numberOfperson: 2) //2 is for testing
+        gameManager._dispatcher.RequestRoom()
+        CreatePlayers(numberOfperson: 2) //2 is for testing
+
         CreateCanvas()
         CreateSceneBound()
 
         CreatePowerBar()
         createResetButton()
         createAxis()
-        
+        createSkillBlock()
         self.zPosition = zAxis.Canvas
         physicsWorld.contactDelegate = self
-
-
-        
     }
-    func CreatePlayer(numberOfperson number: Int){
+    func CreatePlayers(numberOfperson number: Int){
+        //set [ThisCharacter]
+//        ThisCharacter = gameManager.CreateCharacter(ID: ThisUUID)
+//        ThisCharacter!.position = CGPoint(x: 0, y: 0)
+//        self.addChild(ThisCharacter!.ball as SKNode)
+//
+//        gameManager.SetOperateCharacter(ID: ThisUUID)
+
         let playerPosition = PlayerPositionFactory.create(numberOfperson: number).createPlayerPositions()
         for i in 0...number-1 {
-            let id = UUID() //system assign a random string
-            uuidDictionary[i] = id
-            let character = CharacterFactory.shared.createCharacter(ID: id, position: playerPosition[i])
+            let character = gameManager.CreateCharacter(ID: ThisUUID)
+            character.position = playerPosition[i]
             playerContainer.append(character)
             addChild(character.ball)
         }
-        ThisPlayer = playerContainer[0]
+        //set ThisCharacter
+        gameManager.SetOperateCharacter(ID: gameManager.GetCharacterMap().first!.key)
+        ThisCharacter = gameManager.GetCharacterMap().first!.value
     }
     func CreateSceneBound() {
-        let wall = Wall(size: self.size,position: screenCenter)
-        wall.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        let wall = Wall(size: UIScreen.main.bounds.size)
+        wall.position = ObjectPosition.BoundWall
         addChild(wall)
     }
     func CreatePowerBar() {
-//        powerBar = PowerBar(position: CGPoint(x: self.frame.midX, y: 20),width: 300, height: 30, power: 100)
-//        addChild(powerBar)
-//        // add powerBar timer
-//        timer = Timer.scheduledTimer(withTimeInterval: 0.05, repeats: true, block: { [weak self] _ in
-//                    guard let self = self else { return }
-//                    self.powerBar.recoveryPower() // update the power bar display
-//                })
+        let ThisCharacterPower = ThisCharacter!.getPower()
+        powerBar = PowerBar(position: ObjectPosition.PowerBar, power: ThisCharacterPower)
+        ThisCharacterPower.setPowerBar(bar: powerBar!)
+        powerBar!.position = ObjectPosition.PowerBar
+        addChild(powerBar!)
     }
     func CreateCanvas(){
-        let canvas = MainCanvas(thisPlayer: ThisPlayer)
-        canvas.position = CGPoint(x: self.frame.minX, y: self.frame.minY)
-        canvas.zPosition = zAxis.Canvas
-        addChild(canvas)
+        ThisCanvas = Canvas(pointerStartNode: ThisCharacter!.ball)
+        ThisCanvas!.OnDrawPointer += InputManager.shared.InputPointer
+        addChild(ThisCanvas! as SKNode)
     }
-    
+
     override func didMove(to view: SKView) {
-        skillBtn = SkillButton(user: ThisPlayer)
-        skillBtn.position = screenLB
-        skillBtn.zPosition = zAxis.skillButton
-        self.addChild(skillBtn)
-        let bgd = Background(image: "marble", position: screenCenter, rotate: 1.57)
+        let bgd = Background(image: "marble", position: ObjectPosition.Center, rotate: 1.57)
                 addChild(bgd)
 
     }
@@ -102,23 +103,23 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
     func didEnd(_ contact: SKPhysicsContact) {
     }
 
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        if let touch = touches.first {
-            let touchLocation = touch.location(in: self)
-            if ThisPlayer.ball.contains(touchLocation) {
-                print("dragging")
-            }
-            if skillBtn.contains(touchLocation){
-                print("skillBtn")
-                skillBtn.touchesBegan(touches, with: event,from: ThisPlayer)
-            }
-        }
-    }
-    
-    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        
-    }
+
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first {
+//            let touchLocation = touch.location(in: self)
+//            if ThisPlayer.ball.contains(touchLocation) {
+//                print("dragging")
+//            }
+//            if skillBtn.contains(touchLocation){
+//                print("skillBtn")
+//                skillBtn.touchesBegan(touches, with: event,from: ThisPlayer)
+//            }
+//        }
+//    }
+//
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//
+//    }
     //---
     func createResetButton(){
         let resetButton = SKShapeNode(circleOfRadius: 10)
@@ -130,8 +131,14 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
         //create xy axis
         let rect = SKShapeNode(rect: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
         rect.strokeColor = .black
-        rect.position = screenCenter
+        rect.position = ObjectPosition.Center
         addChild(rect)
+    }
+    func createSkillBlock(){
+        skillBtn = SkillButton(user: ThisCharacter!)
+        skillBtn.position = ObjectPosition.SkillBlock
+        skillBtn.zPosition = zAxis.skillButton
+        self.addChild(skillBtn)
     }
 
 }

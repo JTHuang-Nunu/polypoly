@@ -10,11 +10,11 @@ import SpriteKit
 
 class Wall: SKSpriteNode {
     
-    init(size: CGSize, position: CGPoint) {
+    init(size: CGSize) {
         
         super.init(texture: nil, color: .clear, size: size)
         self._setupBody(size: size)
-        
+
         
     }
     private func _setupBody(size: CGSize){
@@ -28,7 +28,7 @@ class Wall: SKSpriteNode {
         self.name = "wall"
         
         self._setSidesOfWall(size: size)
-        self.position = position    //Position is set behind the wall group
+//        self.position = position    //Position is set behind the wall group
     }
     
     //Create Sides of Wall
