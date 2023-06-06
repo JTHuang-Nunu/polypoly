@@ -8,6 +8,9 @@
 import Foundation
 
 class BaseMessageHandler{
+    public let OnConnected = Event<Void>()
+    public let OnDisconnected = Event<Void>()
+    
     private var sessionManager: ConnectionManager
     private let encoder: JSONEncoder = JSONEncoder()
     private let decoder: JSONDecoder = JSONDecoder()
@@ -17,6 +20,9 @@ class BaseMessageHandler{
         DeviceID = deviceID
         self.sessionManager = sessionManager
         self.sessionManager.OnReceiveData += handleReceiveMessage
+        self.sessionManager.OnConnectionReady += handleOnConnected
+        self.sessionManager.OnConnectionFailed += handleOnDisconnected
+    
     }
     
     public func handleMessage(message: Message){
@@ -24,6 +30,17 @@ class BaseMessageHandler{
             print("Not my message")
         }
     }
+    
+    private func handleOnConnected(){
+        OnConnected.Invoke(())
+    }
+    
+    private func handleOnDisconnected(message: String){
+        print("Disconnected: \(message)")
+        OnDisconnected.Invoke(())
+    }
+    
+    
     
     private func handleReceiveMessage(content: String){
         let decodedMessage = decodeJSON(Message.self, jsonString: content)
