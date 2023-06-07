@@ -23,6 +23,7 @@ enum ContentType: Codable{
     case Position
     case HealthPoint
     case Energy
+    case Path
 }
 
 enum MessageType: String, Codable{

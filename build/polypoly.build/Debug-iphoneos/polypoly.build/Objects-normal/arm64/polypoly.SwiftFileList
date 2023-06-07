@@ -5,6 +5,7 @@
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Ball.swift
 /Users/mac03/Documents/GitHub/polypoly/NetworkConnection/Dispatcher.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/GameScene.swift
+/Users/mac03/Documents/GitHub/polypoly/Basic/Utils.swift
 /Users/mac03/Documents/GitHub/polypoly/NetworkConnection/SessionManager.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/CharacterFactory.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Object/SkillBlock.swift
@@ -28,6 +29,7 @@
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Pointer.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Arrow.swift
 /Users/mac03/Documents/GitHub/polypoly/Basic/CoreDefine.swift
+/Users/mac03/Documents/GitHub/polypoly/Basic/HealthManager.swift
 /Users/mac03/Documents/GitHub/polypoly/Basic/Protocols.swift
 /Users/mac03/Documents/GitHub/polypoly/Basic/Extension/CGextension.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Object/SkillButton.swift
