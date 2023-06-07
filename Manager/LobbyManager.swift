@@ -10,8 +10,9 @@ import Foundation
 class LobbyManager: BaseMessageHandler{
     public let OnCreateRoom = Event<RoomInfo>()
     public let OnConnectLobby = Event<Void>()
-    override init(deviceID: UUID, sessionManager: ConnectionManager){
-        super.init(deviceID: deviceID, sessionManager: sessionManager)
+    init(info: LobbyInfo){
+        let sessionManager = ConnectionManager(hostInfo: info.LobbyHostInfo)
+        super.init(deviceID: info.DeviceID, sessionManager: sessionManager)
         self.sessionManager.OnConnectionReady += OnConnectLobby.Invoke
     }
     override func handleMessage(message: Message) {
@@ -45,4 +46,8 @@ class LobbyManager: BaseMessageHandler{
     public func LeaveLobby(){
         sessionManager.Cancel()
     }
+}
+struct LobbyInfo{
+    let DeviceID: UUID
+    let LobbyHostInfo: HostInfo
 }

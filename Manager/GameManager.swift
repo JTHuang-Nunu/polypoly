@@ -14,45 +14,70 @@ class GameManager {
     public let OnConnectGameServer = Event<Void>()
     
     public let _inputManager = InputManager()
-    public var _dispatcher: Dispatcher
+    public var _dispatcher: Dispatcher? = nil
+    public var _skillManager: SkillManager? = nil
     
     private let logger = Logger(subsystem: "GameManager", category: "GameManager")
     private var _characterMap: [UUID: Character] = [:]
+    private var _characterInfoMap: [UUID: CharacterInfo] = [:]
     private var _operateCharacter: UUID? = nil
     
-    /// 這是GameManager的宣告
-    /// - Parameters:
-    ///   - deviceID: 裝置ID, 通常在DeviceManager會設定好
-    ///   - sessionManager: 給Dispatcher傳輸用的，如果不需要使用GameServer，可以傳入nil
-    ///   - useGameServer: 是否使用GameServer，預設為true
-    init(deviceID: UUID, sessionManager: ConnectionManager, useGameServer: Bool = true){
-        _dispatcher = Dispatcher(deviceID: deviceID, sessionManager: sessionManager)
-        _dispatcher.OnConnected += OnConnectGameServer.Invoke
-        SetConnection(network: useGameServer)
+    init(info: GameInfo){
+        if(info.UseServer){
+            let sessionManager = ConnectionManager(hostInfo: info.RoomInfo.RoomHostInfo)
+            _dispatcher = Dispatcher(deviceID: info.DeviceID, sessionManager: sessionManager)
+            _dispatcher!.OnConnected += OnConnectGameServer.Invoke
+        }
+        _skillManager = SkillManager(skills: [.Move])
+        SetConnection(network: info.UseServer)
+        _skillManager?.OnSelectSkill += { skill in
+            self._inputManager.SetSelectedSkill(skill: skill)
+        }
+        CreateAllCharacter(characterMap: info.RoomInfo.PlayerInfoMap)
+        OnConnectGameServer += {
+            self._dispatcher?.sendJoinMessage()
+        }
     }
     private func SetConnection(network: Bool = false){
         if(network){
-            _inputManager.OnDoPlayerAction += _dispatcher.sendAction
-            _dispatcher.OnReceivePlayerAction += GivePlayerAction
+            _inputManager.OnDoPlayerAction += _dispatcher!.sendAction
+            _dispatcher!.OnReceivePlayerAction += GivePlayerAction
         }else{
             _inputManager.OnDoPlayerAction += GivePlayerAction
         }
     }
     
-    /// 使用玩家ID來取得玩家角色Character物件
-    /// - Parameter ID: 玩家ID
-    /// - Returns: 玩家角色Character物件
+    public func GetOperateCharacter() -> Character?{
+        if let character = GetCharacter(ID: _operateCharacter!){
+            return character
+        }
+        logger.error("Operate character not found")
+        return nil
+        
+    }
+    
+    private func CreateAllCharacter(characterMap: [String: CharacterInfo]){
+        for (deviceID, playerInfo) in characterMap{
+            CreateCharacter(info: playerInfo)
+            if UUID(uuidString: deviceID) == DeviceManager.shared.DeviceID{
+                SetOperateCharacter(ID: playerInfo.CharacterModelID)
+            }
+        }
+    }
     public func GetCharacter(ID: UUID) -> Character?{
         return _characterMap[ID]
     }
-    
-    public func CreateCharacter(ID: UUID) -> Character{
-        let character = CharacterFactory.shared.createCharacter(ID: ID)
-        _characterMap[ID] = character
-        return character
+    public func GetCharacterInfo(ID: UUID) -> CharacterInfo?{
+        return _characterInfoMap[ID]
     }
     
-    public func SetOperateCharacter(ID: UUID){
+    private func CreateCharacter(info: CharacterInfo){
+        let character = CharacterFactory.shared.createCharacter(ID: info.CharacterModelID)
+        _characterMap[info.CharacterModelID] = character
+        _characterInfoMap[info.CharacterModelID] = info
+    }
+    
+    private func SetOperateCharacter(ID: UUID){
         guard _characterMap[ID] != nil else {
             logger.error("Character not found")
             return
@@ -62,6 +87,7 @@ class GameManager {
     }
     
     public func GivePlayerAction(action: PlayerAction){
+        logger.info("Give player action")
         guard let character = _characterMap[action.CharacterModelID] else {
             logger.error("Character not found")
             return
@@ -74,4 +100,9 @@ class GameManager {
     public func GetCharacterMap() -> [UUID: Character]{
         return _characterMap
     }
+}
+struct GameInfo{
+    let DeviceID: UUID
+    let RoomInfo: RoomInfo
+    let UseServer: Bool
 }

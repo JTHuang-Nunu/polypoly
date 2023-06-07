@@ -32,17 +32,17 @@ class DeviceManager{
     }
     
     public func createLobbyManager(lobbyHost: HostInfo) -> LobbyManager{
-        let lobbyPeer = ConnectionManager(hostInfo: lobbyHost)
-        _lobbyManager = polypoly.LobbyManager(deviceID: DeviceID, sessionManager: lobbyPeer)
+        let info = LobbyInfo(DeviceID: DeviceID, LobbyHostInfo: lobbyHost)
+        _lobbyManager = polypoly.LobbyManager(info: info)
         return _lobbyManager!
     }
     public func createLobbyManager() -> LobbyManager{
         return createLobbyManager(lobbyHost: _lobbyHostInfo)
     }
-    public func createGameManager(gameHost: HostInfo) -> GameManager{
-        let gamePeer = ConnectionManager(hostInfo: gameHost)
-        _gameManager = polypoly.GameManager(deviceID: DeviceID, sessionManager: gamePeer)
-        return _gameManager!
+
+    public func createRoom(roomInfo: RoomInfo){
+        let info = GameInfo(DeviceID: DeviceID, RoomInfo: roomInfo, UseServer: true)
+        _gameManager = polypoly.GameManager(info: info)
     }
     private init(){
         stateMachine = GKStateMachine(states: [
@@ -123,8 +123,10 @@ class WaitRoomState: DeviceState{
         DeviceManager.logger.log("Enter Wait Room State")
         DeviceManager.LobbyManager?.OnCreateRoom += { roomInfo in
             self.DeviceManager.logger.log("Create Room")
-            self.DeviceManager.createGameManager(gameHost: roomInfo.RoomHostInfo)
-            self.stateMachine?.enter(GameState.self)
+            self.DeviceManager.createRoom(roomInfo: roomInfo)
+            self.DeviceManager.GameManager?.OnConnectGameServer += {
+                self.stateMachine?.enter(GameState.self)
+            }
         }
     }
 

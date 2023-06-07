@@ -30,6 +30,7 @@ enum MessageType: String, Codable{
     case PlayerAction
     case PlayerLeave
     case TestMessage
+    case JoinMessage
 }
 
 struct PlayerAction: Codable{
@@ -47,10 +48,19 @@ struct Message: Codable{
 
 struct RoomInfo: Codable{
     var RoomID: String
-    var PlayerIDList: [String]
     var RoomHostInfo: HostInfo
+    var PlayerInfoMap: [String: CharacterInfo] // [DeviceID: PlayerInfo]
+}
+struct CharacterInfo: Codable{
+    var TeamID: TeamID
+    var CharacterModelID: UUID
 }
 struct HostInfo: Codable{
     var IP: String
     var Port: Int
 }
+enum TeamID: String, Codable{
+    case Blue
+    case Red
+}
+

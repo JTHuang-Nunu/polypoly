@@ -14,7 +14,11 @@ class Dispatcher: BaseMessageHandler {
     }
     
     public func sendAction(action: PlayerAction){
-        let data = Message(DeviceID: DeviceID, MessageType: .PlayerAction, Content: encodeJSON(message: action))
+        let data = Message(DeviceID: DeviceID, MessageType: .PlayerAction, Content: encodeJSON(action))
+        sendMessage(message: data)
+    }
+    public func sendJoinMessage(){
+        let data = Message(DeviceID: DeviceID, MessageType: .JoinMessage)
         sendMessage(message: data)
     }
     
