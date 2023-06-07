@@ -11,8 +11,7 @@ class GameManager {
     
     public let _inputManager = InputManager.shared
     public let _dispatcher = Dispatcher()
-    
-    
+    public let _statsManager = StatsManager.shared
     private var _characterMap: [UUID: Character] = [:]
     private var _operateCharacter: UUID? = nil
     public static let shared = GameManager()
@@ -64,8 +63,14 @@ class GameManager {
             print("Character not found")
             return
         }
-        character.UpdateStats(action: action)
+        _statsManager.UpdateStats(action: action)
+        _statsManager.CheckHealth(action: action)
         
+    }
+    
+    public func GiveGameEnding(winner: Character){
+        //todo: complete it
+        print("### Game Winner: \(winner.CharacterModelID)###")
     }
     
     //---

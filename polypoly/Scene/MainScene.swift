@@ -10,6 +10,7 @@ import SpriteKit
 
 class MainScene: SKScene, SKPhysicsContactDelegate{
     let gameManager = GameManager.shared
+    let _statsManager = StatsManager.shared
     var uuidDictionary = [Int: UUID]()
     var playerContainer = [Character]()
     var ThisCharacter: Character? = nil
@@ -47,14 +48,18 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
 //        gameManager.SetOperateCharacter(ID: ThisUUID)
         let playerPosition = PlayerPositionFactory.create(numberOfperson: number).createPlayerPositions()
         for i in 0...number-1 {
-            let character = gameManager.CreateCharacter(ID: ThisUUID)
+            let id = UUID()
+            let character = gameManager.CreateCharacter(ID: UUID())
             character.position = playerPosition[i]
             playerContainer.append(character)
             addChild(character.ball)
         }
+        //set healthManager
+        _statsManager.SetCharacterMap(map: gameManager.GetCharacterMap())
         //set ThisCharacter
         gameManager.SetOperateCharacter(ID: gameManager.GetCharacterMap().first!.key)
         ThisCharacter = gameManager.GetCharacterMap().first!.value
+        ThisUUID = ThisCharacter!.CharacterModelID
     }
     func CreateSceneBound() {
         let wall = Wall(size: UIScreen.main.bounds.size)
@@ -97,6 +102,9 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
                 drawingLine.updateLineHp()
             }
         }
+        
+        //touch charact is a
+//        healthManager.TakeDamage(who: , damage: <#T##Int#>)
     }
     func didEnd(_ contact: SKPhysicsContact) {
     }

@@ -18,6 +18,12 @@ enum ActionType: Codable {
     case ChooseSkill
 }
 
+enum StatsType: Codable {
+    case Health
+    case Energy
+    case All
+}
+
 enum ContentType: Codable{
     case Impulse
     case Position
@@ -31,6 +37,7 @@ enum MessageType: String, Codable{
     case CreateRoom
     case CancelRequest
     case PlayerAction
+    case PlayerStats
     case PlayerLeave
     case TestMessage
 }
@@ -44,6 +51,7 @@ struct PlayerAction: Codable{
 
 struct PlayerStats: Codable{
     var CharacterModelID: UUID
+    var statsType: StatsType
     var content: [ContentType: String] = [:]
 }
 

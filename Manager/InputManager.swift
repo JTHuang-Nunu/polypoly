@@ -32,7 +32,7 @@ class InputManager: InputManagerProtocol{
         OnDoPlayerAction.Invoke(action)
     }
     
-    public func updatePlayerStats(health: CGFloat, energy: CGFloat) {
+    public func updatePlayerStats(health: CGFloat?, energy: CGFloat?, statsType: StatsType) {
         guard let operateCharacterID = OperateCharacterID else {
             print("OperateCharacterID not set")
             return
@@ -41,7 +41,8 @@ class InputManager: InputManagerProtocol{
         print("Updating player stats")
         
         var stats = PlayerStats(
-            CharacterModelID: operateCharacterID
+            CharacterModelID: operateCharacterID,
+            statsType: statsType
         )
         stats.content[.HealthPoint] = encodeJSON(health)
         stats.content[.Energy] = encodeJSON(energy)
@@ -57,7 +58,7 @@ class InputManager: InputManagerProtocol{
         
         print("Selecting Skill")
         
-        var action = PlayerAction(
+        let action = PlayerAction(
             CharacterModelID: operateCharacterID,
             ActionType: .ChooseSkill,
             Skill: skill)

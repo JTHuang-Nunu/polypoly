@@ -8,7 +8,7 @@
 import Foundation
 
 class Character: CharacterProtocol{
-    var OnUpdateStats: Event<(CGFloat, CGFloat)> = Event<(CGFloat, CGFloat)>()
+    var OnUpdateStats: Event<(CGFloat?, CGFloat?, StatsType)> = Event<(CGFloat?, CGFloat?, StatsType)>()
     
     var hp: CGFloat = 100
     var CharacterModelID: UUID
@@ -19,9 +19,9 @@ class Character: CharacterProtocol{
     var currSkill: Skill = .Move  {
         didSet {
             print("Character be setting \(String(describing: currSkill))")
-        }
+        }			
     }
-    private var power: Power = Power(CharacterPower: 100)
+    internal var power: Power = Power(CharacterPower: 100)
 
     var position: CGPoint {
         didSet{// initial won't trigger didSet func
@@ -32,28 +32,19 @@ class Character: CharacterProtocol{
     init(characterModelID: UUID){
         self.CharacterModelID = characterModelID
         self.position = CGPoint(x: 0, y: 0)
-        self.ball.position = self.position
-        OnUpdateStats += InputManager.shared.updatePlayerStats
+        self._setup()
     }
     
     init(characterModelID: UUID, position: CGPoint){
         self.CharacterModelID = characterModelID
         self.position = position
+        self._setup()
+    }
+    private func _setup(){
         self.ball.position = self.position
         OnUpdateStats += InputManager.shared.updatePlayerStats
     }
 
-    func UpdateStats(action: PlayerStats) {
-        let content = action.content
-        
-        if let hpValue = CGConverter.convertToCGFloat(from: content[.HealthPoint]!) {
-            self.hp = hpValue
-        }
-        
-        if let powerValue = CGConverter.convertToCGFloat(from: content[.Energy]!) {
-            self.power.update(currentPower: powerValue)
-        }
-    }
     func DoAction(action: PlayerAction) {
         print("playerAction doing")
         switch action.ActionType{
@@ -62,6 +53,10 @@ class Character: CharacterProtocol{
             switch action.Skill{
             case .Move:
                 characterMove(content: action.content)
+            case .Obstacle:
+                break
+            case .Trap:
+                break
             case .Draw:
                 break
             case .MeteoriteFalling:
@@ -80,6 +75,7 @@ class Character: CharacterProtocol{
                 break
             case .bomp:
                 break
+
             }
         //Choose skill
         case .ChooseSkill:
@@ -88,7 +84,7 @@ class Character: CharacterProtocol{
     }
     
     func characterMove(content : [ContentType: String]) {
-        guard var impulse = CGConverter.convertToCGVector(from: content[.Impulse]!)
+        guard var impulse = decodeJSON(CGVector.self, jsonString: content[.Impulse]!)
         else {return}
         //- - -
         //update Power //modify impulse , when power value is insufficient
@@ -104,11 +100,12 @@ class Character: CharacterProtocol{
             let modifyImpulse = currPower / transformToPower
             impulse = impulse * modifyImpulse
             currPower = 0 // using  all power
-        }else{
+        } else{
             currPower -= transformToPower
         }
         print("modify impulse", impulse)
-        OnUpdateStats.Invoke((self.hp,currPower))
+//        OnUpdateStats.Invoke((nil ,currPower, .Energy))
+        OnUpdateStats.Invoke((0 ,currPower, .All))
         //- - -
         //push the ball by the impulse
         self.ball.physicsBody?.applyImpulse(impulse)

@@ -1,6 +1,0 @@
-Target dependency graph (3 targets)
-polypoly in polypoly, no dependencies
-polypolyTests in polypoly, depends on:
-polypoly in polypoly (explicit)
-polypolyUITests in polypoly, depends on:
-polypoly in polypoly (explicit)

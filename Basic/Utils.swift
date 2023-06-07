@@ -19,13 +19,17 @@ public func encodeJSON(_ message: Codable)-> String{
 }
 
 public func decodeJSON<T: Codable>(_ type: T.Type, jsonString: String)->T?{
-    do{
-        let jsonData = jsonString.data(using: .utf8)!
+    //if get nil data, won't return empty string
+    guard let jsonData = jsonString.data(using: .utf8) else {
+        return nil
+    }
+    
+    do {
         let message = try decoder.decode(T.self, from: jsonData)
         return message
-    }catch{
+    } catch {
         print(error)
     }
+    
     return nil
-
 }
