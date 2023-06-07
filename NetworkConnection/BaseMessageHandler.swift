@@ -11,7 +11,7 @@ class BaseMessageHandler{
     public let OnConnected = Event<Void>()
     public let OnDisconnected = Event<Void>()
     
-    private var sessionManager: ConnectionManager
+    public var sessionManager: ConnectionManager
     private let encoder: JSONEncoder = JSONEncoder()
     private let decoder: JSONDecoder = JSONDecoder()
     

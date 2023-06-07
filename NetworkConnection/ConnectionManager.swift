@@ -61,10 +61,10 @@ class ConnectionManager{
             
     }
     public func start(){
-        self.UDPConnection?.start(queue: .main)
+        //self.UDPConnection?.start(queue: .main)
         self.TCPConnection?.start(queue: .main)
     }
-    public func stop(){
+    public func Cancel(){
         self.UDPConnection?.cancel()
         self.TCPConnection?.cancel()
     }

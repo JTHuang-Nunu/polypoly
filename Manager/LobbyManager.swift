@@ -9,14 +9,15 @@ import Foundation
 
 class LobbyManager: BaseMessageHandler{
     public let OnCreateRoom = Event<RoomInfo>()
+    public let OnConnectLobby = Event<Void>()
     override init(deviceID: UUID, sessionManager: ConnectionManager){
         super.init(deviceID: deviceID, sessionManager: sessionManager)
+        self.sessionManager.OnConnectionReady += OnConnectLobby.Invoke
     }
     override func handleMessage(message: Message) {
         super.handleMessage(message: message)
         switch message.MessageType {
         case .CreateRoom:
-            print("Create Room")
             handleReceiveCreateRoom(content: message.Content)
             break
         default:
@@ -37,8 +38,11 @@ class LobbyManager: BaseMessageHandler{
     
     
     public func RequestRoom(){
-        print("Request Room")
         let message = Message(DeviceID: DeviceID, MessageType: .RequestRoom)
         sendMessage(message: message)
+    }
+    
+    public func LeaveLobby(){
+        sessionManager.Cancel()
     }
 }

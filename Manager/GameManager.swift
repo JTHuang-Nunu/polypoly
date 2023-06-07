@@ -9,6 +9,8 @@ import Foundation
 
 class GameManager {
     
+    public let OnConnectGameServer = Event<Void>()
+    
     public let _inputManager = InputManager()
     public var _dispatcher: Dispatcher
     
@@ -16,9 +18,10 @@ class GameManager {
     private var _characterMap: [UUID: Character] = [:]
     private var _operateCharacter: UUID? = nil
     
-    init(deviceID: UUID, sessionManager: ConnectionManager){
+    init(deviceID: UUID, sessionManager: ConnectionManager, useGameServer: Bool = true){
         _dispatcher = Dispatcher(deviceID: deviceID, sessionManager: sessionManager)
-        SetConnection(network: true)
+        _dispatcher.OnConnected += OnConnectGameServer.Invoke
+        SetConnection(network: useGameServer)
     }
     public func SetConnection(network: Bool = false){
         if(network){

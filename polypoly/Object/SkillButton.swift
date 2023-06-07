@@ -56,6 +56,9 @@ class SkillButton: SKShapeNode {
             break
         case .ObjectRandomlyGenerated:
             break
+        default:
+            break
+        
         }
     }
     

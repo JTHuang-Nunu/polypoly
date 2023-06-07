@@ -4,7 +4,7 @@
 //
 //  Created by Cheng Pong Huang on 2023/6/1.
 //
-
+/*
 import Foundation
 import SpriteKit
 
@@ -141,4 +141,4 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
         self.addChild(skillBtn)
     }
 
-}
+ }*/

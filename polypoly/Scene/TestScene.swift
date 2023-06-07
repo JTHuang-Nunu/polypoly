@@ -10,39 +10,27 @@ import SpriteKit
 
 class TestScene: SKScene{
     let deviceManager = DeviceManager.shared
+    let gameManager = DeviceManager.shared.GameManager!
     
     var ThisCharacter: Character? = nil
     var ThisCanvas: Canvas? = nil
     var ThisUUID = UUID()
     //-----------------------------------
     override func sceneDidLoad() {
-        deviceManager.EnterLobby()
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) {
-            self.deviceManager._lobbyManager?.RequestRoom()
-            
-            self.deviceManager._lobbyManager?.OnCreateRoom += { _ in
-                self.CreatePlayers()
-                self.CreateCanvas()
-            }
-            
-            
-        }
-        
-        
-        
-        
+        self.CreatePlayers()
+        self.CreateCanvas()
     }
     func CreatePlayers(){
-        ThisCharacter = self.deviceManager._gameManager?.CreateCharacter(ID: ThisUUID)
+        ThisCharacter = gameManager.CreateCharacter(ID: ThisUUID)
         ThisCharacter!.position = CGPoint(x: 0, y: 0)
         addChild(ThisCharacter!.ball as SKNode)
     
-        self.deviceManager._gameManager?.SetOperateCharacter(ID: ThisUUID)
+        gameManager.SetOperateCharacter(ID: ThisUUID)
     }
     func CreateCanvas(){
         ThisCanvas = Canvas(pointerStartNode: ThisCharacter!.ball)
         ThisCanvas!.OnDrawPointer += { vector in
-            self.deviceManager._gameManager?._inputManager.InputPointer(vector: vector)
+            self.gameManager._inputManager.InputPointer(vector: vector)
         }
         addChild(ThisCanvas! as SKNode)
     }

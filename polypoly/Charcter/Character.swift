@@ -55,6 +55,10 @@ class Character: CharacterProtocol{
             break
         case .ObjectRandomlyGenerated:
             break
+        case .Obstacle:
+            break
+        case .Trap:
+            break
         }
 //        switch(action.ActionType){
 //        case .UseSkill:
