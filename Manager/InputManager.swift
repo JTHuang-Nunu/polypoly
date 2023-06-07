@@ -10,7 +10,6 @@ import UIKit
 
 class InputManager: InputManagerProtocol{
     let OnDoPlayerAction: Event<PlayerAction> = Event<PlayerAction>()
-    let encoder = JSONEncoder()
     var OperateCharacterID: UUID? = nil
     public func SetOperateCharacter(ID: UUID){
         OperateCharacterID = ID
@@ -29,15 +28,4 @@ class InputManager: InputManagerProtocol{
         action.content[.Impulse] = encodeJSON(vector)
         OnDoPlayerAction.Invoke(action)
     }
-    private func encodeJSON(_ message: Codable)-> String{
-        do{
-            let jsonData = try encoder.encode(message)
-            return String(data: jsonData, encoding: .utf8)!
-        }catch{
-            print(error)
-        }
-        return ""
-    }
-    
-    
 }

@@ -48,6 +48,7 @@
 		E712FBEA2A2831D8005282AE /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712FBE92A2831D8005282AE /* TestScene.swift */; };
 		E772E55B2A2F9A73004CCCA8 /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E772E55A2A2F9A73004CCCA8 /* HealthManager.swift */; };
 		E772E55D2A2F9B02004CCCA8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E772E55C2A2F9B02004CCCA8 /* Utils.swift */; };
+		E772E55F2A3068CD004CCCA8 /* SkillManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E772E55E2A3068CD004CCCA8 /* SkillManager.swift */; };
 		E77864792A2AFC8000280EBF /* TestScene copy.sks in Resources */ = {isa = PBXBuildFile; fileRef = E77864782A2AFC8000280EBF /* TestScene copy.sks */; };
 		E79EBC022A2DD57E00D83B66 /* LobbyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EBC012A2DD57E00D83B66 /* LobbyManager.swift */; };
 		E79EBC042A2DD61700D83B66 /* BaseMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EBC032A2DD61700D83B66 /* BaseMessageHandler.swift */; };
@@ -124,6 +125,7 @@
 		E712FBE92A2831D8005282AE /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		E772E55A2A2F9A73004CCCA8 /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		E772E55C2A2F9B02004CCCA8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
+		E772E55E2A3068CD004CCCA8 /* SkillManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillManager.swift; sourceTree = "<group>"; };
 		E77864782A2AFC8000280EBF /* TestScene copy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "TestScene copy.sks"; sourceTree = "<group>"; };
 		E79EBC012A2DD57E00D83B66 /* LobbyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyManager.swift; sourceTree = "<group>"; };
 		E79EBC032A2DD61700D83B66 /* BaseMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMessageHandler.swift; sourceTree = "<group>"; };
@@ -181,6 +183,7 @@
 				E7A234072A1E006600F0F7F9 /* InputManager.swift */,
 				D83681B42A262B70005A5EEB /* GameManager.swift */,
 				E79EBC012A2DD57E00D83B66 /* LobbyManager.swift */,
+				E772E55E2A3068CD004CCCA8 /* SkillManager.swift */,
 			);
 			path = Manager;
 			sourceTree = "<group>";
@@ -468,7 +471,7 @@
 				D8CF0B0129FE41610056A94D /* GameScene.swift in Sources */,
 				E7A979402A0D55F70056B6BC /* ConnectionManager.swift in Sources */,
 				E772E55D2A2F9B02004CCCA8 /* Utils.swift in Sources */,
-				E7A979402A0D55F70056B6BC /* SessionManager.swift in Sources */,
+				E7A979402A0D55F70056B6BC /* ConnectionManager.swift in Sources */,
 				D83681BB2A263F08005A5EEB /* CharacterFactory.swift in Sources */,
 				D8CDCE372A20487B005996F8 /* Background.swift in Sources */,
 				E79EBC042A2DD61700D83B66 /* BaseMessageHandler.swift in Sources */,
@@ -490,6 +493,7 @@
 				D83681B72A263F03005A5EEB /* GameManager.swift in Sources */,
 				E7FE29022A29F3780057A1A1 /* Pointer.swift in Sources */,
 				D8BE1EC72A01F7E9002CC0D0 /* Arrow.swift in Sources */,
+				E772E55F2A3068CD004CCCA8 /* SkillManager.swift in Sources */,
 				E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */,
 				E772E55B2A2F9A73004CCCA8 /* HealthManager.swift in Sources */,
 				E7FE28FC2A2907990057A1A1 /* Protocols.swift in Sources */,
