@@ -8,11 +8,19 @@
 import Foundation
 
 class Character: CharacterProtocol{
+    var OnUpdateStats: Event<(CGFloat, CGFloat)> = Event<(CGFloat, CGFloat)>()
+    
+    var hp: CGFloat = 100
     var CharacterModelID: UUID
     var ball: Ball = Ball()
     var lineList = [DrawingLine]()
     var currLine:DrawingLine!
-    var currSkill: Skill = .Move
+    var possessSkill: [Skill] = [.Move, .Draw, .GravityIncreasing]
+    var currSkill: Skill = .Move  {
+        didSet {
+            print("Character be setting \(String(describing: currSkill))")
+        }
+    }
     private var power: Power = Power(CharacterPower: 100)
 
     var position: CGPoint {
@@ -23,60 +31,67 @@ class Character: CharacterProtocol{
     }
     init(characterModelID: UUID){
         self.CharacterModelID = characterModelID
-        
         self.position = CGPoint(x: 0, y: 0)
         self.ball.position = self.position
-    }
-    init(characterModelID: UUID, position: CGPoint){
-        self.CharacterModelID = characterModelID
-        
-        self.position = position
-        self.ball.position = self.position
+        OnUpdateStats += InputManager.shared.updatePlayerStats
     }
     
+    init(characterModelID: UUID, position: CGPoint){
+        self.CharacterModelID = characterModelID
+        self.position = position
+        self.ball.position = self.position
+        OnUpdateStats += InputManager.shared.updatePlayerStats
+    }
+
+    func UpdateStats(action: PlayerStats) {
+        let content = action.content
+        
+        if let hpValue = CGConverter.convertToCGFloat(from: content[.HealthPoint]!) {
+            self.hp = hpValue
+        }
+        
+        if let powerValue = CGConverter.convertToCGFloat(from: content[.Energy]!) {
+            self.power.update(currentPower: powerValue)
+        }
+    }
     func DoAction(action: PlayerAction) {
         print("playerAction doing")
-        switch action.Skill{
-        case .Move:
-            characterMove(content: action.content)
-        case .Draw:
-            break
-        case .MeteoriteFalling:
-            break
-        case .HpRecovery:
-            break
-        case .PowerRecovery:
-            break
-        case .TowerBuilding:
-            break
-        case .ObjectEnhancing:
-            break
-        case .GravityIncreasing:
-            break
-        case .ObjectRandomlyGenerated:
-            break
+        switch action.ActionType{
+        //Use skill
+        case .UseSkill:
+            switch action.Skill{
+            case .Move:
+                characterMove(content: action.content)
+            case .Draw:
+                break
+            case .MeteoriteFalling:
+                break
+            case .HpRecovery:
+                break
+            case .PowerRecovery:
+                break
+            case .TowerBuilding:
+                break
+            case .ObjectEnhancing:
+                break
+            case .GravityIncreasing:
+                break
+            case .ObjectRandomlyGenerated:
+                break
+            case .bomp:
+                break
+            }
+        //Choose skill
+        case .ChooseSkill:
+            currSkill = action.Skill
         }
-//        switch(action.ActionType){
-//        case .UseSkill:
-//            self.UseSkill(action: action)
-//            break
-//        }
     }
-//    func UseSkill(action: PlayerAction){
-//        switch(action.Skill){
-//        case .Move:
-//            //self.move(impulse: action.content["impulse"])
-//            char
-//            break
-//        default:
-//            break
-//        }
-//    }
+    
     func characterMove(content : [ContentType: String]) {
-        guard var impulse = CGVectorConverter.convertToVector(from: content[.Impulse]!)
+        guard var impulse = CGConverter.convertToCGVector(from: content[.Impulse]!)
         else {return}
         //- - -
-        //update energy //modify impulse , when power value is insufficient
+        //update Power //modify impulse , when power value is insufficient
         let distance = impulse.distance
         
         var transformToPower: CGFloat{
@@ -93,16 +108,12 @@ class Character: CharacterProtocol{
             currPower -= transformToPower
         }
         print("modify impulse", impulse)
-        self.power.update(currentPower: currPower)
+        OnUpdateStats.Invoke((self.hp,currPower))
         //- - -
         //push the ball by the impulse
         self.ball.physicsBody?.applyImpulse(impulse)
-
     }
-//    func characterMove(force impulse: CGVector) {
-//        //push the ball by the impulse
-//        self.ball.physicsBody?.applyImpulse(impulse)
-//    }
+    
     func draw(status: TouchStatus, point: CGPoint?) {
         
         switch status {

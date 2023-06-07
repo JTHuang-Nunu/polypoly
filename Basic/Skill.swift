@@ -17,4 +17,5 @@ enum Skill: Codable {
     case ObjectEnhancing                //下一個畫畫的物體增加血量
     case GravityIncreasing              //全場重力增加 (timer)
     case ObjectRandomlyGenerated        //物件隨機產生 (number of items)
+    case bomp                           //爆炸
 }

@@ -15,11 +15,14 @@ enum TouchStatus: Codable{
 
 enum ActionType: Codable {
     case UseSkill
+    case ChooseSkill
 }
 
 enum ContentType: Codable{
     case Impulse
     case Position
+    case HealthPoint
+    case Energy
 }
 
 enum MessageType: String, Codable{
@@ -35,6 +38,11 @@ struct PlayerAction: Codable{
     var CharacterModelID: UUID
     var ActionType: ActionType
     var Skill: Skill
+    var content: [ContentType: String] = [:]
+}
+
+struct PlayerStats: Codable{
+    var CharacterModelID: UUID
     var content: [ContentType: String] = [:]
 }
 

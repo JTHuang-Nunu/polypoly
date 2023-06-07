@@ -13,6 +13,15 @@ extension CGPoint {
         let dy = point.y - y
         return sqrt(dx*dx + dy*dy)
     }
+    static func += (left: inout CGPoint, right: CGPoint){
+        left = CGPoint(x: left.x + right.x, y: left.y + right.y)
+    }
+    static func + (left: CGPoint, right: CGPoint) -> CGPoint{
+        return CGPoint(x: left.x + right.x, y: left.y + right.y)
+    }
+    static func - (left: CGPoint, right: CGPoint) -> CGPoint{
+        return CGPoint(x: left.x - right.x, y: left.y - right.y)
+    }
 }
 
 extension CGVector {

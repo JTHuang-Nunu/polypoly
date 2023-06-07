@@ -7,11 +7,12 @@
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/GameScene.swift
 /Users/mac03/Documents/GitHub/polypoly/NetworkConnection/SessionManager.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/CharacterFactory.swift
+/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/SkillBlock.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Background.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Wall.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Object/PowerBar.swift
 /Users/mac03/Documents/GitHub/polypoly/Basic/Event.swift
-/Users/mac03/Documents/GitHub/polypoly/Basic/Extension/CGVectorConverter.swift
+/Users/mac03/Documents/GitHub/polypoly/Basic/Extension/CGConverter.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/Button.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/InitialScene.swift
 /Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/Character.swift

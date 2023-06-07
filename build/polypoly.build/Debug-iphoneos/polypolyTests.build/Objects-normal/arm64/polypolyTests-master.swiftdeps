@@ -1,0 +1,9 @@
+version: "Apple Swift version 5.8 (swiftlang-5.8.0.124.2 clang-1403.0.22.11.100)"
+options: "f2ba13ddc6c8799a7c5710b76f9060e54d1ec422a718641ca9a7457ed56cf3c4"
+build_start_time: [1685971866, 264287000]
+build_end_time: [1685971866, 325124000]
+inputs:
+  "/Users/mac03/Documents/GitHub/polypoly/polypoly/Object/PowerBar.swift": !private [1685901501, 554090409]
+  "/Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/MainScene.swift": !private [1685971092, 364792425]
+  "/Users/mac03/Documents/GitHub/polypoly/polypolyTests/EventTests.swift": !private [1685795897, 576714145]
+  "/Users/mac03/Documents/GitHub/polypoly/polypolyTests/polypolyTests.swift": !private [1682835940, 541433022]

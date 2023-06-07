@@ -361,6 +361,14 @@ SWIFT_CLASS("_TtC8polypoly11DrawingLine")
 @end
 
 
+SWIFT_CLASS("_TtC8polypoly14FlashingBorder")
+@interface FlashingBorder : SKShapeNode
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
 SWIFT_CLASS("_TtC8polypoly9GameScene")
 @interface GameScene : SKScene
 - (void)sceneDidLoad;
@@ -396,6 +404,17 @@ SWIFT_CLASS("_TtC8polypoly12InitialScene")
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
+
+SWIFT_CLASS("_TtC8polypoly10MainCanvas")
+@interface MainCanvas : SKShapeNode
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (void)touchesMoved:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (void)touchesEnded:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
 @class SKPhysicsContact;
 
 SWIFT_CLASS("_TtC8polypoly9MainScene")
@@ -404,8 +423,23 @@ SWIFT_CLASS("_TtC8polypoly9MainScene")
 - (void)didMoveToView:(SKView * _Nonnull)view;
 - (void)didBeginContact:(SKPhysicsContact * _Nonnull)contact;
 - (void)didEndContact:(SKPhysicsContact * _Nonnull)contact;
+- (void)touchesBegan:(NSSet<UITouch *> * _Nonnull)touches withEvent:(UIEvent * _Nullable)event;
 - (nonnull instancetype)initWithSize:(CGSize)size OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init OBJC_DESIGNATED_INITIALIZER;
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+@end
+
+
+SWIFT_CLASS("_TtC8polypoly11SkillButton")
+@interface SkillButton : SKShapeNode
+- (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
+- (nonnull instancetype)init SWIFT_UNAVAILABLE;
++ (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
+@end
+
+
+SWIFT_CLASS("_TtC8polypoly15MainSkillButton")
+@interface MainSkillButton : SkillButton
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 @end
 
@@ -444,12 +478,13 @@ SWIFT_CLASS("_TtC8polypoly8PowerBar")
 @end
 
 
-SWIFT_CLASS("_TtC8polypoly11SkillButton")
-@interface SkillButton : SKShapeNode
+SWIFT_CLASS("_TtC8polypoly10SkillBlock")
+@interface SkillBlock : SKNode
 - (nullable instancetype)initWithCoder:(NSCoder * _Nonnull)aDecoder OBJC_DESIGNATED_INITIALIZER;
 - (nonnull instancetype)init SWIFT_UNAVAILABLE;
 + (nonnull instancetype)new SWIFT_UNAVAILABLE_MSG("-init is unavailable");
 @end
+
 
 
 SWIFT_CLASS("_TtC8polypoly9TestScene")

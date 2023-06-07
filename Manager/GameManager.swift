@@ -26,6 +26,7 @@ class GameManager {
             _dispatcher.OnReceivePlayerAction += GivePlayerAction
         }else{
             _inputManager.OnDoPlayerAction += GivePlayerAction
+            _inputManager.OnUpdatePlayerStats += GivePlayerStats
         }
     }
     
@@ -55,6 +56,16 @@ class GameManager {
             return
         }
         character.DoAction(action: action)
+    }
+    
+    public func GivePlayerStats(action: PlayerStats){
+        print("GameManager: GivePlayerStats")
+        guard let character = _characterMap[action.CharacterModelID] else {
+            print("Character not found")
+            return
+        }
+        character.UpdateStats(action: action)
+        
     }
     
     //---

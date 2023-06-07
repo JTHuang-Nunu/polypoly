@@ -73,7 +73,6 @@ class Canvas: SKShapeNode{
     private func touchEnded(point: CGPoint){
         switch Mode{
         case .Draw:
-            //In
             self.OnDrawLine.Invoke(line!.path!)
             line!.removeFromParent()
             break
