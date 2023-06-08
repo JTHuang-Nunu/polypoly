@@ -33,11 +33,31 @@ enum MessageType: String, Codable{
     case JoinMessage
 }
 
-struct PlayerAction: Codable{
+struct PlayerAction: Codable & Oppositable{
+    
+    
     var CharacterModelID: UUID
     var ActionType: ActionType
     var Skill: Skill
     var content: [ContentType: String] = [:]
+    
+    var opposite: PlayerAction{
+        var newAction = self
+        for (key, value) in newAction.content{
+            switch key{
+            case .Impulse:
+                newAction.content[key] = GetOppositeValue(value: value, type: CGVector.self)
+                break
+            default:
+                break
+            }
+        }
+        return newAction
+    }
+    private func GetOppositeValue<T: Oppositable & Codable>(value: String, type: T.Type)->String{
+        let newValue = decodeJSON(type, jsonString: value)
+        return encodeJSON(newValue?.opposite)
+    }
 }
 
 struct Message: Codable{

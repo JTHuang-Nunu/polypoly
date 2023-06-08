@@ -50,3 +50,9 @@ func deg2rad(degree: CGFloat)-> Double {
 }
 
 
+extension CGVector: Oppositable{
+    var opposite: CGVector{
+        return CGVector(dx: -dx, dy: -dy)
+    }
+}
+

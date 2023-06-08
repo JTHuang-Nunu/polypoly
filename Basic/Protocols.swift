@@ -17,3 +17,8 @@ protocol CharacterProtocol {
 protocol InputManagerProtocol {
     var OnDoPlayerAction: Event<PlayerAction> {get }
 }
+
+protocol Oppositable {
+    var opposite: Self { get }
+}
+

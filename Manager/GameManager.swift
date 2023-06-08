@@ -87,12 +87,31 @@ class GameManager {
     }
     
     public func GivePlayerAction(action: PlayerAction){
-        logger.info("Give player action")
         guard let character = _characterMap[action.CharacterModelID] else {
             logger.error("Character not found")
             return
         }
-        character.DoAction(action: action)
+        if IfSameDirectionWithOperateCharacter(id: action.CharacterModelID){
+            character.DoAction(action: action)
+        }else{
+            character.DoAction(action: action.opposite)
+        }
+    }
+
+    
+    
+    
+    private func GetIfSameDirection(c1: Character, c2: Character) -> Bool{
+        let team1 = GetCharacterInfo(ID: c1.CharacterModelID)?.TeamID
+        let team2 = GetCharacterInfo(ID: c2.CharacterModelID)?.TeamID
+        return team1 == team2
+    }
+    
+    public func IfSameDirectionWithOperateCharacter(character: Character) -> Bool{
+        return GetIfSameDirection(c1: GetOperateCharacter()!, c2: character)
+    }
+    public func IfSameDirectionWithOperateCharacter(id: UUID) -> Bool{
+        return GetIfSameDirection(c1: GetOperateCharacter()!, c2: GetCharacter(ID: id)!)
     }
     
     //---

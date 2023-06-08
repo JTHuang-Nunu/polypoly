@@ -10,8 +10,8 @@ import SpriteKit
 
 class TestScene: SKScene{
     let gameManager = DeviceManager.shared.GameManager!
-    let bluePoint = CGPoint(x: -50, y: 0)
-    let redPoint = CGPoint(x: 50, y: 0)
+    let myPoint = CGPoint(x: 50, y: 0)
+    let othersPoint = CGPoint(x: -50, y: 0)
     
     var ThisCanvas: Canvas? = nil
     //-----------------------------------
@@ -27,15 +27,15 @@ class TestScene: SKScene{
     func CreatePlayers(){
         let players = gameManager.GetCharacterMap()
         for id in players.keys{
-            switch gameManager.GetCharacterInfo(ID: id)?.TeamID{
-            case .Blue:
+            switch gameManager.IfSameDirectionWithOperateCharacter(id: id){
+            case true:
                 let character = players[id]
-                character?.ball.position = bluePoint
+                character?.ball.position = myPoint
                 addChild(character!.ball)
                 break
-            case .Red:
+            case false:
                 let character = players[id]
-                character?.ball.position = redPoint
+                character?.ball.position = othersPoint
                 addChild(character!.ball)
             default:
                 break
