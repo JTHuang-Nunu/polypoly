@@ -38,6 +38,16 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
         createSkillBlock()
         self.zPosition = zAxis.Canvas
         physicsWorld.contactDelegate = self
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
+        
+        //test obstacle object
+//        let tmp = BuildingObstacle(position: CGPoint(x: 0, y: 0))
+////        addChild(tmp)
+//        let tmp2 = DrawObstacle(position: CGPoint(x: 0, y: 0))
+//        addChild(tmp2)
+        let tmp = ObstacleObejctFactory()
+//        tmp.create(type: .Building, position: CGPoint(x: 0, y: 0))
+        addChild(tmp.create(type: .Building, position: CGPoint(x: 0, y: 0)))
     }
     func CreatePlayers(numberOfperson number: Int){
         //set [ThisCharacter]
@@ -96,10 +106,17 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
             firstBody = contact.bodyB
             secondBody = contact.bodyA
         }
-        if(firstBody.node?.name == "ball" && secondBody.node?.name == "drawingLine"){
+        if(firstBody.node?.name == "ball" && secondBody.node?.name == "building"){
             print("collipse")
-            if let drawingLine = secondBody.node as? DrawingLine {
-                drawingLine.updateLineHp()
+            if let building = secondBody.node as? BuildingObstacle{
+                building.updateHP(val: 1, type: .Injure)
+            }
+        }
+        if(firstBody.node?.name == "ball" && secondBody.node?.name == "drawObstacle"){
+            print("drawOB")
+
+            if let building = secondBody.node as? DrawObstacle{
+                building.updateHP(val: 1, type: .Injure)
             }
         }
         
