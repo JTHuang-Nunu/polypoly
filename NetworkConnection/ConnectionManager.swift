@@ -15,7 +15,7 @@ class ConnectionManager{
     public let OnConnectionFailed: Event<String> = Event<String>()
     
     
-    
+    private let MaxPackageSize = 1024
     private var UDPConnection: NWConnection?
     private var TCPConnection: NWConnection?
     convenience init(hostInfo: HostInfo){
@@ -68,25 +68,50 @@ class ConnectionManager{
         self.UDPConnection?.cancel()
         self.TCPConnection?.cancel()
     }
-    public func sendData(message: Data, reliable: Bool = true){
+    
+    
+    public func sendData(message: String, reliable: Bool = true){
+        let content = message.data(using: .utf8)!
+        self.sendData(message: content, reliable: reliable)
         
+    }
+
+    public func sendData(message: Data, reliable: Bool = true){
+        let totalPackets = (message.count / MaxPackageSize) + 1
+        sendHeader(totalPackets: totalPackets)
+        
+        for packetIndex in 0..<totalPackets {
+            let range = packetIndex * MaxPackageSize..<min((packetIndex + 1) * MaxPackageSize, message.count)
+            let packet = message.subdata(in: range)
+            sendPackage(package: packet, reliable: reliable)
+        
+        }
+    }
+    
+    private func sendHeader(totalPackets: Int){
+        var totalPackets = UInt32(totalPackets)
+        let data = Data(bytes: &totalPackets, count: 4)
+        sendPackage(package: data, reliable: true)
+    }
+
+    
+    private func sendPackage(package: Data, reliable: Bool = true){
         switch(reliable){
         case true:
-            self.TCPConnection?.send(content: message, completion: .contentProcessed({ error in
+            self.TCPConnection?.send(content: package, completion: .contentProcessed({ error in
                 self.printError(error: error)
             }))
         case false:
-            self.UDPConnection?.send(content: message, completion: .contentProcessed({ error in
+            self.UDPConnection?.send(content: package, completion: .contentProcessed({ error in
                 self.printError(error: error)
             }))
         }
     }
-    
-    public func sendData(message: String, reliable: Bool = true){
-        let content = message.data(using: .utf8)
-        self.sendData(message: content!, reliable: reliable)
-
+    private func sendPackage(package: String, reliable: Bool = true){
+        let content = package.data(using: .utf8)
+        sendPackage(package: content!, reliable: reliable)
     }
+        
     
     private func setReceiveDataHandler(completion: @escaping (String) -> Void){
         self.TCPConnection?.receive(minimumIncompleteLength: 1, maximumLength: 65536) { (data, _, _, error) in
