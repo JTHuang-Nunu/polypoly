@@ -70,7 +70,9 @@ class Pointer: SKShapeNode{
         let repeatAction = SKAction.repeatForever(sequenceAction)
         self.run(repeatAction)
     }
-    
+    public func GetVector() -> CGVector{
+        return CGVector(dx: endPoint.x - startPoint.x, dy: endPoint.y - startPoint.y)
+    }
     
     
     required init?(coder aDecoder: NSCoder) {

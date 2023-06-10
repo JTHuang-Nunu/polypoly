@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 enum TouchStatus: Codable{
     case begin
@@ -82,5 +83,21 @@ struct HostInfo: Codable{
 enum TeamID: String, Codable{
     case Blue
     case Red
+}
+
+struct CodablePath: Codable{
+    var PointList: [CGPoint] = []
+    
+    public func toPath()->CGPath{
+        if PointList.count == 0{
+            return CGMutablePath()
+        }
+        var path = CGMutablePath()
+        path.move(to: PointList[0])
+        for point in PointList{
+            path.addLine(to: point)
+        }
+        return path
+    }
 }
 

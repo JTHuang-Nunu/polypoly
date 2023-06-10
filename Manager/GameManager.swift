@@ -28,7 +28,7 @@ class GameManager {
             _dispatcher = Dispatcher(deviceID: info.DeviceID, sessionManager: sessionManager)
             _dispatcher!.OnConnected += OnConnectGameServer.Invoke
         }
-        _skillManager = SkillManager(skills: [.Move])
+        _skillManager = SkillManager(skills: [.Move, .Obstacle])
         SetConnection(network: info.UseServer)
         _skillManager?.OnSelectSkill += { skill in
             self._inputManager.SetSelectedSkill(skill: skill)

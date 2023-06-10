@@ -7,27 +7,22 @@
 
 import Foundation
 import SpriteKit
+import GameplayKit
 
 public enum CanvasMode{
     case Draw
     case Pointer
 }
-
-class Canvas: SKShapeNode{
-    public let OnDrawLine: Event<CGPath> = Event<CGPath>()
-    public var OnDrawPointer: Event<CGVector> = Event<CGVector>()
+class BaseCanvas: SKShapeNode{
+    public var OnStartNewPoint = Event<CGPoint>()
+    public var OnUpdateNewPoint = Event<CGPoint>()
+    public var OnFinishDrawPoint = Event<CGPoint>()
     
-    public var Mode: CanvasMode = CanvasMode.Pointer
-    var line: DrawLine? = nil
-    var pointer: Pointer? = nil
-    var pointerStartNode: SKNode? = nil
     
-    init(pointerStartNode: SKNode) {
-        self.pointerStartNode = pointerStartNode
+    override init() {
 
         super.init()
-        self.zPosition = zAxis.Canvas   //set initial zPosition
-        // Adjust the size of the canvas to match the screen dimensions
+        self.zPosition = zAxis.Canvas
         let screenSize = UIScreen.main.bounds.size
         self.path = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: screenSize)).cgPath
         self.isUserInteractionEnabled = true
@@ -39,49 +34,106 @@ class Canvas: SKShapeNode{
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchBegin(point: touches.first!.location(in: scene!))
+        startNewPoint(point: touches.first!.location(in: scene!))
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchMove(point: touches.first!.location(in: scene!))
+        updatePoint(point: touches.first!.location(in: scene!))
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
-        touchEnded(point: touches.first!.location(in: scene!))
+        finishPoint(point: touches.first!.location(in: scene!))
     }
-    private func touchBegin(point: CGPoint){
+    public func startNewPoint(point: CGPoint){
+        OnStartNewPoint.Invoke(point)
+    }
+    public func updatePoint(point: CGPoint){
+        OnUpdateNewPoint.Invoke(point)
+    }
+    public func finishPoint(point: CGPoint){
+        OnFinishDrawPoint.Invoke(point)
+    }
+}
+
+
+class Canvas: BaseCanvas{
+    public let OnDrawLine = Event<CodablePath>()
+    public let OnDrawPointer = Event<CGVector>()
+    
+    
+    public var Mode: CanvasMode = CanvasMode.Pointer
+    private var line: DrawLine? = nil
+    private var pointer: Pointer? = nil
+    private var startNode: SKNode? = nil
+    
+    init(startNode: SKNode) {
+        self.startNode = startNode
+        super.init()
+        self.zPosition = zAxis.Canvas   //set initial zPosition
+        // Adjust the size of the canvas to match the screen dimensions
+        let screenSize = UIScreen.main.bounds.size
+        self.path = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: screenSize)).cgPath
+        self.isUserInteractionEnabled = true
+        self.position = CGPoint(x: -screenSize.width/2, y: -screenSize.height/2)
+    }
+    public func SetMode(mode: CanvasMode){
+        Mode = mode
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    override func startNewPoint(point: CGPoint) {
+        super.startNewPoint(point: point)
         switch Mode{
         case .Draw:
-            line = DrawLine(lineWidth: 5)
-            line!.SetStartPoint(startPoint: point)
-            scene!.addChild(line!)
+            startDraw(point: point)
             break
         case .Pointer:
-            pointer = Pointer(startPoint: pointerStartNode!.position, endPoint: point)
-            scene!.addChild(pointer!)
+            startPointer(point: point)
+            
+        default:
             break
         }
     }
-    private func touchMove(point: CGPoint){
+    override func updatePoint(point: CGPoint) {
+        super.updatePoint(point: point)
         switch Mode{
         case .Draw:
+            assert (line != nil, "line not set")
             line!.UpdateLine(newPoint: point)
             break
         case .Pointer:
-            pointer!.UpdatePointer(startPoint: pointerStartNode!.position, endPoint: point)
-            break
+            assert (pointer != nil, "pointer not set")
+            assert (startNode != nil, "startNode not set")
+            pointer!.UpdatePointer(startPoint: startNode!.position, endPoint: point)
         }
     }
-    private func touchEnded(point: CGPoint){
+    override func finishPoint(point: CGPoint) {
+        super.finishPoint(point: point)
         switch Mode{
         case .Draw:
-            //In
-            self.OnDrawLine.Invoke(line!.path!)
+            assert (line != nil, "line not set")
+            OnDrawLine.Invoke(line!.CodablePath)
             line!.removeFromParent()
             break
         case .Pointer:
-            let vector = CGVector(dx: point.x - pointerStartNode!.position.x * 5, dy: point.y - pointerStartNode!.position.y * 5)
-            self.OnDrawPointer.Invoke(vector)
+            assert (pointer != nil, "pointer not set")
             pointer!.removeFromParent()
+            OnDrawPointer.Invoke(pointer!.GetVector())
             break
         }
     }
+    
+    
+    private func startDraw(point: CGPoint){
+        line = DrawLine(lineWidth: 5)
+        line!.SetStartPoint(startPoint: point)
+        scene!.addChild(line!)
+    }
+    private func startPointer(point: CGPoint){
+        assert (startNode != nil, "startNode not set")
+        pointer = Pointer(startPoint: startNode!.position, endPoint: point)
+        scene!.addChild(pointer!)
+    }
+    
 }

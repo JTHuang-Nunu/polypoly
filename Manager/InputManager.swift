@@ -11,11 +11,15 @@ import os
 
 class InputManager: InputManagerProtocol{
     let OnDoPlayerAction: Event<PlayerAction> = Event<PlayerAction>()
-    var currentSkill: Skill? = nil
+    private var currentSkill: Skill? = nil
     var OperateCharacterID: UUID? = nil
     var canvas: Canvas? = nil
     let logger = Logger(subsystem: "InputManager", category: "InputManager")
-
+    let SkillCanvasModeMap: [Skill: CanvasMode] = [
+        .Move: .Pointer,
+        .Obstacle: .Draw
+    ]
+    
     public func SetCanvas(canvas: Canvas){
         self.canvas = canvas
         self.canvas!.OnDrawPointer += InputPointer
@@ -24,12 +28,13 @@ class InputManager: InputManagerProtocol{
     
     public func SetSelectedSkill(skill: Skill){
         currentSkill = skill
+        canvas?.SetMode(mode: SkillCanvasModeMap[currentSkill!]!)
     }
     
     public func SetOperateCharacter(ID: UUID){
         OperateCharacterID = ID
     }
-    public func InputLine(line: CGPath){
+    private func InputLine(line: CodablePath){
         if currentSkill == nil{
             logger.error("Skill not set")
             return
@@ -42,11 +47,11 @@ class InputManager: InputManagerProtocol{
             CharacterModelID: OperateCharacterID,
             ActionType: .UseSkill,
             Skill: currentSkill!)
-        action.content[.Path] = encodeJSON(5)
+        action.content[.Path] = encodeJSON(line)
         OnDoPlayerAction.Invoke(action)
     }
     
-    public func InputPointer(vector: CGVector){
+    private func InputPointer(vector: CGVector){
         if currentSkill == nil{
             logger.error("Skill not set")
             return
