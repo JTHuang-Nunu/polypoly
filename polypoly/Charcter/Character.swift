@@ -9,7 +9,7 @@ import Foundation
 
 class Character: CharacterProtocol{
     var OnUpdateStats: Event<(CGFloat?, CGFloat?, StatsType)> = Event<(CGFloat?, CGFloat?, StatsType)>()
-    
+    var _healthManager = HealthManager()
     var hp: CGFloat = 100
     var CharacterModelID: UUID
     var ball: Ball = Ball()
