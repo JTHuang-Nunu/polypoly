@@ -12,4 +12,5 @@ struct PhysicsCategory {
     static let Wall: UInt32 = 0x1 << 1
     static let Boundary: UInt32 = 0x1 << 2
     static let Line: UInt32 = 0x1 << 3
+    static let Obstacle: UInt32 = 0x1 << 4
 }
