@@ -17,7 +17,7 @@ class MainCanvas: SKShapeNode{
     var line: DrawLine? = nil
     var pointer: Pointer? = nil
     var pointerStartNode: SKNode? = nil
-    
+    let Factory = AnimationFactory()
     init(pointerStartNode: SKNode) {
         self.pointerStartNode = pointerStartNode
 
@@ -33,7 +33,6 @@ class MainCanvas: SKShapeNode{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         touchBegin(point: touches.first!.location(in: scene!))
     }
@@ -51,9 +50,10 @@ class MainCanvas: SKShapeNode{
             scene!.addChild(line!)
             break
         case .Pointer:
-            pointer = Pointer(startPoint: pointerStartNode!.position, endPoint: point)
+//            pointer = Pointer(startPoint: pointerStartNode!.position, endPoint: point)
+            pointer = Pointer(startPoint: pointerStartNode!.position, endPoint: CGPoint(x: 0, y: 0))
             scene!.addChild(pointer!)
-            break
+
         }
     }
     private func touchMove(point: CGPoint){
