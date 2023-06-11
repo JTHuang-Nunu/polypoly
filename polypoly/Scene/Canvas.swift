@@ -63,6 +63,7 @@ class Canvas: BaseCanvas{
     private var line: DrawLine? = nil
     private var pointer: Pointer? = nil
     private var startNode: SKNode? = nil
+    private var endPoint: CGPoint? = nil
     
     init(startNode: SKNode) {
         self.startNode = startNode
@@ -103,9 +104,7 @@ class Canvas: BaseCanvas{
             line!.UpdateLine(newPoint: point)
             break
         case .Pointer:
-            assert (pointer != nil, "pointer not set")
-            assert (startNode != nil, "startNode not set")
-            pointer!.UpdatePointer(startPoint: startNode!.position, endPoint: point)
+            endPoint = point
         }
     }
     override func finishPoint(point: CGPoint) {
@@ -118,8 +117,11 @@ class Canvas: BaseCanvas{
             break
         case .Pointer:
             assert (pointer != nil, "pointer not set")
-            pointer!.removeFromParent()
             OnDrawPointer.Invoke(pointer!.GetVector())
+            removeAllActions()
+            pointer!.removeFromParent()
+            pointer = nil
+            endPoint = nil
             break
         }
     }
@@ -132,8 +134,16 @@ class Canvas: BaseCanvas{
     }
     private func startPointer(point: CGPoint){
         assert (startNode != nil, "startNode not set")
-        pointer = Pointer(startPoint: startNode!.position, endPoint: point)
+        endPoint = point
+        pointer = Pointer(startPoint: startNode!.position, endPoint: endPoint!)
         scene!.addChild(pointer!)
     }
+    
+    override func NodeUpdate(_ currentTime: TimeInterval) {
+        if let pointer = pointer{
+            pointer.UpdatePointer(startPoint: startNode!.position, endPoint: endPoint!)
+        }
+    }
+    
     
 }

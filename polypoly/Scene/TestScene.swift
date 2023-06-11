@@ -61,4 +61,7 @@ class TestScene: SKScene{
             
         }
     }
+    override func update(_ currentTime: TimeInterval) {
+        _update(currentTime)
+    }
 }
