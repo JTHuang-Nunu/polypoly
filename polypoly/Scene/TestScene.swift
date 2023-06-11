@@ -13,34 +13,25 @@ class TestScene: SKScene{
     let myPoint = CGPoint(x: 50, y: 0)
     let othersPoint = CGPoint(x: -50, y: 0)
     
-    var operateCharacter: Character? = nil
-    //-----------------------------------
     override func sceneDidLoad() {
         gameManager.OnCreatedCanvas += addChild
-        gameManager.OnCreatedPlayers += CreatePlayers
-        gameManager.OnCreatedSkillButtons += CreateSkills
+        gameManager.OnCreatedSelfPlayers += { players in
+            self.PlacePlayerTo(players: players, point: self.myPoint)
+        }
+        gameManager.OnCreatedOtherPlayers += { players in
+            self.PlacePlayerTo(players: players, point: self.othersPoint)
+        }
+        gameManager.OnCreatedSkillButtons += PlaceSkillButtons
         gameManager.CreateSceneObjects()
         
     }
-    func CreatePlayers(players: [UUID: Character]){
-        for id in players.keys{
-            switch gameManager.IfSameDirectionWithOperateCharacter(id: id){
-            case true:
-                let character = players[id]
-                character?.ball.position = myPoint
-                addChild(character!.ball)
-                break
-            case false:
-                let character = players[id]
-                character?.ball.position = othersPoint
-                addChild(character!.ball)
-            default:
-                break
-            }
+    func PlacePlayerTo(players: [UUID: Character], point: CGPoint){
+        for value in players.values{
+            value.SKNode.position = point
         }
     
     }
-    func CreateSkills(skillButtons: [SkillSelectButton]){
+    func PlaceSkillButtons(skillButtons: [SkillSelectButton]){
         for i in 0..<skillButtons.count{
             let skill = skillButtons[i]
             skill.position = CGPoint(x:self.frame.minX + 50 + CGFloat(100*i), y:self.frame.midY)

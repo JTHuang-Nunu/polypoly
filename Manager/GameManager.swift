@@ -14,7 +14,9 @@ class GameManager {
     public let OnConnectGameServer = Event<Void>()
     public let OnCreatedSkillButtons = Event<[SkillSelectButton]>()
     public let OnCreatedCanvas = Event<Canvas>()
-    public let OnCreatedPlayers = Event<[UUID: Character]>()
+    public let OnCreatedAllPlayers = Event<[UUID: Character]>()
+    public let OnCreatedSelfPlayers = Event<[UUID: Character]>()
+    public let OnCreatedOtherPlayers = Event<[UUID: Character]>()
     
     public let PlayerSkills: [Skill] = [.Move, .Obstacle]
     public let DefaultSkill = Skill.Move
@@ -86,8 +88,32 @@ class GameManager {
                 SetOperateCharacter(ID: playerInfo.CharacterModelID)
             }
         }
-        OnCreatedPlayers.Invoke(_characterMap)
+        OnCreatedAllPlayers.Invoke(_characterMap)
+        invokeSelfPlayers()
+        invokeOtherPlayers()
     }
+    
+    private func invokeSelfPlayers(){
+        var selfPlayers: [UUID: Character] = [:]
+        for (ID, character) in _characterMap{
+            if IfSameDirectionWithOperateCharacter(id: ID){
+                selfPlayers[ID] = character
+            }
+        }
+        OnCreatedSelfPlayers.Invoke(_characterMap)
+    }
+    private func invokeOtherPlayers(){
+        var otherPlayers: [UUID: Character] = [:]
+        for (ID, character) in _characterMap{
+            if !IfSameDirectionWithOperateCharacter(id: ID){
+                otherPlayers[ID] = character
+            }
+        }
+        OnCreatedOtherPlayers.Invoke(_characterMap)
+    }
+    
+    
+    
     public func GetCharacter(ID: UUID) -> Character?{
         return _characterMap[ID]
     }
@@ -110,7 +136,7 @@ class GameManager {
         _inputManager.SetOperateCharacter(ID: ID)
     }
     
-    public func GivePlayerAction(action: PlayerAction){
+    private func GivePlayerAction(action: PlayerAction){
         guard let character = _characterMap[action.CharacterModelID] else {
             logger.error("Character not found")
             return
