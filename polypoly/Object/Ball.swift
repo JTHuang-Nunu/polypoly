@@ -20,7 +20,6 @@ class Ball: SKSpriteNode {
     
     private func _setupoBody(ballSize: CGSize){
         let ballRadius = ballSize.width / 2.0
-        let ballMass: CGFloat = 2
         let ballRestitution: CGFloat = 0
         let ballFriction: CGFloat = 0
         let ballLinearDamping: CGFloat = 0.1
@@ -34,7 +33,7 @@ class Ball: SKSpriteNode {
         self.physicsBody?.collisionBitMask = PhysicsCategory.Line | PhysicsCategory.Boundary | PhysicsCategory.Ball
         self.physicsBody?.contactTestBitMask = PhysicsCategory.Line | PhysicsCategory.Boundary | PhysicsCategory.Ball
         
-        self.physicsBody?.mass = ballMass
+        self.physicsBody?.mass = PhysicsMass.Ball
         self.physicsBody?.restitution = ballRestitution
         self.physicsBody?.friction = ballFriction
         self.physicsBody?.linearDamping = ballLinearDamping

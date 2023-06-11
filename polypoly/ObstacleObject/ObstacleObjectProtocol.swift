@@ -12,10 +12,5 @@ protocol ObstacleObjectProtocol{
 //    var healthManager: HealthManager {get}
 //    var node: SKNode {get }
 //    var position: CGPoint { get set }
-}
-
-
-struct PhysicsMass {
-    static let Building: CGFloat = 10
-    static let DrawObstacle: CGFloat = 5
+    //id
 }

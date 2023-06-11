@@ -153,6 +153,81 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
 //                addChild(bgd)
 //
 //    }
+<<<<<<< HEAD
+//    func didBegin(_ contact: SKPhysicsContact) {
+//        var firstBody = SKPhysicsBody()
+//        var secondBody = SKPhysicsBody()
+//
+//        if contact.bodyA.node?.name == "ball"{
+//            firstBody = contact.bodyA
+//            secondBody = contact.bodyB
+//        }
+//        else{
+//            firstBody = contact.bodyB
+//            secondBody = contact.bodyA
+//        }
+//        if(firstBody.node?.name == "ball" && secondBody.node?.name == "building"){
+//            print("collipse")
+//            if let building = secondBody.node as? BuildingObstacle{
+//                building.updateHP(val: 1, type: .Injure)
+//            }
+//        }
+//        if(firstBody.node?.name == "ball" && secondBody.node?.name == "drawObstacle"){
+//            print("drawOB")
+//
+//            if let building = secondBody.node as? DrawObstacle{
+//                building.updateHP(val: 1, type: .Injure)
+//            }
+//        }
+//        
+//        //touch charact is a
+////        healthManager.TakeDamage(who: , damage: <#T##Int#>)
+//    }
+//    func didEnd(_ contact: SKPhysicsContact) {
+//    }
+//
+//
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first {
+//            let touchLocation = touch.location(in: self)
+////            if skillBlock.contains(touchLocation){
+////                skillBlock.touchesBegan(touches, with: event, from: ThisCharacter!)
+////            }
+//        }
+//    }
+////
+////    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+////
+////    }
+//    //---
+//    func createResetButton(){
+//        let resetButton = SKShapeNode(circleOfRadius: 10)
+//        resetButton.fillColor = .red
+//        resetButton.position = CGPoint(x: frame.midX, y: frame.minY+100)
+//        addChild(resetButton)
+//    }
+//    func createAxis(){
+//        //create xy axis
+//        let rect = SKShapeNode(rect: CGRect(x: 0, y: 0, width: frame.width, height: frame.height))
+//        rect.strokeColor = .black
+//        rect.position = ObjectPosition.Center
+//        addChild(rect)
+//    }
+//    func CreateSkills(){
+//        let skillButtons = gameManager._skillManager?.skillButtons
+//        for i in 0..<skillButtons!.count{
+//            let skill = skillButtons![i]
+//            skill.position = CGPoint(x:self.frame.minX + 50 + CGFloat(100*i), y:self.frame.midY)
+//            skill.zPosition = zAxis.skillButton
+//            addChild(skill as SKNode)
+//            
+//        }
+//    }
+//    override func update(_ currentTime: TimeInterval) {
+//        _update(currentTime)
+//    }
+// }
+=======
     //---
     func createResetButton(){
         let resetButton = SKShapeNode(circleOfRadius: 10)

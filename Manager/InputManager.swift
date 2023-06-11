@@ -28,6 +28,7 @@ class InputManager: InputManagerProtocol{
     
     public func SetSelectedSkill(skill: Skill){
         currentSkill = skill
+        print("now select [\(skill)] skill")
         canvas?.SetMode(mode: SkillCanvasModeMap[currentSkill!]!)
     }
     

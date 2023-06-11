@@ -10,6 +10,9 @@ import SpriteKit
 
 class Character: CharacterProtocol{
     var _healthManager = HealthManager()
+    var _teamManager: TeamManager!
+    var OnCreateObstacle: Event<SKNode> = Event<SKNode>()
+    
     var CharacterModelID: UUID
     var ball: Ball = Ball()
     var lineList = [DrawingLine]()
@@ -27,25 +30,24 @@ class Character: CharacterProtocol{
             print("ballposition: ",ball.position)
         }
     }
-    init(characterModelID: UUID){
-        self.CharacterModelID = characterModelID
-        
-        self.position = CGPoint(x: 0, y: 0)
-        self.ball.position = self.position
+    
+    convenience init(characterModelID: UUID){
+        self.init(characterModelID: characterModelID, position: CGPoint(x: 0, y: 0))
     }
+    
     init(characterModelID: UUID, position: CGPoint){
         self.CharacterModelID = characterModelID
-        
         self.position = position
         self.ball.position = self.position
+        self._teamManager = TeamManager(character: self)
     }
     
     func DoAction(action: PlayerAction) {
-        print("playerAction doing")
         switch action.Skill{
         case .Move:
             characterMove(content: action.content)
-        case .Draw:
+        case .Obstacle:
+            createObstacle(content: action.content)
             break
         case .MeteoriteFalling:
             break
@@ -61,32 +63,35 @@ class Character: CharacterProtocol{
             break
         case .ObjectRandomlyGenerated:
             break
-        case .Obstacle:
-            break
+
         case .Trap:
             break
-        case .bomp:
-            break
         }
-//        switch(action.ActionType){
-//        case .UseSkill:
-//            self.UseSkill(action: action)
-//            break
-//        }
     }
-//    func UseSkill(action: PlayerAction){
-//        switch(action.Skill){
-//        case .Move:
-//            //self.move(impulse: action.content["impulse"])
-//            char
-//            break
-//        default:
-//            break
-//        }
-//    }
-    func characterMove(content : [ContentType: String]) {
-        guard var impulse = CGVectorConverter.convertToVector(from: content[.Impulse]!)
+    
+    func createObstacle(content : [ContentType: String]){
+        guard let codablePath = decodeJSON(CodablePath.self, jsonString: content[.Path]!)
         else {return}
+        
+        let path = codablePath.toPath()
+
+        guard let object = ObstacleObejctFactory.shared.create(type: .DrawObstacle, position: CGPoint(x: 0, y: 0), path: path)
+        else {return}
+        OnCreateObstacle.Invoke(object)
+    }
+    func characterMove(content : [ContentType: String]) {
+        guard var impulse = decodeJSON(CGVector.self, jsonString: content[.Impulse]!)
+        else {return}
+        //- - -
+        //update energy //modify impulse , when power value is insufficient
+        let distance = impulse.distance
+        
+        var transformToPower: CGFloat{
+            return distance / 5
+        }
+        print(distance)
+        //- - -
+        //push the ball by the impulse
         self.ball.physicsBody?.applyImpulse(impulse)
 
     }
@@ -99,9 +104,9 @@ class Character: CharacterProtocol{
         switch status {
         case .begin:
             let lineWidth: CGFloat = 10
-            let hp: CGFloat = 3
+//            let hp: CGFloat = 3
             if let point = point {
-                currLine = DrawingLine(startPoint: point, lineWidth: lineWidth, hp: CGFloat(hp))
+//                currLine = DrawingLine(startPoint: point, lineWidth: lineWidth, hp: CGFloat(hp))
                 lineList.append(currLine)
             }
         case .move:
@@ -113,7 +118,5 @@ class Character: CharacterProtocol{
             currLine.endDrawing()
         }
     }
-    
-    
 }
 

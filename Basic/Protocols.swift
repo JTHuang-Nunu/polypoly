@@ -17,7 +17,7 @@ protocol CharacterProtocol {
 }
 
 protocol InputManagerProtocol {
-    var OnDoPlayerAction: Event<PlayerAction> {get }
+    var OnDoPlayerAction: Event<PlayerAction> { get }
 }
 
 protocol Oppositable {
