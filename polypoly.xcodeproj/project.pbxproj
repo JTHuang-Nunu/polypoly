@@ -9,7 +9,6 @@
 /* Begin PBXBuildFile section */
 		BF3317B22A271BBC002B2E5D /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3317B12A271BBC002B2E5D /* MenuScene.swift */; };
 		BF7D7E162A28690F0029D21A /* button_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BF7D7E152A28690F0029D21A /* button_sound.mp3 */; };
-		D82BD4742A09FF7400E181FC /* Power.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82BD4732A09FF7400E181FC /* Power.swift */; };
 		D82F9F612A30BF790079FE4A /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82F9F602A30BF790079FE4A /* HealthManager.swift */; };
 		D82F9F6D2A31CB260079FE4A /* ExplosionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82F9F6C2A31CB260079FE4A /* ExplosionAnimation.swift */; };
 		D82F9F712A31EADD0079FE4A /* explosion.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D82F9F6E2A31EADC0079FE4A /* explosion.atlas */; };
@@ -63,6 +62,7 @@
 		E772E55F2A3068CD004CCCA8 /* SkillManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E772E55E2A3068CD004CCCA8 /* SkillManager.swift */; };
 		E777172B2A35C63900A914F1 /* EnerygyBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777172A2A35C63900A914F1 /* EnerygyBar.swift */; };
 		E777172D2A35DB8E00A914F1 /* Energy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777172C2A35DB8E00A914F1 /* Energy.swift */; };
+		E777172F2A35E06900A914F1 /* PhysicalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777172E2A35E06900A914F1 /* PhysicalDelegate.swift */; };
 		E77864792A2AFC8000280EBF /* TestScene copy.sks in Resources */ = {isa = PBXBuildFile; fileRef = E77864782A2AFC8000280EBF /* TestScene copy.sks */; };
 		E79EBC022A2DD57E00D83B66 /* LobbyManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EBC012A2DD57E00D83B66 /* LobbyManager.swift */; };
 		E79EBC042A2DD61700D83B66 /* BaseMessageHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = E79EBC032A2DD61700D83B66 /* BaseMessageHandler.swift */; };
@@ -100,7 +100,6 @@
 /* Begin PBXFileReference section */
 		BF3317B12A271BBC002B2E5D /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		BF7D7E152A28690F0029D21A /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_sound.mp3; sourceTree = "<group>"; };
-		D82BD4732A09FF7400E181FC /* Power.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Power.swift; sourceTree = "<group>"; };
 		D82F9F602A30BF790079FE4A /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		D82F9F6C2A31CB260079FE4A /* ExplosionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionAnimation.swift; sourceTree = "<group>"; };
 		D82F9F6E2A31EADC0079FE4A /* explosion.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = explosion.atlas; sourceTree = "<group>"; };
@@ -156,6 +155,7 @@
 		E772E55E2A3068CD004CCCA8 /* SkillManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillManager.swift; sourceTree = "<group>"; };
 		E777172A2A35C63900A914F1 /* EnerygyBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnerygyBar.swift; sourceTree = "<group>"; };
 		E777172C2A35DB8E00A914F1 /* Energy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Energy.swift; sourceTree = "<group>"; };
+		E777172E2A35E06900A914F1 /* PhysicalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalDelegate.swift; sourceTree = "<group>"; };
 		E77864782A2AFC8000280EBF /* TestScene copy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "TestScene copy.sks"; sourceTree = "<group>"; };
 		E79EBC012A2DD57E00D83B66 /* LobbyManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LobbyManager.swift; sourceTree = "<group>"; };
 		E79EBC032A2DD61700D83B66 /* BaseMessageHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseMessageHandler.swift; sourceTree = "<group>"; };
@@ -289,6 +289,7 @@
 				D8CF0B3729FE885A0056A94D /* Ball.swift */,
 				D8A0B8652A29E0D500FECC8E /* SkillButton.swift */,
 				E7FE29012A29F3780057A1A1 /* Pointer.swift */,
+				E777172E2A35E06900A914F1 /* PhysicalDelegate.swift */,
 			);
 			path = Object;
 			sourceTree = "<group>";
@@ -591,6 +592,7 @@
 				E7A234082A1E006600F0F7F9 /* InputManager.swift in Sources */,
 				D8BE1EC92A01F9E7002CC0D0 /* Line.swift in Sources */,
 				D82F9F612A30BF790079FE4A /* HealthManager.swift in Sources */,
+				E777172F2A35E06900A914F1 /* PhysicalDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

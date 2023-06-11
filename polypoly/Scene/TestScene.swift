@@ -28,6 +28,7 @@ class TestScene: SKScene{
         gameManager.OnCreatedSkillButtons += PlaceSkillButtons
         gameManager.CreateSceneObjects()
         
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
     }
     func PlacePlayerTo(players: [UUID: Character], point: CGPoint){
         for value in players.values{
