@@ -6,9 +6,12 @@
 //
 //  Dispacher is a class that dispaches player actions to other device by SessionManager
 import Foundation
+import os
+
 class Dispatcher: BaseMessageHandler {
     public let OnReceivePlayerAction = Event<PlayerAction>()
-
+    private let logger = Logger(subsystem: "Dispatcher", category: "Dispatcher")
+    
     override init(deviceID: UUID, sessionManager: ConnectionManager){
         super.init(deviceID: deviceID, sessionManager: sessionManager)
     }
@@ -23,7 +26,6 @@ class Dispatcher: BaseMessageHandler {
     }
     
     override func handleMessage(message: Message){
-        print("Dispatcher: Handle message")
         super.handleMessage(message: message)
 
         switch message.MessageType {
@@ -36,13 +38,12 @@ class Dispatcher: BaseMessageHandler {
     }
     
     private func handleReceivePlayerAction(content: String){
-        print("Receive playeraction")
         let decodedAction = decodeJSON(PlayerAction.self, jsonString: content)
         if let action = decodedAction{
             OnReceivePlayerAction.Invoke(action)
         }
         else{
-            print("Error: Receive invalid player action")
+            logger.error("Failed to decode PlayerAction")
         }
     }
 }
