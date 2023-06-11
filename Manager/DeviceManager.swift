@@ -97,7 +97,6 @@ class DeviceState: GKState{
     }
 }
 class NoConnectionState: DeviceState{
-    private let _lobbyHostInfo = HostInfo(IP: "localhost", Port: 8000)
     override func didEnter(from previousState: GKState?) {
         DeviceManager.logger.log("Enter No Connection State")
         
