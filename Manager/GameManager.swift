@@ -12,39 +12,62 @@ import os
 class GameManager {
     
     public let OnConnectGameServer = Event<Void>()
+    public let OnCreatedSkillButtons = Event<[SkillSelectButton]>()
+    public let OnCreatedCanvas = Event<Canvas>()
+    public let OnCreatedPlayers = Event<[UUID: Character]>()
     
-    public let _inputManager = InputManager()
-    public var _dispatcher: Dispatcher? = nil
-    public var _skillManager: SkillManager? = nil
+    public let PlayerSkills: [Skill] = [.Move, .Obstacle]
+    public let DefaultSkill = Skill.Move
+    
+    
+    private let _inputManager = InputManager()
+    private var _dispatcher: Dispatcher? = nil
+    private var _skillManager: SkillManager? = nil
     
     private let logger = Logger(subsystem: "GameManager", category: "GameManager")
     private var _characterMap: [UUID: Character] = [:]
     private var _characterInfoMap: [UUID: CharacterInfo] = [:]
     private var _operateCharacter: UUID? = nil
     
+    private let info: GameInfo
+    
+    
     init(info: GameInfo){
-        if(info.UseServer){
-            let sessionManager = ConnectionManager(hostInfo: info.RoomInfo.RoomHostInfo)
-            _dispatcher = Dispatcher(deviceID: info.DeviceID, sessionManager: sessionManager)
-            _dispatcher!.OnConnected += OnConnectGameServer.Invoke
-        }
-        _skillManager = SkillManager(skills: [.Move, .Obstacle])
-        SetConnection(network: info.UseServer)
-        _skillManager?.OnSelectSkill += { skill in
-            self._inputManager.SetSelectedSkill(skill: skill)
-        }
-        CreateAllCharacter(characterMap: info.RoomInfo.PlayerInfoMap)
+        self.info = info
+        createDispatcher(deviceID: info.DeviceID, host: info.RoomInfo.RoomHostInfo)
+    }
+    public func CreateSceneObjects(){
+        createSkillManager()
+        createAllCharacter(characterMap: info.RoomInfo.PlayerInfoMap)
+        createCanvas()
+    }
+    private func createDispatcher(deviceID: UUID, host: HostInfo){
+        let sessionManager = ConnectionManager(hostInfo: host)
+        _dispatcher = Dispatcher(deviceID: deviceID, sessionManager: sessionManager)
+        _dispatcher!.OnConnected += OnConnectGameServer.Invoke
+        SetConnection()
         OnConnectGameServer += {
             self._dispatcher?.sendJoinMessage()
         }
     }
-    private func SetConnection(network: Bool = false){
-        if(network){
-            _inputManager.OnDoPlayerAction += _dispatcher!.sendAction
-            _dispatcher!.OnReceivePlayerAction += GivePlayerAction
-        }else{
-            _inputManager.OnDoPlayerAction += GivePlayerAction
+    private func createSkillManager(){
+        _skillManager = SkillManager(skills: PlayerSkills)
+        _skillManager!.OnSelectSkill += { skill in
+            self._inputManager.SetSelectedSkill(skill: skill)
         }
+        OnCreatedSkillButtons.Invoke(_skillManager!.skillButtons)
+        _skillManager?.SetSkill(skill: DefaultSkill)
+    }
+    
+    private func createCanvas(){
+        let canvas = Canvas(startNode: GetOperateCharacter()!.SKNode)
+        _inputManager.SetCanvas(canvas: canvas)
+        OnCreatedCanvas.Invoke(canvas)
+    }
+    
+    private func SetConnection(){
+        _inputManager.OnDoPlayerAction += _dispatcher!.sendAction
+        _dispatcher!.OnReceivePlayerAction += GivePlayerAction
     }
     
     public func GetOperateCharacter() -> Character?{
@@ -56,13 +79,14 @@ class GameManager {
         
     }
     
-    private func CreateAllCharacter(characterMap: [String: CharacterInfo]){
+    private func createAllCharacter(characterMap: [String: CharacterInfo]){
         for (deviceID, playerInfo) in characterMap{
             CreateCharacter(info: playerInfo)
             if UUID(uuidString: deviceID) == DeviceManager.shared.DeviceID{
                 SetOperateCharacter(ID: playerInfo.CharacterModelID)
             }
         }
+        OnCreatedPlayers.Invoke(_characterMap)
     }
     public func GetCharacter(ID: UUID) -> Character?{
         return _characterMap[ID]

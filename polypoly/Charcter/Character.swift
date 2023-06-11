@@ -6,15 +6,22 @@
 //
 
 import Foundation
+import SpriteKit
 
 class Character: CharacterProtocol{
+    
     var CharacterModelID: UUID
     var ball: Ball = Ball()
     var lineList = [DrawingLine]()
     var currLine:DrawingLine!
     var currSkill: Skill = .Move
     private var power: Power = Power(CharacterPower: 100)
-
+    var SKNode: SKNode{
+        get{
+            return ball
+        }
+    }
+    
     var position: CGPoint {
         didSet{// initial won't trigger didSet func
             ball.position = position

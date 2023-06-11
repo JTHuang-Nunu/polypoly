@@ -6,10 +6,12 @@
 //
 
 import Foundation
+import SpriteKit
 
 protocol CharacterProtocol {
     var CharacterModelID: UUID { get set }
     var lineList: [DrawingLine] { get set }
+    var SKNode: SKNode { get }
 
     func DoAction(action: PlayerAction)
 }
