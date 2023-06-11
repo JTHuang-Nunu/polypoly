@@ -44,7 +44,6 @@ class GameManager {
             _dispatcher!.OnReceivePlayerAction += GivePlayerAction
         }else{
             _inputManager.OnDoPlayerAction += GivePlayerAction
-            _inputManager.OnUpdatePlayerStats += GivePlayerStats
         }
     }
     
@@ -113,22 +112,6 @@ class GameManager {
     }
     public func IfSameDirectionWithOperateCharacter(id: UUID) -> Bool{
         return GetIfSameDirection(c1: GetOperateCharacter()!, c2: GetCharacter(ID: id)!)
-    }
-    
-    public func GivePlayerStats(action: PlayerStats){
-        print("GameManager: GivePlayerStats")
-        guard let character = _characterMap[action.CharacterModelID] else {
-            print("Character not found")
-            return
-        }
-        _statsManager.UpdateStats(action: action)
-        _statsManager.CheckHealth(action: action)
-        
-    }
-    
-    public func GiveGameEnding(winner: Character){
-        //todo: complete it
-        print("### Game Winner: \(winner.CharacterModelID)###")
     }
     
     //---
