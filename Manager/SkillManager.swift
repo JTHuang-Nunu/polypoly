@@ -19,7 +19,7 @@ class SkillManager{
         buildSkillButtons()
         OnSelectSkill += { skill in
             self.currentSkill = skill
-        }
+        }//如果被invoke到的時候 會儲存skill為current skill
     }
     private func buildSkillButtons(){
         for skill in skillList{

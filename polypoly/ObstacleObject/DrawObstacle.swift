@@ -25,7 +25,14 @@ class DrawObstacle: ObstacleObejct {
         self.position = position
         self._setupBody()
     }
-
+    
+    init(position: CGPoint, path: CGPath){
+        self.path = path
+        super.init(node: SKShapeNode(path: self.path!))
+        self.position = position
+        self._setupBody()
+    }
+    
     private func _setupBody(){
         self.name = "drawObstacle"
         //node setting

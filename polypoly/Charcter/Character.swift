@@ -9,10 +9,9 @@ import Foundation
 import SpriteKit
 
 class Character: CharacterProtocol{
-//    var OnUpdateStats: Event<(CGFloat?, CGFloat?, StatsType)> = Event<(CGFloat?, CGFloat?, StatsType)>()
     var _healthManager = HealthManager()
-    var hp: CGFloat = 100
-
+    var OnCreateObstacle: Event<SKNode> = Event<SKNode>()
+    
     var CharacterModelID: UUID
     var ball: Ball = Ball()
     var lineList = [DrawingLine]()
@@ -49,7 +48,8 @@ class Character: CharacterProtocol{
         switch action.Skill{
         case .Move:
             characterMove(content: action.content)
-        case .Draw:
+        case .Obstacle:
+            createObstacle(content: action.content)
             break
         case .MeteoriteFalling:
             break
@@ -65,8 +65,7 @@ class Character: CharacterProtocol{
             break
         case .ObjectRandomlyGenerated:
             break
-        case .Obstacle:
-            break
+
         case .Trap:
             break
         }
@@ -75,6 +74,16 @@ class Character: CharacterProtocol{
 //            self.UseSkill(action: action)
 //            break
 //        }
+    }
+    func createObstacle(content : [ContentType: String]){
+        guard let codablePath = decodeJSON(CodablePath.self, jsonString: content[.Path]!)
+        else {return}
+        
+        let path = codablePath.toPath()
+
+        guard let object = ObstacleObejctFactory.shared.create(type: .DrawObstacle, position: CGPoint(x: 0, y: 0), path: path)
+        else {return}
+        OnCreateObstacle.Invoke(object)
     }
 //    func UseSkill(action: PlayerAction){
 //        switch(action.Skill){
@@ -87,7 +96,7 @@ class Character: CharacterProtocol{
 //        }
 //    }
     func characterMove(content : [ContentType: String]) {
-        guard var impulse = CGVectorConverter.convertToVector(from: content[.Impulse]!)
+        guard var impulse = decodeJSON(CGVector.self, jsonString: content[.Impulse]!)
         else {return}
         //- - -
         //update energy //modify impulse , when power value is insufficient
@@ -122,9 +131,9 @@ class Character: CharacterProtocol{
         switch status {
         case .begin:
             let lineWidth: CGFloat = 10
-            let hp: CGFloat = 3
+//            let hp: CGFloat = 3
             if let point = point {
-                currLine = DrawingLine(startPoint: point, lineWidth: lineWidth, hp: CGFloat(hp))
+//                currLine = DrawingLine(startPoint: point, lineWidth: lineWidth, hp: CGFloat(hp))
                 lineList.append(currLine)
             }
         case .move:

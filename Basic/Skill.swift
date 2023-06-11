@@ -11,8 +11,7 @@ enum Skill: Codable {
     case Move
     case Obstacle                       //玩家畫圖建立障礙物        (CGPath)
     case Trap                           //玩家畫圖建立陷阱     (CGPath)
-    
-    case Draw
+
     case MeteoriteFalling               //隕石砸落, 將場景物體破壞
     case HpRecovery                     //玩家HP恢復 (hp +?)
     case PowerRecovery                  //能量條恢復 (power +?)

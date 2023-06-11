@@ -45,7 +45,7 @@ class SkillButton: SKShapeNode {
         case .Move:
             print("choose [move] skill")
             changeColor()
-        case .Draw:
+        case .Obstacle:
             break
         case .MeteoriteFalling:
             break
