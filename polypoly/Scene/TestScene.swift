@@ -13,22 +13,16 @@ class TestScene: SKScene{
     let myPoint = CGPoint(x: 50, y: 0)
     let othersPoint = CGPoint(x: -50, y: 0)
     
-    var ThisCanvas: Canvas? = nil
     var operateCharacter: Character? = nil
     //-----------------------------------
     override func sceneDidLoad() {
-        operateCharacter = gameManager.GetOperateCharacter()
-        self.CreatePlayers()
-        self.CreateCanvas()
-        let wall = Wall(size: UIScreen.main.bounds.size)
-        wall.position = CGPoint(x: 0, y: 0)
-        addChild(wall)
-        CreateSkills()
-        gameManager._skillManager?.SetSkill(skill: .Move)
+        gameManager.OnCreatedCanvas += addChild
+        gameManager.OnCreatedPlayers += CreatePlayers
+        gameManager.OnCreatedSkillButtons += CreateSkills
+        gameManager.CreateSceneObjects()
         
     }
-    func CreatePlayers(){
-        let players = gameManager.GetCharacterMap()
+    func CreatePlayers(players: [UUID: Character]){
         for id in players.keys{
             switch gameManager.IfSameDirectionWithOperateCharacter(id: id){
             case true:
@@ -46,15 +40,9 @@ class TestScene: SKScene{
         }
     
     }
-    func CreateCanvas(){
-        ThisCanvas = Canvas(startNode: operateCharacter!.ball)
-        gameManager._inputManager.SetCanvas(canvas: ThisCanvas!)
-        addChild(ThisCanvas! as SKNode)
-    }
-    func CreateSkills(){
-        let skillButtons = gameManager._skillManager?.skillButtons
-        for i in 0..<skillButtons!.count{
-            let skill = skillButtons![i]
+    func CreateSkills(skillButtons: [SkillSelectButton]){
+        for i in 0..<skillButtons.count{
+            let skill = skillButtons[i]
             skill.position = CGPoint(x:self.frame.minX + 50 + CGFloat(100*i), y:self.frame.midY)
             skill.zPosition = zAxis.skillButton
             addChild(skill as SKNode)

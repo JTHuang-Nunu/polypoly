@@ -7,50 +7,21 @@
 
 import Foundation
 import SpriteKit
-//------------------------------------------------//
-//               SkillButton
-//------------------------------------------------//
+
+
+
 class SkillButton: SKShapeNode {
-    static let OnSelectSkill: Event<Skill> = Event<Skill>()
     var skill: Skill
-    var isSelected: Bool = false {
-        didSet {
-            if isSelected == true {
-                flashingBorder.startFlashing()
-            } else{
-                flashingBorder.stopFlashing()
-            }
-        }
-    }
-    var flashingBorder: FlashingBorder!
-    var buttonSize: CGSize = CGSize(width: 50, height: 50)
-    var currentColor: UIColor = .green {
-        didSet{
-            self.fillColor = currentColor
-        }
-    }
-    var labelNode: SKLabelNode
-    
+    static var currSkill = Skill.Move
+    var currentColor: UIColor = .cyan
     init(skillType : Skill = .Move, user: Character) {
         self.skill = skillType
-        self.labelNode = SKLabelNode(text: "\(String(describing: skill).first!)")
-        self.flashingBorder = FlashingBorder(size: buttonSize)
         super.init()
-        self._setupBody()
-    }
-    private func _setupBody(){
-        self.zPosition = zAxis.skillButton
-        //set label
-        labelNode.position = CGPoint(x: 0, y: 0)
-        labelNode.fontSize = 30
-        labelNode.fontColor = .black
-        addChild(labelNode)
-        //set button color
+        
+        let buttonSize = CGSize(width: 50, height: 50)
         let buttonRect = CGRect(origin: CGPoint.zero, size: buttonSize)
         self.path = UIBezierPath(ovalIn: buttonRect).cgPath
         self.fillColor = currentColor
-        //set flashingBorder
-        addChild(flashingBorder)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -63,33 +34,39 @@ class SkillButton: SKShapeNode {
 //        skillSelected()
 //    }
     
-//    private func skillSelected(){
-//        switch SkillButton.currSkill {
-//        case .Move:
-//            print("choose [move] skill")
-//            changeColor()
-//        case .Draw:
-//            break
-//        case .MeteoriteFalling:
-//            break
-//        case .HpRecovery:
-//            break
-//        // 其他技能的逻辑...
-//        case .PowerRecovery:
-//            break
-//        case .TowerBuilding:
-//            break
-//        case .ObjectEnhancing:
-//            break
-//        case .GravityIncreasing:
-//            break
-//        case .ObjectRandomlyGenerated:
-//            break
-//        default:
-//            break
-//
-//        }
-//    }
+    func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?, from user: Character) {
+        SkillButton.currSkill = skill
+        user.currSkill = skill
+        skillSelected()
+    }
+    
+    private func skillSelected(){
+        switch SkillButton.currSkill {
+        case .Move:
+            print("choose [move] skill")
+            changeColor()
+        case .Draw:
+            break
+        case .MeteoriteFalling:
+            break
+        case .HpRecovery:
+            break
+        // 其他技能的逻辑...
+        case .PowerRecovery:
+            break
+        case .TowerBuilding:
+            break
+        case .ObjectEnhancing:
+            break
+        case .GravityIncreasing:
+            break
+        case .ObjectRandomlyGenerated:
+            break
+        default:
+            break
+        
+        }
+    }
     
     private func changeColor() {
         if currentColor == .cyan {

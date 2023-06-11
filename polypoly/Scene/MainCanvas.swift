@@ -1,104 +1,87 @@
-//
-//  Canvas.swift
-//  polypoly
-//
-//  Created by Cheng Pong Huang on 2023/6/3.
-//
+////
+////  Canvas.swift
+////  polypoly
+////
+////  Created by Cheng Pong Huang on 2023/6/1.
+////
 
-import Foundation
-import SpriteKit
-import GameplayKit
-
-class MainCanvas: BaseCanvas{
-    public let OnDrawLine = Event<CodablePath>()
-    public let OnDrawPointer = Event<CGVector>()
-    
-    
-    public var Mode: CanvasMode = CanvasMode.Pointer
-    private var line: DrawLine? = nil
-    private var pointer: Pointer? = nil
-    private var startNode: SKNode? = nil
-    private var endPoint: CGPoint? = nil
-    
-    init(startNode: SKNode) {
-        self.startNode = startNode
-        super.init()
-        self.zPosition = zAxis.Canvas   //set initial zPosition
-        // Adjust the size of the canvas to match the screen dimensions
-        let screenSize = UIScreen.main.bounds.size
-        self.path = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: screenSize)).cgPath
-        self.isUserInteractionEnabled = true
-        self.position = CGPoint(x: -screenSize.width/2, y: -screenSize.height/2)
-    }
-    public func SetMode(mode: CanvasMode){
-        Mode = mode
-    }
-    
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func startNewPoint(point: CGPoint) {
-        super.startNewPoint(point: point)
-        switch Mode{
-        case .Draw:
-            startDraw(point: point)
-            break
-        case .Pointer:
-            startPointer(point: point)
-            
-        default:
-            break
-        }
-    }
-    override func updatePoint(point: CGPoint) {
-        super.updatePoint(point: point)
-        switch Mode{
-        case .Draw:
-            assert (line != nil, "line not set")
-            line!.UpdateLine(newPoint: point)
-            break
-        case .Pointer:
-            endPoint = point
-        }
-    }
-    override func finishPoint(point: CGPoint) {
-        super.finishPoint(point: point)
-        switch Mode{
-        case .Draw:
-            assert (line != nil, "line not set")
-            OnDrawLine.Invoke(line!.CodablePath)
-            line!.removeFromParent()
-            break
-        case .Pointer:
-            assert (pointer != nil, "pointer not set")
-            OnDrawPointer.Invoke(pointer!.GetVector())
-            removeAllActions()
-            pointer!.removeFromParent()
-            pointer = nil
-            endPoint = nil
-            break
-        }
-    }
-    
-    
-    private func startDraw(point: CGPoint){
-        line = DrawLine(lineWidth: 5)
-        line!.SetStartPoint(startPoint: point)
-        scene!.addChild(line!)
-    }
-    private func startPointer(point: CGPoint){
-        assert (startNode != nil, "startNode not set")
-        endPoint = point
-        pointer = Pointer(startPoint: startNode!.position, endPoint: endPoint!)
-        scene!.addChild(pointer!)
-    }
-    
-    override func NodeUpdate(_ currentTime: TimeInterval) {
-        if let pointer = pointer{
-            pointer.UpdatePointer(startPoint: startNode!.position, endPoint: endPoint!)
-        }
-    }
-    
-    
-}
+//
+//import Foundation
+//import SpriteKit
+//
+//class MainCanvas: SKShapeNode{
+//
+//    let screenCenter: CGPoint = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)  //Locating my screen center for char and other object
+//
+////    var arrowNode: Arrow!
+//    var resetButton: SKShapeNode!
+//    var isDragging = false
+//    var isDrawing = false
+//    var startPoint: CGPoint = .zero
+//
+//    var rect: SKShapeNode!
+//    var powerBar: PowerBar!
+//    var timer: Timer?
+//
+//    //player variable
+//    var uuidDictionary = [Int: UUID]()
+////    var uuidDictionary = [UUID: String]()
+//    var playerContainer = [Character]()
+//    var ThisPlayer: Character!
+//    var arrowNode = Arrow()
+//    init(thisPlayer this: Character) {
+//        self.ThisPlayer = this
+//        super.init()
+//        // Adjust the size of the canvas to match the screen dimensions
+//        let screenSize = UIScreen.main.bounds.size
+//        self.path = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: screenSize)).cgPath
+//        self.isUserInteractionEnabled = true
+////        self.fillColor = .gray
+//        //add child
+//        self.addChild(arrowNode)
+//
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch  = touches.first {
+//            let location = touch.location(in: self)
+//            isDragging = true
+//            arrowNode.updateArrow(start: location)
+//
+//        }
+//    }
+//    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if let touch = touches.first {
+//            if(isDragging){
+//                arrowNode.updateArrow(current: touch.location(in: self), objectNode: ThisPlayer.ball)
+//            }
+//        }
+//    }
+//    override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
+//        if isDragging {
+//
+//            isDragging = false
+//            let impulse = arrowNode.getImpulse()
+//            let impulseStr = CGVectorConverter.convertToString(vector: impulse)
+//            let playerActionTmp = PlayerAction(
+//                CharacterModelID: UUID(),
+//                ActionType: .UseSkill,
+//                Skill: .Move,
+//                content: [.Impulse: impulseStr]
+//                )
+//            ThisPlayer.DoAction(action: playerActionTmp)
+////            ThisPlayer.characterMove(force: impulse)
+////            arrowNode.pushBall(player: ThisPlayer)
+//            arrowNode.initVariable()
+////            let impulse = arrowNode.getImpulse()
+////            arrowNode.pushBall(player: player1)
+////            arrowNode.initVariable()
+//        }
+//    }
+//
+//
+//}

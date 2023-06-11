@@ -16,20 +16,11 @@ enum TouchStatus: Codable{
 
 enum ActionType: Codable {
     case UseSkill
-    case ChooseSkill
-}
-
-enum StatsType: Codable {
-    case Health
-    case Energy
-    case All
 }
 
 enum ContentType: Codable{
     case Impulse
     case Position
-    case HealthPoint
-    case Energy
     case Path
 }
 
@@ -38,7 +29,6 @@ enum MessageType: String, Codable{
     case CreateRoom
     case CancelRequest
     case PlayerAction
-    case PlayerStats
     case PlayerLeave
     case TestMessage
     case JoinMessage
@@ -69,12 +59,6 @@ struct PlayerAction: Codable & Oppositable{
         let newValue = decodeJSON(type, jsonString: value)
         return encodeJSON(newValue?.opposite)
     }
-}
-
-struct PlayerStats: Codable{
-    var CharacterModelID: UUID
-    var statsType: StatsType
-    var content: [ContentType: String] = [:]
 }
 
 struct Message: Codable{

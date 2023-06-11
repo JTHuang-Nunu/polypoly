@@ -6,23 +6,25 @@
 //
 
 import Foundation
+import SpriteKit
 
 class Character: CharacterProtocol{
-    var OnUpdateStats: Event<(CGFloat?, CGFloat?, StatsType)> = Event<(CGFloat?, CGFloat?, StatsType)>()
+//    var OnUpdateStats: Event<(CGFloat?, CGFloat?, StatsType)> = Event<(CGFloat?, CGFloat?, StatsType)>()
     var _healthManager = HealthManager()
     var hp: CGFloat = 100
+
     var CharacterModelID: UUID
     var ball: Ball = Ball()
     var lineList = [DrawingLine]()
     var currLine:DrawingLine!
-    var possessSkill: [Skill] = [.Move, .Draw, .GravityIncreasing]
-    var currSkill: Skill = .Move  {
-        didSet {
-            print("Character be setting \(String(describing: currSkill))")
-        }			
+    var currSkill: Skill = .Move
+    private var power: Power = Power(CharacterPower: 100)
+    var SKNode: SKNode{
+        get{
+            return ball
+        }
     }
-    internal var power: Power = Power(CharacterPower: 100)
-
+    
     var position: CGPoint {
         didSet{// initial won't trigger didSet func
             ball.position = position
@@ -31,20 +33,17 @@ class Character: CharacterProtocol{
     }
     init(characterModelID: UUID){
         self.CharacterModelID = characterModelID
+        
         self.position = CGPoint(x: 0, y: 0)
-        self._setup()
+        self.ball.position = self.position
     }
-    
     init(characterModelID: UUID, position: CGPoint){
         self.CharacterModelID = characterModelID
+        
         self.position = position
-        self._setup()
-    }
-    private func _setup(){
         self.ball.position = self.position
-//        OnUpdateStats += InputManager.shared.updatePlayerStats
     }
-
+    
     func DoAction(action: PlayerAction) {
         print("playerAction doing")
         switch action.Skill{
@@ -70,16 +69,28 @@ class Character: CharacterProtocol{
             break
         case .Trap:
             break
-        case .bomp:
-            break
         }
+//        switch(action.ActionType){
+//        case .UseSkill:
+//            self.UseSkill(action: action)
+//            break
+//        }
     }
-    
+//    func UseSkill(action: PlayerAction){
+//        switch(action.Skill){
+//        case .Move:
+//            //self.move(impulse: action.content["impulse"])
+//            char
+//            break
+//        default:
+//            break
+//        }
+//    }
     func characterMove(content : [ContentType: String]) {
-        guard var impulse = decodeJSON(CGVector.self, jsonString: content[.Impulse]!)
+        guard var impulse = CGVectorConverter.convertToVector(from: content[.Impulse]!)
         else {return}
         //- - -
-        //update Power //modify impulse , when power value is insufficient
+        //update energy //modify impulse , when power value is insufficient
         let distance = impulse.distance
         
         var transformToPower: CGFloat{
@@ -92,17 +103,20 @@ class Character: CharacterProtocol{
             let modifyImpulse = currPower / transformToPower
             impulse = impulse * modifyImpulse
             currPower = 0 // using  all power
-        } else{
+        }else{
             currPower -= transformToPower
         }
         print("modify impulse", impulse)
-//        OnUpdateStats.Invoke((nil ,currPower, .Energy))
-        OnUpdateStats.Invoke((0 ,currPower, .All))
+        self.power.update(currentPower: currPower)
         //- - -
         //push the ball by the impulse
         self.ball.physicsBody?.applyImpulse(impulse)
+
     }
-    
+//    func characterMove(force impulse: CGVector) {
+//        //push the ball by the impulse
+//        self.ball.physicsBody?.applyImpulse(impulse)
+//    }
     func draw(status: TouchStatus, point: CGPoint?) {
         
         switch status {
