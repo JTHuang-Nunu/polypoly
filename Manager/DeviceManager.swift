@@ -23,7 +23,7 @@ class DeviceManager{
     private var _lobbyManager: LobbyManager? = nil
     private var _gameManager: GameManager? = nil
     
-    private let _lobbyHostInfo = HostInfo(IP: "localhost", Port: 8000)
+    private let _lobbyHostInfo = HostInfo(IP: "169.254.79.183", Port: 8000)
     private var _gameHostInfo: HostInfo? = nil
     
     private var stateMachine: GKStateMachine? = nil

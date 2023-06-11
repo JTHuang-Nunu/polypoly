@@ -34,6 +34,7 @@ class SkillManager{
     }
     
 }
+//------------------------------------------------------
 class SkillSelectButton: BaseButton{
     public let OnSelectSkill = Event<Skill>()
     public let SelfSkill: Skill

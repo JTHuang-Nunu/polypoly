@@ -27,6 +27,12 @@ class SkillButton: SKShapeNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+//
+//    func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?, from user: Character) {
+//        SkillButton.currSkill = skill
+//        user.currSkill = skill
+//        skillSelected()
+//    }
     
     func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?, from user: Character) {
         SkillButton.currSkill = skill

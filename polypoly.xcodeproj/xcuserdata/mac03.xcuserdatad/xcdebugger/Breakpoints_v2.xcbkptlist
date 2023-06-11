@@ -7,6 +7,7 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
+<<<<<<< HEAD
             uuid = "98A3C4B0-184C-453D-9557-129EDFBB0A15"
             shouldBeEnabled = "No"
             ignoreCount = "0"
@@ -394,6 +395,19 @@
             endingLineNumber = "43"
             landmarkName = "setRecoveryPower()"
             landmarkType = "7">
+=======
+            uuid = "6CB48F9B-9247-49E6-AFE5-EF51B26231B8"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Manager/DeviceManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "25"
+            endingLineNumber = "25"
+            landmarkName = "DeviceManager"
+            landmarkType = "3">
+>>>>>>> main
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

@@ -10,16 +10,22 @@ import SpriteKit
 
 class InitialScene: SKScene {
     let earth = SKSpriteNode(imageNamed: "earth")
+    var button = BaseButton()
     override func didMove(to view: SKView){
         DeviceManager.shared.Initialize()
         createScene()
         //Start Label
         createStartLabel()
-        let button = BaseButton()
+//        let button = BaseButton()
         button.position = CGPoint(x:self.frame.maxX - 50, y:self.frame.midY)
         button.OnClickBegin += {
             DeviceManager.shared.RequestRoom()
         }
+//        let delay = SKAction.wait(forDuration: 2.0) // Adjust the delay duration as needed
+//            let clickAction = SKAction.run {
+//                button.OnClickBegin.Invoke(())
+//            }
+ 
         let label = SKLabelNode(text: "test")
         label.fontName = "HelveticaNeue-Bold"
         label.fontSize = 50
@@ -29,6 +35,9 @@ class InitialScene: SKScene {
             self.gotoTestScene()
         }
         
+    }
+    override func update(_ currentTime: TimeInterval) {
+        button.OnClickBegin.Invoke(())
     }
     
     func createScene(){

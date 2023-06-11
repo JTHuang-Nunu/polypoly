@@ -10,6 +10,7 @@ import Foundation
 
 struct zAxis {
     static let skillButton : CGFloat = 15.0
+    static let skillAnimation : CGFloat = 12.0
     static let Canvas : CGFloat = 10.0
     static let Base : CGFloat = 5.0
     static let Under : CGFloat = 0.0

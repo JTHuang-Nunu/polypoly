@@ -6,25 +6,48 @@
 //
 
 import Foundation
-
+enum HealthType {
+    case Recovery
+    case Injure
+    case Setting
+}
 
 class HealthManager{
     public let OnDied = Event<Void>()
-    
-    var MaxHealth: Int = 100
-    var Health: Int = 100
+
+    private var MaxHealth: CGFloat = 5
+    private var Health: CGFloat = 5 {
+        didSet{
+            if(Health == 0) {
+                IsDead()
+            }
+        }
+    }
     init(){
         
     }
-    
-    public var IsDead: Bool{
-        get{
-            Health == 0
-        }
+    init (maxHP: CGFloat){
+        MaxHealth = maxHP
+        Health = maxHP
+    }
+    public func IsDead() {
+        print("===Lost game===")
+//        OnDied.Invoke(<#Void#>)
     }
     
-    public func TakeDamage(damage: Int){
-        
+    public func initHP(maxHP: CGFloat){
+        MaxHealth = maxHP
+        Health = maxHP
+    }
+    public func update(val: CGFloat, type: HealthType){
+        switch type{
+        case .Recovery:
+            Health += val
+        case .Injure:
+            Health -= val
+        case .Setting:
+            Health = val
+        }
     }
     
     

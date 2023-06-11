@@ -9,7 +9,9 @@ import Foundation
 import SpriteKit
 
 class Character: CharacterProtocol{
-    
+    var OnUpdateStats: Event<(CGFloat?, CGFloat?, StatsType)> = Event<(CGFloat?, CGFloat?, StatsType)>()
+    var _healthManager = HealthManager()
+    var hp: CGFloat = 100
     var CharacterModelID: UUID
     var ball: Ball = Ball()
     var lineList = [DrawingLine]()
@@ -64,6 +66,8 @@ class Character: CharacterProtocol{
         case .Obstacle:
             break
         case .Trap:
+            break
+        case .bomp:
             break
         }
 //        switch(action.ActionType){
