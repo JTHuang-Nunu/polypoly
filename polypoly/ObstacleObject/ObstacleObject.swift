@@ -16,7 +16,7 @@ class ObstacleObejct: SKNode, ObstacleObjectProtocol {
     
 //    var path: CGPath? = nil
     
-    public func updateHP(val: CGFloat, type: HealthType){
+    public func updateHP(type: HealthType, val: CGFloat){
 //        print("\(type): \(val)")
         healthManager.update(val: val, type: .Injure)
     }

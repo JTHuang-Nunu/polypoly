@@ -10,6 +10,7 @@ import SpriteKit
 
 class Character: CharacterProtocol{
     var _healthManager = HealthManager()
+    var _teamManager: TeamManager!
     var OnCreateObstacle: Event<SKNode> = Event<SKNode>()
     
     var CharacterModelID: UUID
@@ -17,7 +18,6 @@ class Character: CharacterProtocol{
     var lineList = [DrawingLine]()
     var currLine:DrawingLine!
     var currSkill: Skill = .Move
-    private var power: Power = Power(CharacterPower: 100)
     var SKNode: SKNode{
         get{
             return ball
@@ -30,21 +30,19 @@ class Character: CharacterProtocol{
             print("ballposition: ",ball.position)
         }
     }
-    init(characterModelID: UUID){
-        self.CharacterModelID = characterModelID
-        
-        self.position = CGPoint(x: 0, y: 0)
-        self.ball.position = self.position
+    
+    convenience init(characterModelID: UUID){
+        self.init(characterModelID: characterModelID, position: CGPoint(x: 0, y: 0))
     }
+    
     init(characterModelID: UUID, position: CGPoint){
         self.CharacterModelID = characterModelID
-        
         self.position = position
         self.ball.position = self.position
+        self._teamManager = TeamManager(character: self)
     }
     
     func DoAction(action: PlayerAction) {
-        print("playerAction doing")
         switch action.Skill{
         case .Move:
             characterMove(content: action.content)
@@ -69,12 +67,8 @@ class Character: CharacterProtocol{
         case .Trap:
             break
         }
-//        switch(action.ActionType){
-//        case .UseSkill:
-//            self.UseSkill(action: action)
-//            break
-//        }
     }
+    
     func createObstacle(content : [ContentType: String]){
         guard let codablePath = decodeJSON(CodablePath.self, jsonString: content[.Path]!)
         else {return}
@@ -85,16 +79,6 @@ class Character: CharacterProtocol{
         else {return}
         OnCreateObstacle.Invoke(object)
     }
-//    func UseSkill(action: PlayerAction){
-//        switch(action.Skill){
-//        case .Move:
-//            //self.move(impulse: action.content["impulse"])
-//            char
-//            break
-//        default:
-//            break
-//        }
-//    }
     func characterMove(content : [ContentType: String]) {
         guard var impulse = decodeJSON(CGVector.self, jsonString: content[.Impulse]!)
         else {return}
@@ -106,17 +90,6 @@ class Character: CharacterProtocol{
             return distance / 5
         }
         print(distance)
-        print("origin impulse", impulse)
-        var currPower = self.power.getCurrentValue()
-        if(currPower < transformToPower){
-            let modifyImpulse = currPower / transformToPower
-            impulse = impulse * modifyImpulse
-            currPower = 0 // using  all power
-        }else{
-            currPower -= transformToPower
-        }
-        print("modify impulse", impulse)
-        self.power.update(currentPower: currPower)
         //- - -
         //push the ball by the impulse
         self.ball.physicsBody?.applyImpulse(impulse)
@@ -144,11 +117,6 @@ class Character: CharacterProtocol{
         case .end:
             currLine.endDrawing()
         }
-    }
-    
-    
-    func getPower() -> Power {
-        return self.power
     }
 }
 

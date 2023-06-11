@@ -14,12 +14,14 @@ enum ObstacleObejctType {
 }
 
 class ObstacleObejctFactory {
-    func create(type: ObstacleObejctType, position: CGPoint) -> ObstacleObejct{
+    public static var shared = ObstacleObejctFactory()
+    func create(type: ObstacleObejctType, position: CGPoint, path: CGPath?) -> ObstacleObejct?{
         switch type {
         case .Building:
             return BuildingObstacle(position: position)
         case .DrawObstacle:
-            return DrawObstacle(position: position)
+            guard let path = path else {return nil}
+            return DrawObstacle(position: position, path: path)
         }
     }
 }
