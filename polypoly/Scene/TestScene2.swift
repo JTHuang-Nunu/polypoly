@@ -31,7 +31,7 @@ class TestScene2: SKScene{
         gameManager.CreateSceneObjects()
         
 //        operateCharacter?.OnDrawObstacle += createOBO
-        operateCharacter?.OnCreateObstacle += addChild
+        //operateCharacter?.OnCreateObstacle += addChild
     }
     func PlacePlayerTo(players: [UUID: Character], point: CGPoint){
         for value in players.values{
