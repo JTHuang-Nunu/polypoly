@@ -100,7 +100,7 @@ class GameManager {
                 selfPlayers[ID] = character
             }
         }
-        OnCreatedSelfPlayers.Invoke(_characterMap)
+        OnCreatedSelfPlayers.Invoke(selfPlayers)
     }
     private func invokeOtherPlayers(){
         var otherPlayers: [UUID: Character] = [:]
@@ -109,7 +109,7 @@ class GameManager {
                 otherPlayers[ID] = character
             }
         }
-        OnCreatedOtherPlayers.Invoke(_characterMap)
+        OnCreatedOtherPlayers.Invoke(otherPlayers)
     }
     
     

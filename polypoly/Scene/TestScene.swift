@@ -27,6 +27,7 @@ class TestScene: SKScene{
     }
     func PlacePlayerTo(players: [UUID: Character], point: CGPoint){
         for value in players.values{
+            addChild(value.SKNode)
             value.SKNode.position = point
         }
     
