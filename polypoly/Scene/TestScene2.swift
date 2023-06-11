@@ -8,55 +8,42 @@
 import Foundation
 import SpriteKit
 
-class TestScene2: SKScene, SKPhysicsContactDelegate{
+class TestScene2: SKScene{
     let gameManager = DeviceManager.shared.GameManager!
     let myPoint = CGPoint(x: 50, y: 0)
     let othersPoint = CGPoint(x: -50, y: 0)
     
-    var ThisCanvas: Canvas? = nil
-    var operateCharacter: Character? = nil
-    //-----------------------------------
     override func sceneDidLoad() {
-        operateCharacter = gameManager.GetOperateCharacter()
-        self.CreatePlayers()
-        self.CreateCanvas()
-        let wall = Wall(size: UIScreen.main.bounds.size)
-        wall.position = CGPoint(x: 0, y: 0)
-        addChild(wall)
-        CreateSkills()
-        gameManager._skillManager?.SetSkill(skill: .Move)
-        physicsWorld.contactDelegate = self
-        physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
+        gameManager.OnCreatedCanvas += addChild
+        gameManager.OnCreatedSelfPlayers += { players in
+            self.PlacePlayerTo(players: players, point: self.myPoint)
+        }
+        gameManager.OnCreatedOtherPlayers += { players in
+            self.PlacePlayerTo(players: players, point: self.othersPoint)
+        }
+        gameManager.OnCreatedEneryManager += { manager in
+            self.addChild(manager)
+            self.createEnergyBar(manager: manager)
+        }
+        gameManager.OnCreatedSkillButtons += PlaceSkillButtons
+        gameManager.CreateSceneObjects()
         
     }
-    func CreatePlayers(){
-        let players = gameManager.GetCharacterMap()
-        for id in players.keys{
-            switch gameManager.IfSameDirectionWithOperateCharacter(id: id){
-            case true:
-                let character = players[id]
-                character?.ball.position = myPoint
-                addChild(character!.ball)
-                break
-            case false:
-                let character = players[id]
-                character?.ball.position = othersPoint
-                addChild(character!.ball)
-            default:
-                break
-            }
+    func PlacePlayerTo(players: [UUID: Character], point: CGPoint){
+        for value in players.values{
+            addChild(value.SKNode)
+            value.SKNode.position = point
         }
     
     }
-    func CreateCanvas(){
-        ThisCanvas = Canvas(startNode: operateCharacter!.ball)
-        gameManager._inputManager.SetCanvas(canvas: ThisCanvas!)
-        addChild(ThisCanvas! as SKNode)
+    func createEnergyBar(manager: EnergyManager){
+        let energyBar = EnergyBar(energyManager: manager)
+        energyBar.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 100)
+        addChild(energyBar)
     }
-    func CreateSkills(){
-        let skillButtons = gameManager._skillManager?.skillButtons
-        for i in 0..<skillButtons!.count{
-            let skill = skillButtons![i]
+    func PlaceSkillButtons(skillButtons: [SkillSelectButton]){
+        for i in 0..<skillButtons.count{
+            let skill = skillButtons[i]
             skill.position = CGPoint(x:self.frame.minX + 50 + CGFloat(100*i), y:self.frame.midY)
             skill.zPosition = zAxis.skillButton
             addChild(skill as SKNode)
