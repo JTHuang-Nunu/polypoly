@@ -22,8 +22,8 @@ class GameViewController: UIViewController {
 //        }
         
         if let view = self.view as! SKView? {
-//            let scene = initialScene(size: view.bounds.size)
-            let scene = MainScene(fileNamed: "TestScene copy")!
+            let scene = InitialScene(size: view.bounds.size)
+//            let scene = TestScene2(size: view.bounds.size)
             scene.scaleMode = .aspectFill
             view.ignoresSiblingOrder = true
             view.showsFPS = true

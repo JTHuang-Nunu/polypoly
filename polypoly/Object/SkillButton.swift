@@ -56,12 +56,40 @@ class SkillButton: SKShapeNode {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+//
+//    func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?, from user: Character) {
+//        SkillButton.currSkill = skill
+//        user.currSkill = skill
+//        skillSelected()
+//    }
     
-    func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?, from user: Character) {
-        isSelected = true
-        SkillButton.OnSelectSkill.Invoke(skill)
-
-    }
+//    private func skillSelected(){
+//        switch SkillButton.currSkill {
+//        case .Move:
+//            print("choose [move] skill")
+//            changeColor()
+//        case .Draw:
+//            break
+//        case .MeteoriteFalling:
+//            break
+//        case .HpRecovery:
+//            break
+//        // 其他技能的逻辑...
+//        case .PowerRecovery:
+//            break
+//        case .TowerBuilding:
+//            break
+//        case .ObjectEnhancing:
+//            break
+//        case .GravityIncreasing:
+//            break
+//        case .ObjectRandomlyGenerated:
+//            break
+//        default:
+//            break
+//
+//        }
+//    }
     
     private func changeColor() {
         if currentColor == .cyan {
@@ -75,40 +103,40 @@ class SkillButton: SKShapeNode {
 //------------------------------------------------//
 //               MainSkillButton
 //------------------------------------------------//
-class MainSkillButton: SkillButton {
-    var skill2: Skill
-    var currSkill: Skill
-    init(skillType: Skill = .Move, skillType2: Skill = .Draw, user: Character) {
-        self.skill2 = skillType2
-        self.currSkill = skillType
-        super.init(skillType: skillType, user: user)
-        self.currentColor = .red
-        self.fillColor = currentColor
-        
-    }
-
-    required init?(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
-    
-    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?, from user: Character) {
-        if(isSelected){
-            if(currSkill == skill){
-                currSkill = skill2
-                labelNode.text? = (String(describing: currSkill).first)!.description
-                self.currentColor = .blue
-            } else if(currSkill == skill2){
-                currSkill = skill
-                labelNode.text? = (String(describing: currSkill).first)!.description
-                self.currentColor = .red
-            }
-        } else{
-            isSelected = true
-        }
-        
-        SkillButton.OnSelectSkill.Invoke(currSkill)
-    }
-}
+//class MainSkillButton: SkillButton {
+//    var skill2: Skill
+//    var currSkill: Skill
+//    init(skillType: Skill = .Move, skillType2: Skill = .Draw, user: Character) {
+//        self.skill2 = skillType2
+//        self.currSkill = skillType
+//        super.init(skillType: skillType, user: user)
+//        self.currentColor = .red
+//        self.fillColor = currentColor
+//        
+//    }
+//
+//    required init?(coder aDecoder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+//    
+//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?, from user: Character) {
+//        if(isSelected){
+//            if(currSkill == skill){
+//                currSkill = skill2
+//                labelNode.text? = (String(describing: currSkill).first)!.description
+//                self.currentColor = .blue
+//            } else if(currSkill == skill2){
+//                currSkill = skill
+//                labelNode.text? = (String(describing: currSkill).first)!.description
+//                self.currentColor = .red
+//            }
+//        } else{
+//            isSelected = true
+//        }
+//        
+//        SkillButton.OnSelectSkill.Invoke(currSkill)
+//    }
+//}
 //------------------------------------------------//
 //                  FlashingBorder
 //------------------------------------------------//

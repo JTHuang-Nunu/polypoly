@@ -88,10 +88,12 @@ class DrawingLine: SKShapeNode {
 
 class DrawLine: SKShapeNode {
 
-    var linePath: CGMutablePath
+    private var linePath: CGMutablePath
+    private var codablePath: CodablePath
     
     init(lineWidth: CGFloat) {
         self.linePath = CGMutablePath()
+        codablePath = polypoly.CodablePath(PointList: [])
         super.init()
         self.strokeColor = .blue
         self.lineWidth = lineWidth
@@ -99,12 +101,20 @@ class DrawLine: SKShapeNode {
     }
     public func SetStartPoint(startPoint: CGPoint){
         linePath.move(to: startPoint)
+        codablePath.PointList.append(startPoint)
         self.path = linePath
     }
     
     public func UpdateLine(newPoint: CGPoint){
         linePath.addLine(to: newPoint)
+        codablePath.PointList.append(newPoint)
         self.path = linePath
+    }
+    
+    public var CodablePath: CodablePath{
+        get{
+            return codablePath
+        }
     }
     
 

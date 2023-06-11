@@ -6,42 +6,80 @@
 //
 
 import Foundation
+import os
 
+/// GameManager是一個管理遊戲的class，包含了所有遊戲的角色，網路連接
 class GameManager {
     
-    public let _inputManager = InputManager.shared
-    public let _dispatcher = Dispatcher()
-    public let _statsManager = StatsManager.shared
-    private var _characterMap: [UUID: Character] = [:]
-    private var _operateCharacter: UUID? = nil
-    public static let shared = GameManager()
+    public let OnConnectGameServer = Event<Void>()
     
-    private init(){
-        SetConnection()
+    public let _inputManager = InputManager()
+    public var _dispatcher: Dispatcher? = nil
+    public var _skillManager: SkillManager? = nil
+    
+    private let logger = Logger(subsystem: "GameManager", category: "GameManager")
+    private var _characterMap: [UUID: Character] = [:]
+    private var _characterInfoMap: [UUID: CharacterInfo] = [:]
+    private var _operateCharacter: UUID? = nil
+    
+    init(info: GameInfo){
+        if(info.UseServer){
+            let sessionManager = ConnectionManager(hostInfo: info.RoomInfo.RoomHostInfo)
+            _dispatcher = Dispatcher(deviceID: info.DeviceID, sessionManager: sessionManager)
+            _dispatcher!.OnConnected += OnConnectGameServer.Invoke
+        }
+        _skillManager = SkillManager(skills: [.Move, .Obstacle])
+        SetConnection(network: info.UseServer)
+        _skillManager?.OnSelectSkill += { skill in
+            self._inputManager.SetSelectedSkill(skill: skill)
+        }
+        CreateAllCharacter(characterMap: info.RoomInfo.PlayerInfoMap)
+        OnConnectGameServer += {
+            self._dispatcher?.sendJoinMessage()
+        }
     }
-    public func SetConnection(network: Bool = false){
+    private func SetConnection(network: Bool = false){
         if(network){
-            _inputManager.OnDoPlayerAction += _dispatcher.sendAction
-            _dispatcher.OnReceivePlayerAction += GivePlayerAction
+            _inputManager.OnDoPlayerAction += _dispatcher!.sendAction
+            _dispatcher!.OnReceivePlayerAction += GivePlayerAction
         }else{
             _inputManager.OnDoPlayerAction += GivePlayerAction
-            _inputManager.OnUpdatePlayerStats += GivePlayerStats
         }
     }
     
+    public func GetOperateCharacter() -> Character?{
+        if let character = GetCharacter(ID: _operateCharacter!){
+            return character
+        }
+        logger.error("Operate character not found")
+        return nil
+        
+    }
+    
+    private func CreateAllCharacter(characterMap: [String: CharacterInfo]){
+        for (deviceID, playerInfo) in characterMap{
+            CreateCharacter(info: playerInfo)
+            if UUID(uuidString: deviceID) == DeviceManager.shared.DeviceID{
+                SetOperateCharacter(ID: playerInfo.CharacterModelID)
+            }
+        }
+    }
     public func GetCharacter(ID: UUID) -> Character?{
         return _characterMap[ID]
     }
-    
-    public func CreateCharacter(ID: UUID) -> Character{
-        let character = CharacterFactory.shared.createCharacter(ID: ID)
-        _characterMap[ID] = character
-        return character
+    public func GetCharacterInfo(ID: UUID) -> CharacterInfo?{
+        return _characterInfoMap[ID]
     }
     
-    public func SetOperateCharacter(ID: UUID){
+    private func CreateCharacter(info: CharacterInfo){
+        let character = CharacterFactory.shared.createCharacter(ID: info.CharacterModelID)
+        _characterMap[info.CharacterModelID] = character
+        _characterInfoMap[info.CharacterModelID] = info
+    }
+    
+    private func SetOperateCharacter(ID: UUID){
         guard _characterMap[ID] != nil else {
-            print("Character not found")
+            logger.error("Character not found")
             return
         }
         _operateCharacter = ID
@@ -49,24 +87,43 @@ class GameManager {
     }
     
     public func GivePlayerAction(action: PlayerAction){
-        print("GameManager: GivePlayerAction")
         guard let character = _characterMap[action.CharacterModelID] else {
-            print("Character not found")
+            logger.error("Character not found")
             return
         }
-        character.DoAction(action: action)
+        if IfSameDirectionWithOperateCharacter(id: action.CharacterModelID){
+            character.DoAction(action: action)
+        }else{
+            character.DoAction(action: action.opposite)
+        }
+    }
+
+    
+    
+    
+    private func GetIfSameDirection(c1: Character, c2: Character) -> Bool{
+        let team1 = GetCharacterInfo(ID: c1.CharacterModelID)?.TeamID
+        let team2 = GetCharacterInfo(ID: c2.CharacterModelID)?.TeamID
+        return team1 == team2
     }
     
-    public func GivePlayerStats(action: PlayerStats){
-        print("GameManager: GivePlayerStats")
-        guard let character = _characterMap[action.CharacterModelID] else {
-            print("Character not found")
-            return
-        }
-        _statsManager.UpdateStats(action: action)
-        _statsManager.CheckHealth(action: action)
-        
+    public func IfSameDirectionWithOperateCharacter(character: Character) -> Bool{
+        return GetIfSameDirection(c1: GetOperateCharacter()!, c2: character)
     }
+    public func IfSameDirectionWithOperateCharacter(id: UUID) -> Bool{
+        return GetIfSameDirection(c1: GetOperateCharacter()!, c2: GetCharacter(ID: id)!)
+    }
+    
+//    public func GivePlayerStats(action: PlayerStats){
+//        print("GameManager: GivePlayerStats")
+//        guard let character = _characterMap[action.CharacterModelID] else {
+//            print("Character not found")
+//            return
+//        }
+//        _statsManager.UpdateStats(action: action)
+//        _statsManager.CheckHealth(action: action)
+//
+//    }
     
     public func GiveGameEnding(winner: Character){
         //todo: complete it
@@ -78,4 +135,9 @@ class GameManager {
     public func GetCharacterMap() -> [UUID: Character]{
         return _characterMap
     }
+}
+struct GameInfo{
+    let DeviceID: UUID
+    let RoomInfo: RoomInfo
+    let UseServer: Bool
 }

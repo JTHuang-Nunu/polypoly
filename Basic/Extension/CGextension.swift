@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import SpriteKit
 
 extension CGPoint {
     func distance(to point: CGPoint) -> CGFloat {
@@ -58,4 +59,22 @@ func deg2rad(degree: CGFloat)-> Double {
     return radians
 }
 
+
+extension CGVector: Oppositable{
+    var opposite: CGVector{
+        return CGVector(dx: -dx, dy: -dy)
+    }
+}
+
+extension SKNode{
+    func _update(_ currentTime: TimeInterval){
+        NodeUpdate(currentTime)
+        for child in children{
+            child._update(currentTime)
+        }
+    }
+    @objc public func NodeUpdate(_ currentTime: TimeInterval){
+        
+    }
+}
 

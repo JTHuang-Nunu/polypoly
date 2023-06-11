@@ -42,44 +42,36 @@ class Character: CharacterProtocol{
     }
     private func _setup(){
         self.ball.position = self.position
-        OnUpdateStats += InputManager.shared.updatePlayerStats
+//        OnUpdateStats += InputManager.shared.updatePlayerStats
     }
 
     func DoAction(action: PlayerAction) {
         print("playerAction doing")
-        switch action.ActionType{
-        //Use skill
-        case .UseSkill:
-            switch action.Skill{
-            case .Move:
-                characterMove(content: action.content)
-            case .Obstacle:
-                break
-            case .Trap:
-                break
-            case .Draw:
-                break
-            case .MeteoriteFalling:
-                break
-            case .HpRecovery:
-                break
-            case .PowerRecovery:
-                break
-            case .TowerBuilding:
-                break
-            case .ObjectEnhancing:
-                break
-            case .GravityIncreasing:
-                break
-            case .ObjectRandomlyGenerated:
-                break
-            case .bomp:
-                break
-
-            }
-        //Choose skill
-        case .ChooseSkill:
-            currSkill = action.Skill
+        switch action.Skill{
+        case .Move:
+            characterMove(content: action.content)
+        case .Draw:
+            break
+        case .MeteoriteFalling:
+            break
+        case .HpRecovery:
+            break
+        case .PowerRecovery:
+            break
+        case .TowerBuilding:
+            break
+        case .ObjectEnhancing:
+            break
+        case .GravityIncreasing:
+            break
+        case .ObjectRandomlyGenerated:
+            break
+        case .Obstacle:
+            break
+        case .Trap:
+            break
+        case .bomp:
+            break
         }
     }
     

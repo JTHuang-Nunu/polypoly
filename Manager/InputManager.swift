@@ -7,73 +7,64 @@
 
 import Foundation
 import UIKit
+import os
 
 class InputManager: InputManagerProtocol{
     let OnDoPlayerAction: Event<PlayerAction> = Event<PlayerAction>()
-    let OnUpdatePlayerStats: Event<PlayerStats> = Event<PlayerStats>()
-    let encoder = JSONEncoder()
+    private var currentSkill: Skill? = nil
     var OperateCharacterID: UUID? = nil
-    public static let shared = InputManager()
+    var canvas: Canvas? = nil
+    let logger = Logger(subsystem: "InputManager", category: "InputManager")
+    let SkillCanvasModeMap: [Skill: CanvasMode] = [
+        .Move: .Pointer,
+        .Obstacle: .Draw
+    ]
+    
+    public func SetCanvas(canvas: Canvas){
+        self.canvas = canvas
+        self.canvas!.OnDrawPointer += InputPointer
+        self.canvas!.OnDrawLine += InputLine
+    }
+    
+    public func SetSelectedSkill(skill: Skill){
+        currentSkill = skill
+        canvas?.SetMode(mode: SkillCanvasModeMap[currentSkill!]!)
+    }
+    
     public func SetOperateCharacter(ID: UUID){
         OperateCharacterID = ID
     }
-    
-    public func InputPointer(vector: CGVector){
-        guard let operateCharacterID = OperateCharacterID else {
-            print("OperateCharacterID not set")
+    private func InputLine(line: CodablePath){
+        if currentSkill == nil{
+            logger.error("Skill not set")
             return
         }
-        print("Input pointer")
+        guard let OperateCharacterID = OperateCharacterID else {
+            logger.error("OperateCharacterID not set")
+            return
+        }
         var action = PlayerAction(
-            CharacterModelID: operateCharacterID,
+            CharacterModelID: OperateCharacterID,
             ActionType: .UseSkill,
-            Skill: .Move)
+            Skill: currentSkill!)
+        action.content[.Path] = encodeJSON(line)
+        OnDoPlayerAction.Invoke(action)
+    }
+    
+    private func InputPointer(vector: CGVector){
+        if currentSkill == nil{
+            logger.error("Skill not set")
+            return
+        }
+        guard let OperateCharacterID = OperateCharacterID else {
+            logger.error("OperateCharacterID not set")
+            return
+        }
+        var action = PlayerAction(
+            CharacterModelID: OperateCharacterID,
+            ActionType: .UseSkill,
+            Skill: currentSkill!)
         action.content[.Impulse] = encodeJSON(vector)
         OnDoPlayerAction.Invoke(action)
     }
-    
-    public func updatePlayerStats(health: CGFloat?, energy: CGFloat?, statsType: StatsType) {
-        guard let operateCharacterID = OperateCharacterID else {
-            print("OperateCharacterID not set")
-            return
-        }
-        
-        print("Updating player stats")
-        
-        var stats = PlayerStats(
-            CharacterModelID: operateCharacterID,
-            statsType: statsType
-        )
-        stats.content[.HealthPoint] = encodeJSON(health)
-        stats.content[.Energy] = encodeJSON(energy)
-    
-        OnUpdatePlayerStats.Invoke(stats)
-    }
-    
-    public func selectSkill(skill: Skill) {
-        guard let operateCharacterID = OperateCharacterID else {
-            print("OperateCharacterID not set")
-            return
-        }
-        
-        print("Selecting Skill")
-        
-        let action = PlayerAction(
-            CharacterModelID: operateCharacterID,
-            ActionType: .ChooseSkill,
-            Skill: skill)
-        
-        OnDoPlayerAction.Invoke(action)
-    }
-    private func encodeJSON(_ message: Codable)-> String{
-        do{
-            let jsonData = try encoder.encode(message)
-            return String(data: jsonData, encoding: .utf8)!
-        }catch{
-            print(error)
-        }
-        return ""
-    }
-    
-    
 }

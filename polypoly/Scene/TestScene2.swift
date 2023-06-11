@@ -8,7 +8,7 @@
 import Foundation
 import SpriteKit
 
-class TestScene: SKScene{
+class TestScene2: SKScene, SKPhysicsContactDelegate{
     let gameManager = DeviceManager.shared.GameManager!
     let myPoint = CGPoint(x: 50, y: 0)
     let othersPoint = CGPoint(x: -50, y: 0)
@@ -25,6 +25,8 @@ class TestScene: SKScene{
         addChild(wall)
         CreateSkills()
         gameManager._skillManager?.SetSkill(skill: .Move)
+        physicsWorld.contactDelegate = self
+        physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
         
     }
     func CreatePlayers(){
