@@ -39,7 +39,10 @@ class Character: CharacterProtocol{
         self.CharacterModelID = characterModelID
         self.position = position
         self.ball.position = self.position
+        self.ball.onInjured += _healthManager.InjureHP
+        
         self._teamManager = TeamManager(character: self)
+        _healthManager.OnDied += gameOver
     }
     
     func DoAction(action: PlayerAction) {
@@ -68,7 +71,8 @@ class Character: CharacterProtocol{
             break
         }
     }
-    
+    //=======================================================
+    // Create Obstacle
     func createObstacle(content : [ContentType: String]){
         guard let codablePath = decodeJSON(CodablePath.self, jsonString: content[.Path]!)
         else {return}
@@ -77,8 +81,12 @@ class Character: CharacterProtocol{
 
         guard let object = ObstacleObejctFactory.shared.create(type: .DrawObstacle, position: CGPoint(x: 0, y: 0), path: path)
         else {return}
+        object.OnObjectDied += _teamManager.removeObject //Add event: when object health == 0, remove from team container
+        object.OnObjectDied += removeChild               //Add event: when object health == 0, remove from character
         OnCreateObstacle.Invoke(object)
     }
+    //=======================================================
+    // Character Move
     func characterMove(content : [ContentType: String]) {
         guard var impulse = decodeJSON(CGVector.self, jsonString: content[.Impulse]!)
         else {return}
@@ -95,28 +103,13 @@ class Character: CharacterProtocol{
         self.ball.physicsBody?.applyImpulse(impulse)
 
     }
-//    func characterMove(force impulse: CGVector) {
-//        //push the ball by the impulse
-//        self.ball.physicsBody?.applyImpulse(impulse)
-//    }
-    func draw(status: TouchStatus, point: CGPoint?) {
-        
-        switch status {
-        case .begin:
-            let lineWidth: CGFloat = 10
-//            let hp: CGFloat = 3
-            if let point = point {
-//                currLine = DrawingLine(startPoint: point, lineWidth: lineWidth, hp: CGFloat(hp))
-                lineList.append(currLine)
-            }
-        case .move:
-                if let point = point {
-                    currLine.movePath(toPoint: point)
-                }
-            
-        case .end:
-            currLine.endDrawing()
-        }
+    
+    func removeChild(node: SKNode){
+        node.removeFromParent()
+    }
+    
+    func gameOver(){
+        print("===\(self.CharacterModelID.uuidString.prefix(5)) lose the game===")
     }
 }
 

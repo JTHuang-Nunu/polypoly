@@ -9,35 +9,36 @@ import Foundation
 import SpriteKit
 
 class ObstacleObejct: SKNode, ObstacleObjectProtocol {
-    var healthManager = HealthManager()
-    
+    public let onInjured = Event<CGFloat>()
+    var _healthManager = HealthManager()
+    var OnObjectDied = Event<SKNode>()
     var node: SKShapeNode!
     var texture: SKSpriteNode? = nil
     
-//    var path: CGPath? = nil
-    
-    public func updateHP(type: HealthType, val: CGFloat){
-//        print("\(type): \(val)")
-        healthManager.update(val: val, type: .Injure)
+    init(node: SKShapeNode){
+        self.node = node
+        super.init()
+
+        _setupBody()
     }
-    
     init(node: SKShapeNode, texture: SKSpriteNode){
         self.node = node
         self.texture = texture
         super.init()
-        _setupBody()
-    }
-    init(node: SKShapeNode){
-        self.node = node
-        super.init()
-        _setupBody()
-    }
 
+        _setupBody()
+    }
+    
     private func _setupBody(){
         self.addChild(node)
         if let texture = texture {
             self.addChild(texture)
         }
+        //event
+        _healthManager.OnDied += {
+            self.OnObjectDied.Invoke((self))
+        }
+        onInjured += _healthManager.InjureHP
         //physical setting
         self.physicsBody?.categoryBitMask = PhysicsCategory.Obstacle
         self.physicsBody?.collisionBitMask = PhysicsCategory.Ball | PhysicsCategory.Obstacle

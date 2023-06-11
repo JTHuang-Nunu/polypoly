@@ -14,7 +14,7 @@ class TestScene2: SKScene{
     
     let myPoint = CGPoint(x: 50, y: 0)
     let othersPoint = CGPoint(x: -50, y: 0)
-    
+//    let tmp: Character!
     override func sceneDidLoad() {
         gameManager.OnCreatedCanvas += addChild
         gameManager.OnCreatedSelfPlayers += { players in
@@ -30,15 +30,21 @@ class TestScene2: SKScene{
         gameManager.OnCreatedSkillButtons += PlaceSkillButtons
         gameManager.CreateSceneObjects()
         
-//        operateCharacter?.OnDrawObstacle += createOBO
-        //operateCharacter?.OnCreateObstacle += addChild
+
+//        GlobalPhysicsDelegate.shared.setupPhysicsWorld(in: self)
+        GlobalPhysicsDelegate(in: self) // is using singleton
         
-        physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
+        let interactionController = InteractionController()
+        physicsWorld.contactDelegate = interactionController
+        addChild(interactionController)
+
     }
+    
     func PlacePlayerTo(players: [UUID: Character], point: CGPoint){
         for value in players.values{
             addChild(value.SKNode)
             value.SKNode.position = point
+            value.OnCreateObstacle += addChild
         }
     }
     func createEnergyBar(manager: EnergyManager){
@@ -74,7 +80,7 @@ class TestScene2: SKScene{
 //    let gameManager = DeviceManager.shared.GameManager!
 //    let myPoint = CGPoint(x: 50, y: 0)
 //    let othersPoint = CGPoint(x: -50, y: 0)
-//    
+//
 //    var ThisCanvas: Canvas? = nil
 //    var operateCharacter: Character? = nil
 //    //-----------------------------------
@@ -89,7 +95,7 @@ class TestScene2: SKScene{
 //        gameManager._skillManager?.SetSkill(skill: .Move)
 //        physicsWorld.contactDelegate = self
 //        physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
-//        
+//
 //    }
 //    func CreatePlayers(){
 //        let players = gameManager.GetCharacterMap()
@@ -108,7 +114,7 @@ class TestScene2: SKScene{
 //                break
 //            }
 //        }
-//    
+//
 //    }
 //    func CreateCanvas(){
 //        ThisCanvas = Canvas(startNode: operateCharacter!.ball)
@@ -122,7 +128,7 @@ class TestScene2: SKScene{
 //            skill.position = CGPoint(x:self.frame.minX + 50 + CGFloat(100*i), y:self.frame.midY)
 //            skill.zPosition = zAxis.skillButton
 //            addChild(skill as SKNode)
-//            
+//
 //        }
 //    }
 //    override func update(_ currentTime: TimeInterval) {

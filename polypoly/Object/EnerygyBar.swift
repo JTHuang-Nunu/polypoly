@@ -41,6 +41,6 @@ class EnergyBar: SKNode{
     
     override func NodeUpdate(_ currentTime: TimeInterval) {
         SetBarPercent(percent: energyManager.Percent)
-        print(energyManager.Percent)
+//        print(energyManager.Percent)
     }
 }

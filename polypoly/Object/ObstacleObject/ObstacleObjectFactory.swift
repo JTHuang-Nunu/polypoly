@@ -14,6 +14,11 @@ enum ObstacleObejctType {
 }
 
 class ObstacleObejctFactory {
+    var OnCreateObstacle: Event<SKNode> = Event<SKNode>()
+    init(){
+        
+    }
+
     public static var shared = ObstacleObejctFactory()
     func create(type: ObstacleObejctType, position: CGPoint, path: CGPath?) -> ObstacleObejct?{
         switch type {

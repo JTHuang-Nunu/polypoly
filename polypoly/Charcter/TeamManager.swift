@@ -9,14 +9,18 @@ import Foundation
 import SpriteKit
 
 class TeamManager{
-//    public let OnAddObject = Event<Void>()
     var objectContainer = [SKNode]()
-    
-    init(character: Character) {
+
+    init(character: Character){
         character.OnCreateObstacle += addObject
     }
     
     func addObject(node: SKNode){
         objectContainer.append(node)
     }
+    func removeObject(node: SKNode) {
+            if let index = objectContainer.firstIndex(where: { $0 === node }) {
+                objectContainer.remove(at: index)
+            }
+        }
 }
