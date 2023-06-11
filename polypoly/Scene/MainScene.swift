@@ -9,12 +9,12 @@ import Foundation
 import SpriteKit
 
 class MainScene: SKScene, SKPhysicsContactDelegate{
-    //player variable
     let gameManager = GameManager.shared
+    let _statsManager = StatsManager.shared
     var uuidDictionary = [Int: UUID]()
     var playerContainer = [Character]()
     var ThisCharacter: Character? = nil
-    var ThisCanvas: Canvas? = nil
+    var ThisCanvas: MainCanvas? = nil
     var ThisUUID = UUID()
     //- - -
     var powerBar:PowerBar? = nil
@@ -23,7 +23,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
 //    var player2: Character!
 //    var id1: UUID!
 //    var id2: UUID!
-    var skillBtn: SkillButton!
+    var skillBlock: SkillBlock!
 
     override func sceneDidLoad() {
         gameManager._dispatcher.RequestRoom()
@@ -46,17 +46,20 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
 //        self.addChild(ThisCharacter!.ball as SKNode)
 //
 //        gameManager.SetOperateCharacter(ID: ThisUUID)
-
         let playerPosition = PlayerPositionFactory.create(numberOfperson: number).createPlayerPositions()
         for i in 0...number-1 {
-            let character = gameManager.CreateCharacter(ID: ThisUUID)
+            let id = UUID()
+            let character = gameManager.CreateCharacter(ID: UUID())
             character.position = playerPosition[i]
             playerContainer.append(character)
             addChild(character.ball)
         }
+        //set healthManager
+        _statsManager.SetCharacterMap(map: gameManager.GetCharacterMap())
         //set ThisCharacter
         gameManager.SetOperateCharacter(ID: gameManager.GetCharacterMap().first!.key)
         ThisCharacter = gameManager.GetCharacterMap().first!.value
+        ThisUUID = ThisCharacter!.CharacterModelID
     }
     func CreateSceneBound() {
         let wall = Wall(size: UIScreen.main.bounds.size)
@@ -71,7 +74,7 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
         addChild(powerBar!)
     }
     func CreateCanvas(){
-        ThisCanvas = Canvas(pointerStartNode: ThisCharacter!.ball)
+        ThisCanvas = MainCanvas(pointerStartNode: ThisCharacter!.ball)
         ThisCanvas!.OnDrawPointer += InputManager.shared.InputPointer
         addChild(ThisCanvas! as SKNode)
     }
@@ -99,23 +102,22 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
                 drawingLine.updateLineHp()
             }
         }
+        
+        //touch charact is a
+//        healthManager.TakeDamage(who: , damage: <#T##Int#>)
     }
     func didEnd(_ contact: SKPhysicsContact) {
     }
 
 
-//    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-//        if let touch = touches.first {
-//            let touchLocation = touch.location(in: self)
-//            if ThisPlayer.ball.contains(touchLocation) {
-//                print("dragging")
-//            }
-//            if skillBtn.contains(touchLocation){
-//                print("skillBtn")
-//                skillBtn.touchesBegan(touches, with: event,from: ThisPlayer)
-//            }
-//        }
-//    }
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        if let touch = touches.first {
+            let touchLocation = touch.location(in: self)
+            if skillBlock.contains(touchLocation){
+                skillBlock.touchesBegan(touches, with: event, from: ThisCharacter!)
+            }
+        }
+    }
 //
 //    override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
 //
@@ -135,10 +137,19 @@ class MainScene: SKScene, SKPhysicsContactDelegate{
         addChild(rect)
     }
     func createSkillBlock(){
-        skillBtn = SkillButton(user: ThisCharacter!)
-        skillBtn.position = ObjectPosition.SkillBlock
-        skillBtn.zPosition = zAxis.skillButton
-        self.addChild(skillBtn)
+//        skillBlock = SkillBlock(subSkill: .HpRecovery, user: ThisCharacter!)
+        skillBlock = SkillBlock(user: ThisCharacter!)
+        skillBlock.position = ObjectPosition.SkillBlock
+        addChild(skillBlock)
+//        SkillButton.OnSelectSkill += InputManager.shared.selectSkill
+//        let skillBtn = MainSkillButton(skillType: .Move, skillType2: .Draw, user:ThisCharacter!)
+//        skillBtn.position = ObjectPosition.SkillBlock
+//        self.addChild(skillBtn)
+//
+//        let skillBtn2 = SkillButton(skillType: .HpRecovery, user: ThisCharacter!)
+//        skillBtn2.position = ObjectPosition.SkillBlock + CGPoint(x:60, y:0)
+//        self.addChild(skillBtn2)
+//        skillBlock = [skillBtn,skillBtn2]
     }
 
  }*/

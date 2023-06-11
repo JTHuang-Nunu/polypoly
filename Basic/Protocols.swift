@@ -15,7 +15,8 @@ protocol CharacterProtocol {
 }
 
 protocol InputManagerProtocol {
-    var OnDoPlayerAction: Event<PlayerAction> {get }
+    var OnDoPlayerAction: Event<PlayerAction> { get }
+    var OnUpdatePlayerStats: Event<PlayerStats> { get}
 }
 
 protocol Oppositable {

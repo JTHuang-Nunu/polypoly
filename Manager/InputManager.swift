@@ -61,10 +61,55 @@ class InputManager: InputManagerProtocol{
             return
         }
         var action = PlayerAction(
-            CharacterModelID: OperateCharacterID,
+            CharacterModelID: operateCharacterID,
             ActionType: .UseSkill,
             Skill: currentSkill!)
         action.content[.Impulse] = encodeJSON(vector)
         OnDoPlayerAction.Invoke(action)
     }
+    
+    public func updatePlayerStats(health: CGFloat?, energy: CGFloat?, statsType: StatsType) {
+        guard let operateCharacterID = OperateCharacterID else {
+            print("OperateCharacterID not set")
+            return
+        }
+        
+        print("Updating player stats")
+        
+        var stats = PlayerStats(
+            CharacterModelID: operateCharacterID,
+            statsType: statsType
+        )
+        stats.content[.HealthPoint] = encodeJSON(health)
+        stats.content[.Energy] = encodeJSON(energy)
+    
+        OnUpdatePlayerStats.Invoke(stats)
+    }
+    
+    public func selectSkill(skill: Skill) {
+        guard let operateCharacterID = OperateCharacterID else {
+            print("OperateCharacterID not set")
+            return
+        }
+        
+        print("Selecting Skill")
+        
+        let action = PlayerAction(
+            CharacterModelID: operateCharacterID,
+            ActionType: .ChooseSkill,
+            Skill: skill)
+        
+        OnDoPlayerAction.Invoke(action)
+    }
+    private func encodeJSON(_ message: Codable)-> String{
+        do{
+            let jsonData = try encoder.encode(message)
+            return String(data: jsonData, encoding: .utf8)!
+        }catch{
+            print(error)
+        }
+        return ""
+    }
+    
+    
 }
