@@ -92,7 +92,7 @@ struct CodablePath: Codable{
         if PointList.count == 0{
             return CGMutablePath()
         }
-        var path = CGMutablePath()
+        let path = CGMutablePath()
         path.move(to: PointList[0])
         for point in PointList{
             path.addLine(to: point)

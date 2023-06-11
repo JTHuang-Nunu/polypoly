@@ -14,6 +14,7 @@ class DeviceManager{
     
     public let OnEnterLobby = Event<Void>()
     public let OnEnterGame = Event<Void>()
+    public let OnStartWaitingRoom = Event<Void>()
     
     public let DeviceID = UUID()
     
@@ -115,6 +116,7 @@ class DeviceManager{
     }
     private class WaitRoomState: DeviceState{
         override func didEnter(from previousState: GKState?) {
+            DeviceManager.OnStartWaitingRoom.Invoke(())
             DeviceManager.logger.log("Enter Wait Room State")
             DeviceManager.LobbyManager?.OnCreateRoom += { roomInfo in
                 self.DeviceManager.logger.log("Create Room")
