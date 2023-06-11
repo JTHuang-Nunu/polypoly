@@ -22,7 +22,7 @@ class DeviceManager{
     private var _lobbyManager: LobbyManager? = nil
     private var _gameManager: GameManager? = nil
     
-    private let _lobbyHostInfo = HostInfo(IP: "localhost", Port: 8000)
+    private let _lobbyHostInfo = HostInfo(IP: "169.254.148.197", Port: 8000)
     private var _gameHostInfo: HostInfo? = nil
     
     private var stateMachine: GKStateMachine? = nil
@@ -31,16 +31,16 @@ class DeviceManager{
         stateMachine!.enter(NoConnectionState.self)
     }
     
-    public func createLobbyManager(lobbyHost: HostInfo) -> LobbyManager{
+    private func createLobbyManager(lobbyHost: HostInfo) -> LobbyManager{
         let info = LobbyInfo(DeviceID: DeviceID, LobbyHostInfo: lobbyHost)
         _lobbyManager = polypoly.LobbyManager(info: info)
         return _lobbyManager!
     }
-    public func createLobbyManager() -> LobbyManager{
+    private func createLobbyManager() -> LobbyManager{
         return createLobbyManager(lobbyHost: _lobbyHostInfo)
     }
 
-    public func createRoom(roomInfo: RoomInfo){
+    private func createRoom(roomInfo: RoomInfo){
         let info = GameInfo(DeviceID: DeviceID, RoomInfo: roomInfo, UseServer: true)
         _gameManager = polypoly.GameManager(info: info)
     }
@@ -86,56 +86,56 @@ class DeviceManager{
             return _gameManager
         }
     }
-    
-    
-}
-
-class DeviceState: GKState{
-    unowned let DeviceManager: DeviceManager
-    init(deviceManager: DeviceManager){
-        DeviceManager = deviceManager
-    }
-}
-class NoConnectionState: DeviceState{
-    override func didEnter(from previousState: GKState?) {
-        DeviceManager.logger.log("Enter No Connection State")
-        
-        let lobby = DeviceManager.createLobbyManager()
-        lobby.OnConnectLobby += {
-            self.stateMachine?.enter(LobbyState.self)
+    private class DeviceState: GKState{
+        unowned let DeviceManager: DeviceManager
+        init(deviceManager: DeviceManager){
+            DeviceManager = deviceManager
         }
-        
+    }
+    private class NoConnectionState: DeviceState{
+        override func didEnter(from previousState: GKState?) {
+            DeviceManager.logger.log("Enter No Connection State")
+            
+            let lobby = DeviceManager.createLobbyManager()
+            lobby.OnConnectLobby += {
+                self.stateMachine?.enter(LobbyState.self)
+            }
+            
+        }
+
     }
 
-}
-
-class LobbyState: DeviceState{
-    override func didEnter(from previousState: GKState?) {
-        DeviceManager.OnEnterLobby.Invoke(())
+    private class LobbyState: DeviceState{
+        override func didEnter(from previousState: GKState?) {
+            DeviceManager.OnEnterLobby.Invoke(())
+            
+            DeviceManager.logger.log("Enter Lobby State")
         
-        DeviceManager.logger.log("Enter Lobby State")
-    
+        }
     }
-}
-class WaitRoomState: DeviceState{
-    override func didEnter(from previousState: GKState?) {
-        DeviceManager.logger.log("Enter Wait Room State")
-        DeviceManager.LobbyManager?.OnCreateRoom += { roomInfo in
-            self.DeviceManager.logger.log("Create Room")
-            self.DeviceManager.createRoom(roomInfo: roomInfo)
-            self.DeviceManager.GameManager?.OnConnectGameServer += {
-                self.stateMachine?.enter(GameState.self)
+    private class WaitRoomState: DeviceState{
+        override func didEnter(from previousState: GKState?) {
+            DeviceManager.logger.log("Enter Wait Room State")
+            DeviceManager.LobbyManager?.OnCreateRoom += { roomInfo in
+                self.DeviceManager.logger.log("Create Room")
+                self.DeviceManager.createRoom(roomInfo: roomInfo)
+                self.DeviceManager.GameManager?.OnConnectGameServer += {
+                    self.stateMachine?.enter(GameState.self)
+                }
             }
         }
+
+
+    }
+    private class GameState: DeviceState{
+        override func didEnter(from previousState: GKState?) {
+            DeviceManager.OnEnterGame.Invoke(())
+            DeviceManager.logger.log("Enter Game State")
+            
+        }
+
     }
 
-
+    
 }
-class GameState: DeviceState{
-    override func didEnter(from previousState: GKState?) {
-        DeviceManager.OnEnterGame.Invoke(())
-        DeviceManager.logger.log("Enter Game State")
-        
-    }
 
-}
