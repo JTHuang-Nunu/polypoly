@@ -21,6 +21,10 @@ class TestScene: SKScene{
         gameManager.OnCreatedOtherPlayers += { players in
             self.PlacePlayerTo(players: players, point: self.othersPoint)
         }
+        gameManager.OnCreatedEneryManager += { manager in
+            self.addChild(manager)
+            self.createEnergyBar(manager: manager)
+        }
         gameManager.OnCreatedSkillButtons += PlaceSkillButtons
         gameManager.CreateSceneObjects()
         
@@ -31,6 +35,11 @@ class TestScene: SKScene{
             value.SKNode.position = point
         }
     
+    }
+    func createEnergyBar(manager: EnergyManager){
+        let energyBar = EnergyBar(energyManager: manager)
+        energyBar.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 100)
+        addChild(energyBar)
     }
     func PlaceSkillButtons(skillButtons: [SkillSelectButton]){
         for i in 0..<skillButtons.count{

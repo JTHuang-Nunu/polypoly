@@ -14,6 +14,7 @@ class GameManager {
     public let OnConnectGameServer = Event<Void>()
     public let OnCreatedSkillButtons = Event<[SkillSelectButton]>()
     public let OnCreatedCanvas = Event<Canvas>()
+    public let OnCreatedEneryManager = Event<EnergyManager>()
     public let OnCreatedAllPlayers = Event<[UUID: Character]>()
     public let OnCreatedSelfPlayers = Event<[UUID: Character]>()
     public let OnCreatedOtherPlayers = Event<[UUID: Character]>()
@@ -42,6 +43,7 @@ class GameManager {
         createSkillManager()
         createAllCharacter(characterMap: info.RoomInfo.PlayerInfoMap)
         createCanvas()
+        createEnergyManager()
     }
     private func createDispatcher(deviceID: UUID, host: HostInfo){
         let sessionManager = ConnectionManager(hostInfo: host)
@@ -51,6 +53,10 @@ class GameManager {
         OnConnectGameServer += {
             self._dispatcher?.sendJoinMessage()
         }
+    }
+    private func createEnergyManager(){
+        let energyManager = EnergyManager(initValue: 1)
+        OnCreatedEneryManager.Invoke(energyManager)
     }
     private func createSkillManager(){
         _skillManager = SkillManager(skills: PlayerSkills)
