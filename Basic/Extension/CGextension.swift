@@ -14,6 +14,30 @@ extension CGPoint {
         let dy = point.y - y
         return sqrt(dx*dx + dy*dy)
     }
+    
+    init(_ x: CGFloat, _ y: CGFloat) {
+        self.init(x: x, y: y)
+    }
+    
+    static func +(lhs: CGPoint, rhs: CGPoint) -> CGPoint {
+        return CGPoint(x: lhs.x + rhs.x, y: lhs.y + rhs.y)
+    }
+    static func += (left: inout CGPoint, right: CGPoint) {
+        left.x += right.x
+        left.y += right.y
+    }
+}
+extension CGRect {
+    
+    init(center: CGPoint, size: CGSize) {
+        let origin = CGPoint(x: center.x - size.width / 2, y: center.y - size.height / 2)
+        self.init(origin: origin, size: size)
+    }
+    
+    init(center: CGPoint, width: CGFloat, height: CGFloat) {
+        let origin = CGPoint(x: center.x - width / 2, y: center.y - height / 2)
+        self.init(origin: origin, size: CGSize(width: width, height: height))
+    }
 }
 
 extension CGVector {
@@ -57,15 +81,4 @@ extension CGVector: Oppositable{
     }
 }
 
-extension SKNode{
-    func _update(_ currentTime: TimeInterval){
-        NodeUpdate(currentTime)
-        for child in children{
-            child._update(currentTime)
-        }
-    }
-    @objc public func NodeUpdate(_ currentTime: TimeInterval){
-        
-    }
-}
 
