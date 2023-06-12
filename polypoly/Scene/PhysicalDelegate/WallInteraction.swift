@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 
 class WallInteraction {
-    static func handleTwoCollision(Wall: Wall, anotherNodeType: InteractionObjectType) {
+    static func handleTwoCollision(Wall: Wall, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact) {
         // NO Collision Action
         return 
     }

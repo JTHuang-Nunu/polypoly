@@ -20,5 +20,244 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5106D5F2-7CCC-444B-9E3E-25AFDB625E10"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Manager/Canvas.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "120"
+            endingLineNumber = "120"
+            landmarkName = "finishPoint(point:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "809657C1-7066-4303-B999-1F6C14CA75A2"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Manager/InputManager.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "118"
+            endingLineNumber = "118"
+            landmarkName = "InputLocate(locate:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "809657C1-7066-4303-B999-1F6C14CA75A2 - 9f908abbcfaa88e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.InputManager.InputLocate(locate: __C.CGPoint) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/Manager/InputManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "2716">
+               </Location>
+               <Location
+                  uuid = "809657C1-7066-4303-B999-1F6C14CA75A2 - 9f908abbcfaa88e6"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.InputManager.InputLocate(locate: __C.CGPoint) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/Manager/InputManager.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "118"
+                  endingLineNumber = "118"
+                  offsetFromSymbolStart = "2708">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D993B6F8-627E-4313-8D7D-84A26CFE516B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Manager/Canvas.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "127"
+            endingLineNumber = "127"
+            landmarkName = "finishPoint(point:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "D993B6F8-627E-4313-8D7D-84A26CFE516B - 9f6ff69685210413"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.Canvas.finishPoint(point: __C.CGPoint) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/Manager/Canvas.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "127"
+                  endingLineNumber = "127"
+                  offsetFromSymbolStart = "876">
+               </Location>
+               <Location
+                  uuid = "D993B6F8-627E-4313-8D7D-84A26CFE516B - 9f6ff6968521043c"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.Canvas.finishPoint(point: __C.CGPoint) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/Manager/Canvas.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "128"
+                  endingLineNumber = "128"
+                  offsetFromSymbolStart = "876">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "036C2438-D814-4765-807A-364581B0B368"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Scene/TestScene.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "PlacePlayerTo(players:point:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "036C2438-D814-4765-807A-364581B0B368 - b3c88e00cc858d99"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.TestScene.PlacePlayerTo(players: Swift.Dictionary&lt;Foundation.UUID, polypoly.Character&gt;, point: __C.CGPoint) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/TestScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "408">
+               </Location>
+               <Location
+                  uuid = "036C2438-D814-4765-807A-364581B0B368 - e03c2efce6a2075"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #1 (__C.SKNode) -&gt; (__C.SKNode) -&gt; () in polypoly.TestScene.PlacePlayerTo(players: Swift.Dictionary&lt;Foundation.UUID, polypoly.Character&gt;, point: __C.CGPoint) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/TestScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "84">
+               </Location>
+               <Location
+                  uuid = "036C2438-D814-4765-807A-364581B0B368 - c2e1221e926a5349"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "implicit closure #2 (__C.SKNode) -&gt; () in implicit closure #1 (__C.SKNode) -&gt; (__C.SKNode) -&gt; () in polypoly.TestScene.PlacePlayerTo(players: Swift.Dictionary&lt;Foundation.UUID, polypoly.Character&gt;, point: __C.CGPoint) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/TestScene.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "48">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7FF3108B-3834-4468-9AC1-E79FE638FE96"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Charcter/Character.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "94"
+            endingLineNumber = "94"
+            landmarkName = "createTrap(content:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "7FF3108B-3834-4468-9AC1-E79FE638FE96 - a4ab31dc35b0cc3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.Character.createTrap(content: Swift.Dictionary&lt;polypoly.ContentType, Swift.String&gt;) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/Character.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "1316">
+               </Location>
+               <Location
+                  uuid = "7FF3108B-3834-4468-9AC1-E79FE638FE96 - a4ab31dc35b0cc3b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.Character.createTrap(content: Swift.Dictionary&lt;polypoly.ContentType, Swift.String&gt;) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/Character.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "94"
+                  endingLineNumber = "94"
+                  offsetFromSymbolStart = "1300">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "CFBFB37C-8DA8-4130-B5C2-F76EC1F49249"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Charcter/Character.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "91"
+            endingLineNumber = "91"
+            landmarkName = "createTrap(content:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

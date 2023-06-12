@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 
 class BallInteraction {
-    static func handleTwoCollision(ball: Ball, anotherNodeType: InteractionObjectType) {
+    static func handleTwoCollision(ball: Ball, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact) {
         switch anotherNodeType{
         case .Building:
             ball.onInjured.Invoke(1)
@@ -22,7 +22,10 @@ class BallInteraction {
             
         case .Ball:
             ball.onInjured.Invoke(1)
-            
+        
+        case .Trap:
+            ball.onInjured.Invoke(1)
+            ball.
         case .Other: //no action
             break
         }

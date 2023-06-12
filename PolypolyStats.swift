@@ -11,7 +11,7 @@ import SpriteKit
 //=======================================
 // NetWork
 //- IP
-let HostIP = "169.254.45.63"
+let HostIP = "169.254.242.155"
 //let HostIP = "localhost"
 //=======================================
 // Name
@@ -25,6 +25,7 @@ let BuildingName = "building"
 let DrawObstacleName = "drawObstacle"
 let WallName = "wall"
 let BallName = "ball"
+let TrapName = "trap1"
 //-key
 let userNameKey = "UserName" // 使用者名稱的鍵值
 //=======================================

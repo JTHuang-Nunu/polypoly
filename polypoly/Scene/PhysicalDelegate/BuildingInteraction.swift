@@ -8,17 +8,11 @@
 import Foundation
 
 class BuildingInteraction {
-    static func handleTwoCollision(Building: BuildingObstacle, anotherNodeType: InteractionObjectType) {
+    static func handleTwoCollision(Building: BuildingObstacle, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact) {
         switch anotherNodeType{
-        case .Building:
-            break
-        case .DrawObstacle:
-            break
-        case .Wall:
-            break
         case .Ball:
             Building.onInjured.Invoke(1)
-        case .Other:
+        default:
             break
         }
     }

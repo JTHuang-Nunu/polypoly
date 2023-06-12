@@ -40,7 +40,7 @@ class Character: CharacterProtocol{
         self.position = position
         self.ball.position = self.position
         self.ball.onInjured += _healthManager.InjureHP
-        
+        self.ball.onBomb +=
         self._teamManager = TeamManager(character: self)
         _healthManager.OnDied += gameOver
     }
@@ -51,7 +51,8 @@ class Character: CharacterProtocol{
             characterMove(content: action.content)
         case .Obstacle:
             createObstacle(content: action.content)
-            break
+        case .Trap:
+            createTrap(content: action.content)
         case .MeteoriteFalling:
             break
         case .HpRecovery:
@@ -66,17 +67,12 @@ class Character: CharacterProtocol{
             break
         case .ObjectRandomlyGenerated:
             break
-
-        case .Trap:
-            break
         }
     }
     //=======================================================
     // Create Obstacle
     func createObstacle(content : [ContentType: String]){
-        guard let codablePath = decodeJSON(CodablePath.self, jsonString: content[.Path]!)
-        else {return}
-        
+        guard let codablePath = decodeJSON(CodablePath.self, jsonString: content[.Path]!) else {return}
         let path = codablePath.toPath()
 
         guard let object = ObstacleObejctFactory.shared.create(type: .DrawObstacle, position: CGPoint(x: 0, y: 0), path: path)
@@ -86,7 +82,18 @@ class Character: CharacterProtocol{
         OnCreateObstacle.Invoke(object)
     }
     //=======================================================
-    // Character Move
+    // Create Trap
+    func createTrap(content : [ContentType: String]){
+        //only need last position
+        guard let locate = decodeJSON(CGPoint.self, jsonString: content[.Position]!) else {return}
+//        let locate =
+        print("Trap locate: ",locate)
+        guard let object = ObstacleObejctFactory.shared.create(type: .Trap, position: locate, path: nil) else {return}
+        object.OnObjectDied += _teamManager.removeObject //Add event: when object health == 0, remove from team container
+        object.OnObjectDied += removeChild               //Add event: when object health == 0, remove from character
+        OnCreateObstacle.Invoke(object)
+    }
+
     func characterMove(content : [ContentType: String]) {
         guard var impulse = decodeJSON(CGVector.self, jsonString: content[.Impulse]!)
         else {return}
@@ -102,6 +109,10 @@ class Character: CharacterProtocol{
         //push the ball by the impulse
         self.ball.physicsBody?.applyImpulse(impulse)
 
+    }
+    
+    func beBombed(direct: CGVector, impulse: CGFloat){
+        
     }
     
     func removeChild(node: SKNode){

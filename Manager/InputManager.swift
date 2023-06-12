@@ -18,7 +18,8 @@ class InputManager: InputManagerProtocol{
     let logger = Logger(subsystem: "InputManager", category: "InputManager")
     let SkillCanvasModeMap: [Skill: CanvasMode] = [
         .Move: .Pointer,
-        .Obstacle: .Draw
+        .Obstacle: .Draw,
+        .Trap: .Locate
     ]
     let SkillCost: [Skill: Int] = [
         .Move: 1,
@@ -30,6 +31,7 @@ class InputManager: InputManagerProtocol{
         self.canvas = canvas
         self.canvas!.OnDrawPointer += InputPointer
         self.canvas!.OnDrawLine += InputLine
+        self.canvas!.OnDrawLocate += InputLocate
     }
     
     public func SetEnergyManager(energyManager: EnergyManager){
@@ -93,7 +95,27 @@ class InputManager: InputManagerProtocol{
             CharacterModelID: OperateCharacterID,
             ActionType: .UseSkill,
             Skill: currentSkill!)
+        
         action.content[.Impulse] = encodeJSON(vector)
+        GeneratePlayerAction(action: action)
+    }
+    private func InputLocate(locate: CGPoint){
+        if currentSkill == nil{
+            logger.error("Skill not set")
+            return
+        }
+        guard let OperateCharacterID = OperateCharacterID else {
+            logger.error("OperateCharacterID not set")
+            return
+        }
+        var action = PlayerAction(
+            CharacterModelID: OperateCharacterID,
+            ActionType: .UseSkill,
+            Skill: currentSkill!)
+        
+        // send Locate data
+        print(locate)
+        action.content[.Position] = encodeJSON(locate)
         GeneratePlayerAction(action: action)
     }
 }

@@ -10,6 +10,7 @@ import SpriteKit
 
 class Ball: SKSpriteNode {
     public let onInjured = Event<CGFloat>()
+    public let onBomb = Event<(CGVector, CGFloat)>()
     init() {
         let ballTexture = SKTexture(imageNamed: BallName)
         let ballSize = CGSize(width: 32, height: 32)

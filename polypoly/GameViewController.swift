@@ -27,8 +27,9 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         if let view = self.view as! SKView? {
             //            let scene = MenuScene(size: view.bounds.size)
             //            let scene = FirstScene(size: view.bounds.size)
-            let scene = InputNameScene(size: view.bounds.size)
-            //            let scene = TestScene2(size: view.bounds.size)
+//            let scene = InputNameScene(size: view.bounds.size)
+            let scene = InitialScene(size: view.bounds.size)
+//                        let scene = TestScene2(size: view.bounds.size)
             
             //            setNeedsUpdateOfScreenEdgesDeferringSystemGestures()
             scene.scaleMode = .aspectFill
@@ -58,24 +59,4 @@ class GameViewController: UIViewController, UITextFieldDelegate {
             // 在這裡你可以執行相應的動作，例如移動場景中的元素
             print("TextField did begin editing")
         }
-}
-
-
-extension GameScene: UITextFieldDelegate{
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        print("hello")
-//        // 計算需要移動的距離
-//        let keyboardHeight: CGFloat = 300 // 假設鍵盤高度為 300
-//        let textFieldBottomY = textField.frame.origin.y + textField.frame.size.height
-//        let distanceToMove = textFieldBottomY - (size.height - keyboardHeight)
-//        
-//        // 如果需要移動，則調整場景中所有元素的位置
-//        if distanceToMove > 0 {
-//            // 創建一個移動的動作，將場景中所有元素往上移動指定距離
-//            let moveAction = SKAction.moveBy(x: 0, y: distanceToMove, duration: 0.3)
-//            
-//            // 執行移動動作
-//            self.run(moveAction)
-//        }
-    }
 }

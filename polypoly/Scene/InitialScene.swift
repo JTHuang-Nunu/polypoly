@@ -36,9 +36,9 @@ class InitialScene: SKScene {
         }
         
     }
-//    override func update(_ currentTime: TimeInterval) {
-//        button.OnClickBegin.Invoke(())
-//    }
+    override func update(_ currentTime: TimeInterval) {
+        button.OnClickBegin.Invoke(())
+    }
     
     func createScene(){
         let bgd = SKSpriteNode(color: UIColor.black, size: self.size)
@@ -69,7 +69,7 @@ class InitialScene: SKScene {
         labelNode?.run(blinkForever)
     }
     func gotoTestScene(){
-        let testScene = TestScene(fileNamed: "TestScene copy")!
+        let testScene = TestScene2(fileNamed: "TestScene copy")!
         testScene.scaleMode = .aspectFill
         self.view?.presentScene(testScene)
     }

@@ -23,10 +23,9 @@ class GameManager {
     public let OnWin = Event<Void>()
     public let OnLose = Event<Void>()
     
-    
-    
-    public let PlayerSkills: [Skill] = [.Move, .Obstacle]
-    public let DefaultSkill = Skill.Move
+    // Set player skill
+    public let PlayerSkills: [Skill] = [.Move, .Trap]
+    public let DefaultSkill = Skill.Trap
     
     
     private let _inputManager = InputManager()
