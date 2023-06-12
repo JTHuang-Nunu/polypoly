@@ -15,12 +15,20 @@ let HostIP = "169.254.45.63"
 //let HostIP = "localhost"
 //=======================================
 // Name
-//- animation
+//- atlas #animation, background
 let Explosion1Folder = "explosion.atlas"
 let Explosion2Folder = "explosion2.atlas"
 let BlackHoleFolder = "blackhole.atlas"
+let StartBackgroundFolder = "startbackground.atlas"
 //- object
 let BuildingName = "building"
 let DrawObstacleName = "drawObstacle"
 let WallName = "wall"
 let BallName = "ball"
+//-key
+let userNameKey = "UserName" // 使用者名稱的鍵值
+//=======================================
+// ScreenSetting
+let ScreenSize = UIScreen.main.bounds.size
+let ScreenCenter = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
+
