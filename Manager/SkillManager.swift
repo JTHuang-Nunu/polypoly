@@ -8,6 +8,7 @@
 import Foundation
 import SpriteKit
 
+//目前skill list 會從gamem manager call in
 class SkillManager{
     public let OnSelectSkill = Event<Skill>()
     public var currentSkill: Skill? = nil
