@@ -10,7 +10,6 @@ import SpriteKit
 
 class SkillManager{
     public let OnSelectSkill = Event<Skill>()
-    
     public var currentSkill: Skill? = nil
     private let skillList: [Skill]
     public var skillButtons: [SkillSelectButton] = []

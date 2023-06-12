@@ -6,11 +6,6 @@
 //
 
 import Foundation
-enum HealthType {
-    case Recovery
-    case Injure
-    case Setting
-}
 
 class HealthManager{
     public let OnDied = Event<Void>()
@@ -23,32 +18,36 @@ class HealthManager{
             }
         }
     }
-    init(){
-        
+    init() {
+        MaxHealth = 5
+        Health = 5
     }
-    init (maxHP: CGFloat){
+    convenience init(character: Character) {
+        self.init()
+    }
+    convenience init (maxHP: CGFloat){
+        self.init()
         MaxHealth = maxHP
         Health = maxHP
     }
     public func IsDead() {
-        print("===Lost game===")
-//        OnDied.Invoke(<#Void#>)
+        print("===health is zero===")
+        OnDied.Invoke(())
     }
     
     public func initHP(maxHP: CGFloat){
         MaxHealth = maxHP
         Health = maxHP
     }
-    public func update(val: CGFloat, type: HealthType){
-        switch type{
-        case .Recovery:
-            Health += val
-        case .Injure:
-            Health -= val
-        case .Setting:
-            Health = val
-        }
+    
+    
+    internal func InjureHP(val: CGFloat){
+        Health -= val
     }
-    
-    
+    internal func SettingHP(val: CGFloat){
+        Health = val
+    }
+    internal func RecoveryHP(val: CGFloat){
+        Health += val
+    }
 }

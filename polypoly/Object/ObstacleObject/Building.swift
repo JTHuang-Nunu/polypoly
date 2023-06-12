@@ -15,6 +15,7 @@ class BuildingObstacle: ObstacleObejct {
         super.init(node: SKShapeNode(circleOfRadius: 30), texture: SKSpriteNode(imageNamed: "building"))
         self.position = position
 
+        
         self._setupBody()
     }
 
@@ -31,7 +32,7 @@ class BuildingObstacle: ObstacleObejct {
         self.physicsBody?.friction = 0.2
         
         //health point setting
-        healthManager.initHP(maxHP: 1)
+        _healthManager.initHP(maxHP: 1)
     }
     
     required init?(coder aDecoder: NSCoder) {

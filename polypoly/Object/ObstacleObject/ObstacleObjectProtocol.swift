@@ -12,5 +12,4 @@ protocol ObstacleObjectProtocol{
 //    var healthManager: HealthManager {get}
 //    var node: SKNode {get }
 //    var position: CGPoint { get set }
-    //id
 }

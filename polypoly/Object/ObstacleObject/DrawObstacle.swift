@@ -46,7 +46,7 @@ class DrawObstacle: ObstacleObejct {
         self.physicsBody?.friction = 0.2
         
         //health point setting
-        healthManager.initHP(maxHP: 1)
+        _healthManager.initHP(maxHP: 1)
     }
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
