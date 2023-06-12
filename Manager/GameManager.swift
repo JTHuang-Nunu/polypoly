@@ -26,6 +26,7 @@ class GameManager {
     private let _inputManager = InputManager()
     private var _dispatcher: Dispatcher? = nil
     private var _skillManager: SkillManager? = nil
+    private var _energyManager: EnergyManager? = nil
     
     private let logger = Logger(subsystem: "GameManager", category: "GameManager")
     private var _characterMap: [UUID: Character] = [:]
@@ -55,8 +56,9 @@ class GameManager {
         }
     }
     private func createEnergyManager(){
-        let energyManager = EnergyManager(initValue: 1)
-        OnCreatedEneryManager.Invoke(energyManager)
+        _energyManager = EnergyManager(initValue: 1)
+        OnCreatedEneryManager.Invoke(_energyManager!)
+        _inputManager.SetEnergyManager(energyManager: _energyManager!)
     }
     private func createSkillManager(){
         _skillManager = SkillManager(skills: PlayerSkills)

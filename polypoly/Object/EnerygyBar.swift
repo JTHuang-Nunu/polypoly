@@ -16,17 +16,34 @@ class EnergyBar: SKNode{
     init(energyManager: EnergyManager){
         self.energyManager = energyManager
         
-        FrameNode = SKShapeNode(rectOf: CGSize(width: 200, height: 20))
-        BarNode = SKShapeNode(rectOf: CGSize(width: 200, height: 20))
+        FrameNode = SKShapeNode(rectOf: CGSize(width: 400, height: 20))
+        BarNode = SKShapeNode(rectOf: CGSize(width: 400, height: 20))
 
         FrameNode.fillColor = UIColor.clear
         FrameNode.strokeColor = UIColor.black
 
         BarNode.fillColor = UIColor.green
         BarNode.strokeColor = UIColor.clear
+        
         super.init()
+        splitfield()
         self.addChild(FrameNode)
         self.addChild(BarNode)
+    }
+    
+    private func splitfield(fieldCount: Int = 10){
+        let fieldWidth = FrameNode.frame.width / CGFloat(fieldCount)
+        let fieldHeight = FrameNode.frame.height
+        for i in 1...fieldCount{
+            let line = SKShapeNode(rectOf: CGSize(width: 1, height: fieldHeight))
+            line.position.x = fieldWidth * CGFloat(i) - FrameNode.frame.width / 2
+            line.zPosition = BarNode.zPosition + 1
+            
+            
+            line.fillColor = UIColor.black
+            line.strokeColor = UIColor.clear
+            FrameNode.addChild(line)
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -41,6 +58,5 @@ class EnergyBar: SKNode{
     
     override func NodeUpdate(_ currentTime: TimeInterval) {
         SetBarPercent(percent: energyManager.Percent)
-        print(energyManager.Percent)
     }
 }

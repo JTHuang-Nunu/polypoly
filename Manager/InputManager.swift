@@ -14,10 +14,16 @@ class InputManager: InputManagerProtocol{
     private var currentSkill: Skill? = nil
     var OperateCharacterID: UUID? = nil
     var canvas: Canvas? = nil
+    var energyManager: EnergyManager? = nil
     let logger = Logger(subsystem: "InputManager", category: "InputManager")
     let SkillCanvasModeMap: [Skill: CanvasMode] = [
         .Move: .Pointer,
         .Obstacle: .Draw
+    ]
+    let SkillCost: [Skill: Int] = [
+        .Move: 1,
+        .Obstacle: 3,
+        .Trap: 4
     ]
     
     public func SetCanvas(canvas: Canvas){
@@ -25,6 +31,21 @@ class InputManager: InputManagerProtocol{
         self.canvas!.OnDrawPointer += InputPointer
         self.canvas!.OnDrawLine += InputLine
     }
+    
+    public func SetEnergyManager(energyManager: EnergyManager){
+        self.energyManager = energyManager
+    }
+    
+    private func GeneratePlayerAction(action: PlayerAction){
+        let cost = self.GetPlayerActionCost(action: action)
+        if self.energyManager!.Value < cost{
+            return
+        }
+        
+        self.energyManager!.Cost(costValue: cost)
+        OnDoPlayerAction.Invoke(action)
+    }
+    
     
     public func SetSelectedSkill(skill: Skill){
         currentSkill = skill
@@ -49,8 +70,15 @@ class InputManager: InputManagerProtocol{
             ActionType: .UseSkill,
             Skill: currentSkill!)
         action.content[.Path] = encodeJSON(line)
-        OnDoPlayerAction.Invoke(action)
+        GeneratePlayerAction(action: action)
     }
+    
+    private func GetPlayerActionCost(action: PlayerAction) -> Float{
+        let cost = SkillCost[action.Skill]!
+        return Float(cost)
+    }
+    
+    
     
     private func InputPointer(vector: CGVector){
         if currentSkill == nil{
@@ -66,6 +94,6 @@ class InputManager: InputManagerProtocol{
             ActionType: .UseSkill,
             Skill: currentSkill!)
         action.content[.Impulse] = encodeJSON(vector)
-        OnDoPlayerAction.Invoke(action)
+        GeneratePlayerAction(action: action)
     }
 }
