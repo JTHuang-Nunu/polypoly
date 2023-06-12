@@ -16,8 +16,8 @@ class ExplosionAnimation: SKNode, AnimationProtocol {
     let len = 200
     var textures: [SKTexture]?
     override init(){
-        let explosionAtlas = SKTextureAtlas(named: folderName)
-        textures = (0...explosionAtlas.textureNames.count-1).map { explosionAtlas.textureNamed(String(format: "%d", $0))}
+        let atlas = SKTextureAtlas(named: folderName)
+        textures = (0...atlas.textureNames.count-1).map { atlas.textureNamed(String(format: "%d", $0))}
         node.size = CGSize(width: len, height: len)
         
         super.init()
@@ -44,8 +44,8 @@ class ExplosionAnimation2: SKNode, AnimationProtocol {
     let len = 200
     var textures: [SKTexture]?
     override init(){
-        let explosionAtlas = SKTextureAtlas(named: folderName)
-        textures = (0...explosionAtlas.textureNames.count-1).map { explosionAtlas.textureNamed(String(format: "%d", $0))}
+        let atlas = SKTextureAtlas(named: folderName)
+        textures = (0...atlas.textureNames.count-1).map { atlas.textureNamed(String(format: "%d", $0))}
         node.size = CGSize(width: len, height: len)
         
         super.init()

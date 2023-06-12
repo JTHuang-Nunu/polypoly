@@ -10,7 +10,7 @@ class MenuScene: SKScene {
     private var playButton: SKLabelNode!
     private var optionsButton: SKLabelNode!
     private var buttonSound: SKAction!
-    private let userNameKey = "UserName" // 使用者名稱的鍵值
+    
     
     override func didMove(to view: SKView) {
         super.didMove(to: view)
@@ -24,9 +24,10 @@ class MenuScene: SKScene {
         if let soundURL = Bundle.main.url(forResource: "button_sound", withExtension: "mp3") {
             buttonSound = SKAction.playSoundFileNamed(soundURL.lastPathComponent, waitForCompletion: false)
         }
+        
+        UserDefaults.resetStandardUserDefaults()
+        UserDefaults.standard.removeObject(forKey: userNameKey)
     }
-
-
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         // 偵測觸碰事件
@@ -79,8 +80,9 @@ class MenuScene: SKScene {
                 optionsButton.run(sequenceAction)
             }
         }
-        
+
         let defaults :UserDefaults = UserDefaults.standard
+        
         if let userName = defaults.string(forKey: userNameKey), !userName.isEmpty {
             print("Welcome back, \(userName)!")
             showPlayerID(userName)
@@ -88,8 +90,9 @@ class MenuScene: SKScene {
             // 第一次打開程式，要求使用者輸入名稱
             print("need enter")
             askForUserName()
-            let userName = defaults.string(forKey: userNameKey)
-            showPlayerID(userName!)
+//            let userName = defaults.string(forKey: userNameKey)
+            let userName = "tmp"
+            showPlayerID(userName)
         }
     }
     
@@ -189,7 +192,6 @@ class MenuScene: SKScene {
         
     }
     
-    
     private func askForUserName() {
             let alertController = UIAlertController(title: "Welcome", message: "Please enter your username", preferredStyle: .alert)
             alertController.addTextField { textField in
@@ -199,7 +201,7 @@ class MenuScene: SKScene {
             let okAction = UIAlertAction(title: "OK", style: .default) { _ in
                 // 儲存使用者名稱
                 if let textField = alertController.textFields?.first, let userName = textField.text {
-                    UserDefaults.standard.set(userName, forKey: self.userNameKey)
+                    UserDefaults.standard.set(userName, forKey: userNameKey)
                     print("Username saved: \(userName)")
                 }
             }

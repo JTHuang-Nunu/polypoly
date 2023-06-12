@@ -14,8 +14,8 @@ class BlackHole: SKNode, AnimationProtocol {
     let len = 100
     var textures: [SKTexture]?
     override init(){
-        let explosionAtlas = SKTextureAtlas(named: folderName)
-        textures = (0...explosionAtlas.textureNames.count-1).map { explosionAtlas.textureNamed(String(format: "%d", $0))}
+        let atlas = SKTextureAtlas(named: folderName)
+        textures = (0...atlas.textureNames.count-1).map { atlas.textureNamed(String(format: "%d", $0))}
         node.size = CGSize(width: len, height: len)
         node.zPosition = zAxis.skillAnimation
         node.position  = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
