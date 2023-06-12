@@ -28,12 +28,40 @@ class TestScene: SKScene{
         gameManager.OnCreatedSkillButtons += PlaceSkillButtons
         gameManager.CreateSceneObjects()
         
+        gameManager.OnWin += {
+            print("win")
+        }
+        gameManager.OnLose += {
+            print("lose")
+        }
+        
+        // add win button
+        let winButton = BaseButton()
+        winButton.OnClickBegin += {
+            self.gameManager.Win()
+        }
+        self.addChild(winButton)
+        let shape = SKShapeNode(rect: CGRect(x: 0, y: 0, width: 100, height: 100))
+        shape.fillColor = UIColor.red
+        winButton.addChild(shape)
+        winButton.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        
+        winButton.zPosition = zAxis.skillButton
+        
+        
+        
+        
+        
         physicsWorld.gravity = CGVector(dx: 0.0, dy: 0.0)
+        let interactionController = InteractionController()
+        physicsWorld.contactDelegate = interactionController
+        addChild(interactionController)
     }
     func PlacePlayerTo(players: [UUID: Character], point: CGPoint){
         for value in players.values{
             addChild(value.SKNode)
             value.SKNode.position = point
+            value.OnCreateObstacle += addChild
         }
     
     }

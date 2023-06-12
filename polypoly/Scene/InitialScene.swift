@@ -69,7 +69,7 @@ class InitialScene: SKScene {
         labelNode?.run(blinkForever)
     }
     func gotoTestScene(){
-        let testScene = TestScene2(fileNamed: "TestScene copy")!
+        let testScene = TestScene(fileNamed: "TestScene copy")!
         testScene.scaleMode = .aspectFill
         self.view?.presentScene(testScene)
     }

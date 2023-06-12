@@ -18,7 +18,7 @@ class EnergyManager: SKNode {
     public let MinValue: Float = 0.0
     
     public var EnableRecovery: Bool = true
-    public var RecoveryRate: Float = 1.0
+    public var RecoveryRate: Float = 0.5
     
     
     private var previous_time: TimeInterval = 0.0

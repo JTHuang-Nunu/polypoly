@@ -32,6 +32,7 @@ enum MessageType: String, Codable{
     case PlayerLeave
     case TestMessage
     case JoinMessage
+    case GameOver
 }
 
 struct PlayerAction: Codable & Oppositable{

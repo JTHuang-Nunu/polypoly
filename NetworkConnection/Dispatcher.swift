@@ -10,6 +10,8 @@ import os
 
 class Dispatcher: BaseMessageHandler {
     public let OnReceivePlayerAction = Event<PlayerAction>()
+    public let OnReceiveGameOver = Event<UUID>()
+    
     private let logger = Logger(subsystem: "Dispatcher", category: "Dispatcher")
     
     override init(deviceID: UUID, sessionManager: ConnectionManager){
@@ -25,12 +27,24 @@ class Dispatcher: BaseMessageHandler {
         sendMessage(message: data)
     }
     
+    public func sendWinnerMessage(winner: UUID){
+        let data = Message(DeviceID: DeviceID, MessageType: .GameOver, Content: encodeJSON(winner))
+        sendMessage(message: data)
+    }
+    
+    
     override func handleMessage(message: Message){
         super.handleMessage(message: message)
 
         switch message.MessageType {
         case .PlayerAction:
             handleReceivePlayerAction(content: message.Content)
+            break
+            
+        case .GameOver:
+            let winnerUUID = decodeJSON(UUID.self, jsonString: message.Content)!
+            OnReceiveGameOver.Invoke(winnerUUID)
+            
             break
         default:
             break

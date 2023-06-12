@@ -19,6 +19,12 @@ class GameManager {
     public let OnCreatedSelfPlayers = Event<[UUID: Character]>()
     public let OnCreatedOtherPlayers = Event<[UUID: Character]>()
     
+    public let OnGameOver = Event<UUID>() // winner UUID
+    public let OnWin = Event<Void>()
+    public let OnLose = Event<Void>()
+    
+    
+    
     public let PlayerSkills: [Skill] = [.Move, .Obstacle]
     public let DefaultSkill = Skill.Move
     
@@ -26,6 +32,7 @@ class GameManager {
     private let _inputManager = InputManager()
     private var _dispatcher: Dispatcher? = nil
     private var _skillManager: SkillManager? = nil
+    private var _energyManager: EnergyManager? = nil
     
     private let logger = Logger(subsystem: "GameManager", category: "GameManager")
     private var _characterMap: [UUID: Character] = [:]
@@ -45,19 +52,45 @@ class GameManager {
         createCanvas()
         createEnergyManager()
     }
+    
+    /// 當Scene判斷由此玩家贏的時候呼叫
+    public func Win(){
+        GameOver(winner: _operateCharacter!)
+    }
+    
+    public func GameOver(winner: UUID){
+        _dispatcher!.sendWinnerMessage(winner: winner)
+    }
+        
+    
     private func createDispatcher(deviceID: UUID, host: HostInfo){
         let sessionManager = ConnectionManager(hostInfo: host)
         _dispatcher = Dispatcher(deviceID: deviceID, sessionManager: sessionManager)
         _dispatcher!.OnConnected += OnConnectGameServer.Invoke
+        _dispatcher!.OnReceiveGameOver += handleGameOver
+        
         SetConnection()
         OnConnectGameServer += {
             self._dispatcher?.sendJoinMessage()
         }
     }
     private func createEnergyManager(){
-        let energyManager = EnergyManager(initValue: 1)
-        OnCreatedEneryManager.Invoke(energyManager)
+        _energyManager = EnergyManager(initValue: 1)
+        OnCreatedEneryManager.Invoke(_energyManager!)
+        _inputManager.SetEnergyManager(energyManager: _energyManager!)
     }
+    
+    private func handleGameOver(winner: UUID){
+        OnGameOver.Invoke(winner)
+        if winner == _operateCharacter{
+            OnWin.Invoke(())
+        }
+        else{
+            OnLose.Invoke(())
+        }
+    }
+    
+    
     private func createSkillManager(){
         _skillManager = SkillManager(skills: PlayerSkills)
         _skillManager!.OnSelectSkill += { skill in
@@ -170,8 +203,6 @@ class GameManager {
         return GetIfSameDirection(c1: GetOperateCharacter()!, c2: GetCharacter(ID: id)!)
     }
     
-    //---
-    //for testing
     public func GetCharacterMap() -> [UUID: Character]{
         return _characterMap
     }
