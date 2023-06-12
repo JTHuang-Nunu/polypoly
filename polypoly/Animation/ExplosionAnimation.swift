@@ -11,7 +11,7 @@ import SpriteKit
 
 class ExplosionAnimation: SKNode, AnimationProtocol {
     
-    let folderName = "explosion.atlas"
+    let folderName = Explosion1Folder
     var node = SKSpriteNode()
     let len = 200
     var textures: [SKTexture]?
@@ -39,7 +39,7 @@ class ExplosionAnimation: SKNode, AnimationProtocol {
 
 class ExplosionAnimation2: SKNode, AnimationProtocol {
     
-    let folderName = "explosion2.atlas"
+    let folderName = Explosion2Folder
     var node = SKSpriteNode()
     let len = 200
     var textures: [SKTexture]?

@@ -25,7 +25,7 @@ class Wall: SKSpriteNode {
         self.physicsBody?.friction = 0
         self.physicsBody?.restitution = 1
         self.physicsBody?.isDynamic = false
-        self.name = "wall"
+        self.name = WallName
         
         self._setSidesOfWall(size: size)
 //        self.position = position    //Position is set behind the wall group

@@ -34,7 +34,7 @@ class DrawObstacle: ObstacleObejct {
     }
     
     private func _setupBody(){
-        self.name = "drawObstacle"
+        self.name = DrawObstacleName
         //node setting
         node.strokeColor = .orange
         node.fillColor = .yellow

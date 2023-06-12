@@ -10,7 +10,6 @@
 		BF3317B22A271BBC002B2E5D /* MenuScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3317B12A271BBC002B2E5D /* MenuScene.swift */; };
 		BF7D7E162A28690F0029D21A /* button_sound.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = BF7D7E152A28690F0029D21A /* button_sound.mp3 */; };
 		D80D43132A35FE7400F21756 /* InteractionController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D43122A35FE7400F21756 /* InteractionController.swift */; };
-		D80D43152A36016C00F21756 /* InteractionObjection.swift in Sources */ = {isa = PBXBuildFile; fileRef = D80D43142A36016C00F21756 /* InteractionObjection.swift */; };
 		D82F9F612A30BF790079FE4A /* HealthManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82F9F602A30BF790079FE4A /* HealthManager.swift */; };
 		D82F9F6D2A31CB260079FE4A /* ExplosionAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D82F9F6C2A31CB260079FE4A /* ExplosionAnimation.swift */; };
 		D82F9F712A31EADD0079FE4A /* explosion.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D82F9F6E2A31EADC0079FE4A /* explosion.atlas */; };
@@ -36,8 +35,8 @@
 		D8B822C42A3633CA007CB884 /* WallInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C32A3633CA007CB884 /* WallInteraction.swift */; };
 		D8B822C62A363770007CB884 /* BuildingInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C52A363770007CB884 /* BuildingInteraction.swift */; };
 		D8B822C82A3638A6007CB884 /* DrawObstacleInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C72A3638A6007CB884 /* DrawObstacleInteraction.swift */; };
+		D8B822CA2A36E62E007CB884 /* PolypolyStats.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C92A36E62E007CB884 /* PolypolyStats.swift */; };
 		D8BCFDB22A2A4CDC00F46D5F /* SceneZAxis.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BCFDB12A2A4CDC00F46D5F /* SceneZAxis.swift */; };
-		D8BCFDB42A2A5F5E00F46D5F /* CGVectorConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BCFDB32A2A5F5E00F46D5F /* CGVectorConverter.swift */; };
 		D8BCFDB62A2B6E5300F46D5F /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BCFDB52A2B6E5300F46D5F /* MainScene.swift */; };
 		D8BCFDB72A2B6E5300F46D5F /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BCFDB52A2B6E5300F46D5F /* MainScene.swift */; };
 		D8BCFDB82A2B6E5300F46D5F /* MainScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BCFDB52A2B6E5300F46D5F /* MainScene.swift */; };
@@ -66,7 +65,7 @@
 		E712FBEA2A2831D8005282AE /* TestScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E712FBE92A2831D8005282AE /* TestScene.swift */; };
 		E772E55D2A2F9B02004CCCA8 /* Utils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E772E55C2A2F9B02004CCCA8 /* Utils.swift */; };
 		E772E55F2A3068CD004CCCA8 /* SkillManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E772E55E2A3068CD004CCCA8 /* SkillManager.swift */; };
-		E777172B2A35C63900A914F1 /* EnerygyBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777172A2A35C63900A914F1 /* EnerygyBar.swift */; };
+		E777172B2A35C63900A914F1 /* EnergyBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777172A2A35C63900A914F1 /* EnergyBar.swift */; };
 		E777172D2A35DB8E00A914F1 /* Energy.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777172C2A35DB8E00A914F1 /* Energy.swift */; };
 		E777172F2A35E06900A914F1 /* PhysicalDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E777172E2A35E06900A914F1 /* PhysicalDelegate.swift */; };
 		E77864792A2AFC8000280EBF /* TestScene copy.sks in Resources */ = {isa = PBXBuildFile; fileRef = E77864782A2AFC8000280EBF /* TestScene copy.sks */; };
@@ -77,7 +76,6 @@
 		E7A979402A0D55F70056B6BC /* ConnectionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7A9793F2A0D55F70056B6BC /* ConnectionManager.swift */; };
 		E7F5EDAD2A11DD3700AB6597 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAC2A11DD3700AB6597 /* Dispatcher.swift */; };
 		E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */; };
-		E7FE28F12A28D7550057A1A1 /* MainCanvas.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F02A28D7550057A1A1 /* MainCanvas.swift */; };
 		E7FE28F32A28E9130057A1A1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F22A28E9130057A1A1 /* Button.swift */; };
 		E7FE28F82A28EF3F0057A1A1 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */; };
 		E7FE28FA2A28F1CF0057A1A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F42A28ECB30057A1A1 /* Event.swift */; };
@@ -107,7 +105,6 @@
 		BF3317B12A271BBC002B2E5D /* MenuScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuScene.swift; sourceTree = "<group>"; };
 		BF7D7E152A28690F0029D21A /* button_sound.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = button_sound.mp3; sourceTree = "<group>"; };
 		D80D43122A35FE7400F21756 /* InteractionController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionController.swift; sourceTree = "<group>"; };
-		D80D43142A36016C00F21756 /* InteractionObjection.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InteractionObjection.swift; sourceTree = "<group>"; };
 		D82F9F602A30BF790079FE4A /* HealthManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HealthManager.swift; sourceTree = "<group>"; };
 		D82F9F6C2A31CB260079FE4A /* ExplosionAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionAnimation.swift; sourceTree = "<group>"; };
 		D82F9F6E2A31EADC0079FE4A /* explosion.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = explosion.atlas; sourceTree = "<group>"; };
@@ -133,8 +130,8 @@
 		D8B822C32A3633CA007CB884 /* WallInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallInteraction.swift; sourceTree = "<group>"; };
 		D8B822C52A363770007CB884 /* BuildingInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingInteraction.swift; sourceTree = "<group>"; };
 		D8B822C72A3638A6007CB884 /* DrawObstacleInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DrawObstacleInteraction.swift; sourceTree = "<group>"; };
+		D8B822C92A36E62E007CB884 /* PolypolyStats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PolypolyStats.swift; sourceTree = "<group>"; };
 		D8BCFDB12A2A4CDC00F46D5F /* SceneZAxis.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneZAxis.swift; sourceTree = "<group>"; };
-		D8BCFDB32A2A5F5E00F46D5F /* CGVectorConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGVectorConverter.swift; sourceTree = "<group>"; };
 		D8BCFDB52A2B6E5300F46D5F /* MainScene.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainScene.swift; sourceTree = "<group>"; };
 		D8BCFDBD2A2CD03100F46D5F /* ObjectPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectPosition.swift; sourceTree = "<group>"; };
 		D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
@@ -164,7 +161,7 @@
 		E712FBE92A2831D8005282AE /* TestScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene.swift; sourceTree = "<group>"; };
 		E772E55C2A2F9B02004CCCA8 /* Utils.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Utils.swift; sourceTree = "<group>"; };
 		E772E55E2A3068CD004CCCA8 /* SkillManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillManager.swift; sourceTree = "<group>"; };
-		E777172A2A35C63900A914F1 /* EnerygyBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnerygyBar.swift; sourceTree = "<group>"; };
+		E777172A2A35C63900A914F1 /* EnergyBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EnergyBar.swift; sourceTree = "<group>"; };
 		E777172C2A35DB8E00A914F1 /* Energy.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Energy.swift; sourceTree = "<group>"; };
 		E777172E2A35E06900A914F1 /* PhysicalDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalDelegate.swift; sourceTree = "<group>"; };
 		E77864782A2AFC8000280EBF /* TestScene copy.sks */ = {isa = PBXFileReference; lastKnownFileType = file.sks; path = "TestScene copy.sks"; sourceTree = "<group>"; };
@@ -175,7 +172,6 @@
 		E7A9793F2A0D55F70056B6BC /* ConnectionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConnectionManager.swift; sourceTree = "<group>"; };
 		E7F5EDAC2A11DD3700AB6597 /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDefine.swift; sourceTree = "<group>"; };
-		E7FE28F02A28D7550057A1A1 /* MainCanvas.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainCanvas.swift; sourceTree = "<group>"; };
 		E7FE28F22A28E9130057A1A1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		E7FE28F42A28ECB30057A1A1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
@@ -224,7 +220,6 @@
 				E777172E2A35E06900A914F1 /* PhysicalDelegate.swift */,
 				D80D43122A35FE7400F21756 /* InteractionController.swift */,
 				D8B822C12A3621DB007CB884 /* BallInteraction.swift */,
-				D80D43142A36016C00F21756 /* InteractionObjection.swift */,
 				D8B822C32A3633CA007CB884 /* WallInteraction.swift */,
 				D8B822C52A363770007CB884 /* BuildingInteraction.swift */,
 				D8B822C72A3638A6007CB884 /* DrawObstacleInteraction.swift */,
@@ -294,7 +289,6 @@
 			isa = PBXGroup;
 			children = (
 				D88E76902A29AF1D00C2FA63 /* CGextension.swift */,
-				D8BCFDB32A2A5F5E00F46D5F /* CGVectorConverter.swift */,
 				D8BCFDBD2A2CD03100F46D5F /* ObjectPosition.swift */,
 				D83681C82A26EB4E005A5EEB /* PlayerPosition.swift */,
 				D8BCFDB12A2A4CDC00F46D5F /* SceneZAxis.swift */,
@@ -311,8 +305,9 @@
 				D8BE1EC82A01F9E6002CC0D0 /* Line.swift */,
 				D8CF0B3329FE834B0056A94D /* Wall.swift */,
 				D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */,
-				E777172A2A35C63900A914F1 /* EnerygyBar.swift */,
+				E777172A2A35C63900A914F1 /* EnergyBar.swift */,
 				D8CF0B3729FE885A0056A94D /* Ball.swift */,
+				E7FE28F22A28E9130057A1A1 /* Button.swift */,
 				D8A0B8652A29E0D500FECC8E /* SkillButton.swift */,
 				E7FE29012A29F3780057A1A1 /* Pointer.swift */,
 			);
@@ -329,8 +324,6 @@
 				E77864782A2AFC8000280EBF /* TestScene copy.sks */,
 				E712FBE92A2831D8005282AE /* TestScene.swift */,
 				D87FE9C22A358E480041AB3E /* TestScene2.swift */,
-				E7FE28F02A28D7550057A1A1 /* MainCanvas.swift */,
-				E7FE28F22A28E9130057A1A1 /* Button.swift */,
 				BF3317B12A271BBC002B2E5D /* MenuScene.swift */,
 			);
 			path = Scene;
@@ -339,6 +332,7 @@
 		D8CF0AEE29FE41610056A94D = {
 			isa = PBXGroup;
 			children = (
+				D8B822C92A36E62E007CB884 /* PolypolyStats.swift */,
 				D82F9F622A31CA790079FE4A /* Atlas */,
 				BF7D7E142A2868490029D21A /* SoundEffect */,
 				D8CF0AF929FE41610056A94D /* polypoly */,
@@ -410,8 +404,8 @@
 		E7F5EDAE2A11E52E00AB6597 /* Basic */ = {
 			isa = PBXGroup;
 			children = (
-				D83681C42A26740E005A5EEB /* Skill.swift */,
 				D88E768F2A29AEB700C2FA63 /* Extension */,
+				D83681C42A26740E005A5EEB /* Skill.swift */,
 				E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */,
 				E7FE28F42A28ECB30057A1A1 /* Event.swift */,
 				E7FE28FB2A2907990057A1A1 /* Protocols.swift */,
@@ -484,6 +478,9 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
+				KnownAssetTags = (
+					New,
+				);
 				LastSwiftUpdateCheck = 1430;
 				LastUpgradeCheck = 1430;
 				TargetAttributes = {
@@ -582,13 +579,11 @@
 				D8FEDBBF2A35A8E200621A44 /* PhysicsMass.swift in Sources */,
 				E79EBC042A2DD61700D83B66 /* BaseMessageHandler.swift in Sources */,
 				D8CF0B3429FE834B0056A94D /* Wall.swift in Sources */,
-				E777172B2A35C63900A914F1 /* EnerygyBar.swift in Sources */,
+				E777172B2A35C63900A914F1 /* EnergyBar.swift in Sources */,
 				E7FE28FA2A28F1CF0057A1A1 /* Event.swift in Sources */,
-				D8BCFDB42A2A5F5E00F46D5F /* CGVectorConverter.swift in Sources */,
 				E7FE28F32A28E9130057A1A1 /* Button.swift in Sources */,
 				D8CF0B3029FE4C5F0056A94D /* InitialScene.swift in Sources */,
 				E7A234062A1DFBB900F0F7F9 /* Character.swift in Sources */,
-				E7FE28F12A28D7550057A1A1 /* MainCanvas.swift in Sources */,
 				D87C0A6B2A34A54900442546 /* ObstacleObject.swift in Sources */,
 				D87C0A5D2A3468AB00442546 /* AnimationFactory.swift in Sources */,
 				D8BCFDB22A2A4CDC00F46D5F /* SceneZAxis.swift in Sources */,
@@ -598,6 +593,7 @@
 				D87C0A6F2A34CCA100442546 /* DrawObstacle.swift in Sources */,
 				E712FBEA2A2831D8005282AE /* TestScene.swift in Sources */,
 				D8CF0AFB29FE41610056A94D /* AppDelegate.swift in Sources */,
+				D8B822CA2A36E62E007CB884 /* PolypolyStats.swift in Sources */,
 				D80D43132A35FE7400F21756 /* InteractionController.swift in Sources */,
 				D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */,
 				D87FE9C32A358E480041AB3E /* TestScene2.swift in Sources */,
@@ -622,7 +618,6 @@
 				D8BE1EC92A01F9E7002CC0D0 /* Line.swift in Sources */,
 				D82F9F612A30BF790079FE4A /* HealthManager.swift in Sources */,
 				E777172F2A35E06900A914F1 /* PhysicalDelegate.swift in Sources */,
-				D80D43152A36016C00F21756 /* InteractionObjection.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

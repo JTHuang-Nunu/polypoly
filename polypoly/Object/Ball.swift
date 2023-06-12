@@ -11,7 +11,7 @@ import SpriteKit
 class Ball: SKSpriteNode {
     public let onInjured = Event<CGFloat>()
     init() {
-        let ballTexture = SKTexture(imageNamed: "ball")
+        let ballTexture = SKTexture(imageNamed: BallName)
         let ballSize = CGSize(width: 32, height: 32)
         
         super.init(texture: ballTexture, color: .clear, size: ballSize)
@@ -26,7 +26,7 @@ class Ball: SKSpriteNode {
         let ballLinearDamping: CGFloat = 0.1
         let ballAngularDamping: CGFloat = 0.5
         
-        self.name = "ball"
+        self.name = BallName
         self.physicsBody = SKPhysicsBody(circleOfRadius: ballRadius)
 //        self.physicsBody?.usesPreciseCollisionDetection = true
 //        self.physicsBody?.isDynamic = true

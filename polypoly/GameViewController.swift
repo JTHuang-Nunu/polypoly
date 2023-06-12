@@ -69,4 +69,10 @@ class GameViewController: UIViewController {
     override var prefersStatusBarHidden: Bool {
         return true
     }
+//    override var childForStatusBarHidden: UIViewController? {
+//        return self.topViewController
+//    }
+//    override var childForStatusBarStyle: UIViewController? {
+//        return self.topViewController
+//    }
 }

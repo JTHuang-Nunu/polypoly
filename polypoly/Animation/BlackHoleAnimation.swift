@@ -9,7 +9,7 @@ import Foundation
 import SpriteKit
 class BlackHole: SKNode, AnimationProtocol {
     
-    let folderName = "blackhole.atlas"
+    let folderName = BlackHoleFolder
     var node = SKSpriteNode()
     let len = 100
     var textures: [SKTexture]?

@@ -8,6 +8,15 @@
 import Foundation
 import SpriteKit
 
+enum InteractionObjectType: String {
+    case Building
+    case DrawObstacle
+    case Wall
+    case Ball
+    
+    case Other //
+}
+
 class InteractionController:SKNode, SKPhysicsContactDelegate{
     func didBegin(_ contact: SKPhysicsContact) {
         if let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node{
