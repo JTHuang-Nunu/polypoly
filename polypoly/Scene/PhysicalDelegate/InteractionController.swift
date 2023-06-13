@@ -13,38 +13,48 @@ enum InteractionObjectType: String {
     case DrawObstacle
     case Wall
     case Ball
-    
+    case Trap
+    case Explosion
     case Other //
 }
 
 class InteractionController:SKNode, SKPhysicsContactDelegate{
+//    var contact: CGVector? = nil
     func didBegin(_ contact: SKPhysicsContact) {
+//        contact = contact.collisionImpulse
         if let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node{
-            var nodesName = [String]()
-            if let nodeA = contact.bodyA.node ,let nodeB = contact.bodyB.node{
-                nodesName.append(nodeA.name!)
-                nodesName.append(nodeB.name!)
-            }
+//            var nodesName = [String]()
+//            if let nodeA = contact.bodyA.node ,let nodeB = contact.bodyB.node{
+//                nodesName.append(nodeA.name!)
+//                nodesName.append(nodeB.name!)
+//            }
             let nodeAType = judgeDataType(node: nodeA)
             let nodeBType = judgeDataType(node: nodeB)
-            
-            runInteraction(node: nodeA, nodeType: nodeAType, anotherType: nodeBType)
-            runInteraction(node: nodeB, nodeType: nodeBType, anotherType: nodeAType)
+            if (nodeAType == .Other || nodeAType == .Other ){
+                print("contact [other] type")
+            }
+            runInteraction(node: nodeA, nodeType: nodeAType, anotherType: nodeBType, contact: contact)
+            runInteraction(node: nodeB, nodeType: nodeBType, anotherType: nodeAType, contact: contact)
         }
     }
     //========================================================
-    func runInteraction(node: SKNode, nodeType: InteractionObjectType, anotherType: InteractionObjectType){
+    func runInteraction(node: SKNode, nodeType: InteractionObjectType, anotherType: InteractionObjectType, contact: SKPhysicsContact){
         switch nodeType {
         case .Building:
-            BuildingInteraction.handleTwoCollision(Building: node as! BuildingObstacle, anotherNodeType: anotherType)
+            BuildingInteraction.handleTwoCollision(Building: node as! BuildingObstacle, anotherNodeType: anotherType, contact: contact)
         case .DrawObstacle:
-            DrawObstacleInteraction.handleTwoCollision(DrawObstacle: node as! DrawObstacle, anotherNodeType: anotherType)
+            DrawObstacleInteraction.handleTwoCollision(DrawObstacle: node as! DrawObstacle, anotherNodeType: anotherType, contact: contact)
         case .Wall:
-            WallInteraction.handleTwoCollision(Wall: node as! Wall, anotherNodeType: anotherType)
+            WallInteraction.handleTwoCollision(Wall: node as! Wall, anotherNodeType: anotherType, contact: contact)
         case .Ball:
-            BallInteraction.handleTwoCollision(ball: node as! Ball, anotherNodeType: anotherType)
+            BallInteraction.handleTwoCollision(ball: node as! Ball, anotherNodeType: anotherType, contact: contact)
+        case .Trap:
+            TrapInteraction.handleTwoCollision(Trap: node as! Trap, anotherNodeType: anotherType, contact: contact)
+        case .Explosion: //it isn't object, don't need do any handle
+            break
         case .Other:
             break
+
         }
     }
     //========================================================
@@ -60,6 +70,12 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
         }
         if node is Wall{
             return InteractionObjectType.Wall
+        }
+        if node is Trap{
+            return InteractionObjectType.Trap
+        }
+        if node is ExplosionByTrap{
+            return InteractionObjectType.Explosion
         }
         return InteractionObjectType.Other
     }

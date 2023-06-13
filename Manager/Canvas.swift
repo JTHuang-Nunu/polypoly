@@ -12,6 +12,7 @@ import GameplayKit
 public enum CanvasMode{
     case Draw
     case Pointer
+    case Locate
 }
 class BaseCanvas: SKShapeNode{
     public var OnStartNewPoint = Event<CGPoint>()
@@ -57,9 +58,10 @@ class BaseCanvas: SKShapeNode{
 class Canvas: BaseCanvas{
     public let OnDrawLine = Event<CodablePath>()
     public let OnDrawPointer = Event<CGVector>()
+    public let OnDrawLocate = Event<CGPoint>()
     
-    
-    public var Mode: CanvasMode = CanvasMode.Pointer
+//    public var Mode: CanvasMode = CanvasMode.Pointer
+    public var Mode: CanvasMode = CanvasMode.Locate
     private var line: DrawLine? = nil
     private var pointer: Pointer? = nil
     private var startNode: SKNode? = nil
@@ -91,7 +93,9 @@ class Canvas: BaseCanvas{
             break
         case .Pointer:
             startPointer(point: point)
-            
+        case .Locate:
+            endPoint = point
+        
         default:
             break
         }
@@ -105,6 +109,11 @@ class Canvas: BaseCanvas{
             break
         case .Pointer:
             endPoint = point
+        case .Locate:
+            endPoint = point
+            
+        default:
+            break
         }
     }
     override func finishPoint(point: CGPoint) {
@@ -122,6 +131,10 @@ class Canvas: BaseCanvas{
             pointer!.removeFromParent()
             pointer = nil
             endPoint = nil
+            break
+        case .Locate:
+            guard let endPoint = endPoint else {return}
+            OnDrawLocate.Invoke(endPoint)
             break
         }
     }

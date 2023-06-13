@@ -31,7 +31,10 @@
 		D87FE9C32A358E480041AB3E /* TestScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D87FE9C22A358E480041AB3E /* TestScene2.swift */; };
 		D88E76912A29AF1D00C2FA63 /* CGExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D88E76902A29AF1D00C2FA63 /* CGExtension.swift */; };
 		D8A06B032A37787400437491 /* TextFieldView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06B022A37787400437491 /* TextFieldView.swift */; };
+		D8A06B052A37A60D00437491 /* Trap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06B042A37A60D00437491 /* Trap.swift */; };
+		D8A06B072A37AAE100437491 /* TrapInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06B062A37AAE100437491 /* TrapInteraction.swift */; };
 		D8A0B8662A29E0D500FECC8E /* SkillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0B8652A29E0D500FECC8E /* SkillButton.swift */; };
+		D8A5498E2A385240006D6296 /* ExplosionInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A5498D2A385240006D6296 /* ExplosionInteraction.swift */; };
 		D8B822C22A3621DB007CB884 /* BallInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C12A3621DB007CB884 /* BallInteraction.swift */; };
 		D8B822C42A3633CA007CB884 /* WallInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C32A3633CA007CB884 /* WallInteraction.swift */; };
 		D8B822C62A363770007CB884 /* BuildingInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C52A363770007CB884 /* BuildingInteraction.swift */; };
@@ -65,6 +68,10 @@
 		D8CF0B3429FE834B0056A94D /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3329FE834B0056A94D /* Wall.swift */; };
 		D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */; };
 		D8CF0B3829FE885A0056A94D /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3729FE885A0056A94D /* Ball.swift */; };
+		D8E2F0342A386F6B004EA179 /* skill_draw.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0302A386F6A004EA179 /* skill_draw.png */; };
+		D8E2F0352A386F6B004EA179 /* skill_building.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0312A386F6B004EA179 /* skill_building.png */; };
+		D8E2F0362A386F6B004EA179 /* skill_trap.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0322A386F6B004EA179 /* skill_trap.png */; };
+		D8E2F0372A386F6B004EA179 /* skill_move.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0332A386F6B004EA179 /* skill_move.png */; };
 		D8FEDBBF2A35A8E200621A44 /* PhysicsMass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEDBBE2A35A8E200621A44 /* PhysicsMass.swift */; };
 		D8FEDBC12A35CF0C00621A44 /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEDBC02A35CF0C00621A44 /* TeamManager.swift */; };
 		E70BD4CF2A2DE6E0006437D7 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BD4CE2A2DE6E0006437D7 /* DeviceManager.swift */; };
@@ -133,7 +140,10 @@
 		D87FE9C22A358E480041AB3E /* TestScene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestScene2.swift; sourceTree = "<group>"; };
 		D88E76902A29AF1D00C2FA63 /* CGExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CGExtension.swift; sourceTree = "<group>"; };
 		D8A06B022A37787400437491 /* TextFieldView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TextFieldView.swift; sourceTree = "<group>"; };
+		D8A06B042A37A60D00437491 /* Trap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trap.swift; sourceTree = "<group>"; };
+		D8A06B062A37AAE100437491 /* TrapInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrapInteraction.swift; sourceTree = "<group>"; };
 		D8A0B8652A29E0D500FECC8E /* SkillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillButton.swift; sourceTree = "<group>"; };
+		D8A5498D2A385240006D6296 /* ExplosionInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionInteraction.swift; sourceTree = "<group>"; };
 		D8B822C12A3621DB007CB884 /* BallInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallInteraction.swift; sourceTree = "<group>"; };
 		D8B822C32A3633CA007CB884 /* WallInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallInteraction.swift; sourceTree = "<group>"; };
 		D8B822C52A363770007CB884 /* BuildingInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingInteraction.swift; sourceTree = "<group>"; };
@@ -168,6 +178,10 @@
 		D8CF0B3329FE834B0056A94D /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		D8CF0B3729FE885A0056A94D /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		D8E2F0302A386F6A004EA179 /* skill_draw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_draw.png; sourceTree = "<group>"; };
+		D8E2F0312A386F6B004EA179 /* skill_building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_building.png; sourceTree = "<group>"; };
+		D8E2F0322A386F6B004EA179 /* skill_trap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_trap.png; sourceTree = "<group>"; };
+		D8E2F0332A386F6B004EA179 /* skill_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_move.png; sourceTree = "<group>"; };
 		D8FEDBBE2A35A8E200621A44 /* PhysicsMass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsMass.swift; sourceTree = "<group>"; };
 		D8FEDBC02A35CF0C00621A44 /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
 		E70BD4CE2A2DE6E0006437D7 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
@@ -237,6 +251,8 @@
 				D8B822C32A3633CA007CB884 /* WallInteraction.swift */,
 				D8B822C52A363770007CB884 /* BuildingInteraction.swift */,
 				D8B822C72A3638A6007CB884 /* DrawObstacleInteraction.swift */,
+				D8A06B062A37AAE100437491 /* TrapInteraction.swift */,
+				D8A5498D2A385240006D6296 /* ExplosionInteraction.swift */,
 			);
 			path = PhysicalDelegate;
 			sourceTree = "<group>";
@@ -255,9 +271,9 @@
 		D82F9F6B2A31CB000079FE4A /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				D82F9F6C2A31CB260079FE4A /* ExplosionAnimation.swift */,
 				D87C0A5A2A34625D00442546 /* AnimationProtocol.swift */,
 				D87C0A5C2A3468AB00442546 /* AnimationFactory.swift */,
+				D82F9F6C2A31CB260079FE4A /* ExplosionAnimation.swift */,
 				D87C0A5E2A34775B00442546 /* BlackHoleAnimation.swift */,
 				D87C0A702A34DECA00442546 /* ObjectShakeAnimation.swift */,
 			);
@@ -296,6 +312,7 @@
 				D87C0A6A2A34A54900442546 /* ObstacleObject.swift */,
 				D87C0A6C2A34AF4700442546 /* Building.swift */,
 				D87C0A6E2A34CCA100442546 /* DrawObstacle.swift */,
+				D8A06B042A37A60D00437491 /* Trap.swift */,
 			);
 			path = ObstacleObject;
 			sourceTree = "<group>";
@@ -324,6 +341,7 @@
 		D8B822D02A37020F007CB884 /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
+				D8E2F02F2A386E4E004EA179 /* SkillButton */,
 				BF7D7E142A2868490029D21A /* SoundEffect */,
 				D82F9F622A31CA790079FE4A /* Atlas */,
 			);
@@ -426,6 +444,17 @@
 				D8CF0B2029FE41640056A94D /* polypolyUITestsLaunchTests.swift */,
 			);
 			path = polypolyUITests;
+			sourceTree = "<group>";
+		};
+		D8E2F02F2A386E4E004EA179 /* SkillButton */ = {
+			isa = PBXGroup;
+			children = (
+				D8E2F0312A386F6B004EA179 /* skill_building.png */,
+				D8E2F0302A386F6A004EA179 /* skill_draw.png */,
+				D8E2F0332A386F6B004EA179 /* skill_move.png */,
+				D8E2F0322A386F6B004EA179 /* skill_trap.png */,
+			);
+			path = SkillButton;
 			sourceTree = "<group>";
 		};
 		E7A9793E2A0D55AC0056B6BC /* NetworkConnection */ = {
@@ -559,17 +588,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E2F0362A386F6B004EA179 /* skill_trap.png in Resources */,
 				D8CF0B0629FE41610056A94D /* Main.storyboard in Resources */,
 				D8CF0AFD29FE41610056A94D /* GameScene.sks in Resources */,
 				E77864792A2AFC8000280EBF /* TestScene copy.sks in Resources */,
 				D82F9F732A31EADD0079FE4A /* blackhole.atlas in Resources */,
 				D82F9F712A31EADD0079FE4A /* explosion.atlas in Resources */,
+				D8E2F0372A386F6B004EA179 /* skill_move.png in Resources */,
 				D8CF0B0829FE41640056A94D /* Assets.xcassets in Resources */,
 				D8CF0B0B29FE41640056A94D /* LaunchScreen.storyboard in Resources */,
 				D8CF0AFF29FE41610056A94D /* Actions.sks in Resources */,
 				D8B822DD2A370369007CB884 /* startbackground.atlas in Resources */,
+				D8E2F0342A386F6B004EA179 /* skill_draw.png in Resources */,
 				BF7D7E162A28690F0029D21A /* button_sound.mp3 in Resources */,
 				D82F9F722A31EADD0079FE4A /* explosion2.atlas in Resources */,
+				D8E2F0352A386F6B004EA179 /* skill_building.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -606,6 +639,7 @@
 				D8B822C62A363770007CB884 /* BuildingInteraction.swift in Sources */,
 				D8CF0B3829FE885A0056A94D /* Ball.swift in Sources */,
 				D8B822E02A370A21007CB884 /* SKExtension.swift in Sources */,
+				D8A06B072A37AAE100437491 /* TrapInteraction.swift in Sources */,
 				D8B822C22A3621DB007CB884 /* BallInteraction.swift in Sources */,
 				D87C0A712A34DECA00442546 /* ObjectShakeAnimation.swift in Sources */,
 				E7F5EDAD2A11DD3700AB6597 /* Dispatcher.swift in Sources */,
@@ -644,6 +678,7 @@
 				D83681B72A263F03005A5EEB /* GameManager.swift in Sources */,
 				E7FE29022A29F3780057A1A1 /* Pointer.swift in Sources */,
 				D8BE1EC72A01F7E9002CC0D0 /* Arrow.swift in Sources */,
+				D8A5498E2A385240006D6296 /* ExplosionInteraction.swift in Sources */,
 				E772E55F2A3068CD004CCCA8 /* SkillManager.swift in Sources */,
 				E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */,
 				D8FEDBC12A35CF0C00621A44 /* TeamManager.swift in Sources */,
@@ -655,6 +690,7 @@
 				D87C0A5B2A34625D00442546 /* AnimationProtocol.swift in Sources */,
 				E79EBC022A2DD57E00D83B66 /* LobbyManager.swift in Sources */,
 				E7A234082A1E006600F0F7F9 /* InputManager.swift in Sources */,
+				D8A06B052A37A60D00437491 /* Trap.swift in Sources */,
 				E70BD4CF2A2DE6E0006437D7 /* DeviceManager.swift in Sources */,
 				E777172D2A35DB8E00A914F1 /* Energy.swift in Sources */,
 				D8BCFDBE2A2CD03200F46D5F /* ObjectPosition.swift in Sources */,

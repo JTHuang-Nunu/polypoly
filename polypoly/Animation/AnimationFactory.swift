@@ -11,11 +11,13 @@ import SpriteKit
 enum AnimationType{
     case explosion
     case explosion2
+    case explosionByTrap
     case blackHole
     case shake
 }
 
 class AnimationFactory {
+    public static let shared = AnimationFactory()
 //    func create(type: AnimationType) -> AnimationProtocol {
 //        switch type {
 //        case .explosion:
@@ -27,7 +29,9 @@ class AnimationFactory {
 //        }
 //    }
     
-    func create(type: AnimationType, position: CGPoint, node: SKNode?) -> AnimationProtocol {
+    func create(type: AnimationType, position: CGPoint, node: SKNode?) ->
+    AnimationProtocol {
+        //animation origin is center
         switch type {
         case .explosion:
             let animation = ExplosionAnimation()
@@ -35,6 +39,10 @@ class AnimationFactory {
             return animation
         case .explosion2:
             let animation = ExplosionAnimation2()
+            animation.position = position
+            return animation
+        case .explosionByTrap:
+            let animation = ExplosionByTrap()
             animation.position = position
             return animation
         case .blackHole:

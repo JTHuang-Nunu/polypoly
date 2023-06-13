@@ -11,6 +11,7 @@ import SpriteKit
 enum ObstacleObejctType {
     case Building
     case DrawObstacle
+    case Trap
 }
 
 class ObstacleObejctFactory {
@@ -27,6 +28,9 @@ class ObstacleObejctFactory {
         case .DrawObstacle:
             guard let path = path else {return nil}
             return DrawObstacle(position: position, path: path)
+        case .Trap:
+            return Trap(position: position)
+        
         }
     }
 }

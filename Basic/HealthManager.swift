@@ -13,7 +13,7 @@ class HealthManager{
     private var MaxHealth: CGFloat = 5
     private var Health: CGFloat = 5 {
         didSet{
-            if(Health == 0) {
+            if(Health <= 0) {
                 IsDead()
             }
         }

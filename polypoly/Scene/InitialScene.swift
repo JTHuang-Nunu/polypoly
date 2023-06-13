@@ -36,9 +36,9 @@ class InitialScene: SKScene {
         }
         
     }
-//    override func update(_ currentTime: TimeInterval) {
-//        button.OnClickBegin.Invoke(())
-//    }
+    override func update(_ currentTime: TimeInterval) {
+        button.OnClickBegin.Invoke(())
+    }
     
     func createScene(){
         let bgd = SKSpriteNode(color: UIColor.black, size: self.size)

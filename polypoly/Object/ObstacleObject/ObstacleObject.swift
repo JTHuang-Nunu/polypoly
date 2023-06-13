@@ -25,7 +25,6 @@ class ObstacleObejct: SKNode, ObstacleObjectProtocol {
         self.node = node
         self.texture = texture
         super.init()
-
         _setupBody()
     }
     
