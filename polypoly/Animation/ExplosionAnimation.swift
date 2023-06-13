@@ -35,16 +35,16 @@ class ExplosionByTrap: SKNode, AnimationProtocol {
         node.zPosition = zAxis.skillAnimation
         self.addChild(node)
         
-        // 增加爆炸力量
-        self.physicsBody = SKPhysicsBody(circleOfRadius: 1)
+        // 設定爆炸力量
         let explosionForce = SKFieldNode.radialGravityField()
         explosionForce.name = "explosionForce"
         explosionForce.region = SKRegion(radius: 50)
         explosionForce.strength = -3.0 // 設定爆炸力量大小
         explosionForce.falloff = 1 // 設定力量衰減值
-        //
+        
         
         node.physicsBody = SKPhysicsBody(circleOfRadius: 50)
+        node.physicsBody?.isDynamic = false  //爆炸特效禁止
         node.physicsBody?.categoryBitMask = PhysicsCategory.Explosion
         node.physicsBody?.contactTestBitMask = PhysicsCategory.Ball
         explosionForce.position = node.position
