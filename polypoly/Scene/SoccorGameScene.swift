@@ -12,10 +12,12 @@ import SpriteKit
 class SoccorGameScene: SKScene{
     let gameManager = DeviceManager.shared.GameManager!
     
-    let myStartPoint = CGPoint(x: 50, y: 0)
-    let othersPoint = CGPoint(x: -50, y: 0)
+    var myStartPoint = CGPoint()
+    var othersPoint = CGPoint()
     
     override func sceneDidLoad() {
+        myStartPoint = CGPoint(x: frame.midX + 50, y: frame.midY)
+        othersPoint = CGPoint(x: frame.midX - 50, y: frame.midY)
         gameManager.OnCreatedCanvas += addChild
         gameManager.OnCreatedSelfPlayers += { players in
             self.PlacePlayerTo(players: players, point: self.myStartPoint)
@@ -43,12 +45,12 @@ class SoccorGameScene: SKScene{
     }
     func createGoalLines(){
         let myGoalLine = GoalLine()
-        myGoalLine.position = CGPoint(x: -300, y: -50)
+        myGoalLine.position = CGPoint(x: frame.midX - 300, y: frame.midY - 50)
         myGoalLine.zPosition = zAxis.GoalLine
         addChild(myGoalLine)
         
         let otherGoalLine = GoalLine()
-        otherGoalLine.position = CGPoint(x: 300, y: -50)
+        otherGoalLine.position = CGPoint(x: frame.midX + 300, y: frame.midY - 50)
         otherGoalLine.zPosition = zAxis.GoalLine
         addChild(otherGoalLine)
     
