@@ -13,6 +13,7 @@ class Character: CharacterProtocol{
     var _teamManager: TeamManager!
     
     public let OnCreateObstacle = Event<SKNode>()
+    public let OnPlayerDied = Event<UUID>()
     
     var CharacterModelID: UUID
     var ball: Ball = Ball()
@@ -44,6 +45,9 @@ class Character: CharacterProtocol{
 //        self.ball.onBomb +=
         self._teamManager = TeamManager(character: self)
         _healthManager.OnDied += gameOver
+        _healthManager.OnDied += {
+            self.OnPlayerDied.Invoke(characterModelID)
+        }
     }
     
     func DoAction(action: PlayerAction) {

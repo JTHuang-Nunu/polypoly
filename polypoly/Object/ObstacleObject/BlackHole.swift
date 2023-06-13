@@ -41,6 +41,8 @@ class BlackHole: ObstacleObejct {
         OnObjectDied += runExplosionAnimation
         //remove self
         OnTrigger += removeSelf
+        let rotation = SKAction.rotate(byAngle: 90, duration: 2)
+        run(SKAction.repeatForever(rotation))
     }
     
     func runExplosionAnimation(node: SKNode){
