@@ -45,18 +45,18 @@ class SoccorGameScene: SKScene{
     }
     func createGoalLines(){
         let myGoalLine = GoalLine()
-        myGoalLine.position = CGPoint(x: frame.midX - 300, y: frame.midY - 50)
+        myGoalLine.position = CGPoint(x: frame.midX - 399, y: frame.midY - 50)
         myGoalLine.zPosition = zAxis.GoalLine
         addChild(myGoalLine)
         
         let otherGoalLine = GoalLine()
-        otherGoalLine.position = CGPoint(x: frame.midX + 300, y: frame.midY - 50)
+        otherGoalLine.position = CGPoint(x: frame.midX + 349, y: frame.midY - 50)
         otherGoalLine.zPosition = zAxis.GoalLine
         addChild(otherGoalLine)
     
     }
     func createBoundsWall(){
-        let width = 800
+        let width = 700
         let height = 350
         let wall = Wall(size: CGSize(width: width, height: height), color: .systemOrange)
         wall.position = CGPoint(x: frame.midX, y: frame.midY)
