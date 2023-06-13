@@ -11,16 +11,20 @@ import SpriteKit
 class Wall: SKSpriteNode {
     
     init(size: CGSize) {
+//        let size = CGSize(width: 500, height: 500)
+        super.init(texture: nil, color: .red, size: size)
         
-        super.init(texture: nil, color: .clear, size: size)
         self._setupBody(size: size)
-
+//        let shapeNode = SKShapeNode(rectOf: size)
+//        shapeNode.fillColor = .red
+//        addChild(shapeNode)
         
     }
     private func _setupBody(size: CGSize){
         // 設定物理屬性
         self.physicsBody = SKPhysicsBody(edgeLoopFrom: self.frame)
         self.physicsBody?.categoryBitMask = PhysicsCategory.Boundary
+        self.physicsBody?.collisionBitMask = PhysicsCategory.Ball
         self.physicsBody?.contactTestBitMask = PhysicsCategory.Ball
         self.physicsBody?.friction = 0
         self.physicsBody?.restitution = 1

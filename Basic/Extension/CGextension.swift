@@ -8,6 +8,16 @@
 import Foundation
 import SpriteKit
 
+extension CGSize {
+    static func +(lhs: CGSize, rhs: CGSize) -> CGSize {
+        return CGSize(width: lhs.width + rhs.width, height: lhs.height + rhs.height)
+    }
+    
+    static func -(lhs: CGSize, rhs: CGSize) -> CGSize {
+        return CGSize(width: lhs.width - rhs.width, height: lhs.height - rhs.height)
+    }
+}
+    
 extension CGPoint {
     func distance(to point: CGPoint) -> CGFloat {
         let dx = point.x - x

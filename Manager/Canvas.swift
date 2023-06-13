@@ -60,8 +60,8 @@ class Canvas: BaseCanvas{
     public let OnDrawPointer = Event<CGVector>()
     public let OnDrawLocate = Event<CGPoint>()
     
-//    public var Mode: CanvasMode = CanvasMode.Pointer
-    public var Mode: CanvasMode = CanvasMode.Locate
+    public var Mode: CanvasMode = CanvasMode.Pointer
+//    public var Mode: CanvasMode = CanvasMode.Locate
     private var line: DrawLine? = nil
     private var pointer: Pointer? = nil
     private var startNode: SKNode? = nil
