@@ -27,7 +27,7 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         if let view = self.view as! SKView? {
             //            let scene = MenuScene(size: view.bounds.size)
             //            let scene = FirstScene(size: view.bounds.size)
-            let scene = InputNameScene(size: view.bounds.size)
+            let scene = InitialScene(size: view.bounds.size)
             //            let scene = TestScene2(size: view.bounds.size)
             
             //            setNeedsUpdateOfScreenEdgesDeferringSystemGestures()

@@ -14,4 +14,5 @@ struct zAxis {
     static let Canvas : CGFloat = 10.0
     static let Base : CGFloat = 5.0
     static let Under : CGFloat = 0.0
+    static let Ball : CGFloat = 11.0
 }

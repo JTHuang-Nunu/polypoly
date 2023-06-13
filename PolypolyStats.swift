@@ -11,7 +11,7 @@ import SpriteKit
 //=======================================
 // NetWork
 //- IP
-let HostIP = "169.254.45.63"
+let HostIP = "localhost"
 //let HostIP = "localhost"
 //=======================================
 // Name
