@@ -23,8 +23,8 @@ class BlackHole: ObstacleObejct {
     private func _setupBody(){
         self.name = objectName
         //node setting
-        node.strokeColor = .orange
-        node.fillColor = .yellow
+        node.strokeColor = .clear
+//        node.fillColor = .yellow
         
         //physics setting
         self.physicsBody = SKPhysicsBody(circleOfRadius: 10)
@@ -38,14 +38,17 @@ class BlackHole: ObstacleObejct {
         //health point setting
         _healthManager.initHP(maxHP: 1)
         //explosion animation setting
-        OnObjectDied += runExplosionAnimation
+        OnObjectDied += runBlackHoleAnimation
         //remove self
         OnTrigger += removeSelf
-        let rotation = SKAction.rotate(byAngle: 90, duration: 2)
+        let rotation = SKAction.rotate(byAngle: CGFloat.pi * 2, duration: 3.5)
+        let repeatRotation = SKAction.repeatForever(rotation)
+        node.run(repeatRotation)
+
         run(SKAction.repeatForever(rotation))
     }
     
-    func runExplosionAnimation(node: SKNode){
+    func runBlackHoleAnimation(node: SKNode){
         guard let object = AnimationFactory.shared.create(type: .blackHole, position: self.position, node: nil).play() else {return}
         node.parent?.addChild(object)
         OnTrigger.Invoke(node)

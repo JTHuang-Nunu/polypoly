@@ -24,6 +24,7 @@ class BaseCanvas: SKShapeNode{
 
         super.init()
         self.zPosition = zAxis.Canvas
+        self.strokeColor = .clear
         let screenSize = UIScreen.main.bounds.size
         self.path = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: screenSize)).cgPath
         self.isUserInteractionEnabled = true

@@ -12,7 +12,15 @@ class Ball: SKSpriteNode {
     public let onInjured = Event<CGFloat>()
     public let onBomb = Event<(CGVector, CGFloat)>()
     init() {
-        let ballTexture = SKTexture(imageNamed: BallName)
+//        let ballTexture = SKTexture(imageNamed: "ball51.png")
+        let atlas = SKTextureAtlas(named: BallSkinFolder)
+        // 取得 Atlas 中所有的圖片名稱
+        let textureNames = atlas.textureNames
+        // 隨機選擇一張圖片名稱
+        let randomTextureName = textureNames.randomElement()
+        // 從 Atlas 中取得隨機選擇的圖片
+        let randomTexture = atlas.textureNamed(randomTextureName!)
+        var ballTexture = randomTexture
         let ballSize = CGSize(width: 32, height: 32)
         
         super.init(texture: ballTexture, color: .clear, size: ballSize)
@@ -42,6 +50,23 @@ class Ball: SKSpriteNode {
         self.physicsBody?.linearDamping = ballLinearDamping
         self.physicsBody?.angularDamping = ballAngularDamping
 //        self.physicsBody?.affectedByGravity = false
+    }
+    private func _randomSkin() -> SKTexture {
+        // 建立一個 SKTextureAtlas 物件
+        let atlas = SKTextureAtlas(named: BallSkinFolder)
+
+        // 取得 Atlas 中所有的圖片名稱
+        let textureNames = atlas.textureNames
+
+        // 隨機選擇一張圖片名稱
+        let randomTextureName = textureNames.randomElement()
+
+        // 從 Atlas 中取得隨機選擇的圖片
+        let randomTexture = atlas.textureNamed(randomTextureName!)
+
+        // 使用隨機選擇的圖片來建立 SKSpriteNode
+//        let spriteNode = SKSpriteNode(texture: randomTexture)
+        return randomTexture
     }
     
     required init?(coder aDecoder: NSCoder) {

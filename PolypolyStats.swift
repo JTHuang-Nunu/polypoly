@@ -20,6 +20,7 @@ let HostIP = "localhost"
 let Explosion1Folder = "explosion.atlas"
 let Explosion2Folder = "explosion2.atlas"
 let BlackHoleFolder = "blackhole.atlas"
+let BallSkinFolder = "ballskin.atlas"
 let StartBackgroundFolder = "startbackground.atlas"
 //- object
 let BuildingName = "building"

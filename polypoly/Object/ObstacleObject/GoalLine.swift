@@ -11,7 +11,7 @@ import SpriteKit
 
 class GoalLine: SKShapeNode {
     public let OnGoal = Event<Void>()
-    
+    let color: UIColor!
 //    override init() {
 //        super.init()
 //        self.name = "goalline"
@@ -28,7 +28,8 @@ class GoalLine: SKShapeNode {
 //        physicsBody!.collisionBitMask = 0
 //        physicsBody!.contactTestBitMask = PhysicsCategory.Ball
 //    }
-    override init() {
+    init(color: UIColor) {
+        self.color = color
         super.init()
         self.name = "goalline" //*** important
         var size = CGSize(width: 40, height: 140)
@@ -52,7 +53,7 @@ class GoalLine: SKShapeNode {
         let roundedRectPath = UIBezierPath(roundedRect: CGRect(origin: CGPoint(-20, -70), size: size), cornerRadius: cornerRadius)
         let t = SKShapeNode()
         t.path = roundedRectPath.cgPath
-        t.fillColor = .yellow
+        t.fillColor = color
         t.strokeColor = .black
         
         t.position = CGPoint(15, 0)

@@ -31,6 +31,7 @@ class BallInteraction {
             
         case .BlackHole:
             ball.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
+            ball.texture = nil
             ball.onInjured.Invoke(PlayerMaxHP)
             
         case .GoalLine:

@@ -23,13 +23,13 @@ class BlackHoleAnimation: SKNode, AnimationProtocol {
     }
     public func play() -> SKNode?{
         guard let textures = textures else {return nil}
-        let frameOfTime = 0.05
+        let frameOfTime = 0.06
         let duration = frameOfTime * Double(textures.count)
         let animation = SKAction.animate(with: textures, timePerFrame: frameOfTime)
         let fadeout = SKAction.fadeOut(withDuration: duration)
         let scale = SKAction.scale(to: 0.2, duration: duration)
         let group = SKAction.group([animation, fadeout, scale])
-        let wait = SKAction.wait(forDuration: 1)
+        let wait = SKAction.wait(forDuration: 0.2)
         let blackCurtainAction = SKAction.run(self.blackCurtainAction)
         
         node.run(SKAction.sequence([wait, group, blackCurtainAction, SKAction.removeFromParent()]))
@@ -43,7 +43,7 @@ class BlackHoleAnimation: SKNode, AnimationProtocol {
 //        let blackCircle1 = SKSpriteNode(color: .black,  size: size)
         let blackCircle = SKShapeNode(circleOfRadius: node.size.width)
         blackCircle.fillColor = .black
-        
+        blackCircle.strokeColor = .clear
          
          // 設定黑色框框的位置，這裡以場景中心為例
 //        blackCircle.position = CGPoint(x: size.width / 2, y: size.height / 2)
@@ -53,7 +53,7 @@ class BlackHoleAnimation: SKNode, AnimationProtocol {
          
          // 創建一個縮放的 SKAction，將黑色框框縮放到一個小點
         let scaleAction = SKAction.scale(to: 30, duration: 0.5)
-        let scaleAction2 = SKAction.scale(to: 0.01, duration: 0.1)
+        let scaleAction2 = SKAction.scale(to: 0.01, duration: 0.2)
          
          // 執行縮放動作
         blackCircle.run(SKAction.sequence([scaleAction,scaleAction2,SKAction.removeFromParent()]))

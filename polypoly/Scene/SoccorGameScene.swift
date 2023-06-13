@@ -21,18 +21,17 @@ class SoccorGameScene: BaseGameScene{
 //        let tmp = SKT
               
           // 建立背景節點
-        backgroundNode = SKSpriteNode(texture: backgroundImage, size: CGSize(width: 700, height: 350))
-//          backgroundNode.position = CGP
+        backgroundNode = SKSpriteNode(texture: backgroundImage, size: CGSize(width: 900, height: 400))
           backgroundNode.zPosition = -1  // 設定在場景最下層
           addChild(backgroundNode)
     }
     func createGoalLines(){
-        let myGoalLine = GoalLine()
+        let myGoalLine = GoalLine(color: .red)
         myGoalLine.position = CGPoint(x: -350, y: 0)
         myGoalLine.zPosition = zAxis.GoalLine
         addChild(myGoalLine)
         
-        let otherGoalLine = GoalLine()
+        let otherGoalLine = GoalLine(color: .yellow)
         otherGoalLine.position = CGPoint(x: 350, y: 0)
         otherGoalLine.zPosition = zAxis.GoalLine
         otherGoalLine.OnGoal += {
