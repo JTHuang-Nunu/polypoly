@@ -13,6 +13,8 @@ class DrawObstacleInteraction {
         switch anotherNodeType{
         case .Ball:
             DrawObstacle.onInjured.Invoke(1)
+        case .Explosion:
+            DrawObstacle.onInjured.Invoke(1)
         default:
             break
         }

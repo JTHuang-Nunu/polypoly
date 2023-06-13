@@ -24,8 +24,11 @@ class BallInteraction {
             ball.onInjured.Invoke(1)
         
         case .Trap:
-            ball.onInjured.Invoke(1)
-            ball.
+//            ball.onInjured.Invoke(1)
+            break
+        case .Explosion:
+            ball.onInjured.Invoke(3)
+            
         case .Other: //no action
             break
         }

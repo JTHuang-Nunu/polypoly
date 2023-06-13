@@ -25,7 +25,7 @@ class GameManager {
     
     // Set player skill
     public let PlayerSkills: [Skill] = [.Move, .Trap]
-    public let DefaultSkill = Skill.Trap
+    public let DefaultSkill = Skill.TowerBuilding
     
     
     private let _inputManager = InputManager()

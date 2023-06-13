@@ -6,3 +6,13 @@
 //
 
 import Foundation
+import SpriteKit
+
+class ExplosionInteraction {
+    static func handleTwoCollision(Trap: Trap, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact) {
+        switch anotherNodeType{
+        default:
+            break
+        }
+    }
+}

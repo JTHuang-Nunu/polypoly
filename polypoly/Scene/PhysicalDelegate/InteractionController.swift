@@ -14,6 +14,7 @@ enum InteractionObjectType: String {
     case Wall
     case Ball
     case Trap
+    case Explosion
     case Other //
 }
 
@@ -22,14 +23,16 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
     func didBegin(_ contact: SKPhysicsContact) {
 //        contact = contact.collisionImpulse
         if let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node{
-            var nodesName = [String]()
-            if let nodeA = contact.bodyA.node ,let nodeB = contact.bodyB.node{
-                nodesName.append(nodeA.name!)
-                nodesName.append(nodeB.name!)
-            }
+//            var nodesName = [String]()
+//            if let nodeA = contact.bodyA.node ,let nodeB = contact.bodyB.node{
+//                nodesName.append(nodeA.name!)
+//                nodesName.append(nodeB.name!)
+//            }
             let nodeAType = judgeDataType(node: nodeA)
             let nodeBType = judgeDataType(node: nodeB)
-            
+            if (nodeAType == .Other || nodeAType == .Other ){
+                print("contact [other] type")
+            }
             runInteraction(node: nodeA, nodeType: nodeAType, anotherType: nodeBType, contact: contact)
             runInteraction(node: nodeB, nodeType: nodeBType, anotherType: nodeAType, contact: contact)
         }
@@ -47,9 +50,11 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
             BallInteraction.handleTwoCollision(ball: node as! Ball, anotherNodeType: anotherType, contact: contact)
         case .Trap:
             TrapInteraction.handleTwoCollision(Trap: node as! Trap, anotherNodeType: anotherType, contact: contact)
-            
+        case .Explosion: //it isn't object, don't need do any handle
+            break
         case .Other:
             break
+
         }
     }
     //========================================================
@@ -68,6 +73,9 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
         }
         if node is Trap{
             return InteractionObjectType.Trap
+        }
+        if node is ExplosionByTrap{
+            return InteractionObjectType.Explosion
         }
         return InteractionObjectType.Other
     }

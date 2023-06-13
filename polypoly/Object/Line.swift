@@ -68,9 +68,11 @@ class DrawingLine: SKShapeNode {
         self.lineWidth = Width
 
 //        self.physicsBody = SKPhysicsBody(edgeChainFrom: linePath)
-        self.physicsBody?.categoryBitMask = PhysicsCategory.Line
-        self.physicsBody?.collisionBitMask = PhysicsCategory.Ball
-        self.physicsBody?.contactTestBitMask = PhysicsCategory.Ball
+        
+//        self.physicsBody?.categoryBitMask = PhysicsCategory.Line
+//        self.physicsBody?.collisionBitMask = PhysicsCategory.Ball
+//        self.physicsBody?.contactTestBitMask = PhysicsCategory.Ball
+        
 //        self.physicsBody?.friction = 0.2
 //        self.physicsBody?.restitution = 1.0
 //        self.physicsBody?.linearDamping = 0.0

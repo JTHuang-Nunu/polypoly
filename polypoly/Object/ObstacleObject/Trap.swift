@@ -9,7 +9,8 @@ import Foundation
 import SpriteKit
 
 class Trap: ObstacleObejct {
-    
+    public let OnTrigger = Event<SKNode>()
+
     init(position: CGPoint){
         super.init(node: SKShapeNode(circleOfRadius: 30), texture: SKSpriteNode(imageNamed: TrapName))
         self.position = position
@@ -18,7 +19,7 @@ class Trap: ObstacleObejct {
     }
 
     private func _setupBody(){
-        self.name = BuildingName
+        self.name = TrapName
         //node setting
         node.strokeColor = .orange
         node.fillColor = .yellow
@@ -34,6 +35,28 @@ class Trap: ObstacleObejct {
         
         //health point setting
         _healthManager.initHP(maxHP: 1)
+        //explosion animation setting
+        OnObjectDied += runExplosionAnimation
+    }
+    
+    func runExplosionAnimation(node: SKNode){
+        guard let object = AnimationFactory.shared.create(type: .explosionByTrap, position: self.position, node: nil).play() else {return}
+        node.parent?.addChild(object)
+        OnTrigger.Invoke(node)
+        //good
+//        let object = AnimationFactory.shared.create(type: .explosionByTrap, position: self.position, node: nil)
+//        node.parent?.addChild(object as! SKNode)
+//
+//        node.run(SKAction.sequence([
+//            SKAction.run{ [self] in object.play()},
+//            SKAction.run{
+//                let trap = node as! ObstacleObejct
+//                trap.texture?.removeFromParent()},
+////            SKAction.wait(forDuration: 2) //waiting animation end
+//        ])
+//            ,completion: { [self] in OnTrigger.Invoke(node)})
+////        node.parent?.addChild(<#T##node: SKNode##SKNode#>)
+
     }
     
     required init?(coder aDecoder: NSCoder) {

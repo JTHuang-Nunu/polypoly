@@ -9,11 +9,10 @@ import Foundation
 import SpriteKit
 
 class TrapInteraction {
-    static func handleTwoCollision(Trap: Trap, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact, contact: SKPhysicsContact) {
+    static func handleTwoCollision(Trap: Trap, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact) {
         switch anotherNodeType{
         case .Ball:
-            Trap.onInjured.Invoke(1)
-            
+            Trap.onInjured.Invoke(1) //when Trap health == 0, health manager will trigger explosion animation
         default:
             break
         }

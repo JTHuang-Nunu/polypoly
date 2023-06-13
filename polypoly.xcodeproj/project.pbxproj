@@ -34,6 +34,7 @@
 		D8A06B052A37A60D00437491 /* Trap.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06B042A37A60D00437491 /* Trap.swift */; };
 		D8A06B072A37AAE100437491 /* TrapInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A06B062A37AAE100437491 /* TrapInteraction.swift */; };
 		D8A0B8662A29E0D500FECC8E /* SkillButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A0B8652A29E0D500FECC8E /* SkillButton.swift */; };
+		D8A5498E2A385240006D6296 /* ExplosionInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8A5498D2A385240006D6296 /* ExplosionInteraction.swift */; };
 		D8B822C22A3621DB007CB884 /* BallInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C12A3621DB007CB884 /* BallInteraction.swift */; };
 		D8B822C42A3633CA007CB884 /* WallInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C32A3633CA007CB884 /* WallInteraction.swift */; };
 		D8B822C62A363770007CB884 /* BuildingInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8B822C52A363770007CB884 /* BuildingInteraction.swift */; };
@@ -137,6 +138,7 @@
 		D8A06B042A37A60D00437491 /* Trap.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Trap.swift; sourceTree = "<group>"; };
 		D8A06B062A37AAE100437491 /* TrapInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrapInteraction.swift; sourceTree = "<group>"; };
 		D8A0B8652A29E0D500FECC8E /* SkillButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkillButton.swift; sourceTree = "<group>"; };
+		D8A5498D2A385240006D6296 /* ExplosionInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExplosionInteraction.swift; sourceTree = "<group>"; };
 		D8B822C12A3621DB007CB884 /* BallInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BallInteraction.swift; sourceTree = "<group>"; };
 		D8B822C32A3633CA007CB884 /* WallInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WallInteraction.swift; sourceTree = "<group>"; };
 		D8B822C52A363770007CB884 /* BuildingInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BuildingInteraction.swift; sourceTree = "<group>"; };
@@ -240,6 +242,7 @@
 				D8B822C52A363770007CB884 /* BuildingInteraction.swift */,
 				D8B822C72A3638A6007CB884 /* DrawObstacleInteraction.swift */,
 				D8A06B062A37AAE100437491 /* TrapInteraction.swift */,
+				D8A5498D2A385240006D6296 /* ExplosionInteraction.swift */,
 			);
 			path = PhysicalDelegate;
 			sourceTree = "<group>";
@@ -258,9 +261,9 @@
 		D82F9F6B2A31CB000079FE4A /* Animation */ = {
 			isa = PBXGroup;
 			children = (
-				D82F9F6C2A31CB260079FE4A /* ExplosionAnimation.swift */,
 				D87C0A5A2A34625D00442546 /* AnimationProtocol.swift */,
 				D87C0A5C2A3468AB00442546 /* AnimationFactory.swift */,
+				D82F9F6C2A31CB260079FE4A /* ExplosionAnimation.swift */,
 				D87C0A5E2A34775B00442546 /* BlackHoleAnimation.swift */,
 				D87C0A702A34DECA00442546 /* ObjectShakeAnimation.swift */,
 			);
@@ -647,6 +650,7 @@
 				D83681B72A263F03005A5EEB /* GameManager.swift in Sources */,
 				E7FE29022A29F3780057A1A1 /* Pointer.swift in Sources */,
 				D8BE1EC72A01F7E9002CC0D0 /* Arrow.swift in Sources */,
+				D8A5498E2A385240006D6296 /* ExplosionInteraction.swift in Sources */,
 				E772E55F2A3068CD004CCCA8 /* SkillManager.swift in Sources */,
 				E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */,
 				D8FEDBC12A35CF0C00621A44 /* TeamManager.swift in Sources */,

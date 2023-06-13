@@ -11,7 +11,8 @@ import SpriteKit
 class Character: CharacterProtocol{
     var _healthManager = HealthManager()
     var _teamManager: TeamManager!
-    var OnCreateObstacle: Event<SKNode> = Event<SKNode>()
+    
+    public let OnCreateObstacle = Event<SKNode>()
     
     var CharacterModelID: UUID
     var ball: Ball = Ball()
@@ -40,7 +41,7 @@ class Character: CharacterProtocol{
         self.position = position
         self.ball.position = self.position
         self.ball.onInjured += _healthManager.InjureHP
-        self.ball.onBomb +=
+//        self.ball.onBomb +=
         self._teamManager = TeamManager(character: self)
         _healthManager.OnDied += gameOver
     }
@@ -53,13 +54,15 @@ class Character: CharacterProtocol{
             createObstacle(content: action.content)
         case .Trap:
             createTrap(content: action.content)
+            
         case .MeteoriteFalling:
             break
         case .HpRecovery:
             break
-        case .PowerRecovery:
+        case .EnerergyRecovery:
             break
         case .TowerBuilding:
+            createBuilding(content: action.content)
             break
         case .ObjectEnhancing:
             break
@@ -86,14 +89,31 @@ class Character: CharacterProtocol{
     func createTrap(content : [ContentType: String]){
         //only need last position
         guard let locate = decodeJSON(CGPoint.self, jsonString: content[.Position]!) else {return}
-//        let locate =
-        print("Trap locate: ",locate)
+        
+        //call object factory to create
         guard let object = ObstacleObejctFactory.shared.create(type: .Trap, position: locate, path: nil) else {return}
+
         object.OnObjectDied += _teamManager.removeObject //Add event: when object health == 0, remove from team container
-        object.OnObjectDied += removeChild               //Add event: when object health == 0, remove from character
+        let trap = object as! Trap
+        trap.OnTrigger += removeChild
+        OnCreateObstacle.Invoke(trap)
+    }
+    //=======================================================
+    // Create Building
+    func createBuilding(content : [ContentType: String]){
+        //only need last position
+        guard let locate = decodeJSON(CGPoint.self, jsonString: content[.Position]!) else {return}
+        
+        //call object factory to create
+        guard let object = ObstacleObejctFactory.shared.create(type: .Building, position: locate, path: nil) else {return}
+
+        object.OnObjectDied += _teamManager.removeObject //Add event: when object health == 0, remove from team container
+        object.OnObjectDied += removeChild
+
         OnCreateObstacle.Invoke(object)
     }
-
+    //=======================================================
+    // Character Move
     func characterMove(content : [ContentType: String]) {
         guard var impulse = decodeJSON(CGVector.self, jsonString: content[.Impulse]!)
         else {return}
@@ -110,11 +130,7 @@ class Character: CharacterProtocol{
         self.ball.physicsBody?.applyImpulse(impulse)
 
     }
-    
-    func beBombed(direct: CGVector, impulse: CGFloat){
-        
-    }
-    
+    //=======================================================
     func removeChild(node: SKNode){
         node.removeFromParent()
     }

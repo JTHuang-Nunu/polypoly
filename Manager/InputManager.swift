@@ -19,12 +19,15 @@ class InputManager: InputManagerProtocol{
     let SkillCanvasModeMap: [Skill: CanvasMode] = [
         .Move: .Pointer,
         .Obstacle: .Draw,
-        .Trap: .Locate
+        .Trap: .Locate,
+        .TowerBuilding: .Locate,
+        .MeteoriteFalling: .Locate
     ]
     let SkillCost: [Skill: Int] = [
         .Move: 1,
         .Obstacle: 3,
-        .Trap: 4
+        .Trap: 0,
+        .TowerBuilding: 0
     ]
     
     public func SetCanvas(canvas: Canvas){
