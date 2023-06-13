@@ -16,8 +16,8 @@ class SoccorGameScene: SKScene{
     var othersPoint = CGPoint()
     
     override func sceneDidLoad() {
-        myStartPoint = CGPoint(x: frame.midX + 50, y: frame.midY)
-        othersPoint = CGPoint(x: frame.midX - 50, y: frame.midY)
+        myStartPoint = CGPoint(x: frame.midX + 300, y: frame.midY)
+        othersPoint = CGPoint(x: frame.midX - 300, y: frame.midY)
         gameManager.OnCreatedCanvas += { canvas in
             self.addChild(canvas)
             canvas.position = CGPoint(x: 0, y: 0)
@@ -96,7 +96,7 @@ class SoccorGameScene: SKScene{
     func PlaceSkillButtons(skillButtons: [SkillSelectButton]){
         for i in 0..<skillButtons.count{
             let skill = skillButtons[i]
-            skill.position = CGPoint(x:self.frame.minX + 50 + CGFloat(100*i), y:self.frame.midY)
+            skill.position = CGPoint(x:self.frame.minX + 100, y:self.frame.midY + 100 - CGFloat(100 * i))
             skill.zPosition = zAxis.skillButton
             addChild(skill as SKNode)
             

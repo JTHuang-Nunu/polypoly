@@ -54,6 +54,10 @@ struct PlayerAction: Codable & Oppositable{
             case .Position:
                 newAction.content[key] = GetOppositeValue(value: value, type: CGVector.self)
                 break
+            case .Path:
+                newAction.content[key] = GetOppositeValue(value: value, type: CodablePath.self)
+                break
+            
             default:
                 break
             }
@@ -90,7 +94,16 @@ enum TeamID: String, Codable{
     case Red
 }
 
-struct CodablePath: Codable{
+struct CodablePath: Codable, Oppositable{
+    var opposite: CodablePath{
+        var newList: [CGPoint] = []
+        for point in PointList{
+            newList.append(point.opposite)
+        }
+        return CodablePath(PointList: newList)
+    
+    }
+    
     var PointList: [CGPoint] = []
     
     public func toPath()->CGPath{

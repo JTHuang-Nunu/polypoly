@@ -26,7 +26,7 @@ class InputManager: InputManagerProtocol{
     let SkillCost: [Skill: Int] = [
         .Move: 1,
         .Obstacle: 3,
-        .Trap: 0,
+        .Trap: 4,
         .TowerBuilding: 0
     ]
     
@@ -118,8 +118,6 @@ class InputManager: InputManagerProtocol{
             ActionType: .UseSkill,
             Skill: currentSkill!)
         
-        // send Locate data
-        print(locate)
         action.content[.Position] = encodeJSON(locate)
         GeneratePlayerAction(action: action)
     }
