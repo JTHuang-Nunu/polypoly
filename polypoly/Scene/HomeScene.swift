@@ -13,6 +13,7 @@ class HomeScene: SKScene {
     let duration = 3.5
     let bg = BackgroundAndFootball()
     override func didMove(to view: SKView) {
+        DeviceManager.shared.Initialize()
         createStartLabel()
         addChild(bg)
     }

@@ -3,6 +3,11 @@ import UIKit
 import SpriteKit
 import AVFoundation
 
+enum GameMode{
+    case Soccer
+    case Golf
+}
+
 class MenuScene: SKScene {
 
     // 宣告選單元件
@@ -10,9 +15,11 @@ class MenuScene: SKScene {
     private var playButton: SKLabelNode!
     private var optionsButton: SKLabelNode!
     private var buttonSound: SKAction!
+    private var gameMode: GameMode? = nil
     
     
     override func didMove(to view: SKView) {
+        
         super.didMove(to: view)
         // 設定場景背景顏色
         backgroundColor = SKColor.white
@@ -25,8 +32,16 @@ class MenuScene: SKScene {
             buttonSound = SKAction.playSoundFileNamed(soundURL.lastPathComponent, waitForCompletion: false)
         }
         
-        UserDefaults.resetStandardUserDefaults()
-        UserDefaults.standard.removeObject(forKey: userNameKey)
+        //UserDefaults.resetStandardUserDefaults()
+        //UserDefaults.standard.removeObject(forKey: userNameKey)
+        DeviceManager.shared.OnEnterGame += {
+            switch self.gameMode! {
+            case .Golf:
+                self.gotoGolfScene()
+            case .Soccer:
+                self.gotoSoccerScene()
+            }
+        }
     }
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -97,18 +112,53 @@ class MenuScene: SKScene {
     }
     
     private func createMenu() {
-        // 建立 playButton
-        playButton = SKLabelNode(text: "Play")
-        playButton.position = CGPoint(x: size.width / 2, y: size.height / 2 + 50)
-        playButton.fontColor = SKColor.black
-        playButton.setScale(1.0) // 設置初始縮放比例
-        addChild(playButton)
         
-        // 建立 optionsButton
-        optionsButton = SKLabelNode(text: "Options")
-        optionsButton.position = CGPoint(x: size.width / 2, y: size.height / 2 - 50)
-        optionsButton.fontColor = SKColor.black
-        addChild(optionsButton)
+        let scaleAction = SKAction.scale(to: 1.3, duration: 0.1)
+        let scaleActionReset = SKAction.scale(to: 1.0, duration: 0.1)
+        
+        
+        let soccerButton = BaseButton()
+        let soccerlabel = SKLabelNode(text: "Soccer")
+        soccerlabel.position = CGPoint(x: size.width / 2 - 200, y: size.height / 2 )
+        soccerlabel.fontColor = SKColor.black
+        soccerButton.addChild(soccerlabel)
+        soccerButton.OnClickBegin += {
+            soccerlabel.run(scaleAction) {
+                // 在完成縮放後執行其他動作或切換場景
+                self.playButtonSound()
+                soccerlabel.run(scaleActionReset)
+                self.gameMode = .Soccer
+                DeviceManager.shared.RequestRoom()
+                
+            }
+        }
+        addChild(soccerButton)
+        let golfButton = BaseButton()
+        let golflabel = SKLabelNode(text: "Golf")
+        golflabel.position = CGPoint(x: size.width / 2 + 200, y: size.height / 2)
+        golflabel.fontColor = SKColor.black
+        golfButton.addChild(golflabel)
+        golfButton.OnClickBegin += {
+            golflabel.run(scaleAction) {
+                // 在完成縮放後執行其他動作或切換場景
+                self.playButtonSound()
+                golflabel.run(scaleActionReset)
+                self.gameMode = .Golf
+                DeviceManager.shared.RequestRoom()
+            }
+        }
+        addChild(golfButton)
+        
+    }
+    func gotoSoccerScene(){
+        let testScene = SoccorGameScene(size: self.size)
+        testScene.scaleMode = .aspectFill
+        self.view?.presentScene(testScene)
+    }
+    func gotoGolfScene(){
+        let testScene = GolfGameScene(size: self.size)
+        testScene.scaleMode = .aspectFill
+        self.view?.presentScene(testScene)
     }
     
     private func showModeSelection() {
@@ -120,7 +170,7 @@ class MenuScene: SKScene {
             print("模式1被選擇")
             
             if let view = self.view as SKView? {
-                //todo 
+                //todo
                 //let scene = MainScene(size: view.bounds.size)
                 //scene.scaleMode = .aspectFill
                 view.ignoresSiblingOrder = true
@@ -215,7 +265,7 @@ class MenuScene: SKScene {
     //播放按鈕音效
     private func playButtonSound() {
         if let soundAction = buttonSound {
-            playButton.run(soundAction)
+            run(soundAction)
         }
     }
 }
