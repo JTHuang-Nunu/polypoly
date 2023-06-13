@@ -33,4 +33,6 @@ let userNameKey = "UserName" // 使用者名稱的鍵值
 // ScreenSetting
 let ScreenSize = UIScreen.main.bounds.size
 let ScreenCenter = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-
+//=======================================
+//  Character Setting
+let PlayerMaxHP: CGFloat = 100

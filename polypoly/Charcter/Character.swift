@@ -94,17 +94,9 @@ class Character: CharacterProtocol{
         guard let object = ObstacleObejctFactory.shared.create(type: .Trap, position: locate, path: nil) else {return}
 
         object.OnObjectDied += _teamManager.removeObject //Add event: when object health == 0, remove from team container
-        let trap = object as! Trap
+        let trap = object as! Trap //needed
 //        trap.OnTrigger += removeChild
         OnCreateObstacle.Invoke(trap)
-        
-        //call object factory to create
-//        guard let object = ObstacleObejctFactory.shared.create(type: .BlackHole, position: locate, path: nil) else {return}
-//
-//        object.OnObjectDied += _teamManager.removeObject //Add event: when object health == 0, remove from team container
-////        let trap = object as! Trap
-////        trap.OnTrigger += removeChild
-//        OnCreateObstacle.Invoke(object)
     }
     //=======================================================
     // Create Building

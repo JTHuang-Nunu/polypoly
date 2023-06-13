@@ -11,7 +11,7 @@ import SpriteKit
 class BlackHoleInteraction {
     static func handleTwoCollision(blackhole: BlackHole, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact) {
         switch anotherNodeType{
-        case .Building:
+        case .Ball:
             blackhole.onInjured.Invoke(1)
         default:
             break

@@ -20,6 +20,7 @@ class ExplosionByTrap: SKNode, AnimationProtocol {
         let atlas = SKTextureAtlas(named: folderName)
         textures = (0...atlas.textureNames.count-1).map { atlas.textureNamed(String(format: "%d", $0))}
         node.size = CGSize(width: len, height: len)
+        node.zPosition = zAxis.skillAnimation
         super.init()
     }
     
@@ -44,7 +45,7 @@ class ExplosionByTrap: SKNode, AnimationProtocol {
         node.run(SKAction.sequence([animation, SKAction.run {
             self.removeFromParent() //need do this, because explosion, node, self all need be removed
         }]))
-        node.zPosition = zAxis.skillAnimation
+
         self.addChild(node)
         return self
     }
