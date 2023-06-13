@@ -15,6 +15,7 @@ enum InteractionObjectType: String {
     case Ball
     case Trap
     case Explosion
+    case GoalLine
     case Other //
 }
 
@@ -52,6 +53,8 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
             TrapInteraction.handleTwoCollision(Trap: node as! Trap, anotherNodeType: anotherType, contact: contact)
         case .Explosion: //it isn't object, don't need do any handle
             break
+        case .GoalLine:
+            (node as! GoalLine).Goal()
         case .Other:
             break
 
@@ -76,6 +79,9 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
         }
         if node is ExplosionByTrap{
             return InteractionObjectType.Explosion
+        }
+        if node is GoalLine{
+            return InteractionObjectType.Other
         }
         return InteractionObjectType.Other
     }

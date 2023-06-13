@@ -90,6 +90,7 @@
 		E7F5EDAD2A11DD3700AB6597 /* Dispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAC2A11DD3700AB6597 /* Dispatcher.swift */; };
 		E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */; };
 		E7F60EE72A386328006464E6 /* SoccorGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F60EE62A386328006464E6 /* SoccorGameScene.swift */; };
+		E7F60EE92A389BD2006464E6 /* GoalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F60EE82A389BD2006464E6 /* GoalLine.swift */; };
 		E7FE28F32A28E9130057A1A1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F22A28E9130057A1A1 /* Button.swift */; };
 		E7FE28F82A28EF3F0057A1A1 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */; };
 		E7FE28FA2A28F1CF0057A1A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F42A28ECB30057A1A1 /* Event.swift */; };
@@ -200,6 +201,7 @@
 		E7F5EDAC2A11DD3700AB6597 /* Dispatcher.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dispatcher.swift; sourceTree = "<group>"; };
 		E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDefine.swift; sourceTree = "<group>"; };
 		E7F60EE62A386328006464E6 /* SoccorGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoccorGameScene.swift; sourceTree = "<group>"; };
+		E7F60EE82A389BD2006464E6 /* GoalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalLine.swift; sourceTree = "<group>"; };
 		E7FE28F22A28E9130057A1A1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		E7FE28F42A28ECB30057A1A1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
@@ -313,6 +315,7 @@
 				D87C0A6C2A34AF4700442546 /* Building.swift */,
 				D87C0A6E2A34CCA100442546 /* DrawObstacle.swift */,
 				D8A06B042A37A60D00437491 /* Trap.swift */,
+				E7F60EE82A389BD2006464E6 /* GoalLine.swift */,
 			);
 			path = ObstacleObject;
 			sourceTree = "<group>";
@@ -370,7 +373,6 @@
 			isa = PBXGroup;
 			children = (
 				D8A06B012A37786100437491 /* UIView */,
-				D80D43112A35FE3100F21756 /* PhysicalDelegate */,
 				D8BCFDB52A2B6E5300F46D5F /* MainScene.swift */,
 				D8CF0B0029FE41610056A94D /* GameScene.swift */,
 				D8CF0B2F29FE4C5F0056A94D /* InitialScene.swift */,
@@ -415,6 +417,7 @@
 			children = (
 				D82F9F6B2A31CB000079FE4A /* Animation */,
 				D83681C02A267238005A5EEB /* Charcter */,
+				D80D43112A35FE3100F21756 /* PhysicalDelegate */,
 				D8CDCE332A1F431F005996F8 /* Scene */,
 				D8CDCE322A1F4301005996F8 /* Object */,
 				D8CF0B0229FE41610056A94D /* GameViewController.swift */,
@@ -663,6 +666,7 @@
 				D87C0A6B2A34A54900442546 /* ObstacleObject.swift in Sources */,
 				D8B822E22A375FB9007CB884 /* UIExtension.swift in Sources */,
 				D87C0A5D2A3468AB00442546 /* AnimationFactory.swift in Sources */,
+				E7F60EE92A389BD2006464E6 /* GoalLine.swift in Sources */,
 				D8BCFDB22A2A4CDC00F46D5F /* SceneZAxis.swift in Sources */,
 				D87C0A652A34A50100442546 /* ObstacleObjectFactory.swift in Sources */,
 				D8B822D22A370299007CB884 /* HomeScene.swift in Sources */,

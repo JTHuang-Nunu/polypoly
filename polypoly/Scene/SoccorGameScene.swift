@@ -41,10 +41,11 @@ class SoccorGameScene: SKScene{
         createBoundsWall()
     }
     func createBoundsWall(){
-           let wall = Wall(size: UIScreen.main.bounds.size - CGSize(width: 140, height: 100))
-           wall.position = CGPoint(0, 0)
-           addChild(wall)
-       }
+        let wall = Wall(size: UIScreen.main.bounds.size - CGSize(width: 140, height: 100), color: .clear)
+        wall.position = CGPoint(0, 0)
+        wall.zPosition = zAxis.Wall
+        addChild(wall)
+    }
     func createBall(){
         let ball = Ball()
         ball.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
@@ -62,7 +63,7 @@ class SoccorGameScene: SKScene{
     }
     func createEnergyBar(manager: EnergyManager){
         let energyBar = EnergyBar(energyManager: manager)
-        energyBar.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 100)
+        energyBar.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 130)
         addChild(energyBar)
     }
     func PlaceSkillButtons(skillButtons: [SkillSelectButton]){

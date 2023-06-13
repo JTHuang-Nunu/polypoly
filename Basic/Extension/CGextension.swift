@@ -94,4 +94,8 @@ extension CGVector: Oppositable{
     }
 }
 
-
+extension CGPoint: Oppositable{
+    var opposite: CGPoint{
+        return CGPoint(x: -x, y: -y)
+    }
+}

@@ -48,7 +48,9 @@ class InputManager: InputManagerProtocol{
         }
         
         self.energyManager!.Cost(costValue: cost)
-        OnDoPlayerAction.Invoke(action)
+        var newAction = action
+        newAction.GenerateTime = Date()
+        OnDoPlayerAction.Invoke(newAction)
     }
     
     

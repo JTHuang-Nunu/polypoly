@@ -52,7 +52,7 @@ class TestScene2: SKScene{
         addChild(energyBar)
     }
     func createBoundsWall(){
-        let wall = Wall(size: UIScreen.main.bounds.size - CGSize(width: 140, height: 100))
+        let wall = Wall(size: UIScreen.main.bounds.size - CGSize(width: 140, height: 100), color: .clear)
         wall.position = CGPoint(0, 0)
 //        wall.zPosition = zAxis.Base
         addChild(wall)

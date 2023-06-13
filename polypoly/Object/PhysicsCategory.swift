@@ -14,4 +14,5 @@ struct PhysicsCategory {
 //    static let Line: UInt32 = 0x1 << 3  //abandon
     static let Obstacle: UInt32 = 0x1 << 4
     static let Explosion: UInt32 = 0x1 << 5
+    static let GoalLine: UInt32 = 0x1 << 6
 }

@@ -31,6 +31,9 @@ class BallInteraction {
             
         case .Other: //no action
             break
+            
+        default:
+            break
         }
     }
 }

@@ -54,7 +54,17 @@ class Dispatcher: BaseMessageHandler {
     private func handleReceivePlayerAction(content: String){
         let decodedAction = decodeJSON(PlayerAction.self, jsonString: content)
         if let action = decodedAction{
-            OnReceivePlayerAction.Invoke(action)
+            if let generateTime = action.GenerateTime{
+                let executeTime = generateTime.addingTimeInterval(0.2)
+                    let timeInterval = executeTime.timeIntervalSinceNow
+                    
+                    DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) {
+                        self.OnReceivePlayerAction.Invoke(action)
+                    }
+                
+            }
+            
+            
         }
         else{
             logger.error("Failed to decode PlayerAction")

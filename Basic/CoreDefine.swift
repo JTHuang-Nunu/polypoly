@@ -41,6 +41,7 @@ struct PlayerAction: Codable & Oppositable{
     var CharacterModelID: UUID
     var ActionType: ActionType
     var Skill: Skill
+    var GenerateTime: Date? = nil
     var content: [ContentType: String] = [:]
     
     var opposite: PlayerAction{
@@ -48,6 +49,9 @@ struct PlayerAction: Codable & Oppositable{
         for (key, value) in newAction.content{
             switch key{
             case .Impulse:
+                newAction.content[key] = GetOppositeValue(value: value, type: CGVector.self)
+                break
+            case .Position:
                 newAction.content[key] = GetOppositeValue(value: value, type: CGVector.self)
                 break
             default:
