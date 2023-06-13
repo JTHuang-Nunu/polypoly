@@ -81,7 +81,7 @@ class Character: CharacterProtocol{
         guard let object = ObstacleObejctFactory.shared.create(type: .DrawObstacle, position: CGPoint(x: 0, y: 0), path: path)
         else {return}
         object.OnObjectDied += _teamManager.removeObject //Add event: when object health == 0, remove from team container
-        object.OnObjectDied += removeChild               //Add event: when object health == 0, remove from character
+//        object.OnObjectDied += removeChild               //Add event: when object health == 0, remove from character
         OnCreateObstacle.Invoke(object)
     }
     //=======================================================
@@ -94,8 +94,8 @@ class Character: CharacterProtocol{
         guard let object = ObstacleObejctFactory.shared.create(type: .Trap, position: locate, path: nil) else {return}
 
         object.OnObjectDied += _teamManager.removeObject //Add event: when object health == 0, remove from team container
-        let trap = object as! Trap
-        trap.OnTrigger += removeChild
+        let trap = object as! Trap //needed
+//        trap.OnTrigger += removeChild
         OnCreateObstacle.Invoke(trap)
     }
     //=======================================================
@@ -140,7 +140,7 @@ class Character: CharacterProtocol{
     }
     
     func gameOver(){
-        print("===\(self.CharacterModelID.uuidString.prefix(5)) lose the game===")
+        print("=112312323123==\(self.CharacterModelID.uuidString.prefix(5)) lose the game==12312311231=")
     }
 }
 

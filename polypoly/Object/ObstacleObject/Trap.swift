@@ -37,6 +37,8 @@ class Trap: ObstacleObejct {
         _healthManager.initHP(maxHP: 1)
         //explosion animation setting
         OnObjectDied += runExplosionAnimation
+        //remove self
+        OnTrigger += removeSelf
     }
     
     func runExplosionAnimation(node: SKNode){
@@ -56,7 +58,6 @@ class Trap: ObstacleObejct {
 //        ])
 //            ,completion: { [self] in OnTrigger.Invoke(node)})
 ////        node.parent?.addChild(<#T##node: SKNode##SKNode#>)
-
     }
     
     required init?(coder aDecoder: NSCoder) {

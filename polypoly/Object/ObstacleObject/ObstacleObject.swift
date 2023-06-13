@@ -18,7 +18,6 @@ class ObstacleObejct: SKNode, ObstacleObjectProtocol {
     init(node: SKShapeNode){
         self.node = node
         super.init()
-
         _setupBody()
     }
     init(node: SKShapeNode, texture: SKSpriteNode){
@@ -38,10 +37,15 @@ class ObstacleObejct: SKNode, ObstacleObjectProtocol {
             self.OnObjectDied.Invoke((self))
         }
         onInjured += _healthManager.InjureHP
+        
         //physical setting
         self.physicsBody?.categoryBitMask = PhysicsCategory.Obstacle
         self.physicsBody?.collisionBitMask = PhysicsCategory.Ball | PhysicsCategory.Obstacle
         self.physicsBody?.contactTestBitMask = PhysicsCategory.Ball | PhysicsCategory.Obstacle
+    }
+    
+    func removeSelf(node: SKNode){
+        node.removeFromParent()
     }
 
     required init?(coder aDecoder: NSCoder) {

@@ -26,10 +26,13 @@ let DrawObstacleName = "drawObstacle"
 let WallName = "wall"
 let BallName = "ball"
 let TrapName = "trap1"
+let BlackHoleName = "blackhole"
 //-key
 let userNameKey = "UserName" // 使用者名稱的鍵值
 //=======================================
 // ScreenSetting
 let ScreenSize = UIScreen.main.bounds.size
 let ScreenCenter = CGPoint(x: UIScreen.main.bounds.midX, y: UIScreen.main.bounds.midY)
-
+//=======================================
+//  Character Setting
+let PlayerMaxHP: CGFloat = 100

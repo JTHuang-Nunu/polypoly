@@ -46,7 +46,7 @@ class AnimationFactory {
             animation.position = position
             return animation
         case .blackHole:
-            let animation = BlackHole()
+            let animation = BlackHoleAnimation()
             animation.position = position
             return animation
         case .shake:

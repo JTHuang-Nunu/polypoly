@@ -33,7 +33,7 @@ class Ball: SKSpriteNode {
 //        self.physicsBody?.isDynamic = true
         self.physicsBody?.categoryBitMask = PhysicsCategory.Ball
         self.physicsBody?.collisionBitMask = PhysicsCategory.Boundary | PhysicsCategory.Ball | PhysicsCategory.Obstacle | PhysicsCategory.Explosion
-        self.physicsBody?.contactTestBitMask = PhysicsCategory.Boundary | PhysicsCategory.Ball | PhysicsCategory.Obstacle | PhysicsCategory.Explosion
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Boundary | PhysicsCategory.Ball | PhysicsCategory.Obstacle | PhysicsCategory.Explosion | PhysicsCategory.BlackHole
         
         self.physicsBody?.mass = PhysicsMass.Ball
         self.physicsBody?.restitution = ballRestitution

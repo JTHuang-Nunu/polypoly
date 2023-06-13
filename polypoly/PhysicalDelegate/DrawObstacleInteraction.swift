@@ -9,12 +9,12 @@ import Foundation
 import SpriteKit
 
 class DrawObstacleInteraction {
-    static func handleTwoCollision(DrawObstacle: DrawObstacle, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact) {
+    static func handleTwoCollision(drawObstacle: DrawObstacle, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact) {
         switch anotherNodeType{
         case .Ball:
-            DrawObstacle.onInjured.Invoke(1)
+            drawObstacle.onInjured.Invoke(1)
         case .Explosion:
-            DrawObstacle.onInjured.Invoke(1)
+            drawObstacle.onInjured.Invoke(1)
         default:
             break
         }
