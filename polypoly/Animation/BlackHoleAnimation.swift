@@ -7,7 +7,7 @@
 
 import Foundation
 import SpriteKit
-class BlackHole: SKNode, AnimationProtocol {
+class BlackHoleAnimation: SKNode, AnimationProtocol {
     
     let folderName = BlackHoleFolder
     var node = SKSpriteNode()

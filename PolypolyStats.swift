@@ -26,6 +26,7 @@ let DrawObstacleName = "drawObstacle"
 let WallName = "wall"
 let BallName = "ball"
 let TrapName = "trap1"
+let BlackHoleName = "blackhole"
 //-key
 let userNameKey = "UserName" // 使用者名稱的鍵值
 //=======================================

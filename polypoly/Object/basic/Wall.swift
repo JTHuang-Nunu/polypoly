@@ -12,7 +12,7 @@ class Wall: SKSpriteNode {
     
     init(size: CGSize) {
 //        let size = CGSize(width: 500, height: 500)
-        super.init(texture: nil, color: .red, size: size)
+        super.init(texture: nil, color: .clear, size: size)
         
         self._setupBody(size: size)
 //        let shapeNode = SKShapeNode(rectOf: size)

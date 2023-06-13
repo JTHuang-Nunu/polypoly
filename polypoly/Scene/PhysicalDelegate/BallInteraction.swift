@@ -31,6 +31,8 @@ class BallInteraction {
             
         case .Other: //no action
             break
+        case .BlackHole:
+            break
         }
     }
 }

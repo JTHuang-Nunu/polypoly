@@ -15,6 +15,7 @@ enum InteractionObjectType: String {
     case Ball
     case Trap
     case Explosion
+    case BlackHole
     case Other //
 }
 
@@ -41,17 +42,19 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
     func runInteraction(node: SKNode, nodeType: InteractionObjectType, anotherType: InteractionObjectType, contact: SKPhysicsContact){
         switch nodeType {
         case .Building:
-            BuildingInteraction.handleTwoCollision(Building: node as! BuildingObstacle, anotherNodeType: anotherType, contact: contact)
+            BuildingInteraction.handleTwoCollision(building: node as! BuildingObstacle, anotherNodeType: anotherType, contact: contact)
         case .DrawObstacle:
-            DrawObstacleInteraction.handleTwoCollision(DrawObstacle: node as! DrawObstacle, anotherNodeType: anotherType, contact: contact)
+            DrawObstacleInteraction.handleTwoCollision(drawObstacle: node as! DrawObstacle, anotherNodeType: anotherType, contact: contact)
         case .Wall:
-            WallInteraction.handleTwoCollision(Wall: node as! Wall, anotherNodeType: anotherType, contact: contact)
+            WallInteraction.handleTwoCollision(wall: node as! Wall, anotherNodeType: anotherType, contact: contact)
         case .Ball:
             BallInteraction.handleTwoCollision(ball: node as! Ball, anotherNodeType: anotherType, contact: contact)
         case .Trap:
-            TrapInteraction.handleTwoCollision(Trap: node as! Trap, anotherNodeType: anotherType, contact: contact)
+            TrapInteraction.handleTwoCollision(trap: node as! Trap, anotherNodeType: anotherType, contact: contact)
         case .Explosion: //it isn't object, don't need do any handle
             break
+        case .BlackHole:
+            BlackHoleInteraction.handleTwoCollision(blackhole: node as! BlackHole, anotherNodeType: anotherType, contact: contact)
         case .Other:
             break
 
@@ -76,6 +79,9 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
         }
         if node is ExplosionByTrap{
             return InteractionObjectType.Explosion
+        }
+        if node is BlackHole{
+            return InteractionObjectType.BlackHole
         }
         return InteractionObjectType.Other
     }

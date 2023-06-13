@@ -23,62 +23,109 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4CEAC79F-A82B-4E0D-BC31-7A73A11A3D7E"
+            uuid = "DC442A46-57D9-4CCF-8D3D-7D5DFE319B0C"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "polypoly/Object/Wall.swift"
+            filePath = "polypoly/Charcter/Character.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
-            landmarkName = "init(size:)"
+            startingLineNumber = "151"
+            endingLineNumber = "151"
+            landmarkName = "gameOver()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "6306DFF0-8DD7-484A-87EA-6B31E73406EB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Scene/PhysicalDelegate/BallInteraction.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
+            landmarkName = "handleTwoCollision(ball:anotherNodeType:contact:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3DB536A8-ECFE-46D3-BC69-83C50E788310"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Charcter/Character.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "98"
+            endingLineNumber = "98"
+            landmarkName = "createTrap(content:)"
             landmarkType = "7">
             <Locations>
                <Location
-                  uuid = "4CEAC79F-A82B-4E0D-BC31-7A73A11A3D7E - 9cb377dae857368c"
+                  uuid = "3DB536A8-ECFE-46D3-BC69-83C50E788310 - a4ab31dc35b0cc87"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "polypoly.Wall.init(size: __C.CGSize) -&gt; polypoly.Wall"
+                  symbolName = "polypoly.Character.createTrap(content: Swift.Dictionary&lt;polypoly.ContentType, Swift.String&gt;) -&gt; ()"
                   moduleName = "polypoly"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Wall.swift"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/Character.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "88">
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "1012">
                </Location>
                <Location
-                  uuid = "4CEAC79F-A82B-4E0D-BC31-7A73A11A3D7E - 9cb377dae857368c"
+                  uuid = "3DB536A8-ECFE-46D3-BC69-83C50E788310 - dcd82d7898f0147c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "polypoly.Wall.init(size: __C.CGSize) -&gt; polypoly.Wall"
+                  symbolName = "implicit closure #3 (polypoly.Character) -&gt; (__C.SKNode) -&gt; () in polypoly.Character.createTrap(content: Swift.Dictionary&lt;polypoly.ContentType, Swift.String&gt;) -&gt; ()"
                   moduleName = "polypoly"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Wall.swift"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/Character.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "92">
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "44">
                </Location>
                <Location
-                  uuid = "4CEAC79F-A82B-4E0D-BC31-7A73A11A3D7E - 9cb377dae857368c"
+                  uuid = "3DB536A8-ECFE-46D3-BC69-83C50E788310 - de23c42c1d2ce57c"
                   shouldBeEnabled = "Yes"
                   ignoreCount = "0"
                   continueAfterRunningActions = "No"
-                  symbolName = "polypoly.Wall.init(size: __C.CGSize) -&gt; polypoly.Wall"
+                  symbolName = "implicit closure #4 (__C.SKNode) -&gt; () in implicit closure #3 (polypoly.Character) -&gt; (__C.SKNode) -&gt; () in polypoly.Character.createTrap(content: Swift.Dictionary&lt;polypoly.ContentType, Swift.String&gt;) -&gt; ()"
                   moduleName = "polypoly"
                   usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Object/Wall.swift"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/Character.swift"
                   startingColumnNumber = "9223372036854775807"
                   endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "15"
-                  endingLineNumber = "15"
-                  offsetFromSymbolStart = "48">
+                  startingLineNumber = "98"
+                  endingLineNumber = "98"
+                  offsetFromSymbolStart = "44">
+               </Location>
+               <Location
+                  uuid = "3DB536A8-ECFE-46D3-BC69-83C50E788310 - a4ab31dc35b0cd66"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.Character.createTrap(content: Swift.Dictionary&lt;polypoly.ContentType, Swift.String&gt;) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Charcter/Character.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "99"
+                  endingLineNumber = "99"
+                  offsetFromSymbolStart = "992">
                </Location>
             </Locations>
          </BreakpointContent>
