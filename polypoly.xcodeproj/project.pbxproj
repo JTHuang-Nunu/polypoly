@@ -91,6 +91,7 @@
 		E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */; };
 		E7F60EE72A386328006464E6 /* SoccorGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F60EE62A386328006464E6 /* SoccorGameScene.swift */; };
 		E7F60EE92A389BD2006464E6 /* GoalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F60EE82A389BD2006464E6 /* GoalLine.swift */; };
+		E7F60EEB2A38DC17006464E6 /* BaseGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F60EEA2A38DC17006464E6 /* BaseGameScene.swift */; };
 		E7FE28F32A28E9130057A1A1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F22A28E9130057A1A1 /* Button.swift */; };
 		E7FE28F82A28EF3F0057A1A1 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */; };
 		E7FE28FA2A28F1CF0057A1A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F42A28ECB30057A1A1 /* Event.swift */; };
@@ -202,6 +203,7 @@
 		E7F5EDAF2A11E55F00AB6597 /* CoreDefine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDefine.swift; sourceTree = "<group>"; };
 		E7F60EE62A386328006464E6 /* SoccorGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoccorGameScene.swift; sourceTree = "<group>"; };
 		E7F60EE82A389BD2006464E6 /* GoalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalLine.swift; sourceTree = "<group>"; };
+		E7F60EEA2A38DC17006464E6 /* BaseGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameScene.swift; sourceTree = "<group>"; };
 		E7FE28F22A28E9130057A1A1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		E7FE28F42A28ECB30057A1A1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
@@ -383,6 +385,7 @@
 				D8B822CE2A36FA0E007CB884 /* InputNameScene.swift */,
 				D8B822D12A370299007CB884 /* HomeScene.swift */,
 				E7F60EE62A386328006464E6 /* SoccorGameScene.swift */,
+				E7F60EEA2A38DC17006464E6 /* BaseGameScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -671,6 +674,7 @@
 				D87C0A652A34A50100442546 /* ObstacleObjectFactory.swift in Sources */,
 				D8B822D22A370299007CB884 /* HomeScene.swift in Sources */,
 				D87C0A672A34A52C00442546 /* ObstacleObjectProtocol.swift in Sources */,
+				E7F60EEB2A38DC17006464E6 /* BaseGameScene.swift in Sources */,
 				D8CF0B0329FE41610056A94D /* GameViewController.swift in Sources */,
 				D87C0A6F2A34CCA100442546 /* DrawObstacle.swift in Sources */,
 				E712FBEA2A2831D8005282AE /* TestScene.swift in Sources */,

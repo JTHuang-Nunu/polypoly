@@ -37,7 +37,6 @@ class BaseCanvas: SKShapeNode{
         startNewPoint(point: touches.first!.location(in: scene!))
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
-        print(touches.first!.location(in: self))
         updatePoint(point: touches.first!.location(in: scene!))
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
