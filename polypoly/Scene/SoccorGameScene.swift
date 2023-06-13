@@ -37,7 +37,6 @@ class SoccorGameScene: BaseGameScene{
         otherGoalLine.zPosition = zAxis.GoalLine
         otherGoalLine.OnGoal += {
             self.gameManager.Win()
-            print("win")
         }
         addChild(otherGoalLine)
     

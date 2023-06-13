@@ -96,6 +96,7 @@
 		E7F60EE72A386328006464E6 /* SoccorGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F60EE62A386328006464E6 /* SoccorGameScene.swift */; };
 		E7F60EE92A389BD2006464E6 /* GoalLine.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F60EE82A389BD2006464E6 /* GoalLine.swift */; };
 		E7F60EEB2A38DC17006464E6 /* BaseGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F60EEA2A38DC17006464E6 /* BaseGameScene.swift */; };
+		E7F60EED2A38DD96006464E6 /* GolfGameScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7F60EEC2A38DD96006464E6 /* GolfGameScene.swift */; };
 		E7FE28F32A28E9130057A1A1 /* Button.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F22A28E9130057A1A1 /* Button.swift */; };
 		E7FE28F82A28EF3F0057A1A1 /* EventTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */; };
 		E7FE28FA2A28F1CF0057A1A1 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = E7FE28F42A28ECB30057A1A1 /* Event.swift */; };
@@ -212,6 +213,7 @@
 		E7F60EE62A386328006464E6 /* SoccorGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoccorGameScene.swift; sourceTree = "<group>"; };
 		E7F60EE82A389BD2006464E6 /* GoalLine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalLine.swift; sourceTree = "<group>"; };
 		E7F60EEA2A38DC17006464E6 /* BaseGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseGameScene.swift; sourceTree = "<group>"; };
+		E7F60EEC2A38DD96006464E6 /* GolfGameScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfGameScene.swift; sourceTree = "<group>"; };
 		E7FE28F22A28E9130057A1A1 /* Button.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Button.swift; sourceTree = "<group>"; };
 		E7FE28F42A28ECB30057A1A1 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
 		E7FE28F72A28EF3F0057A1A1 /* EventTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventTests.swift; sourceTree = "<group>"; };
@@ -406,6 +408,7 @@
 				D8B822D12A370299007CB884 /* HomeScene.swift */,
 				E7F60EE62A386328006464E6 /* SoccorGameScene.swift */,
 				E7F60EEA2A38DC17006464E6 /* BaseGameScene.swift */,
+				E7F60EEC2A38DD96006464E6 /* GolfGameScene.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -669,6 +672,7 @@
 				D8B822C22A3621DB007CB884 /* BallInteraction.swift in Sources */,
 				D87C0A712A34DECA00442546 /* ObjectShakeAnimation.swift in Sources */,
 				E7F5EDAD2A11DD3700AB6597 /* Dispatcher.swift in Sources */,
+				E7F60EED2A38DD96006464E6 /* GolfGameScene.swift in Sources */,
 				D87C0A6D2A34AF4700442546 /* Building.swift in Sources */,
 				D8E2F03D2A389F7A004EA179 /* BlackHoleInteraction.swift in Sources */,
 				D8CF0B0129FE41610056A94D /* GameScene.swift in Sources */,

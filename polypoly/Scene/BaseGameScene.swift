@@ -25,8 +25,8 @@ class BaseGameScene: SKScene{
        position = CGPoint(x: -centerX, y: -centerY)
     }
     override func sceneDidLoad() {
-        myStartPoint = CGPoint(x: 300, y: 0)
-        othersPoint = CGPoint(x: -300, y: 0)
+        myStartPoint = CGPoint(x: -300, y: 0)
+        othersPoint = CGPoint(x: 300, y: 0)
         createRedCircle()
         gameManager.OnCreatedCanvas += { canvas in
             self.addChild(canvas)
