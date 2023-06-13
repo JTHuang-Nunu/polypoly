@@ -15,4 +15,5 @@ struct PhysicsCategory {
     static let Obstacle: UInt32 = 0x1 << 4
     static let Explosion: UInt32 = 0x1 << 5
     static let GoalLine: UInt32 = 0x1 << 6
+    static let BlackHole: UInt32 = 0x1 << 6 //can't use obstacle, i don't want's this be collidied
 }
