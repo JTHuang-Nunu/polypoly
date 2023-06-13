@@ -11,17 +11,35 @@ import SpriteKit
 
 class SoccorGameScene: SKScene{
     let gameManager = DeviceManager.shared.GameManager!
-    
+    var myCircle: SKShapeNode? = nil
     var myStartPoint = CGPoint()
     var othersPoint = CGPoint()
-    
+    override func didMove(to view: SKView) {
+        let screenSize = UIScreen.main.bounds.size
+               
+       // 計算中心點的座標
+       let centerX = screenSize.width / 2
+       let centerY = screenSize.height / 2
+       
+       // 將場景的anchorPoint設置為中心點
+       anchorPoint = CGPoint(x: 0.5, y: 0.5)
+       position = CGPoint(x: -centerX, y: -centerY)
+    }
     override func sceneDidLoad() {
-        myStartPoint = CGPoint(x: frame.midX + 300, y: frame.midY)
-        othersPoint = CGPoint(x: frame.midX - 300, y: frame.midY)
+        myStartPoint = CGPoint(x: 300, y: 0)
+        othersPoint = CGPoint(x: -300, y: 0)
+        createRedCircle()
         gameManager.OnCreatedCanvas += { canvas in
             self.addChild(canvas)
-            canvas.position = CGPoint(x: 0, y: 0)
-        
+            //canvas.position = CGPoint(x: 0, y: 0)
+            canvas.OnStartNewPoint += { _ in
+                self.myCircle?.isHidden = false
+            }
+            canvas.OnFinishDrawPoint += { _ in
+                self.myCircle?.isHidden = true
+            }
+            let screenSize = UIScreen.main.bounds.size
+            canvas.position = CGPoint(x: -screenSize.width/2, y: -screenSize.height/2)
             
         }
         gameManager.OnCreatedSelfPlayers += { players in
@@ -50,12 +68,12 @@ class SoccorGameScene: SKScene{
     }
     func createGoalLines(){
         let myGoalLine = GoalLine()
-        myGoalLine.position = CGPoint(x: frame.midX - 399, y: frame.midY - 50)
+        myGoalLine.position = CGPoint(x: -399, y: -50)
         myGoalLine.zPosition = zAxis.GoalLine
         addChild(myGoalLine)
         
         let otherGoalLine = GoalLine()
-        otherGoalLine.position = CGPoint(x: frame.midX + 349, y: frame.midY - 50)
+        otherGoalLine.position = CGPoint(x: 349, y: -50)
         otherGoalLine.zPosition = zAxis.GoalLine
         otherGoalLine.OnGoal += {
             self.gameManager.Win()
@@ -68,14 +86,14 @@ class SoccorGameScene: SKScene{
         let width = 700
         let height = 350
         let wall = Wall(size: CGSize(width: width, height: height), color: .systemOrange)
-        wall.position = CGPoint(x: frame.midX, y: frame.midY)
+        wall.position = CGPoint(x: 0, y: 0)
         wall.zPosition = zAxis.Wall
         addChild(wall)
     }
     func createBall(){
         let ball = Ball()
         ball.name = "soccorBall"
-        ball.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
+        ball.position = CGPoint(x: 0, y: 0)
         ball.zPosition = zAxis.Ball
         addChild(ball)
     
@@ -86,25 +104,42 @@ class SoccorGameScene: SKScene{
             addChild(value.SKNode)
             value.SKNode.position = point
             value.OnCreateObstacle += addChild
+            if point == myStartPoint{
+                value.SKNode.addChild(myCircle!)
+            }
         }
     }
     func createEnergyBar(manager: EnergyManager){
         let energyBar = EnergyBar(energyManager: manager)
-        energyBar.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 130)
+        energyBar.position = CGPoint(x: 0, y: -130)
         addChild(energyBar)
     }
     func PlaceSkillButtons(skillButtons: [SkillSelectButton]){
         for i in 0..<skillButtons.count{
             let skill = skillButtons[i]
-            skill.position = CGPoint(x:self.frame.minX + 100, y:self.frame.midY + 100 - CGFloat(100 * i))
+            skill.position = CGPoint(x:-300, y:100 - CGFloat(100 * i))
             skill.zPosition = zAxis.skillButton
             addChild(skill as SKNode)
             
         }
     }
-    func CreateObstaclObject(node: SKNode){
+    
+    func createRedCircle(){
+        myCircle = SKShapeNode(circleOfRadius: 200)
+        myCircle!.fillColor = .clear
+        myCircle!.strokeColor = .red
+        myCircle!.alpha = 0.1
+        myCircle!.lineWidth = 10
+        myCircle!.zPosition = zAxis.Circle
+        self.myCircle?.isHidden = true
+        let action = SKAction.sequence([
+            SKAction.fadeAlpha(to: 0.1, duration: 0.5),
+            SKAction.fadeAlpha(to: 0, duration: 0.2)
+        ])
+        myCircle!.run(SKAction.repeatForever(action))
         
     }
+    
     override func update(_ currentTime: TimeInterval) {
         _update(currentTime)
     }

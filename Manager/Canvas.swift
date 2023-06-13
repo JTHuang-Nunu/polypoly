@@ -27,7 +27,6 @@ class BaseCanvas: SKShapeNode{
         let screenSize = UIScreen.main.bounds.size
         self.path = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: screenSize)).cgPath
         self.isUserInteractionEnabled = true
-        self.position = CGPoint(x: -screenSize.width/2, y: -screenSize.height/2)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,6 +37,7 @@ class BaseCanvas: SKShapeNode{
         startNewPoint(point: touches.first!.location(in: scene!))
     }
     override func touchesMoved(_ touches: Set<UITouch>, with event: UIEvent?) {
+        print(touches.first!.location(in: self))
         updatePoint(point: touches.first!.location(in: scene!))
     }
     override func touchesEnded(_ touches: Set<UITouch>, with event: UIEvent?) {
@@ -61,7 +61,7 @@ class Canvas: BaseCanvas{
     public let OnDrawLocate = Event<CGPoint>()
     
     public var Mode: CanvasMode = CanvasMode.Pointer
-//    public var Mode: CanvasMode = CanvasMode.Locate
+    public let PointLimit: CGFloat = 200
     private var line: DrawLine? = nil
     private var pointer: Pointer? = nil
     private var startNode: SKNode? = nil
@@ -75,7 +75,7 @@ class Canvas: BaseCanvas{
         let screenSize = UIScreen.main.bounds.size
         self.path = UIBezierPath(rect: CGRect(origin: CGPoint.zero, size: screenSize)).cgPath
         self.isUserInteractionEnabled = true
-        self.position = CGPoint(x: -screenSize.width/2, y: -screenSize.height/2)
+        self.position = CGPoint(x: 0, y: 0)
     }
     public func SetMode(mode: CanvasMode){
         Mode = mode
@@ -84,39 +84,51 @@ class Canvas: BaseCanvas{
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    private func GetLimitedPoint(point: CGPoint, playerPoint: CGPoint)-> CGPoint{
+        let vector = CGVector(dx: point.x - playerPoint.x, dy: point.y - playerPoint.y)
+        let length = vector.distance
+        if length > PointLimit{
+            return CGPoint(x: playerPoint.x + vector.dx/length * PointLimit, y: playerPoint.y + vector.dy/length * PointLimit)
+        }
+        return point
+    }
     
     override func startNewPoint(point: CGPoint) {
-        super.startNewPoint(point: point)
+        let limitedPoint = GetLimitedPoint(point: point, playerPoint: startNode!.position)
+        
+        super.startNewPoint(point: limitedPoint)
         switch Mode{
         case .Draw:
-            startDraw(point: point)
+            startDraw(point: limitedPoint)
             break
         case .Pointer:
-            startPointer(point: point)
+            startPointer(point: limitedPoint)
         case .Locate:
-            endPoint = point
+            endPoint = limitedPoint
         
         default:
             break
         }
     }
     override func updatePoint(point: CGPoint) {
-        super.updatePoint(point: point)
+        let limitedPoint = GetLimitedPoint(point: point, playerPoint: startNode!.position)
+        super.updatePoint(point: limitedPoint)
         switch Mode{
         case .Draw:
             assert (line != nil, "line not set")
-            line!.UpdateLine(newPoint: point)
+            line!.UpdateLine(newPoint: limitedPoint)
             break
         case .Pointer:
-            endPoint = point
+            endPoint = limitedPoint
         case .Locate:
-            endPoint = point
+            endPoint = limitedPoint
             
         default:
             break
         }
     }
     override func finishPoint(point: CGPoint) {
+        let limitedPoint = GetLimitedPoint(point: point, playerPoint: startNode!.position)
         super.finishPoint(point: point)
         switch Mode{
         case .Draw:
@@ -153,9 +165,13 @@ class Canvas: BaseCanvas{
     }
     
     override func NodeUpdate(_ currentTime: TimeInterval) {
-        if let pointer = pointer{
-            pointer.UpdatePointer(startPoint: startNode!.position, endPoint: endPoint!)
+        if let endPoint = endPoint{
+            let limitedPoint = GetLimitedPoint(point: endPoint, playerPoint: startNode!.position)
+            if let pointer = pointer{
+                pointer.UpdatePointer(startPoint: startNode!.position, endPoint: limitedPoint)
+            }
         }
+        
     }
     
     

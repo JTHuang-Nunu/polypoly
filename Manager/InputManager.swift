@@ -15,7 +15,7 @@ class InputManager: InputManagerProtocol{
     var OperateCharacterID: UUID? = nil
     var canvas: Canvas? = nil
     var energyManager: EnergyManager? = nil
-    let logger = Logger(subsystem: "InputManager", category: "InputManager")
+    let logger = Logger(subsystem: "InputManager", category: "InputManager")    
     let SkillCanvasModeMap: [Skill: CanvasMode] = [
         .Move: .Pointer,
         .Obstacle: .Draw,
