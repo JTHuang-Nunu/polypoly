@@ -65,7 +65,7 @@ class BaseGameScene: SKScene{
     func createBoundsWall(){
         let width = 700
         let height = 350
-        let wall = Wall(size: CGSize(width: width, height: height), color: .systemOrange)
+        let wall = Wall(size: CGSize(width: width, height: height), color: .systemBlue)
         wall.position = CGPoint(x: 0, y: 0)
         wall.zPosition = zAxis.Wall
         addChild(wall)

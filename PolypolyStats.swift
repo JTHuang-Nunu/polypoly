@@ -11,8 +11,9 @@ import SpriteKit
 //=======================================
 // NetWork
 //- IP
+//let HostIP = "169.254.89.212"
+//let HostIP = "169.254.137.225"
 let HostIP = "localhost"
-//let HostIP = "localhost"
 //=======================================
 // Name
 //- atlas #animation, background
@@ -27,6 +28,8 @@ let WallName = "wall"
 let BallName = "ball"
 let TrapName = "trap1"
 let BlackHoleName = "blackhole"
+let SoccerName = "soccer"
+
 //-key
 let userNameKey = "UserName" // 使用者名稱的鍵值
 //=======================================

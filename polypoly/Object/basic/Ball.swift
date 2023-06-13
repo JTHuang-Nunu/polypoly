@@ -18,6 +18,7 @@ class Ball: SKSpriteNode {
         super.init(texture: ballTexture, color: .clear, size: ballSize)
         self._setupoBody(ballSize: ballSize)
         self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.name = SoccerName
     }
     
     private func _setupoBody(ballSize: CGSize){
@@ -33,7 +34,7 @@ class Ball: SKSpriteNode {
 //        self.physicsBody?.isDynamic = true
         self.physicsBody?.categoryBitMask = PhysicsCategory.Ball
         self.physicsBody?.collisionBitMask = PhysicsCategory.Boundary | PhysicsCategory.Ball | PhysicsCategory.Obstacle | PhysicsCategory.Explosion
-        self.physicsBody?.contactTestBitMask = PhysicsCategory.Boundary | PhysicsCategory.Ball | PhysicsCategory.Obstacle | PhysicsCategory.Explosion | PhysicsCategory.BlackHole
+        self.physicsBody?.contactTestBitMask = PhysicsCategory.Boundary | PhysicsCategory.Ball | PhysicsCategory.Obstacle | PhysicsCategory.Explosion | PhysicsCategory.BlackHole | PhysicsCategory.GoalLine
         
         self.physicsBody?.mass = PhysicsMass.Ball
         self.physicsBody?.restitution = ballRestitution

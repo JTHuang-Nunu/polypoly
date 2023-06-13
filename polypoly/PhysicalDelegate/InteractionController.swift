@@ -21,7 +21,7 @@ enum InteractionObjectType: String {
 }
 
 class InteractionController:SKNode, SKPhysicsContactDelegate{
-//    var contact: CGVector? = nil
+//        var contact: CGVector? = nil
     func didBegin(_ contact: SKPhysicsContact) {
 //        contact = contact.collisionImpulse
         if let nodeA = contact.bodyA.node, let nodeB = contact.bodyB.node{
@@ -32,7 +32,7 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
 //            }
             let nodeAType = judgeDataType(node: nodeA)
             let nodeBType = judgeDataType(node: nodeB)
-            if (nodeAType == .Other || nodeAType == .Other ){
+            if (nodeAType == .Other || nodeBType == .Other ){
                 print("contact [other] type")
             }
             runInteraction(node: nodeA, nodeType: nodeAType, anotherType: nodeBType, contact: contact)
@@ -55,7 +55,8 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
         case .Explosion: //it isn't object, don't need do any handle
             break
         case .GoalLine:
-            (node as! GoalLine).Goal()
+            GoalLineInteraction.handleTwoCollision(goalLine: node as! GoalLine, anotherNodeType: anotherType, contact: contact)
+//            (node as! GoalLine).Goal()
         case .BlackHole:
             BlackHoleInteraction.handleTwoCollision(blackhole: node as! BlackHole, anotherNodeType: anotherType, contact: contact)
         case .Other:
@@ -65,7 +66,7 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
     }
     //========================================================
     func judgeDataType(node: SKNode) -> InteractionObjectType{
-        if node is Ball{
+        if node is Ball {
             return InteractionObjectType.Ball
         }
         if node is BuildingObstacle{
@@ -84,7 +85,7 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
             return InteractionObjectType.Explosion
         }
         if node is GoalLine{
-            return InteractionObjectType.Other
+            return InteractionObjectType.GoalLine
         }
         if node is BlackHole{
             return InteractionObjectType.BlackHole

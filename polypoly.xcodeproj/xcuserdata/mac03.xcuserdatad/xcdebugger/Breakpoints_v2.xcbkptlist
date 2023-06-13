@@ -412,5 +412,131 @@
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "470BAC6A-9553-4BC0-96E1-4B2476A5648A"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/PhysicalDelegate/GoalLineInteraction.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
+            landmarkName = "handleTwoCollision(goalLine:anotherNodeType:contact:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "470BAC6A-9553-4BC0-96E1-4B2476A5648A - 81f18b21a512918b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static polypoly.GoalLineInteraction.handleTwoCollision(goalLine: polypoly.GoalLine, anotherNodeType: polypoly.InteractionObjectType, contact: __C.SKPhysicsContact) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/PhysicalDelegate/GoalLineInteraction.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "173">
+               </Location>
+               <Location
+                  uuid = "470BAC6A-9553-4BC0-96E1-4B2476A5648A - 81f18b21a512918b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static polypoly.GoalLineInteraction.handleTwoCollision(goalLine: polypoly.GoalLine, anotherNodeType: polypoly.InteractionObjectType, contact: __C.SKPhysicsContact) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/PhysicalDelegate/GoalLineInteraction.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "230">
+               </Location>
+               <Location
+                  uuid = "470BAC6A-9553-4BC0-96E1-4B2476A5648A - 81f18b21a512918b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static polypoly.GoalLineInteraction.handleTwoCollision(goalLine: polypoly.GoalLine, anotherNodeType: polypoly.InteractionObjectType, contact: __C.SKPhysicsContact) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/PhysicalDelegate/GoalLineInteraction.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "607">
+               </Location>
+               <Location
+                  uuid = "470BAC6A-9553-4BC0-96E1-4B2476A5648A - 81f18b21a512918b"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "static polypoly.GoalLineInteraction.handleTwoCollision(goalLine: polypoly.GoalLine, anotherNodeType: polypoly.InteractionObjectType, contact: __C.SKPhysicsContact) -&gt; ()"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/PhysicalDelegate/GoalLineInteraction.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "16"
+                  endingLineNumber = "16"
+                  offsetFromSymbolStart = "1051">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "795559D9-DC2A-44C3-B523-333A38CBCCC9"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/PhysicalDelegate/InteractionController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "35"
+            endingLineNumber = "35"
+            landmarkName = "didBegin(_:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "5B33A8A2-284C-4154-ABB8-8670F07B1124"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/PhysicalDelegate/GoalLineInteraction.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
+            landmarkName = "handleTwoCollision(goalLine:anotherNodeType:contact:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "4174AA8E-9DBA-4120-A2BD-266D6B5840B7"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/PhysicalDelegate/GoalLineInteraction.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "17"
+            endingLineNumber = "17"
+            landmarkName = "handleTwoCollision(goalLine:anotherNodeType:contact:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
    </Breakpoints>
 </Bucket>

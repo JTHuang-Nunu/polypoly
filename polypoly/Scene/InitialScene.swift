@@ -37,7 +37,7 @@ class InitialScene: SKScene {
         
     }
     override func update(_ currentTime: TimeInterval) {
-        //button.OnClickBegin.Invoke(())
+        button.OnClickBegin.Invoke(())
     }
     
     func createScene(){

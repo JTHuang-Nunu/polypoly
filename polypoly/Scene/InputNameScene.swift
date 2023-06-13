@@ -61,6 +61,7 @@ class InputNameScene: SKScene, UITextFieldDelegate {
         //兩個都要加到目前的skview上
         view!.addSubview(textFieldView)
         view!.addSubview(textField)
+//        textField.removeFromSuperview()
         
         //okbutton
         let okText = SKLabelNode(text: "OK")
@@ -141,6 +142,7 @@ class InputNameScene: SKScene, UITextFieldDelegate {
                     let T = SKTransition.fade(withDuration: 0.5)
                     self.view?.presentScene(MenuScene(size: self.size), transition: T)
                 } else{
+                    textField.removeFromSuperview()
                     textFieldShape.run(shake())
                     print("empty")
                 }

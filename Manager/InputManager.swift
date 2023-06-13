@@ -23,6 +23,12 @@ class InputManager: InputManagerProtocol{
         .TowerBuilding: .Locate,
         .MeteoriteFalling: .Locate
     ]
+//    let SkillCost: [Skill: Int] = [
+//        .Move: 1,
+//        .Obstacle: 3,
+//        .Trap: 4,
+//        .TowerBuilding: 0
+//    ]
     let SkillCost: [Skill: Int] = [
         .Move: 1,
         .Obstacle: 3,

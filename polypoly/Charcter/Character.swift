@@ -121,15 +121,15 @@ class Character: CharacterProtocol{
         }
         guard var impulse = decodeJSON(CGVector.self, jsonString: contentImpulse)
         else {return}
-        //- - -
-        //update energy //modify impulse , when power value is insufficient
-        let distance = impulse.distance
-        
-        var transformToPower: CGFloat{
-            return distance / 5
-        }
-        print(distance)
-        //- - -
+//        //- - -
+//        //update energy //modify impulse , when power value is insufficient
+//        let distance = impulse.distance
+//
+//        var transformToPower: CGFloat{
+//            return distance / 5
+//        }
+//        print(distance)
+//        //- - -
         //push the ball by the impulse
         self.ball.physicsBody?.applyImpulse(impulse)
 

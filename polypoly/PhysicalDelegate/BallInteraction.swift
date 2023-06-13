@@ -33,6 +33,9 @@ class BallInteraction {
             ball.physicsBody?.velocity = CGVector(dx: 0, dy: 0)
             ball.onInjured.Invoke(PlayerMaxHP)
             
+        case .GoalLine:
+            break
+            
         case .Other: //no action
             break
             

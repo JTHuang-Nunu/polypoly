@@ -52,6 +52,7 @@
 		D8BCFDBE2A2CD03200F46D5F /* ObjectPosition.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BCFDBD2A2CD03100F46D5F /* ObjectPosition.swift */; };
 		D8BE1EC72A01F7E9002CC0D0 /* Arrow.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */; };
 		D8BE1EC92A01F9E7002CC0D0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE1EC82A01F9E6002CC0D0 /* Line.swift */; };
+		D8BF56CD2A38E364003B3CA3 /* GoalLineInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF56CC2A38E364003B3CA3 /* GoalLineInteraction.swift */; };
 		D8CDCE372A20487B005996F8 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDCE362A20487B005996F8 /* Background.swift */; };
 		D8CF0AFB29FE41610056A94D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0AFA29FE41610056A94D /* AppDelegate.swift */; };
 		D8CF0AFD29FE41610056A94D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0AFC29FE41610056A94D /* GameScene.sks */; };
@@ -164,6 +165,7 @@
 		D8BCFDBD2A2CD03100F46D5F /* ObjectPosition.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObjectPosition.swift; sourceTree = "<group>"; };
 		D8BE1EC62A01F7E9002CC0D0 /* Arrow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Arrow.swift; sourceTree = "<group>"; };
 		D8BE1EC82A01F9E6002CC0D0 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
+		D8BF56CC2A38E364003B3CA3 /* GoalLineInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalLineInteraction.swift; sourceTree = "<group>"; };
 		D8CDCE362A20487B005996F8 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Background.swift; path = polypoly/Background.swift; sourceTree = SOURCE_ROOT; };
 		D8CF0AF729FE41610056A94D /* polypoly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = polypoly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CF0AFA29FE41610056A94D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -264,6 +266,7 @@
 				D8A06B062A37AAE100437491 /* TrapInteraction.swift */,
 				D8A5498D2A385240006D6296 /* ExplosionInteraction.swift */,
 				D8E2F03C2A389F7A004EA179 /* BlackHoleInteraction.swift */,
+				D8BF56CC2A38E364003B3CA3 /* GoalLineInteraction.swift */,
 			);
 			path = PhysicalDelegate;
 			sourceTree = "<group>";
@@ -698,6 +701,7 @@
 				E712FBEA2A2831D8005282AE /* TestScene.swift in Sources */,
 				D8CF0AFB29FE41610056A94D /* AppDelegate.swift in Sources */,
 				D8B822CA2A36E62E007CB884 /* PolypolyStats.swift in Sources */,
+				D8BF56CD2A38E364003B3CA3 /* GoalLineInteraction.swift in Sources */,
 				D80D43132A35FE7400F21756 /* InteractionController.swift in Sources */,
 				D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */,
 				D87FE9C32A358E480041AB3E /* TestScene2.swift in Sources */,
