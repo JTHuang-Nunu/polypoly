@@ -29,9 +29,8 @@ class TestScene2: SKScene{
         }
         gameManager.OnCreatedSkillButtons += PlaceSkillButtons
         gameManager.CreateSceneObjects()
+        createBoundsWall()
         
-
-//        GlobalPhysicsDelegate.shared.setupPhysicsWorld(in: self)
         GlobalPhysicsDelegate(in: self) // is using singleton
         
         let interactionController = InteractionController()
@@ -51,6 +50,12 @@ class TestScene2: SKScene{
         let energyBar = EnergyBar(energyManager: manager)
         energyBar.position = CGPoint(x: self.frame.midX, y: self.frame.midY - 100)
         addChild(energyBar)
+    }
+    func createBoundsWall(){
+        let wall = Wall(size: UIScreen.main.bounds.size - CGSize(width: 140, height: 100))
+        wall.position = CGPoint(0, 0)
+//        wall.zPosition = zAxis.Base
+        addChild(wall)
     }
     func PlaceSkillButtons(skillButtons: [SkillSelectButton]){
         for i in 0..<skillButtons.count{

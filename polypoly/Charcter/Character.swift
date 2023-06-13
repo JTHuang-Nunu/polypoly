@@ -115,7 +115,11 @@ class Character: CharacterProtocol{
     //=======================================================
     // Character Move
     func characterMove(content : [ContentType: String]) {
-        guard var impulse = decodeJSON(CGVector.self, jsonString: content[.Impulse]!)
+        guard let contentImpulse = content[.Impulse] else {
+            print("[Move] impulse is nil")
+            return
+        }
+        guard var impulse = decodeJSON(CGVector.self, jsonString: contentImpulse)
         else {return}
         //- - -
         //update energy //modify impulse , when power value is insufficient
