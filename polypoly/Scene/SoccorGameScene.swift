@@ -18,7 +18,12 @@ class SoccorGameScene: SKScene{
     override func sceneDidLoad() {
         myStartPoint = CGPoint(x: frame.midX + 50, y: frame.midY)
         othersPoint = CGPoint(x: frame.midX - 50, y: frame.midY)
-        gameManager.OnCreatedCanvas += addChild
+        gameManager.OnCreatedCanvas += { canvas in
+            self.addChild(canvas)
+            canvas.position = CGPoint(x: 0, y: 0)
+        
+            
+        }
         gameManager.OnCreatedSelfPlayers += { players in
             self.PlacePlayerTo(players: players, point: self.myStartPoint)
         }
@@ -52,6 +57,10 @@ class SoccorGameScene: SKScene{
         let otherGoalLine = GoalLine()
         otherGoalLine.position = CGPoint(x: frame.midX + 349, y: frame.midY - 50)
         otherGoalLine.zPosition = zAxis.GoalLine
+        otherGoalLine.OnGoal += {
+            self.gameManager.Win()
+            print("win")
+        }
         addChild(otherGoalLine)
     
     }
@@ -65,6 +74,7 @@ class SoccorGameScene: SKScene{
     }
     func createBall(){
         let ball = Ball()
+        ball.name = "soccorBall"
         ball.position = CGPoint(x: self.frame.midX, y: self.frame.midY)
         ball.zPosition = zAxis.Ball
         addChild(ball)
