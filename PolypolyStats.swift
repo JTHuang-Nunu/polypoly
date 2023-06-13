@@ -11,8 +11,8 @@ import SpriteKit
 //=======================================
 // NetWork
 //- IP
-//let HostIP = "169.254.94.44"
-let HostIP = "localhost"
+let HostIP = "169.254.94.44"
+//let HostIP = "localhost"
 //=======================================
 // Name
 //- atlas #animation, background

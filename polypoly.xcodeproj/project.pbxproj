@@ -68,6 +68,10 @@
 		D8CF0B3429FE834B0056A94D /* Wall.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3329FE834B0056A94D /* Wall.swift */; };
 		D8CF0B3629FE87A80056A94D /* PhysicsCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */; };
 		D8CF0B3829FE885A0056A94D /* Ball.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0B3729FE885A0056A94D /* Ball.swift */; };
+		D8E2F0342A386F6B004EA179 /* skill_draw.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0302A386F6A004EA179 /* skill_draw.png */; };
+		D8E2F0352A386F6B004EA179 /* skill_building.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0312A386F6B004EA179 /* skill_building.png */; };
+		D8E2F0362A386F6B004EA179 /* skill_trap.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0322A386F6B004EA179 /* skill_trap.png */; };
+		D8E2F0372A386F6B004EA179 /* skill_move.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0332A386F6B004EA179 /* skill_move.png */; };
 		D8FEDBBF2A35A8E200621A44 /* PhysicsMass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEDBBE2A35A8E200621A44 /* PhysicsMass.swift */; };
 		D8FEDBC12A35CF0C00621A44 /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEDBC02A35CF0C00621A44 /* TeamManager.swift */; };
 		E70BD4CF2A2DE6E0006437D7 /* DeviceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = E70BD4CE2A2DE6E0006437D7 /* DeviceManager.swift */; };
@@ -173,6 +177,10 @@
 		D8CF0B3329FE834B0056A94D /* Wall.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wall.swift; sourceTree = "<group>"; };
 		D8CF0B3529FE87A80056A94D /* PhysicsCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsCategory.swift; sourceTree = "<group>"; };
 		D8CF0B3729FE885A0056A94D /* Ball.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ball.swift; sourceTree = "<group>"; };
+		D8E2F0302A386F6A004EA179 /* skill_draw.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_draw.png; sourceTree = "<group>"; };
+		D8E2F0312A386F6B004EA179 /* skill_building.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_building.png; sourceTree = "<group>"; };
+		D8E2F0322A386F6B004EA179 /* skill_trap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_trap.png; sourceTree = "<group>"; };
+		D8E2F0332A386F6B004EA179 /* skill_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_move.png; sourceTree = "<group>"; };
 		D8FEDBBE2A35A8E200621A44 /* PhysicsMass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsMass.swift; sourceTree = "<group>"; };
 		D8FEDBC02A35CF0C00621A44 /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
 		E70BD4CE2A2DE6E0006437D7 /* DeviceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceManager.swift; sourceTree = "<group>"; };
@@ -331,6 +339,7 @@
 		D8B822D02A37020F007CB884 /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
+				D8E2F02F2A386E4E004EA179 /* SkillButton */,
 				BF7D7E142A2868490029D21A /* SoundEffect */,
 				D82F9F622A31CA790079FE4A /* Atlas */,
 			);
@@ -432,6 +441,17 @@
 				D8CF0B2029FE41640056A94D /* polypolyUITestsLaunchTests.swift */,
 			);
 			path = polypolyUITests;
+			sourceTree = "<group>";
+		};
+		D8E2F02F2A386E4E004EA179 /* SkillButton */ = {
+			isa = PBXGroup;
+			children = (
+				D8E2F0312A386F6B004EA179 /* skill_building.png */,
+				D8E2F0302A386F6A004EA179 /* skill_draw.png */,
+				D8E2F0332A386F6B004EA179 /* skill_move.png */,
+				D8E2F0322A386F6B004EA179 /* skill_trap.png */,
+			);
+			path = SkillButton;
 			sourceTree = "<group>";
 		};
 		E7A9793E2A0D55AC0056B6BC /* NetworkConnection */ = {
@@ -565,17 +585,21 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8E2F0362A386F6B004EA179 /* skill_trap.png in Resources */,
 				D8CF0B0629FE41610056A94D /* Main.storyboard in Resources */,
 				D8CF0AFD29FE41610056A94D /* GameScene.sks in Resources */,
 				E77864792A2AFC8000280EBF /* TestScene copy.sks in Resources */,
 				D82F9F732A31EADD0079FE4A /* blackhole.atlas in Resources */,
 				D82F9F712A31EADD0079FE4A /* explosion.atlas in Resources */,
+				D8E2F0372A386F6B004EA179 /* skill_move.png in Resources */,
 				D8CF0B0829FE41640056A94D /* Assets.xcassets in Resources */,
 				D8CF0B0B29FE41640056A94D /* LaunchScreen.storyboard in Resources */,
 				D8CF0AFF29FE41610056A94D /* Actions.sks in Resources */,
 				D8B822DD2A370369007CB884 /* startbackground.atlas in Resources */,
+				D8E2F0342A386F6B004EA179 /* skill_draw.png in Resources */,
 				BF7D7E162A28690F0029D21A /* button_sound.mp3 in Resources */,
 				D82F9F722A31EADD0079FE4A /* explosion2.atlas in Resources */,
+				D8E2F0352A386F6B004EA179 /* skill_building.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
