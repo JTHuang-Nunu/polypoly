@@ -14,7 +14,7 @@ class GoalLine: SKShapeNode {
     
     override init() {
         super.init()
-        self.path = CGPath(rect: CGRect(x: 0, y: 0, width: 10, height: 100), transform: nil)
+        self.path = CGPath(rect: CGRect(x: 0, y: 0, width: 50, height: 100), transform: nil)
         fillColor = .blue
         strokeColor = .blue
         physicsBody = SKPhysicsBody(rectangleOf: CGSize(width: 10, height: 100))

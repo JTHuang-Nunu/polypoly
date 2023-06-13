@@ -55,7 +55,7 @@ class Dispatcher: BaseMessageHandler {
         let decodedAction = decodeJSON(PlayerAction.self, jsonString: content)
         if let action = decodedAction{
             if let generateTime = action.GenerateTime{
-                let executeTime = generateTime.addingTimeInterval(0.2)
+                let executeTime = generateTime.addingTimeInterval(0.1)
                     let timeInterval = executeTime.timeIntervalSinceNow
                     
                     DispatchQueue.main.asyncAfter(deadline: .now() + timeInterval) {
