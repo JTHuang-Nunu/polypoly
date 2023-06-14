@@ -125,6 +125,12 @@ class DeviceManager{
                 self.DeviceManager.GameManager?.OnConnectGameServer += {
                     self.stateMachine?.enter(GameState.self)
                 }
+                self.DeviceManager.GameManager?.OnWin += {
+                    self.stateMachine?.enter(LobbyState.self)
+                }
+                self.DeviceManager.GameManager?.OnLose += {
+                    self.stateMachine?.enter(LobbyState.self)
+                }
             }
         }
 

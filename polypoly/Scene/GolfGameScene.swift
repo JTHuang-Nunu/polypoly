@@ -28,13 +28,19 @@ class GolfGameScene: BaseGameScene{
             print("golf win")
             let WinScene = WinScene(size: self.size)
             WinScene.scaleMode = .aspectFill
-            self.view?.presentScene(WinScene)
+            // delay 2 second and tp
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                self.view?.presentScene(WinScene)
+            }
         }
         gameManager.OnLose += {
             print("golf lose")
             let LoseScene = LoseScene(size: self.size)
             LoseScene.scaleMode = .aspectFill
-            self.view?.presentScene(LoseScene)
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
+                self.view?.presentScene(LoseScene)
+            }
         }
         super.sceneDidLoad()
         CreateBlackHole()
@@ -47,14 +53,6 @@ class GolfGameScene: BaseGameScene{
         let blackHole = BlackHole(position: CGPoint(x: 0, y: 0))
         blackHole.zPosition = zAxis.Ball
         addChild(blackHole)
-        
-        let blackHole2 = BlackHole(position: randomPoint())
-        blackHole2.zPosition = zAxis.Ball
-        addChild(blackHole2)
-        
-        let blackHole3 = BlackHole(position: randomPoint())
-        blackHole3.zPosition = zAxis.Ball
-        addChild(blackHole3)
     }
     
     func randomPoint() -> CGPoint{
