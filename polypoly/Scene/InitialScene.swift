@@ -69,7 +69,7 @@ class InitialScene: SKScene {
         labelNode?.run(blinkForever)
     }
     func gotoTestScene(){
-        let testScene = GolfGameScene(size: self.size)
+        let testScene = SoccorGameScene(size: self.size)
         testScene.scaleMode = .aspectFill
         self.view?.presentScene(testScene)
     }

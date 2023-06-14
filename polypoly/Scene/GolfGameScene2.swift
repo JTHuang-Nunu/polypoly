@@ -1,21 +1,22 @@
 //
-//  GolfGameScene.swift
+//  GolfGameScene2.swift
 //  polypoly
 //
-//  Created by Cheng Pong Huang on 2023/6/14.
+//  Created by mac03 on 2023/6/14.
 //
 
 import Foundation
 import SpriteKit
 
-class GolfGameScene: BaseGameScene{
+class GolfGameScene2: BaseGameScene{
     
     override func sceneDidLoad() {
-        let backgroundImage = SKTexture(imageNamed: "galaxy3")
-        
-        let backgroundNode = SKSpriteNode(texture: backgroundImage, size: CGSize(width: 1000, height: 500))
-        
-        backgroundNode.zPosition = -1  // 設定在場景最下層
+//        let backgroundImage = SKTexture(imageNamed: "galaxy3")
+//        let backgroundNode = SKSpriteNode(texture: backgroundImage, size: CGSize(width: 1000, height: 500))
+        let backgroundNode = SKShapeNode(rect: CGRect(center: CGPoint(0, 0), size: CGSize(width: 1000, height: 500)))
+        backgroundNode.fillColor = UIColor(red: 100, green: 236, blue: 236, alpha: 0.3)
+//        backgroundNode.fillColor = .systemCyan
+        backgroundNode.zPosition = 0  // 設定在場景最下層
         addChild(backgroundNode)
         gameManager.OnCreatedOtherPlayers += {map in
             for (_, cha) in map{
@@ -50,9 +51,22 @@ class GolfGameScene: BaseGameScene{
     }
     
     func CreateBlackHole(){
-        let blackHole = BlackHole(position: CGPoint(x: 0, y: 0))
-        blackHole.zPosition = zAxis.Ball
-        addChild(blackHole)
+        let offsetX = 200.0
+        let offsetY = 100.0
+        let blackHole1 = BlackHole(position: CGPoint(x: offsetX, y: offsetY))
+        blackHole1.zPosition = zAxis.Ball
+        addChild(blackHole1)
+        let blackHole4 = BlackHole(position: CGPoint(x: offsetX, y: -offsetY))
+        blackHole4.zPosition = zAxis.Ball
+        addChild(blackHole4)
+        
+        let blackHole2 = BlackHole(position: CGPoint(x: -offsetX, y: -offsetY))
+        blackHole2.zPosition = zAxis.Ball
+        addChild(blackHole2)
+        let blackHole3 = BlackHole(position: CGPoint(x: -offsetX, y: offsetY))
+        blackHole3.zPosition = zAxis.Ball
+        addChild(blackHole3)
+
     }
     
     func randomPoint() -> CGPoint{

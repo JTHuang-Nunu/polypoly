@@ -114,6 +114,32 @@ class BaseGameScene: SKScene{
         
     }
     
+    func createStartLabel(){
+        let startLabel = SKLabelNode(text: "Ready Go！")
+        startLabel.name = "start"
+        startLabel.fontName = "HelveticaNeue-Bold"
+        startLabel.fontColor = .white
+        startLabel.fontSize = 100
+        startLabel.horizontalAlignmentMode = .center
+        startLabel.verticalAlignmentMode = .center
+        startLabel.zPosition = zAxis.Base
+//        let shapeNode = SKShapeNode(rect: CGRect(center: .zero, width: 380, height: 100), cornerRadius: 30)
+//        shapeNode.name = "shape"
+//        shapeNode.fillColor = SKColor.white
+        self.addChild(startLabel)
+        let fadeInAction = SKAction.fadeIn(withDuration: 0.4)
+        let fadeOutAction = SKAction.fadeOut(withDuration: 0.4)
+        let fade = SKAction.sequence([fadeOutAction, fadeInAction])
+        let repeatPulse = SKAction.repeat(fade, count: 3)
+        
+        let scale = SKAction.scale(to: 20, duration: 1)
+//        let waitAction = SKAction.wait(forDuration: 3.0)
+        let removeAction = SKAction.removeFromParent()
+       let sequenceAction = SKAction.sequence([repeatPulse, scale, removeAction])
+            
+        startLabel.run(sequenceAction)
+    }
+    
     override func update(_ currentTime: TimeInterval) {
         _update(currentTime)
     }

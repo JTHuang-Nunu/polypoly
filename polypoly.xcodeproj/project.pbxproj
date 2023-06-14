@@ -61,6 +61,7 @@
 		D8BF56E32A393AA9003B3CA3 /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF56E22A393AA9003B3CA3 /* WinScene.swift */; };
 		D8BF56E52A393AB4003B3CA3 /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF56E42A393AB4003B3CA3 /* LoseScene.swift */; };
 		D8BF56E72A394211003B3CA3 /* Cipher2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D8BF56E62A394211003B3CA3 /* Cipher2.mp3 */; };
+		D8BF56EA2A395D45003B3CA3 /* GolfGameScene2.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF56E92A395D45003B3CA3 /* GolfGameScene2.swift */; };
 		D8CDCE372A20487B005996F8 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDCE362A20487B005996F8 /* Background.swift */; };
 		D8CF0AFB29FE41610056A94D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0AFA29FE41610056A94D /* AppDelegate.swift */; };
 		D8CF0AFD29FE41610056A94D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0AFC29FE41610056A94D /* GameScene.sks */; };
@@ -182,6 +183,7 @@
 		D8BF56E22A393AA9003B3CA3 /* WinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
 		D8BF56E42A393AB4003B3CA3 /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
 		D8BF56E62A394211003B3CA3 /* Cipher2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cipher2.mp3; sourceTree = "<group>"; };
+		D8BF56E92A395D45003B3CA3 /* GolfGameScene2.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfGameScene2.swift; sourceTree = "<group>"; };
 		D8CDCE362A20487B005996F8 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Background.swift; path = polypoly/Background.swift; sourceTree = SOURCE_ROOT; };
 		D8CF0AF729FE41610056A94D /* polypoly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = polypoly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CF0AFA29FE41610056A94D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -430,6 +432,7 @@
 				E7F60EE62A386328006464E6 /* SoccorGameScene.swift */,
 				E7F60EEA2A38DC17006464E6 /* BaseGameScene.swift */,
 				E7F60EEC2A38DD96006464E6 /* GolfGameScene.swift */,
+				D8BF56E92A395D45003B3CA3 /* GolfGameScene2.swift */,
 			);
 			path = Scene;
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				D87C0A672A34A52C00442546 /* ObstacleObjectProtocol.swift in Sources */,
 				E7F60EEB2A38DC17006464E6 /* BaseGameScene.swift in Sources */,
 				D8CF0B0329FE41610056A94D /* GameViewController.swift in Sources */,
+				D8BF56EA2A395D45003B3CA3 /* GolfGameScene2.swift in Sources */,
 				D87C0A6F2A34CCA100442546 /* DrawObstacle.swift in Sources */,
 				E712FBEA2A2831D8005282AE /* TestScene.swift in Sources */,
 				D8CF0AFB29FE41610056A94D /* AppDelegate.swift in Sources */,

@@ -11,6 +11,7 @@ import SpriteKit
 class Ball: SKSpriteNode {
     public let onInjured = Event<CGFloat>()
     public let onBomb = Event<(CGVector, CGFloat)>()
+    var len: CGFloat!
     init() {
 //        let ballTexture = SKTexture(imageNamed: "ball51.png")
         let atlas = SKTextureAtlas(named: BallSkinFolder)
@@ -21,7 +22,29 @@ class Ball: SKSpriteNode {
         // 從 Atlas 中取得隨機選擇的圖片
         let randomTexture = atlas.textureNamed(randomTextureName!)
         var ballTexture = randomTexture
-        let ballSize = CGSize(width: 32, height: 32)
+        
+        self.len = 50
+        let ballSize = CGSize(width: len, height: len)
+        
+        super.init(texture: ballTexture, color: .clear, size: ballSize)
+        self._setupoBody(ballSize: ballSize)
+        self.anchorPoint = CGPoint(x: 0.5, y: 0.5)
+        self.name = SoccerName
+    }
+    
+    init(len: CGFloat) {
+//        let ballTexture = SKTexture(imageNamed: "ball51.png")
+        let atlas = SKTextureAtlas(named: BallSkinFolder)
+        // 取得 Atlas 中所有的圖片名稱
+        let textureNames = atlas.textureNames
+        // 隨機選擇一張圖片名稱
+        let randomTextureName = textureNames.randomElement()
+        // 從 Atlas 中取得隨機選擇的圖片
+        let randomTexture = atlas.textureNamed(randomTextureName!)
+        var ballTexture = randomTexture
+        
+        self.len = len
+        let ballSize = CGSize(width: len, height: len)
         
         super.init(texture: ballTexture, color: .clear, size: ballSize)
         self._setupoBody(ballSize: ballSize)
@@ -30,7 +53,7 @@ class Ball: SKSpriteNode {
     }
     
     private func _setupoBody(ballSize: CGSize){
-        let ballRadius = ballSize.width / 2.0
+        let ballRadius = len!/2.5
         let ballRestitution: CGFloat = 0
         let ballFriction: CGFloat = 0
         let ballLinearDamping: CGFloat = 0.1
@@ -38,6 +61,9 @@ class Ball: SKSpriteNode {
         
         self.name = BallName
         self.physicsBody = SKPhysicsBody(circleOfRadius: ballRadius)
+        let tmp = SKShapeNode(circleOfRadius: ballRadius)
+               tmp.fillColor = .red
+               addChild(tmp)
 //        self.physicsBody?.usesPreciseCollisionDetection = true
 //        self.physicsBody?.isDynamic = true
         self.physicsBody?.categoryBitMask = PhysicsCategory.Ball
