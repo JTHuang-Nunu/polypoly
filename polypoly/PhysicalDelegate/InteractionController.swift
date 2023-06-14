@@ -56,7 +56,6 @@ class InteractionController:SKNode, SKPhysicsContactDelegate{
             break
         case .GoalLine:
             GoalLineInteraction.handleTwoCollision(goalLine: node as! GoalLine, anotherNodeType: anotherType, contact: contact)
-//            (node as! GoalLine).Goal()
         case .BlackHole:
             BlackHoleInteraction.handleTwoCollision(blackhole: node as! BlackHole, anotherNodeType: anotherType, contact: contact)
         case .Other:

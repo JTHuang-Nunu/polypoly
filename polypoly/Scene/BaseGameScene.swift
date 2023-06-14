@@ -69,6 +69,8 @@ class BaseGameScene: SKScene{
         wall.position = CGPoint(x: 0, y: 0)
         wall.zPosition = zAxis.Wall
         addChild(wall)
+        
+
     }
     
     func PlacePlayerTo(players: [UUID: Character], point: CGPoint){

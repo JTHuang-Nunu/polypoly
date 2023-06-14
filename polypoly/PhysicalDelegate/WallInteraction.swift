@@ -11,6 +11,9 @@ import SpriteKit
 class WallInteraction {
     static func handleTwoCollision(wall: Wall, anotherNodeType: InteractionObjectType, contact: SKPhysicsContact) {
         switch anotherNodeType{
+        case .Ball:
+            wall.onTouched.Invoke(())
+        
         default:
             break
         }

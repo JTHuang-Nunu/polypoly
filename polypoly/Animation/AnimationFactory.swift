@@ -14,6 +14,8 @@ enum AnimationType{
     case explosionByTrap
     case blackHole
     case shake
+    case win
+    case lose
 }
 
 class AnimationFactory {
@@ -53,6 +55,15 @@ class AnimationFactory {
             let animation = ObjectShakeAnimation(Inode: node!)
             animation.position = position
             return animation
+        case .win:
+            let animation = WinAnimation()
+            animation.position = position
+            return animation
+        case .lose:
+            let animation = LoseAnimation()
+            animation.position = position
+            return animation
         }
+        
     }
 }

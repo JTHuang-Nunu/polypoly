@@ -37,6 +37,20 @@ class SoccorGameScene: BaseGameScene{
         otherGoalLine.OnGoal += {
             self.gameManager.Win()
         }
+        
+        gameManager.OnWin += {
+            print("soccer win")
+            let WinScene = WinScene(size: self.size)
+            WinScene.scaleMode = .aspectFill
+            self.view?.presentScene(WinScene)
+        }
+        gameManager.OnLose += {
+            print("soccer lose")
+            let LoseScene = LoseScene(size: self.size)
+            LoseScene.scaleMode = .aspectFill
+            self.view?.presentScene(LoseScene)
+        }
+        
         addChild(otherGoalLine)
     
     }

@@ -32,6 +32,18 @@ extension SKShapeNode {
 //        self.addChild(shadow)
         return shadow
     }
+    func revertShadow() -> SKShapeNode{
+        let shadow = self.copy() as! SKShapeNode
+//        let offset = shadow.frame.size.height  * 0.03
+        let offset:CGFloat = 5
+        shadow.position = CGPoint(-offset, +offset)
+
+        shadow.fillColor = .yellow
+        shadow.strokeColor = .clear
+        shadow.zPosition = -1
+//        self.addChild(shadow)
+        return shadow
+    }
 }
 
 extension SKSpriteNode{

@@ -9,7 +9,8 @@ import UIKit
 import SpriteKit
 
 class Wall: SKSpriteNode {
-    
+    public let onTouched = Event<Void>()
+    var node: SKShapeNode?
     init(size: CGSize, color: UIColor) {
 //        let size = CGSize(width: 500, height: 500)
         super.init(texture: nil, color: color, size: size)
@@ -18,6 +19,30 @@ class Wall: SKSpriteNode {
 //        let shapeNode = SKShapeNode(rectOf: size)
 //        shapeNode.fillColor = .red
 //        addChild(shapeNode)
+        
+        onTouched += addFadeAnimation
+        
+        let width = size.width
+        let height = size.height
+        
+        //draw color
+        node = SKShapeNode(rect: CGRect(origin: CGPoint(x: -width/2, y: -height/2), size:  CGSize(width: width, height: height)))
+
+        node!.strokeColor = UIColor(cgColor: CGColor(gray: 1, alpha: 0.2))
+        node!.lineWidth = 5
+        node!.zPosition = zAxis.Base
+        addChild(node!)
+        
+    }
+    func addFadeAnimation(){
+        let fadeIn = SKAction.fadeAlpha(to: 3.0, duration: 0.6)
+        let fadeOut = SKAction.fadeAlpha(to: 0.7, duration: 0.6)
+        let fade = SKAction.sequence([fadeOut, fadeIn])
+        let reset = SKAction.run {
+            self.node!.strokeColor = UIColor(cgColor: CGColor(gray: 1, alpha: 0.2))
+        }
+        let repeatPulse = SKAction.repeat(fade, count: 3)
+        node!.run(SKAction.sequence([repeatPulse ,reset]))
         
     }
     private func _setupBody(size: CGSize){

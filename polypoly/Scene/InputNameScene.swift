@@ -140,11 +140,11 @@ class InputNameScene: SKScene, UITextFieldDelegate {
             if okButton.contains(touchLocation){
                 if(textField.text!.count > 0){
                     let T = SKTransition.fade(withDuration: 0.5)
+                    textField.removeFromSuperview()
                     self.view?.presentScene(MenuScene(size: self.size), transition: T)
                 } else{
-                    textField.removeFromSuperview()
                     textFieldShape.run(shake())
-                    print("empty")
+                    print("textField is empty")
                 }
             }
         }

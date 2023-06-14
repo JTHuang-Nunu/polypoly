@@ -54,6 +54,13 @@
 		D8BE1EC92A01F9E7002CC0D0 /* Line.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BE1EC82A01F9E6002CC0D0 /* Line.swift */; };
 		D8BF56CD2A38E364003B3CA3 /* GoalLineInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF56CC2A38E364003B3CA3 /* GoalLineInteraction.swift */; };
 		D8BF56D92A391840003B3CA3 /* ballskin.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D8BF56D82A391840003B3CA3 /* ballskin.atlas */; };
+		D8BF56DB2A39271E003B3CA3 /* WinAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF56DA2A39271E003B3CA3 /* WinAnimation.swift */; };
+		D8BF56DE2A392988003B3CA3 /* lose.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D8BF56DC2A392988003B3CA3 /* lose.atlas */; };
+		D8BF56DF2A392988003B3CA3 /* win.atlas in Resources */ = {isa = PBXBuildFile; fileRef = D8BF56DD2A392988003B3CA3 /* win.atlas */; };
+		D8BF56E12A39395E003B3CA3 /* LoseAnimation.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF56E02A39395E003B3CA3 /* LoseAnimation.swift */; };
+		D8BF56E32A393AA9003B3CA3 /* WinScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF56E22A393AA9003B3CA3 /* WinScene.swift */; };
+		D8BF56E52A393AB4003B3CA3 /* LoseScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8BF56E42A393AB4003B3CA3 /* LoseScene.swift */; };
+		D8BF56E72A394211003B3CA3 /* Cipher2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = D8BF56E62A394211003B3CA3 /* Cipher2.mp3 */; };
 		D8CDCE372A20487B005996F8 /* Background.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CDCE362A20487B005996F8 /* Background.swift */; };
 		D8CF0AFB29FE41610056A94D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8CF0AFA29FE41610056A94D /* AppDelegate.swift */; };
 		D8CF0AFD29FE41610056A94D /* GameScene.sks in Resources */ = {isa = PBXBuildFile; fileRef = D8CF0AFC29FE41610056A94D /* GameScene.sks */; };
@@ -75,7 +82,6 @@
 		D8E2F0362A386F6B004EA179 /* skill_trap.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0322A386F6B004EA179 /* skill_trap.png */; };
 		D8E2F0372A386F6B004EA179 /* skill_move.png in Resources */ = {isa = PBXBuildFile; fileRef = D8E2F0332A386F6B004EA179 /* skill_move.png */; };
 		D8E2F0392A3895B8004EA179 /* BlackHole.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2F0382A3895B8004EA179 /* BlackHole.swift */; };
-		D8E2F03B2A3895E0004EA179 /* GolfScene.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2F03A2A3895E0004EA179 /* GolfScene.swift */; };
 		D8E2F03D2A389F7A004EA179 /* BlackHoleInteraction.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8E2F03C2A389F7A004EA179 /* BlackHoleInteraction.swift */; };
 		D8FEDBBF2A35A8E200621A44 /* PhysicsMass.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEDBBE2A35A8E200621A44 /* PhysicsMass.swift */; };
 		D8FEDBC12A35CF0C00621A44 /* TeamManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FEDBC02A35CF0C00621A44 /* TeamManager.swift */; };
@@ -169,6 +175,13 @@
 		D8BE1EC82A01F9E6002CC0D0 /* Line.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Line.swift; sourceTree = "<group>"; };
 		D8BF56CC2A38E364003B3CA3 /* GoalLineInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoalLineInteraction.swift; sourceTree = "<group>"; };
 		D8BF56D82A391840003B3CA3 /* ballskin.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = ballskin.atlas; sourceTree = "<group>"; };
+		D8BF56DA2A39271E003B3CA3 /* WinAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinAnimation.swift; sourceTree = "<group>"; };
+		D8BF56DC2A392988003B3CA3 /* lose.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = lose.atlas; sourceTree = "<group>"; };
+		D8BF56DD2A392988003B3CA3 /* win.atlas */ = {isa = PBXFileReference; lastKnownFileType = folder.skatlas; path = win.atlas; sourceTree = "<group>"; };
+		D8BF56E02A39395E003B3CA3 /* LoseAnimation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseAnimation.swift; sourceTree = "<group>"; };
+		D8BF56E22A393AA9003B3CA3 /* WinScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WinScene.swift; sourceTree = "<group>"; };
+		D8BF56E42A393AB4003B3CA3 /* LoseScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoseScene.swift; sourceTree = "<group>"; };
+		D8BF56E62A394211003B3CA3 /* Cipher2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Cipher2.mp3; sourceTree = "<group>"; };
 		D8CDCE362A20487B005996F8 /* Background.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Background.swift; path = polypoly/Background.swift; sourceTree = SOURCE_ROOT; };
 		D8CF0AF729FE41610056A94D /* polypoly.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = polypoly.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8CF0AFA29FE41610056A94D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -193,7 +206,6 @@
 		D8E2F0322A386F6B004EA179 /* skill_trap.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_trap.png; sourceTree = "<group>"; };
 		D8E2F0332A386F6B004EA179 /* skill_move.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = skill_move.png; sourceTree = "<group>"; };
 		D8E2F0382A3895B8004EA179 /* BlackHole.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackHole.swift; sourceTree = "<group>"; };
-		D8E2F03A2A3895E0004EA179 /* GolfScene.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GolfScene.swift; sourceTree = "<group>"; };
 		D8E2F03C2A389F7A004EA179 /* BlackHoleInteraction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlackHoleInteraction.swift; sourceTree = "<group>"; };
 		D8FEDBBE2A35A8E200621A44 /* PhysicsMass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsMass.swift; sourceTree = "<group>"; };
 		D8FEDBC02A35CF0C00621A44 /* TeamManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeamManager.swift; sourceTree = "<group>"; };
@@ -278,6 +290,8 @@
 		D82F9F622A31CA790079FE4A /* Atlas */ = {
 			isa = PBXGroup;
 			children = (
+				D8BF56DC2A392988003B3CA3 /* lose.atlas */,
+				D8BF56DD2A392988003B3CA3 /* win.atlas */,
 				D8BF56D82A391840003B3CA3 /* ballskin.atlas */,
 				D8B822DC2A370369007CB884 /* startbackground.atlas */,
 				D82F9F6E2A31EADC0079FE4A /* explosion.atlas */,
@@ -295,6 +309,8 @@
 				D82F9F6C2A31CB260079FE4A /* ExplosionAnimation.swift */,
 				D87C0A5E2A34775B00442546 /* BlackHoleAnimation.swift */,
 				D87C0A702A34DECA00442546 /* ObjectShakeAnimation.swift */,
+				D8BF56DA2A39271E003B3CA3 /* WinAnimation.swift */,
+				D8BF56E02A39395E003B3CA3 /* LoseAnimation.swift */,
 			);
 			path = Animation;
 			sourceTree = "<group>";
@@ -362,6 +378,7 @@
 		D8B822D02A37020F007CB884 /* Resourse */ = {
 			isa = PBXGroup;
 			children = (
+				D8BF56E62A394211003B3CA3 /* Cipher2.mp3 */,
 				D8E2F02F2A386E4E004EA179 /* SkillButton */,
 				BF7D7E142A2868490029D21A /* SoundEffect */,
 				D82F9F622A31CA790079FE4A /* Atlas */,
@@ -398,6 +415,8 @@
 		D8CDCE332A1F431F005996F8 /* Scene */ = {
 			isa = PBXGroup;
 			children = (
+				D8BF56E22A393AA9003B3CA3 /* WinScene.swift */,
+				D8BF56E42A393AB4003B3CA3 /* LoseScene.swift */,
 				D8A06B012A37786100437491 /* UIView */,
 				D8BCFDB52A2B6E5300F46D5F /* MainScene.swift */,
 				D8CF0B0029FE41610056A94D /* GameScene.swift */,
@@ -405,7 +424,6 @@
 				E77864782A2AFC8000280EBF /* TestScene copy.sks */,
 				E712FBE92A2831D8005282AE /* TestScene.swift */,
 				D87FE9C22A358E480041AB3E /* TestScene2.swift */,
-				D8E2F03A2A3895E0004EA179 /* GolfScene.swift */,
 				BF3317B12A271BBC002B2E5D /* MenuScene.swift */,
 				D8B822CE2A36FA0E007CB884 /* InputNameScene.swift */,
 				D8B822D12A370299007CB884 /* HomeScene.swift */,
@@ -624,14 +642,17 @@
 				D8BF56D92A391840003B3CA3 /* ballskin.atlas in Resources */,
 				D8CF0B0629FE41610056A94D /* Main.storyboard in Resources */,
 				D8CF0AFD29FE41610056A94D /* GameScene.sks in Resources */,
+				D8BF56DF2A392988003B3CA3 /* win.atlas in Resources */,
 				E77864792A2AFC8000280EBF /* TestScene copy.sks in Resources */,
 				D82F9F732A31EADD0079FE4A /* blackhole.atlas in Resources */,
 				D82F9F712A31EADD0079FE4A /* explosion.atlas in Resources */,
 				D8E2F0372A386F6B004EA179 /* skill_move.png in Resources */,
+				D8BF56E72A394211003B3CA3 /* Cipher2.mp3 in Resources */,
 				D8CF0B0829FE41640056A94D /* Assets.xcassets in Resources */,
 				D8CF0B0B29FE41640056A94D /* LaunchScreen.storyboard in Resources */,
 				D8CF0AFF29FE41610056A94D /* Actions.sks in Resources */,
 				D8B822DD2A370369007CB884 /* startbackground.atlas in Resources */,
+				D8BF56DE2A392988003B3CA3 /* lose.atlas in Resources */,
 				D8E2F0342A386F6B004EA179 /* skill_draw.png in Resources */,
 				BF7D7E162A28690F0029D21A /* button_sound.mp3 in Resources */,
 				D82F9F722A31EADD0079FE4A /* explosion2.atlas in Resources */,
@@ -667,6 +688,7 @@
 				D83681C52A26740E005A5EEB /* Skill.swift in Sources */,
 				D8B822C42A3633CA007CB884 /* WallInteraction.swift in Sources */,
 				E7FE290F2A2AD6880057A1A1 /* Canvas.swift in Sources */,
+				D8BF56E52A393AB4003B3CA3 /* LoseScene.swift in Sources */,
 				D83681C92A26EB4E005A5EEB /* PlayerPosition.swift in Sources */,
 				D8BCFDB62A2B6E5300F46D5F /* MainScene.swift in Sources */,
 				D8B822C62A363770007CB884 /* BuildingInteraction.swift in Sources */,
@@ -702,6 +724,7 @@
 				D8BCFDB22A2A4CDC00F46D5F /* SceneZAxis.swift in Sources */,
 				D87C0A652A34A50100442546 /* ObstacleObjectFactory.swift in Sources */,
 				D8B822D22A370299007CB884 /* HomeScene.swift in Sources */,
+				D8BF56DB2A39271E003B3CA3 /* WinAnimation.swift in Sources */,
 				D87C0A672A34A52C00442546 /* ObstacleObjectProtocol.swift in Sources */,
 				E7F60EEB2A38DC17006464E6 /* BaseGameScene.swift in Sources */,
 				D8CF0B0329FE41610056A94D /* GameViewController.swift in Sources */,
@@ -722,8 +745,8 @@
 				E7F5EDB02A11E55F00AB6597 /* CoreDefine.swift in Sources */,
 				D8FEDBC12A35CF0C00621A44 /* TeamManager.swift in Sources */,
 				E7FE28FC2A2907990057A1A1 /* Protocols.swift in Sources */,
-				D8E2F03B2A3895E0004EA179 /* GolfScene.swift in Sources */,
 				D88E76912A29AF1D00C2FA63 /* CGExtension.swift in Sources */,
+				D8BF56E12A39395E003B3CA3 /* LoseAnimation.swift in Sources */,
 				D8A0B8662A29E0D500FECC8E /* SkillButton.swift in Sources */,
 				D8B822C82A3638A6007CB884 /* DrawObstacleInteraction.swift in Sources */,
 				BF3317B22A271BBC002B2E5D /* MenuScene.swift in Sources */,
@@ -733,6 +756,7 @@
 				D8A06B052A37A60D00437491 /* Trap.swift in Sources */,
 				E70BD4CF2A2DE6E0006437D7 /* DeviceManager.swift in Sources */,
 				E777172D2A35DB8E00A914F1 /* Energy.swift in Sources */,
+				D8BF56E32A393AA9003B3CA3 /* WinScene.swift in Sources */,
 				D8BCFDBE2A2CD03200F46D5F /* ObjectPosition.swift in Sources */,
 				E7A234082A1E006600F0F7F9 /* InputManager.swift in Sources */,
 				D8BE1EC92A01F9E7002CC0D0 /* Line.swift in Sources */,

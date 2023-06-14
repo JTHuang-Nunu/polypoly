@@ -99,3 +99,9 @@ extension CGPoint: Oppositable{
         return CGPoint(x: -x, y: -y)
     }
 }
+
+extension CGSize {
+    static func *(size: CGSize, multiplier: CGFloat) -> CGSize {
+        return CGSize(width: size.width * multiplier, height: size.height * multiplier)
+    }
+}

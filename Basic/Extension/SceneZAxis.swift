@@ -18,4 +18,5 @@ struct zAxis {
     static let Wall: CGFloat = -1
     static let GoalLine: CGFloat = 0
     static let Circle: CGFloat = 9
+    static let OverlapAll: CGFloat = 100
 }

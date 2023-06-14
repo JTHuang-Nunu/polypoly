@@ -55,64 +55,177 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "15D665E5-14EF-47E8-81E6-AD828AFE849A"
+            uuid = "3FB5485F-A4DF-429C-B7CB-8AD07E685B1B"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Animation/WinAnimation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
+            landmarkName = "init()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "3FB5485F-A4DF-429C-B7CB-8AD07E685B1B - df9cd00dd6aa6e40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.WinAnimation.init() -&gt; polypoly.WinAnimation"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Animation/WinAnimation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1372">
+               </Location>
+               <Location
+                  uuid = "3FB5485F-A4DF-429C-B7CB-8AD07E685B1B - df9cd00dd6aa6e40"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.WinAnimation.init() -&gt; polypoly.WinAnimation"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Animation/WinAnimation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "20"
+                  endingLineNumber = "20"
+                  offsetFromSymbolStart = "1543">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "41B3DA23-88A5-47D7-8AB6-F7C9D789BB34"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Animation/WinAnimation.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "27"
+            endingLineNumber = "27"
+            landmarkName = "play()"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "41B3DA23-88A5-47D7-8AB6-F7C9D789BB34 - 8a013b322076d1ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.WinAnimation.play() -&gt; Swift.Optional&lt;__C.SKNode&gt;"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Animation/WinAnimation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "191">
+               </Location>
+               <Location
+                  uuid = "41B3DA23-88A5-47D7-8AB6-F7C9D789BB34 - 8a013b322076d1ce"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "polypoly.WinAnimation.play() -&gt; Swift.Optional&lt;__C.SKNode&gt;"
+                  moduleName = "polypoly"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Animation/WinAnimation.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "27"
+                  endingLineNumber = "27"
+                  offsetFromSymbolStart = "238">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "33E0E0C3-BD61-4D67-B0F2-B46762F5AA1E"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "polypoly/Scene/GolfGameScene.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "22"
-            endingLineNumber = "22"
+            startingLineNumber = "37"
+            endingLineNumber = "37"
             landmarkName = "sceneDidLoad()"
             landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "15D665E5-14EF-47E8-81E6-AD828AFE849A - 839cf7269e439842"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Swift.Dictionary&lt;Foundation.UUID, polypoly.Character&gt;) -&gt; () in polypoly.GolfGameScene.sceneDidLoad() -&gt; ()"
-                  moduleName = "polypoly"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/GolfGameScene.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "22"
-                  endingLineNumber = "22"
-                  offsetFromSymbolStart = "395">
-               </Location>
-               <Location
-                  uuid = "15D665E5-14EF-47E8-81E6-AD828AFE849A - 532a6628453fcefa"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 (Foundation.UUID) -&gt; () in closure #1 (Swift.Dictionary&lt;Foundation.UUID, polypoly.Character&gt;) -&gt; () in polypoly.GolfGameScene.sceneDidLoad() -&gt; ()"
-                  moduleName = "polypoly"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/GolfGameScene.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "23"
-                  endingLineNumber = "23"
-                  offsetFromSymbolStart = "45">
-               </Location>
-               <Location
-                  uuid = "15D665E5-14EF-47E8-81E6-AD828AFE849A - 9580cb116ef1024"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "polypoly.GolfGameScene.sceneDidLoad() -&gt; ()"
-                  moduleName = "polypoly"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/mac03/Documents/GitHub/polypoly/polypoly/Scene/GolfGameScene.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "27"
-                  endingLineNumber = "27"
-                  offsetFromSymbolStart = "261">
-               </Location>
-            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "93BB8B41-C901-4EF5-8771-478F76EE1D76"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Scene/GolfGameScene.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "sceneDidLoad()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "68034F59-8486-42AB-A899-ED025D762C7B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Object/basic/Wall.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "38"
+            endingLineNumber = "38"
+            landmarkName = "addFadeAnimation()"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "876EF770-606E-4CC9-A919-F5D05EFE1FAC"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/PhysicalDelegate/WallInteraction.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "15"
+            endingLineNumber = "15"
+            landmarkName = "handleTwoCollision(wall:anotherNodeType:contact:)"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D29556FD-72C8-4C87-93C2-9916EE39FD78"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "polypoly/Object/basic/Wall.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "42"
+            endingLineNumber = "42"
+            landmarkName = "addFadeAnimation()"
+            landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>

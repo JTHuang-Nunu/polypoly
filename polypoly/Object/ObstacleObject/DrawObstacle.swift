@@ -36,8 +36,14 @@ class DrawObstacle: ObstacleObejct {
     private func _setupBody(){
         self.name = DrawObstacleName
         //node setting
-        node.strokeColor = .orange
-        node.fillColor = .yellow
+        node.strokeColor = UIColor(white: 0.8, alpha: 1)
+        node.fillColor = .gray
+        node.zPosition = 0
+        print(node.zPosition)
+        //create 建築物陰影 但是反向做的
+        let s = node.revertShadow()
+        s.zPosition = 1
+        addChild(s)
         
         //physics setting
         self.physicsBody = SKPhysicsBody(polygonFrom: path!)

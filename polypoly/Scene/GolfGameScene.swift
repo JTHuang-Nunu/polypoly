@@ -26,9 +26,15 @@ class GolfGameScene: BaseGameScene{
         }
         gameManager.OnWin += {
             print("golf win")
+            let WinScene = WinScene(size: self.size)
+            WinScene.scaleMode = .aspectFill
+            self.view?.presentScene(WinScene)
         }
         gameManager.OnLose += {
             print("golf lose")
+            let LoseScene = LoseScene(size: self.size)
+            LoseScene.scaleMode = .aspectFill
+            self.view?.presentScene(LoseScene)
         }
         super.sceneDidLoad()
         CreateBlackHole()

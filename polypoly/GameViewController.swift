@@ -9,7 +9,9 @@ import UIKit
 import SpriteKit
 import GameplayKit
 import Network
+import AVFoundation
 class GameViewController: UIViewController, UITextFieldDelegate {
+    var backgroundMusicPlayer: AVAudioPlayer?
 //    override var preferredScreenEdgesDeferringSystemGestures: UIRectEdge{ //下方手勢推遲
 //        return [.bottom]
 //    }
@@ -23,7 +25,8 @@ class GameViewController: UIViewController, UITextFieldDelegate {
         //
         //            dispatcher.sendAction(action: action)
         //        }
-        
+        setbackgroundMusic()
+        playBackgroundMusic()
         if let view = self.view as! SKView? {
             //            let scene = MenuScene(size: view.bounds.size)
             //            let scene = FirstScene(size: view.bounds.size)
@@ -55,9 +58,20 @@ class GameViewController: UIViewController, UITextFieldDelegate {
     override var prefersStatusBarHidden: Bool {
         return true
     }
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-            // 處理 UITextField 開始編輯的事件
-            // 在這裡你可以執行相應的動作，例如移動場景中的元素
-            print("TextField did begin editing")
+    func setbackgroundMusic(){
+        if let backgroundMusicURL = Bundle.main.url(forResource: "Cipher2", withExtension: "mp3") {
+            do {
+                backgroundMusicPlayer = try AVAudioPlayer(contentsOf: backgroundMusicURL)
+                backgroundMusicPlayer?.numberOfLoops = -1 // -1表示無限循環播放
+                backgroundMusicPlayer?.prepareToPlay()
+            } catch {
+                print("無法初始化背景音樂播放器: \(error.localizedDescription)")
+            }
         }
+    }
+    
+    // 在需要播放背景音樂的地方調用此方法
+    func playBackgroundMusic() {
+        backgroundMusicPlayer?.play()
+    }
 }
