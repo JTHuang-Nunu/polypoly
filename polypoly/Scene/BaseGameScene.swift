@@ -91,7 +91,7 @@ class BaseGameScene: SKScene{
     func PlaceSkillButtons(skillButtons: [SkillSelectButton]){
         for i in 0..<skillButtons.count{
             let skill = skillButtons[i]
-            skill.position = CGPoint(x:-300, y:100 - CGFloat(100 * i))
+            skill.position = CGPoint(x:-380, y:100 - CGFloat(100 * i))
             skill.zPosition = zAxis.skillButton
             addChild(skill as SKNode)
             
