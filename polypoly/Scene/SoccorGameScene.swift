@@ -42,17 +42,13 @@ class SoccorGameScene: BaseGameScene{
             print("soccer win")
             let WinScene = WinScene(size: self.size)
             WinScene.scaleMode = .aspectFill
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                self.view?.presentScene(WinScene)
-            }
+            self.view?.presentScene(WinScene)
         }
         gameManager.OnLose += {
             print("soccer lose")
             let LoseScene = LoseScene(size: self.size)
             LoseScene.scaleMode = .aspectFill
-            DispatchQueue.main.asyncAfter(deadline: .now() + .seconds(2)) {
-                self.view?.presentScene(LoseScene)
-            }
+            self.view?.presentScene(LoseScene)
         }
         
         addChild(otherGoalLine)
